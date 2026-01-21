@@ -2,23 +2,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Bienvenue",
+    "title": "Année universitaire 2025-26",
     "section": "",
-    "text": "Bienvenue sur le site du cours de SIASS. Vous trouverez ici les supports de cours et les fiches de TD.\n\n\n\nCliquez ici pour voir les slides de la Séance 1"
+    "text": "Bienvenue sur le site du cours de SIASS. Vous trouverez ici les supports de cours et les fiches de TD.\n\n\n\nIntroduction\nSéquence 1"
   },
   {
     "objectID": "index.html#accès-rapide",
     "href": "index.html#accès-rapide",
-    "title": "Bienvenue",
+    "title": "Année universitaire 2025-26",
     "section": "",
-    "text": "Cliquez ici pour voir les slides de la Séance 1"
+    "text": "Introduction\nSéquence 1"
   },
   {
     "objectID": "slides_seq1.html#le-jeu-de-données-idh",
     "href": "slides_seq1.html#le-jeu-de-données-idh",
     "title": "Statistique et informatique appliquées aux sciences sociales",
     "section": "Le Jeu de Données : IDH",
-    "text": "Le Jeu de Données : IDH\nPour comprendre les inégalités mondiales, nous utilisons les données du PNUD (Programme des Nations Unies pour le Développement).\n\nIndividus statistiques : Ce sont des Pays (N ≈ 180).\nVariables disponibles :\n\nEspérance de vie (Quantitative)\nDurée moyenne de scolarisation (Quantitative)\nRNB par habitant (Quantitative - Richesse)\n\n\n\nObjectif : Passer d’un tableau de chiffres illisible à des indicateurs clairs."
+    "text": "Le Jeu de Données : IDH\nPour comprendre les inégalités mondiales, nous utilisons les données du PNUD (Programme des Nations Unies pour le Développement).\n\nIndividus statistiques : Ce sont des Pays (N ≈ 180).\nVariables disponibles :\n\nEspérance de vie (Quantitative)\nDurée moyenne de scolarisation (Quantitative)\nPIB par habitant (Quantitative - Richesse)\n\n\n\nObjectif : Passer d’un tableau de chiffres illisible à des indicateurs clairs."
   },
   {
     "objectID": "slides_seq1.html#la-moyenne-vs-la-médiane",
@@ -103,5 +103,103 @@
     "title": "Statistique et informatique appliquées aux sciences sociales",
     "section": "Fin de la séquence 1",
     "text": "Fin de la séquence 1"
+  },
+  {
+    "objectID": "slides_seq1.html#mon-parcours",
+    "href": "slides_seq1.html#mon-parcours",
+    "title": "Introduction au cours",
+    "section": "",
+    "text": "De la Socio-Démographie à la Data Science\nFormation Académique (IDUP) * Licence de Sciences Sociales * L3 Mention Démographie * Master “Expert-Démographe” (IDUP)\nParcours Professionnel * Actuellement : Data Analyst & Chargé d’enquête à Sciences Po. :::"
+  },
+  {
+    "objectID": "slides_seq1.html#je-suis-littéraire-pourquoi-faire-des-stats",
+    "href": "slides_seq1.html#je-suis-littéraire-pourquoi-faire-des-stats",
+    "title": "Introduction au cours",
+    "section": "“Je suis littéraire, pourquoi faire des stats ?”",
+    "text": "“Je suis littéraire, pourquoi faire des stats ?”\nC’est la question que vous vous posez tous. Voici la réalité du terrain.\n\nL’Autonomie du Chercheur :\n\nNe dépendez pas d’un tiers pour vérifier vos hypothèses.\nL’ethnographie donne le “pourquoi”, la stat donne le “combien”.\nExemple : Vous observez une discrimination à l’embauche sur un terrain \\(\\rightarrow\\) Les stats vous permettent de prouver qu’elle est systémique.\n\nL’Employabilité (Le nerf de la guerre) :\n\nONG, Ministères, Collectivités, Instituts de sondage…\nTout le monde cherche des profils “Hybrides” : Capables de comprendre le social ET de traiter les données."
+  },
+  {
+    "objectID": "slides_seq1.html#use-cases-à-quoi-ça-sert-concrètement",
+    "href": "slides_seq1.html#use-cases-à-quoi-ça-sert-concrètement",
+    "title": "Introduction au cours",
+    "section": "Use Cases : À quoi ça sert concrètement ?",
+    "text": "Use Cases : À quoi ça sert concrètement ?\n\nLe métier d’enquêteur(trice)Le métier de chargé(e) d’études\n\n\nVous travaillez pour une ONG sur la précarité.\n\nLe besoin : Analyser 2 000 questionnaires de bénéficiaires.\nL’outil : R permet de nettoyer ces données en 10 minutes (vs 3 jours sur Excel) et de croiser “Type de logement” et “Santé mentale”.\n\n\n\nVous travaillez pour une Mairie. * Le besoin : Comprendre pourquoi les jeunes désertent le centre-ville.\n\nL’outil : Cartographier les données (Séquence 2) pour voir les zones blanches et corréler avec le prix des loyers (Séquence 3)."
+  },
+  {
+    "objectID": "slides_seq1.html#votre-feuille-de-route",
+    "href": "slides_seq1.html#votre-feuille-de-route",
+    "title": "Introduction au cours",
+    "section": "Votre feuille de route",
+    "text": "Votre feuille de route\n\n\n\n\n\n\n\n\n\nSéquence\nThème\nOutils\nUse Case\n\n\n\n\n1. Les Bases\nStats descriptives & prise en main\nExcel & RStudio\nAnalyser les inégalités mondiales (IDH)\n\n\n2. Carto\nReprésentation spatiale\nKhartis\nCartographier l’Ile-de-France\n\n\n3. Expliquer\nLa Régression Linéaire\nR\nLe prix de l’immobilier influence-t-il la réussite au Brevet ?\n\n\n4. Enquêter\nAnalyse de données individuelles\nR\nQui change de métier ? (Mobilité sociale)\n\n\n\n[cite_start][cite: 19, 20, 31]"
+  },
+  {
+    "objectID": "slides_seq1.html#me-contacter",
+    "href": "slides_seq1.html#me-contacter",
+    "title": "Introduction au cours",
+    "section": "Me Contacter",
+    "text": "Me Contacter\nJe suis disponible pour vous aider, mais privilégiez les questions techniques en début/fin de TD.\n📧 Mon Email : votre.prenom.nom@email.com (Merci de mettre [L3 Stats] dans l’objet)\n📂 Le Site du cours : https://marcoflaherty.github.io/SIASS-L3S6/ (Mettez ce lien en favori, tout est dessus !)"
+  },
+  {
+    "objectID": "slides_seq1.html#formulaire-de-rentrée",
+    "href": "slides_seq1.html#formulaire-de-rentrée",
+    "title": "Introduction au cours",
+    "section": "Formulaire de rentrée",
+    "text": "Formulaire de rentrée\nMerci de scanner ce QR Code et de répondre maintenant (2 min).\n\n\nInformations demandées : 1. Nom & Prénom 2. Email universitaire 3. Niveau Excel (1 à 5) 4. Niveau R (1 à 5)"
+  },
+  {
+    "objectID": "slides_seq1.html",
+    "href": "slides_seq1.html",
+    "title": "Introduction au cours",
+    "section": "",
+    "text": "De la Socio-Démographie à la Data Science\nFormation Académique (IDUP) * Licence de Sciences Sociales * L3 Mention Démographie * Master “Expert-Démographe” (IDUP)\nParcours Professionnel * Actuellement : Data Analyst & Chargé d’enquête à Sciences Po. :::"
+  },
+  {
+    "objectID": "slides_seq1.html#contacts",
+    "href": "slides_seq1.html#contacts",
+    "title": "Introduction au cours",
+    "section": "Contacts",
+    "text": "Contacts\nVoici l’adresse e-mail avez laquelle nous allons échanger.\nEmail : oflahertymarc.etudes@gmail.com\n📂 Le Site du cours : https://marcoflaherty.github.io/SIASS-L3S6/ (L’ensemble du cours y sera posté)"
+  },
+  {
+    "objectID": "slides_intro.html#mon-parcours",
+    "href": "slides_intro.html#mon-parcours",
+    "title": "Introduction au cours",
+    "section": "Mon parcours",
+    "text": "Mon parcours\nDe la socio-démographie à la data science\nFormation académique (IDUP)\n* Licence de sciences sociales\n* L3 mention Démographie\n* Master “Expert-démographe” (IDUP)\nParcours professionnel\n* Actuellement : Data analyst & Chargé d’enquête à Sciences Po."
+  },
+  {
+    "objectID": "slides_intro.html#je-suis-littéraire-pourquoi-faire-des-stats",
+    "href": "slides_intro.html#je-suis-littéraire-pourquoi-faire-des-stats",
+    "title": "Introduction au cours",
+    "section": "“Je suis littéraire, pourquoi faire des stats ?”",
+    "text": "“Je suis littéraire, pourquoi faire des stats ?”\nC’est la question que vous vous posez tous. Voici la réalité du terrain.\n\nL’autonomie du chercheur :\n\nNe dépendez pas d’un tiers pour vérifier vos hypothèses.\nLa sociologie donne le “pourquoi”, la stat donne le “combien”.\nExemple : Vous observez une discrimination à l’embauche sur un terrain \\(\\rightarrow\\) Les stats vous permettent de prouver qu’elle est systémique.\n\nL’employabilité (le nerf de la guerre) :\n\nONG, ministères, collectivités, instituts de sondage…\nTout le monde cherche des profils “hybrides” : capables de comprendre le social ET de traiter les données."
+  },
+  {
+    "objectID": "slides_intro.html#cas-concrets-à-quoi-ça-sert",
+    "href": "slides_intro.html#cas-concrets-à-quoi-ça-sert",
+    "title": "Introduction au cours",
+    "section": "Cas concrets : à quoi ça sert ?",
+    "text": "Cas concrets : à quoi ça sert ?\n\nCas 1 : Sociologie de l’éducationCas 2 : Sociologie du travail\n\n\nLe “paradoxe” des héritiers * Données : Enquête “Mes Héritiers” (G. Henri-Panabière).\n* La question : Le capital culturel protège-t-il toujours de l’échec scolaire ? * Vos variables : Moyenne en français, Diplôme de la mère, Sentiment d'aisance. * L’outil : Régression linéaire & analyse des résidus (Séquence 3).\n\n\nQui sont les “mobiles” en Europe ?\n* Données : Enquête “Job Mobilities and Family Lives”.\n* La question : La mobilité professionnelle est-elle une chance ou une contrainte ? Y a-t-il une inégalité de genre ?\n* Vos variables : Sexe, Pays, Volonté de déménager.\n* L’outil : Régression logistique (Séquence 4)."
+  },
+  {
+    "objectID": "slides_intro.html#votre-feuille-de-route",
+    "href": "slides_intro.html#votre-feuille-de-route",
+    "title": "Introduction au cours",
+    "section": "Votre feuille de route",
+    "text": "Votre feuille de route\n\n\n\n\n\n\n\n\n\nSéquence\nThème\nOutils\nJeu de données\n\n\n\n\n1. Les bases\nStats descriptives & prise en main\nExcel & R\nInégalités mondiales (IDH)\n\n\n2. Carto\nReprésentation spatiale\nKhartis\nProduction d’éolienne en Europe\n\n\n3. Expliquer\nCorrélation & régression simple\nR\nNotes au collège & origine sociale\n\n\n4. Enquêter\nAnalyse bivariée & multivariée\nR\nEnquêtes “Mes Héritiers” & “JobMob”"
+  },
+  {
+    "objectID": "slides_intro.html#contacts",
+    "href": "slides_intro.html#contacts",
+    "title": "Introduction au cours",
+    "section": "Contacts",
+    "text": "Contacts\nVoici l’adresse e-mail avec laquelle nous allons échanger.\nEmail : oflahertymarc.etudes@gmail.com\nLe site du cours : https://marcoflaherty.github.io/SIASS-L3S6/ (L’ensemble du cours y sera posté)"
+  },
+  {
+    "objectID": "slides_intro.html#formulaire-de-rentrée",
+    "href": "slides_intro.html#formulaire-de-rentrée",
+    "title": "Introduction au cours",
+    "section": "Formulaire de rentrée",
+    "text": "Formulaire de rentrée\nMerci de scanner ce QR Code et de répondre maintenant (2 min).\n\n\nInformations demandées : 1. Nom & Prénom\n2. Email universitaire\n3. Niveau Excel (1 à 6)\n4. Niveau R (1 à 6)"
   }
 ]

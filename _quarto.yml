@@ -3,13 +3,15 @@ project:
   output-dir: docs
 
 website:
-  title: "Stats L3 Sciences Sociales"
+  title: "SIASS - L3 Sciences Sociales"
   navbar:
     left:
       - href: index.qmd
         text: Accueil
+      - text: "Introduction"
+        href: slides_intro.qmd
       - href: slides_seq1.qmd
-        text: "Séance 1 (Slides)"
+        text: "Séquence 1"
 
 format:
   html:

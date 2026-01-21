@@ -1,5 +1,5 @@
 ---
-title: "Bienvenue"
+title: "Année universitaire 2025-26"
 ---
 
 # Statistique et informatique appliquées aux sciences sociales
@@ -8,4 +8,5 @@ Bienvenue sur le site du cours de SIASS.
 Vous trouverez ici les supports de cours et les fiches de TD.
 
 ## Accès rapide
-* [Cliquez ici pour voir les slides de la Séance 1](slides_seq1.html)
+* [Introduction](slides_intro.html)
+* [Séquence 1](slides_seq1.html)

@@ -21,7 +21,7 @@ Pour comprendre les inégalités mondiales, nous utilisons les données du **PNU
 * **Variables disponibles :**
     * *Espérance de vie* (Quantitative)
     * *Durée moyenne de scolarisation* (Quantitative)
-    * *RNB par habitant* (Quantitative - Richesse)
+    * *PIB par habitant* (Quantitative - Richesse)
 
 > **Objectif :** Passer d'un tableau de chiffres illisible à des indicateurs clairs.
 
