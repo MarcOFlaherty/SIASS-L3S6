@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Bienvenue",
+    "section": "",
+    "text": "Bienvenue sur le site du cours de SIASS. Vous trouverez ici les supports de cours et les fiches de TD.\n\n\n\nCliquez ici pour voir les slides de la Séance 1"
+  },
+  {
+    "objectID": "index.html#accès-rapide",
+    "href": "index.html#accès-rapide",
+    "title": "Bienvenue",
+    "section": "",
+    "text": "Cliquez ici pour voir les slides de la Séance 1"
+  },
+  {
     "objectID": "slides_seq1.html#le-jeu-de-données-idh",
     "href": "slides_seq1.html#le-jeu-de-données-idh",
     "title": "Statistique et informatique appliquées aux sciences sociales",
