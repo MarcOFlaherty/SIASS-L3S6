@@ -355,5 +355,12 @@
     "title": "Statistique et informatique appliquées aux sciences sociales",
     "section": "Mon parcours en bref",
     "text": "Mon parcours en bref\nDe la démographie à la data analyse\nFormation académique (IDUP)\n* Licence de sciences sociales\n* L3 mention Démographie\n* Master “Expert-Démographe” (IDUP)\nParcours professionnel\n* Actuellement : Data analyst & Chargé d’enquête à Sciences Po."
+  },
+  {
+    "objectID": "slides_seq1.html#les-données-étudiées",
+    "href": "slides_seq1.html#les-données-étudiées",
+    "title": "Statistique et informatique appliquées aux sciences sociales",
+    "section": "Les données étudiées",
+    "text": "Les données étudiées\nPour ce premier excercice, nous disposons d’une base de donnnées issue du Programme des Nations Unies pour le Développement (PNUD) avec :\n\nIndividus statistiques : Ce sont les Pays (44 dans notre exemple).\n\nVariables disponibles :\n\nL’Indice de Développement Humain (IDH)\n\nPIB par habitant\n\nEspérance de vie à la naissance\n\nNombre d’année de scolarisation\n\nTaille de la population\n\nRatio de palma (Revenus Top10% / Revenus bottom 40%)\n\nISO 3 (norme de codification cartographique)\n\n\n\nObjectif : Passer d’un tableau de chiffres illisible à des indicateurs clairs et permettre des comparaisons."
   }
 ]
