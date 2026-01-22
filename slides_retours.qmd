@@ -12,7 +12,7 @@ format:
     echo: true
 ---
 
-# 1. Rappel des notions
+# Rappel des notions
 *Que vous avez vues en CM*
 
 # 2. Tendance centrale & dispersion
@@ -137,7 +137,7 @@ Pour voir les inégalités, on découpe la population en parts égales.
 *(Source : [Insee, Dispersion des salaires nets mensuels en équivalent temps plein en 2023](https://www.insee.fr/fr/statistiques/7457170#tableau-figure3))*  
 </details>
 
-# 3. La visualisation graphique (dataviz)
+# 2. La visualisation graphique (dataviz)
 
 ## La boîte à moustache (Boxplot) {.scrollable}
 
@@ -264,7 +264,7 @@ ggplot(df_pays, aes(x = Esp_Vie)) +
 
 
 
-# 4. Statistiques bivariées
+# 3. Statistiques bivariées
 *Comprendre le lien entre deux phénomènes*
 
 ## Le Nuage de points {.scrollable}

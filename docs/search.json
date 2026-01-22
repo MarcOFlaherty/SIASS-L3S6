@@ -1,101 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Année universitaire 2025-26",
-    "section": "",
-    "text": "Bienvenue sur le site du cours de SIASS. Vous trouverez ici les supports de cours.\n\n\n\nIntroduction\nRetour sur les notions\nSéquence 1"
-  },
-  {
-    "objectID": "index.html#accès-rapide",
-    "href": "index.html#accès-rapide",
-    "title": "Année universitaire 2025-26",
-    "section": "",
-    "text": "Introduction\nRetour sur les notions\nSéquence 1"
-  },
-  {
-    "objectID": "slides_seq1.html#le-jeu-de-données-idh",
-    "href": "slides_seq1.html#le-jeu-de-données-idh",
+    "objectID": "slides_seq1.html#les-données-étudiées",
+    "href": "slides_seq1.html#les-données-étudiées",
     "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Le Jeu de Données : IDH",
-    "text": "Le Jeu de Données : IDH\nPour comprendre les inégalités mondiales, nous utilisons les données du PNUD (Programme des Nations Unies pour le Développement).\n\nIndividus statistiques : Ce sont des Pays (N ≈ 180).\nVariables disponibles :\n\nEspérance de vie (Quantitative)\nDurée moyenne de scolarisation (Quantitative)\nPIB par habitant (Quantitative - Richesse)\n\n\n\nObjectif : Passer d’un tableau de chiffres illisible à des indicateurs clairs."
-  },
-  {
-    "objectID": "slides_seq1.html#la-moyenne-vs-la-médiane",
-    "href": "slides_seq1.html#la-moyenne-vs-la-médiane",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La Moyenne vs la Médiane",
-    "text": "La Moyenne vs la Médiane\nComment résumer une distribution en un seul chiffre ?\n\n\nLa Moyenne\n\nCalcul : Somme des valeurs / Nombre de valeurs.\n\nQualité : Rapide, connu; compréhensible.\n\nDéfaut : Sensible aux extrêmes.\n\nExemple : Si un milliardaire entre dans un PMU, le “salaire moyen” explose.\n\n\n\n\nLa Médiane\n\nCalcul : La valeur du milieu (50% au-dessus, 50% en-dessous).\n\nQualité : Robuste.\n\nDéfaut : Plus long à calculer à la main.\n\nExemple : Le salaire médian du bar ne bouge presque pas pas avec le milliardaire."
-  },
-  {
-    "objectID": "slides_seq1.html#la-dispersion-variance-écart-type",
-    "href": "slides_seq1.html#la-dispersion-variance-écart-type",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La dispersion : Variance & Écart-type",
-    "text": "La dispersion : Variance & Écart-type\nLa moyenne cache la réalité. Voici des outils pour s’en prémunir.\n\nLa Variance (\\(V\\)) : C’est la moyenne des carrés des écarts à la moyenne.\n\nUtilitée : C’est une étape mathématique préalable à l’écart-type.\n\nProblème : Difficile à interpréter\n\nL’Écart-type (\\(\\sigma\\)) : Racine carrée de la variance.\n\nUtilité : On revient à l’unité d’origine.\n\nSens : C’est l’écart “moyen” ou “typique” entre les individus.\n\n\nUn exemple concret : Nous avons deux classes de terminale (10 élèves).\n* Classe A : 5 élèves ont eu 8/20 et 5 élèves ont eu 12/20.\n* Classe B : 5 élèves ont eu 5/20 et 5 élèves ont eu 15/20.\nEst-ce que les moyennes sont les mêmes ?\n\n\nVoir les moyennes des classes\n\nOui, elles sont identiques \\(\\rightarrow\\) 10 de moyenne.\n\nClasse A : \\((5 \\times 8 + 5 \\times 12) = 100\\)\n\\(100/ 10 = \\mathbf{10}\\)\nClasse B : \\((5 \\times 5 + 5 \\times 15) = 100\\)\n\\(100/ 10 = \\mathbf{10}\\)\n\n\nEt la dispersion est-elle la même ? Calculons la variance et l’écart-type.\n\n\nCalcul de la Variance\n\nFormule : On fait la moyenne des écarts au carré.\nPour la Classe A :\n* Écarts : \\(8-10 = -2\\) et \\(12-10 = +2\\)\n* Carrés : \\((-2)^2 = 4\\) et \\((2)^2 = 4\\)\n* Variance : \\((5 \\times 4 + 5 \\times 4) = 40\\)\n\\(40/ 10 = \\mathbf{4}\\)\nPour la Classe B :\n* Écarts : \\(5-10 = -5\\) et \\(15-10 = +5\\)\n* Carrés : \\((-5)^2 = 25\\) et \\((5)^2 = 25\\)\n* Variance : \\((5 \\times 25 + 5 \\times 25) = 250\\)\n\\(250/ 10 = \\mathbf{25}\\)\n\n\n\nRésultats (Écart-type) et Interprétation\n\nPour revenir à une note sur 20, on prend la racine carrée (\\(\\sqrt{V}\\)).\n\nClasse A : \\(\\sigma = \\sqrt{4} = \\mathbf{2}\\)\nClasse B : \\(\\sigma = \\sqrt{25} = \\mathbf{5}\\)\nConclusion :\nBien que la moyenne soit la même (10/20), la Classe B est beaucoup plus hétérogène (plus dispersée) que la Classe A qui est plus homogène.\nEn moyenne, dans la classe B, les élèves sont à 5 points de la moyenne, contre seulement 2 points dans la classe A."
-  },
-  {
-    "objectID": "slides_seq1.html#les-quantiles-le-découpage-du-gâteau",
-    "href": "slides_seq1.html#les-quantiles-le-découpage-du-gâteau",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Les Quantiles (Le découpage du gâteau)",
-    "text": "Les Quantiles (Le découpage du gâteau)\nPour voir les inégalités, on découpe la population en parts égales.\n\nQuartiles (4 parts) :\n\nQ1 : Les 25% les plus pauvres.\nQ2 (Médiane) : 50%.\nQ3 : Les 75% (le début des 25% les plus riches).\n\nDéciles (10 parts) : D1 (les 10% les plus pauvres) à D9."
-  },
-  {
-    "objectID": "slides_seq1.html#la-boîte-à-moustache-boxplot",
-    "href": "slides_seq1.html#la-boîte-à-moustache-boxplot",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La boîte à moustache (Boxplot)",
-    "text": "La boîte à moustache (Boxplot)\nUn résumé visuel de 5 informations clés.\n\nLa Boîte contient 50% des salariés (l’écart inter-quartile).\nLa Barre au milieu est la médiane.\nLes Moustaches vont ici jusqu’aux déciles (D1 et D9) pour voir les extrêmes.\n\n\n\nVoir le code R\nlibrary(ggplot2)\n\n# 1. On crée la \"DB\" (le petit tableau de données) manuellement\ndf_salaires &lt;- data.frame(\n  Secteur = c(\"Secteur Privé\", \"Fonction Publique\"),\n  D1      = c(1510, 1670),  \n  Q1      = c(1740, 1950),  \n  Mediane = c(2180, 2380),  \n  Q3      = c(2990, 2990),  \n  D9      = c(4300, 3800)   \n)\n\n# 2. On génère le graphique\nggplot(df_salaires, aes(x = Secteur, fill = Secteur)) +\n  geom_boxplot(\n    aes(ymin = D1, lower = Q1, middle = Mediane, upper = Q3, ymax = D9),\n    stat = \"identity\",  \n    width = 0.5         \n  ) +\n  scale_fill_manual(values = c(\"#404080\", \"#C04657\")) + \n  labs(\n    title = \"Dispersion des salaires (Nets mensuels)\",\n    y = \"Euros (€)\",\n    x = \"\",\n    caption = \"Source : Insee 2023\"\n  ) +\n  \n  scale_y_continuous(labels = scales::label_number(big.mark = \" \")) + # Séparateur de milliers\n  \n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\nFigure 1: Dispersion des salaires"
-  },
-  {
-    "objectID": "slides_seq1.html#lhistogramme",
-    "href": "slides_seq1.html#lhistogramme",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "L’Histogramme",
-    "text": "L’Histogramme\nLe principe des “Classes” :\nPour résumer l’information, on regroupe les pays par paquets (ici des tranches de 5 ans).\n\nL’axe horizontal : L’espérance de vie.\n\nL’axe vertical : Le nombre de pays dans cette tranche.\n\nLa forme : Avec 183 pays, on voit une inégalité pour l’espérance de vie.\n\n\n\nVoir le code R\nlibrary(ggplot2)\n\n# 1. Données\ndf_pays &lt;- data.frame(\n  Esp_Vie = c(\n    83.7, 83.4, 83.1, 82.8, 82.8, 82.7, 82.7, 82.5, 82.4, 82.4, \n    82.3, 82.2, 82.0, 81.9, 81.81, 81.8, 81.7, 81.6, 81.5, 81.4, \n    81.2, 81.1, 81.0, 81.0, 80.8, 80.6, 80.5, 80.5, 79.6, 79.1, \n    79.1, 78.8, 78.5, 78.2, 78.1, 78.0, 77.8, 77.8, 77.7, 77.6, \n    77.5, 77.4, 77.1, 77.0, 76.9, 76.7, 76.7, 76.6, 76.4, 76.3, \n    76.2, 76.2, 76.1, 76.1, 76.1, 76.0, 75.9, 75.8, 75.7, 75.6, \n    75.6, 75.5, 75.5, 75.5, 75.3, 75.2, 75.0, 75.0, 75.0, 74.9, \n    74.9, 74.9, 74.8, 74.8, 74.8, 74.7, 74.6, 74.6, 74.6, 74.5, \n    74.5, 74.4, 74.3, 74.1, 74.1, 74.0, 74.0, 73.9, 73.6, 73.6, \n    73.5, 73.5, 73.3, 73.2, 73.2, 72.7, 72.7, 72.3, 72.1, 72.0, \n    71.9, 71.8, 71.6, 71.3, 71.2, 71.1, 70.9, 70.7, 70.6, 70.5, \n    70.2, 70.1, 69.9, 69.8, 69.7, 69.4, 69.4, 69.2, 69.2, 69.1, \n    68.9, 68.8, 68.7, 68.5, 68.3, 68.3, 67.5, 66.7, 66.6, 66.4, \n    66.3, 66.3, 66.2, 66.1, 66.0, 65.8, 65.7, 65.7, 65.7, 65.5, \n    64.8, 64.7, 64.7, 64.5, 64.1, 63.5, 63.5, 63.5, 63.4, 63.1, \n    62.9, 62.9, 62.4, 62.3, 61.8, 61.8, 61.8, 61.4, 61.1, 60.7, \n    60.5, 60.0, 59.9, 59.9, 59.8, 59.6, 59.0, 58.9, 58.9, 58.3, \n    58.2, 58.2, 57.6, 57.3, 57.3, 55.0, 54.5, 53.7, 53.3, 53.1, \n    52.5, 52.4, 50.1\n  )\n)\n\n# 2. Histogramme avec bornes strictes\nggplot(df_pays, aes(x = Esp_Vie)) +\n  geom_histogram(\n    breaks = seq(50, 85, 5), # On impose les coupures : 50, 55, 60...\n    closed = \"left\",        # [50, 55[ (50 inclus, 55 exclu) - Un standard en démographie\n    \n    fill = \"#404080\",       \n    color = \"white\",\n    alpha = 0.8\n  ) +\n  labs(\n    y = \"Nombre de pays\",\n    x = \"Espérance de vie (années)\",\n    title = \"Répartition mondiale (OMS 2015)\"\n  ) +\n  theme_minimal() +\n  # Légende de l'ordonnée\n  scale_y_continuous(breaks = seq(0, 60, 10)) +\n  \n  # Légende de l'abscisse X :\n  scale_x_continuous(breaks = seq(50, 85, 5))\n\n\n\n\n\n\n\n\nFigure 2: Distribution mondiale de l’espérance de vie (183 pays, OMS 2015)"
-  },
-  {
-    "objectID": "slides_seq1.html#covariance-corrélation",
-    "href": "slides_seq1.html#covariance-corrélation",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Covariance & Corrélation",
-    "text": "Covariance & Corrélation\nEst-ce que quand la richesse augmente, l’espérance de vie augmente ?\n\nCovariance : Indique le sens (+ ou -), mais dépend des unités. Dur à lire.\nCorrélation (\\(r\\)) : Indique la force du lien (entre -1 et +1).\n\n\\(r \\approx 0\\) : Aucun lien.\n\\(r \\rightarrow 1\\) : Lien parfait positif.\n\\(r \\rightarrow -1\\) : Lien parfait négatif."
-  },
-  {
-    "objectID": "slides_seq1.html#la-régression-linéaire",
-    "href": "slides_seq1.html#la-régression-linéaire",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La Régression Linéaire",
-    "text": "La Régression Linéaire\nOn cherche à modéliser le lien par une droite : \\(Y = aX + b\\)\n\n\\(Y\\) : Variable à expliquer (Espérance de vie).\n\\(X\\) : Variable explicative (PIB).\n\\(a\\) (pente) : “Si le PIB augmente de 1$, de combien augmente l’espérance de vie ?”\n\\(R^2\\) : La qualité de la prédiction (entre 0 et 1)."
-  },
-  {
-    "objectID": "slides_seq1.html#étape-1-charger-les-données",
-    "href": "slides_seq1.html#étape-1-charger-les-données",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Étape 1 : Charger les données",
-    "text": "Étape 1 : Charger les données\nDans RStudio, créez un nouveau script et copiez ce code.\n\n# 1. Définir le dossier de travail (A adapter selon votre PC !)\n# setwd(\"C:/MesDocuments/L3_Stats/TD1\")\n\n# 2. Lire le fichier CSV\n# 'sep' définit le séparateur (souvent \";\" ou \",\")\n# 'dec' définit la décimale (\".\" ou \",\")\ndonnees &lt;- read.csv(\"DonneesTD1.csv\", sep = \";\", dec = \",\")\n\n# 3. Vérifier que tout va bien\nhead(donnees) # Affiche les 6 premières lignes\nstr(donnees)  # Affiche la structure des variables"
-  },
-  {
-    "objectID": "slides_seq1.html#étape-2-calculs-univariés-a-vous-de-jouer",
-    "href": "slides_seq1.html#étape-2-calculs-univariés-a-vous-de-jouer",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Étape 2 : Calculs Univariés (A vous de jouer)",
-    "text": "Étape 2 : Calculs Univariés (A vous de jouer)\nRemplacez les ___ par le nom des variables (ex: donnees$Esperance_Vie).\n\n# --- Calcul de la Moyenne ---\n# na.rm = TRUE permet d'ignorer les valeurs manquantes\nmoyenne_vie &lt;- mean(___, na.rm = TRUE)\nprint(moyenne_vie)\n\n# --- Calcul de l'Écart-type (Standard Deviation) ---\necart_type &lt;- sd(___, na.rm = TRUE)\n\n# --- Résumé complet (Moyenne, Médiane, Quartiles) ---\nsummary(___)"
-  },
-  {
-    "objectID": "slides_seq1.html#étape-3-graphiques",
-    "href": "slides_seq1.html#étape-3-graphiques",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Étape 3 : Graphiques",
-    "text": "Étape 3 : Graphiques\nVisualisons la distribution de l’Espérance de Vie.\n\n# --- Histogramme ---\n# col = couleur, main = Titre, xlab = étiquette axe X\nhist(donnees$Esperance_Vie, \n     col = \"lightblue\", \n     main = \"Distribution de l'Espérance de Vie\",\n     xlab = \"Années\")\n\n# --- Boîte à Moustache ---\nboxplot(donnees$Esperance_Vie,\n        col = \"orange\",\n        main = \"Boîte à moustache - Espérance de vie\")"
-  },
-  {
-    "objectID": "slides_seq1.html#étape-4-corrélation-régression",
-    "href": "slides_seq1.html#étape-4-corrélation-régression",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Étape 4 : Corrélation & Régression",
-    "text": "Étape 4 : Corrélation & Régression\nY a-t-il un lien entre Richesse (PIB) et Santé (Espérance de vie) ?\n\n# --- 1. Corrélation ---\ncor(donnees$PIB, donnees$Esperance_Vie, use = \"complete.obs\")\n\n# --- 2. Nuage de points ---\nplot(x = donnees$PIB, \n     y = donnees$Esperance_Vie,\n     pch = 19, # Forme des points\n     col = \"blue\",\n     xlab = \"PIB par habitant\",\n     ylab = \"Espérance de vie\")\n\n# --- 3. Droite de régression ---\nmodele &lt;- lm(Esperance_Vie ~ PIB, data = donnees)\nabline(modele, col = \"red\", lwd = 2) # Ajoute la ligne rouge"
+    "section": "Les données étudiées",
+    "text": "Les données étudiées\nPour ce premier excercice, nous disposons d’une base de donnnées issue du Programme des Nations Unies pour le Développement (PNUD) avec :\n\nIndividus statistiques : Ce sont les Pays (44 dans notre exemple).\n\nVariables disponibles :\n\nL’Indice de Développement Humain (IDH)\n\nPIB par habitant\n\nEspérance de vie à la naissance\n\nNombre d’année de scolarisation\n\nTaille de la population\n\nRatio de palma (Revenus Top10% / Revenus bottom 40%)\n\nISO 3 (norme de codification cartographique)\n\n\n\nObjectif : Passer d’un tableau de chiffres illisible à des indicateurs clairs et permettre des comparaisons."
   },
   {
     "objectID": "slides_seq1.html#fin-de-la-séquence-1",
@@ -105,67 +14,11 @@
     "text": "Fin de la séquence 1"
   },
   {
-    "objectID": "slides_seq1.html#mon-parcours",
-    "href": "slides_seq1.html#mon-parcours",
-    "title": "Introduction au cours",
-    "section": "",
-    "text": "De la Socio-Démographie à la Data Science\nFormation Académique (IDUP) * Licence de Sciences Sociales * L3 Mention Démographie * Master “Expert-Démographe” (IDUP)\nParcours Professionnel * Actuellement : Data Analyst & Chargé d’enquête à Sciences Po. :::"
-  },
-  {
-    "objectID": "slides_seq1.html#je-suis-littéraire-pourquoi-faire-des-stats",
-    "href": "slides_seq1.html#je-suis-littéraire-pourquoi-faire-des-stats",
-    "title": "Introduction au cours",
-    "section": "“Je suis littéraire, pourquoi faire des stats ?”",
-    "text": "“Je suis littéraire, pourquoi faire des stats ?”\nC’est la question que vous vous posez tous. Voici la réalité du terrain.\n\nL’Autonomie du Chercheur :\n\nNe dépendez pas d’un tiers pour vérifier vos hypothèses.\nL’ethnographie donne le “pourquoi”, la stat donne le “combien”.\nExemple : Vous observez une discrimination à l’embauche sur un terrain \\(\\rightarrow\\) Les stats vous permettent de prouver qu’elle est systémique.\n\nL’Employabilité (Le nerf de la guerre) :\n\nONG, Ministères, Collectivités, Instituts de sondage…\nTout le monde cherche des profils “Hybrides” : Capables de comprendre le social ET de traiter les données."
-  },
-  {
-    "objectID": "slides_seq1.html#use-cases-à-quoi-ça-sert-concrètement",
-    "href": "slides_seq1.html#use-cases-à-quoi-ça-sert-concrètement",
-    "title": "Introduction au cours",
-    "section": "Use Cases : À quoi ça sert concrètement ?",
-    "text": "Use Cases : À quoi ça sert concrètement ?\n\nLe métier d’enquêteur(trice)Le métier de chargé(e) d’études\n\n\nVous travaillez pour une ONG sur la précarité.\n\nLe besoin : Analyser 2 000 questionnaires de bénéficiaires.\nL’outil : R permet de nettoyer ces données en 10 minutes (vs 3 jours sur Excel) et de croiser “Type de logement” et “Santé mentale”.\n\n\n\nVous travaillez pour une Mairie. * Le besoin : Comprendre pourquoi les jeunes désertent le centre-ville.\n\nL’outil : Cartographier les données (Séquence 2) pour voir les zones blanches et corréler avec le prix des loyers (Séquence 3)."
-  },
-  {
-    "objectID": "slides_seq1.html#votre-feuille-de-route",
-    "href": "slides_seq1.html#votre-feuille-de-route",
-    "title": "Introduction au cours",
-    "section": "Votre feuille de route",
-    "text": "Votre feuille de route\n\n\n\n\n\n\n\n\n\nSéquence\nThème\nOutils\nUse Case\n\n\n\n\n1. Les Bases\nStats descriptives & prise en main\nExcel & RStudio\nAnalyser les inégalités mondiales (IDH)\n\n\n2. Carto\nReprésentation spatiale\nKhartis\nCartographier l’Ile-de-France\n\n\n3. Expliquer\nLa Régression Linéaire\nR\nLe prix de l’immobilier influence-t-il la réussite au Brevet ?\n\n\n4. Enquêter\nAnalyse de données individuelles\nR\nQui change de métier ? (Mobilité sociale)\n\n\n\n[cite_start][cite: 19, 20, 31]"
-  },
-  {
-    "objectID": "slides_seq1.html#me-contacter",
-    "href": "slides_seq1.html#me-contacter",
-    "title": "Introduction au cours",
-    "section": "Me Contacter",
-    "text": "Me Contacter\nJe suis disponible pour vous aider, mais privilégiez les questions techniques en début/fin de TD.\n📧 Mon Email : votre.prenom.nom@email.com (Merci de mettre [L3 Stats] dans l’objet)\n📂 Le Site du cours : https://marcoflaherty.github.io/SIASS-L3S6/ (Mettez ce lien en favori, tout est dessus !)"
-  },
-  {
-    "objectID": "slides_seq1.html#formulaire-de-rentrée",
-    "href": "slides_seq1.html#formulaire-de-rentrée",
-    "title": "Introduction au cours",
-    "section": "Formulaire de rentrée",
-    "text": "Formulaire de rentrée\nMerci de scanner ce QR Code et de répondre maintenant (2 min).\n\n\nInformations demandées : 1. Nom & Prénom 2. Email universitaire 3. Niveau Excel (1 à 5) 4. Niveau R (1 à 5)"
-  },
-  {
-    "objectID": "slides_seq1.html",
-    "href": "slides_seq1.html",
-    "title": "Introduction au cours",
-    "section": "",
-    "text": "De la Socio-Démographie à la Data Science\nFormation Académique (IDUP) * Licence de Sciences Sociales * L3 Mention Démographie * Master “Expert-Démographe” (IDUP)\nParcours Professionnel * Actuellement : Data Analyst & Chargé d’enquête à Sciences Po. :::"
-  },
-  {
-    "objectID": "slides_seq1.html#contacts",
-    "href": "slides_seq1.html#contacts",
-    "title": "Introduction au cours",
-    "section": "Contacts",
-    "text": "Contacts\nVoici l’adresse e-mail avez laquelle nous allons échanger.\nEmail : oflahertymarc.etudes@gmail.com\n📂 Le Site du cours : https://marcoflaherty.github.io/SIASS-L3S6/ (L’ensemble du cours y sera posté)"
-  },
-  {
-    "objectID": "slides_intro.html#mon-parcours",
-    "href": "slides_intro.html#mon-parcours",
-    "title": "Introduction au cours",
-    "section": "Mon parcours",
-    "text": "Mon parcours\nDe la démographie à la data analyse\nFormation académique (IDUP)\n* Licence de sciences sociales\n* L3 mention Démographie\n* Master “Expert-Démographe” (IDUP)\nParcours professionnel\n* Actuellement : Data analyst & Chargé d’enquête à Sciences Po."
+    "objectID": "slides_intro.html#mon-parcours-en-bref",
+    "href": "slides_intro.html#mon-parcours-en-bref",
+    "title": "Statistique et informatique appliquées aux sciences sociales",
+    "section": "Mon parcours en bref",
+    "text": "Mon parcours en bref\nDe la démographie à la data analyse\nFormation académique (IDUP)\n* Licence de sciences sociales\n* L3 mention Démographie\n* Master “Expert-Démographe” (IDUP)\nParcours professionnel\n* Actuellement : Data analyst & Chargé d’enquête à Sciences Po."
   },
   {
     "objectID": "slides_intro.html#je-suis-littéraire-pourquoi-faire-des-stats",
@@ -182,11 +35,11 @@
     "text": "Cas concrets : à quoi ça sert ?\n\nCas 1 : Sociologie de l’éducationCas 2 : Sociologie du travail\n\n\nLe “paradoxe” des héritiers\n* Données : Enquête “Mes Héritiers” (G. Henri-Panabière).\n* La question : Le capital culturel protège-t-il toujours de l’échec scolaire ?\n* Vos variables : Moyenne scolaire, Diplôme de la mère, Sentiment d'aisance.\n* L’outil : Régression linéaire & analyse des résidus (Séquence 3).\n\n\nQui sont les “mobiles” en Europe ?\n* Données : Enquête “Job Mobilities and Family Lives”.\n* La question : La mobilité professionnelle est-elle une chance ou une contrainte ? Y a-t-il une inégalité de genre ?\n* Vos variables : Sexe, Pays, Volonté de déménager.\n* L’outil : Régression logistique (Séquence 4)."
   },
   {
-    "objectID": "slides_intro.html#votre-feuille-de-route",
-    "href": "slides_intro.html#votre-feuille-de-route",
-    "title": "Introduction au cours",
-    "section": "Votre feuille de route",
-    "text": "Votre feuille de route\n\n\n\n\n\n\n\n\n\nSéquence\nThème\nOutils\nJeu de données\n\n\n\n\n1. Les bases\nStats descriptives & prise en main\nExcel & R\nInégalités mondiales (IDH)\n\n\n2. Carto\nReprésentation spatiale\nKhartis\nProduction d’éolienne en Europe\n\n\n3. Expliquer\nCorrélation & régression simple\nR\nNotes au collège & origine sociale\n\n\n4. Enquêter\nAnalyse bivariée & multivariée\nR\nEnquêtes “Mes Héritiers” & “JobMob”"
+    "objectID": "slides_intro.html#la-feuille-de-route",
+    "href": "slides_intro.html#la-feuille-de-route",
+    "title": "Statistique et informatique appliquées aux sciences sociales",
+    "section": "La feuille de route",
+    "text": "La feuille de route\n\n\n\n\n\n\n\n\n\nSéquence\nThème\nOutils\nJeu de données\n\n\n\n\n1. Les bases\nStats descriptives & prise en main\nExcel & R\nUNDP (IDH)\n\n\n2. Carto\nReprésentation spatiale\nExcel & Khartis\nProduction d’éoliennes en Europe\n\n\n3. Expliquer\nCorrélation & régression simple\nExcel & R\nEnquête “Mes Héritiers”\n\n\n4. Enquêter\nAnalyse bivariée & multivariée\nExcel & R\nEnquête “JobMob”"
   },
   {
     "objectID": "slides_intro.html#contacts",
@@ -203,53 +56,18 @@
     "text": "Formulaire de rentrée\nMerci de scanner ce QR Code et de répondre maintenant (1 min).\n\n\nInformations demandées :\n1. Nom & Prénom\n2. Email universitaire\n3. Niveau Excel (1 à 6)\n4. Niveau R (1 à 6)"
   },
   {
-    "objectID": "slides_intro.html#la-feuille-de-route",
-    "href": "slides_intro.html#la-feuille-de-route",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La feuille de route",
-    "text": "La feuille de route\n\n\n\n\n\n\n\n\n\nSéquence\nThème\nOutils\nJeu de données\n\n\n\n\n1. Les bases\nStats descriptives & prise en main\nExcel & R\nUNDP (IDH)\n\n\n2. Carto\nReprésentation spatiale\nExcel & Khartis\nProduction d’éoliennes en Europe\n\n\n3. Expliquer\nCorrélation & régression simple\nExcel & R\nEnquête “Mes Héritiers”\n\n\n4. Enquêter\nAnalyse bivariée & multivariée\nExcel & R\nEnquête “JobMob”"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Année universitaire 2025-26",
+    "section": "",
+    "text": "Bienvenue sur le site du cours de SIASS. Vous trouverez ici les supports de cours.\n\n\n\nIntroduction\nRetour sur les notions\nSéquence 1"
   },
   {
-    "objectID": "slides_seq1.html#lindice-de-développement-humain-idh",
-    "href": "slides_seq1.html#lindice-de-développement-humain-idh",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "L’Indice de Développement Humain (IDH)",
-    "text": "L’Indice de Développement Humain (IDH)\nPour ce premier excercice, nous disposons d’une base de donnnées issue du Programme des Nations Unies pour le Développement (PNUD) avec :\n\nIndividus statistiques : Ce sont les Pays (44 dans notre exemple).\n\nVariables disponibles :\n\nL’IDH\n\nPIB par habitant\n\nEspérance de vie à la naissance\n\nNombre d’année de scolarisation\n\nTaille de la population\n\nRatio de palma (Revenus Top10% / Revenus bottom 40%)\n\nISO 3 (norme de codification cartographique)\n\n\n\nObjectif : Passer d’un tableau de chiffres illisible à des indicateurs clairs et permettre des comparaisons."
-  },
-  {
-    "objectID": "slides_seq1.html#les-quantiles",
-    "href": "slides_seq1.html#les-quantiles",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Les Quantiles",
-    "text": "Les Quantiles\nPour voir les inégalités, on découpe la population en parts égales.\n\nQuartiles (4 parts) :\n\nQ1 : Les 25% les plus pauvres.\n\nQ2 (Médiane) : 50% de la population gagne moins, 50% gagne plus.\n\nQ3 : Les 75% (le seuil d’entrée des 25% les plus riches).\n\n\nDéciles (10 parts) : D1 (les 10% les plus pauvres) à D9.\n\n\n\n\nQuantile\nSecteur privé (€)\nFonction publique (€)\n\n\n\n\n1ᵉʳ décile (D1)\n1 510\n1 670\n\n\n1ᵉʳ quartile (Q1)\n1 740\n1 950\n\n\nMédiane (Q2)\n2 180\n2 380\n\n\n3ᵉ quartile (Q3)\n2 990\n2 990\n\n\n9ᵉ décile (D9)\n4 300\n3 800\n\n\n\n\n\nComment lire ce tableau ?\n\nLecture stricte (à connaître pour le partiel) :\n\nPour D1 (Privé) : “10 % des salariés du secteur privé gagnent moins de 1 510 euros nets par mois.” (On peut aussi dire : “90 % gagnent plus”).\n\nPour la Médiane (Public) : “La moitié des agents du public gagne moins de 2 380 euros, l’autre moitié gagne plus.”\n\nPour D9 (Privé) : “90 % des salariés gagnent moins de 4 300 euros.” (Ou : “Les 10 % les mieux payés gagnent plus de 4 300 euros”).\n\nObservation sociologique : On remarque que les bas salaires sont mieux rémunuérés dans le public (D1 public &gt; D1 privé), mais que les très hauts salaires s’envolent dans le privé (D9 privé &gt; D9 public).\n\n(Source : Insee, Dispersion des salaires nets mensuels en équivalent temps plein en 2023)"
-  },
-  {
-    "objectID": "slides_seq1.html#la-boîte-à-moustache-boxplot-1",
-    "href": "slides_seq1.html#la-boîte-à-moustache-boxplot-1",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La boîte à moustache (Boxplot)",
-    "text": "La boîte à moustache (Boxplot)\nUn résumé visuel de 5 informations clés.\n\nLa Boîte contient 50% des salariés (l’écart inter-quartile).\nLa Barre au milieu est la médiane.\nLes Moustaches vont ici jusqu’aux déciles (D1 et D9) pour voir les extrêmes.\n\n\n\nVoir le code R\nlibrary(ggplot2)\n\n# 1. On crée la \"DB\" (le petit tableau de données) manuellement\ndf_salaires &lt;- data.frame(\n  Secteur = c(\"Secteur Privé\", \"Fonction Publique\"),\n  D1      = c(1510, 1670),  \n  Q1      = c(1740, 1950),  \n  Mediane = c(2180, 2380),  \n  Q3      = c(2990, 2990),  \n  D9      = c(4300, 3800)   \n)\n\n# 2. On génère le graphique\nggplot(df_salaires, aes(x = Secteur, fill = Secteur)) +\n  geom_boxplot(\n    aes(ymin = D1, lower = Q1, middle = Mediane, upper = Q3, ymax = D9),\n    stat = \"identity\",  \n    width = 0.5         \n  ) +\n  scale_fill_manual(values = c(\"#404080\", \"#C04657\")) + \n  labs(\n    title = \"Dispersion des salaires (Nets mensuels)\",\n    y = \"Euros (€)\",\n    x = \"\",\n    caption = \"Source : Insee 2023\"\n  ) +\n  \n  scale_y_continuous(labels = scales::label_number(big.mark = \" \")) + # Séparateur de milliers\n  \n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\nFigure 1: Dispersion des salaires (Cliquer pour zoomer)"
-  },
-  {
-    "objectID": "slides_seq1.html#le-nuage-de-points-scatterplot",
-    "href": "slides_seq1.html#le-nuage-de-points-scatterplot",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Le Nuage de points (Scatterplot)",
-    "text": "Le Nuage de points (Scatterplot)\nAvant de calculer, il faut regarder. Posons-nous la question : “Est-ce que l’argent fait le bonheur (ou du moins la santé) ?”\n\nAxe X (Horizontal) : La richesse (PIB/habitant).\nAxe Y (Vertical) : La santé (Espérance de vie).\nChaque point est un pays.\n\n\n\nVoir le code R\n# Création d'un jeu de données fictif mais réaliste pour l'exemple\ndf_demo &lt;- data.frame(\n  Pays = c(\"Pays A\", \"Pays B\", \"Pays C\", \"Pays D\", \"Pays E\", \"Pays F\"),\n  PIB = c(500, 2000, 15000, 35000, 48000, 75000),\n  Esp_Vie = c(52, 61, 74, 79, 82, 84)\n)\n\nlibrary(ggplot2)\n\nggplot(df_demo, aes(x = PIB, y = Esp_Vie)) +\n  geom_point(size = 4, color = \"#404080\") +\n  geom_text(aes(label = Pays), vjust = -1, size = 3) + # Ajout des noms\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  labs(title = \"Lien entre Richesse et Santé\", \n       x = \"Richesse ($/hab)\", y = \"Espérance de vie (ans)\") +\n  theme_minimal() +\n  ylim(50, 90)\n\n\n\n\n\n\n\n\nFigure 3: Exemple de nuage de points\n\n\n\n\n\n\n\nQu’est-ce qu’on observe ?\n\nOn voit que les points ne sont pas mis au hasard. Ils forment une “banane” ou une ligne qui “monte”.\nTendance : Plus on va vers la droite (riche), plus on monte (vieux).\nConclusion visuelle : Il y a une corrélation positive \\(\\rightarrow\\) plus un pays est riche, plus l’espérance de vie moyenne des habitant sy est élevé."
-  },
-  {
-    "objectID": "slides_seq1.html#la-corrélation-r",
-    "href": "slides_seq1.html#la-corrélation-r",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La Corrélation (\\(r\\))",
-    "text": "La Corrélation (\\(r\\))\nLe nuage nous donne la forme, la corrélation nous donne la force.\nC’est une note comprise entre -1 et +1.\n\n\n\\(r \\approx 0\\) (Le chaos)\nLe nuage ressemble à une “patate”. Connaître le PIB ne nous aide pas à deviner l’espérance de vie.\n\n\\(r \\rightarrow 1\\) (La ligne parfaite)\nLe nuage est très fin, comme un cigare. Si je connais votre PIB, je peux deviner votre espérance de vie avec précision.\n\n\nIci : Pour le lien PIB/Espérance de vie, le \\(r\\) est souvent autour de 0.70. C’est un lien fort !"
-  },
-  {
-    "objectID": "slides_seq1.html#la-régression-linéaire-la-machine-à-prédiction",
-    "href": "slides_seq1.html#la-régression-linéaire-la-machine-à-prédiction",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La Régression Linéaire : La “Machine à prédiction”",
-    "text": "La Régression Linéaire : La “Machine à prédiction”\nOn ne veut plus juste constater le lien, on veut le modéliser pour faire des prévisions. On trace une droite qui passe “au milieu” du nuage.\nC’est l’équation : \\(Y = a \\cdot X + b\\)\nMais parlons français : \\[Espérance = (Pente \\times Richesse) + Socle\\]\n\nLa Pente (\\(a\\)) : C’est le “taux de conversion”.\n\nQuestion : “Si je donne 1000$ de plus à ce pays, combien de mois de vie il gagne ?”\n\nL’Ordonnée à l’origine (\\(b\\)) : Le point de départ.\n\nQuestion : “Quelle serait l’espérance de vie d’un pays avec 0$ de PIB ?”\n\n\n\n\nVoir la droite magique\n# Note : df_demo doit avoir été créé dans la slide précédente\n# Si besoin, décommentez les lignes ci-dessous :\n# df_demo &lt;- data.frame(Pays = c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\"), PIB = c(500, 2000, 15000, 35000, 48000, 75000), Esp_Vie = c(52, 61, 74, 79, 82, 84))\n\nlibrary(ggplot2)\n\nggplot(df_demo, aes(x = PIB, y = Esp_Vie)) +\n  geom_point(size = 4, color = \"#404080\") +\n  # C'est cette ligne qui ajoute la régression linéaire (method = lm)\n  geom_smooth(method = \"lm\", se = FALSE, color = \"#C04657\", size = 1.5) +\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  labs(title = \"La droite de régression (Le modèle)\", \n       x = \"Richesse ($/hab)\", y = \"Espérance de vie (ans)\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 4: Exemple de droite de corrélation\n\n\n\n\n\n\n\nExemple de lecture\n\nImaginons que le logiciel nous donne l’équation : \\[Y = 0.0004X + 55\\]\n\n1. Le socle (\\(b=55\\)) : Même sans économie (PIB = 0), dans ce modèle théorique, l’humain vit environ 55 ans (c’est le “niveau de base”).\n\n2. L’effet richesse (\\(a=0.0004\\)) : Le coefficient est tout petit car 1 dollar pèse peu. Concrètement : Pour gagner 1 an d’espérance de vie, il faut augmenter le PIB de 2 500 $. (Calcul : \\(1 / 0.0004 = 2500\\)).\n\n\nÀ quoi ça sert ? Si un pays découvre du pétrole et s’enrichit (+ 10 000 $ de PIB), on peut prédire que son espérance de vie augmentera de 4 ans."
+    "objectID": "index.html#accès-rapide",
+    "href": "index.html#accès-rapide",
+    "title": "Année universitaire 2025-26",
+    "section": "",
+    "text": "Introduction\nRetour sur les notions\nSéquence 1"
   },
   {
     "objectID": "slides_retours.html#la-moyenne-vs-la-médiane",
@@ -287,53 +105,11 @@
     "text": "L’Histogramme\nLe principe des “Classes” :\nPour résumer l’information, on regroupe les pays par paquets (ici des tranches de 5 ans).\n\nL’axe horizontal : L’espérance de vie.\n\nL’axe vertical : Le nombre de pays dans cette tranche.\n\nLa forme : Avec 183 pays, on voit une inégalité pour l’espérance de vie.\n\n\n\nVoir le code R\nlibrary(ggplot2)\n\n# 1. Données\ndf_pays &lt;- data.frame(\n  Esp_Vie = c(\n    83.7, 83.4, 83.1, 82.8, 82.8, 82.7, 82.7, 82.5, 82.4, 82.4, \n    82.3, 82.2, 82.0, 81.9, 81.81, 81.8, 81.7, 81.6, 81.5, 81.4, \n    81.2, 81.1, 81.0, 81.0, 80.8, 80.6, 80.5, 80.5, 79.6, 79.1, \n    79.1, 78.8, 78.5, 78.2, 78.1, 78.0, 77.8, 77.8, 77.7, 77.6, \n    77.5, 77.4, 77.1, 77.0, 76.9, 76.7, 76.7, 76.6, 76.4, 76.3, \n    76.2, 76.2, 76.1, 76.1, 76.1, 76.0, 75.9, 75.8, 75.7, 75.6, \n    75.6, 75.5, 75.5, 75.5, 75.3, 75.2, 75.0, 75.0, 75.0, 74.9, \n    74.9, 74.9, 74.8, 74.8, 74.8, 74.7, 74.6, 74.6, 74.6, 74.5, \n    74.5, 74.4, 74.3, 74.1, 74.1, 74.0, 74.0, 73.9, 73.6, 73.6, \n    73.5, 73.5, 73.3, 73.2, 73.2, 72.7, 72.7, 72.3, 72.1, 72.0, \n    71.9, 71.8, 71.6, 71.3, 71.2, 71.1, 70.9, 70.7, 70.6, 70.5, \n    70.2, 70.1, 69.9, 69.8, 69.7, 69.4, 69.4, 69.2, 69.2, 69.1, \n    68.9, 68.8, 68.7, 68.5, 68.3, 68.3, 67.5, 66.7, 66.6, 66.4, \n    66.3, 66.3, 66.2, 66.1, 66.0, 65.8, 65.7, 65.7, 65.7, 65.5, \n    64.8, 64.7, 64.7, 64.5, 64.1, 63.5, 63.5, 63.5, 63.4, 63.1, \n    62.9, 62.9, 62.4, 62.3, 61.8, 61.8, 61.8, 61.4, 61.1, 60.7, \n    60.5, 60.0, 59.9, 59.9, 59.8, 59.6, 59.0, 58.9, 58.9, 58.3, \n    58.2, 58.2, 57.6, 57.3, 57.3, 55.0, 54.5, 53.7, 53.3, 53.1, \n    52.5, 52.4, 50.1\n  )\n)\n\n# 2. Histogramme avec bornes strictes\nggplot(df_pays, aes(x = Esp_Vie)) +\n  geom_histogram(\n    breaks = seq(50, 85, 5), # On impose les coupures : 50, 55, 60...\n    closed = \"left\",        # [50, 55[ (50 inclus, 55 exclu) - Un standard en démographie\n    \n    fill = \"#404080\",       \n    color = \"white\",\n    alpha = 0.8\n  ) +\n  labs(\n    y = \"Nombre de pays\",\n    x = \"Espérance de vie (années)\",\n    title = \"Répartition mondiale (OMS 2015)\"\n  ) +\n  theme_minimal() +\n  # Légende de l'ordonnée\n  scale_y_continuous(breaks = seq(0, 60, 10)) +\n  \n  # Légende de l'abscisse X :\n  scale_x_continuous(breaks = seq(50, 85, 5))\n\n\n\n\n\n\n\n\nFigure 2: Distribution mondiale de l’espérance de vie (183 pays, OMS 2015)"
   },
   {
-    "objectID": "slides_retours.html#le-nuage-de-points-scatterplot",
-    "href": "slides_retours.html#le-nuage-de-points-scatterplot",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Le Nuage de points (Scatterplot)",
-    "text": "Le Nuage de points (Scatterplot)\nAvant de calculer, il faut regarder. Posons-nous la question : “Est-ce que l’argent fait le bonheur (ou du moins la santé) ?”\n\nAxe X (Horizontal) : La richesse (PIB/habitant).\nAxe Y (Vertical) : La santé (Espérance de vie).\nChaque point est un pays.\n\n\n\nVoir le code R\n# Création d'un jeu de données fictif mais réaliste pour l'exemple\ndf_demo &lt;- data.frame(\n  Pays = c(\"Pays A\", \"Pays B\", \"Pays C\", \"Pays D\", \"Pays E\", \"Pays F\"),\n  PIB = c(500, 2000, 15000, 35000, 48000, 75000),\n  Esp_Vie = c(52, 61, 74, 79, 82, 84)\n)\n\nlibrary(ggplot2)\n\nggplot(df_demo, aes(x = PIB, y = Esp_Vie)) +\n  geom_point(size = 4, color = \"#404080\") +\n  geom_text(aes(label = Pays), vjust = -1, size = 3) + # Ajout des noms\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  labs(title = \"Lien entre Richesse et Santé\", \n       x = \"Richesse ($/hab)\", y = \"Espérance de vie (ans)\") +\n  theme_minimal() +\n  ylim(50, 90)\n\n\n\n\n\n\n\n\nFigure 3: Exemple de nuage de points\n\n\n\n\n\n\n\nQu’est-ce qu’on observe ?\n\nOn voit que les points ne sont pas mis au hasard. Ils forment une “banane” ou une ligne qui “monte”.\nTendance : Plus on va vers la droite (riche), plus on monte (vieux).\nConclusion visuelle : Il y a une corrélation positive \\(\\rightarrow\\) plus un pays est riche, plus l’espérance de vie moyenne des habitant sy est élevé."
-  },
-  {
-    "objectID": "slides_retours.html#la-corrélation-r",
-    "href": "slides_retours.html#la-corrélation-r",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La Corrélation (\\(r\\))",
-    "text": "La Corrélation (\\(r\\))\nLe nuage nous donne la forme, la corrélation nous donne la force.\nC’est une note comprise entre -1 et +1.\n\n\n\\(r \\approx 0\\) (Le chaos)\nLe nuage ressemble à une “patate”. Connaître le PIB ne nous aide pas à deviner l’espérance de vie.\n\n\\(r \\rightarrow 1\\) (La ligne parfaite)\nLe nuage est très fin, comme un cigare. Si je connais votre PIB, je peux deviner votre espérance de vie avec précision.\n\n\nIci : Avec nos pays réels, le lien est fort mais pas parfait (à cause de l’exception américaine notamment)."
-  },
-  {
-    "objectID": "slides_retours.html#la-régression-linéaire-la-machine-à-prédiction",
-    "href": "slides_retours.html#la-régression-linéaire-la-machine-à-prédiction",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La Régression Linéaire : La “Machine à prédiction”",
-    "text": "La Régression Linéaire : La “Machine à prédiction”\nOn ne veut plus juste constater le lien, on veut le modéliser pour faire des prévisions. On trace une droite qui passe “au milieu” du nuage.\nC’est l’équation : \\(Y = a \\cdot X + b\\)\nMais parlons français : \\[Espérance = (Pente \\times Richesse) + Socle\\]\n\nLa Pente (\\(a\\)) : C’est le “taux de conversion”.\n\nQuestion : “Si je donne 1000$ de plus à ce pays, combien de mois de vie il gagne ?”\n\nL’Ordonnée à l’origine (\\(b\\)) : Le point de départ.\n\nQuestion : “Quelle serait l’espérance de vie d’un pays avec 0$ de PIB ?”\n\n\n\n\nVoir la droite magique\n# Note : df_demo doit avoir été créé dans la slide précédente\n# Si besoin, décommentez les lignes ci-dessous :\n# df_demo &lt;- data.frame(Pays = c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\"), PIB = c(500, 2000, 15000, 35000, 48000, 75000), Esp_Vie = c(52, 61, 74, 79, 82, 84))\n\nlibrary(ggplot2)\n\nggplot(df_demo, aes(x = PIB, y = Esp_Vie)) +\n  geom_point(size = 4, color = \"#404080\") +\n  # C'est cette ligne qui ajoute la régression linéaire (method = lm)\n  geom_smooth(method = \"lm\", se = FALSE, color = \"#C04657\", size = 1.5) +\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  labs(title = \"La droite de régression (Le modèle)\", \n       x = \"Richesse ($/hab)\", y = \"Espérance de vie (ans)\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 4: Exemple de droite de corrélation\n\n\n\n\n\n\n\nExemple de lecture\n\nImaginons que le logiciel nous donne l’équation : \\[Y = 0.0004X + 55\\]\n\n1. Le socle (\\(b=55\\)) : Même sans économie (PIB = 0), dans ce modèle théorique, l’humain vit environ 55 ans (c’est le “niveau de base”).\n\n2. L’effet richesse (\\(a=0.0004\\)) : Le coefficient est tout petit car 1 dollar pèse peu. Concrètement : Pour gagner 1 an d’espérance de vie, il faut augmenter le PIB de 2 500 $. (Calcul : \\(1 / 0.0004 = 2500\\)).\n\n\nÀ quoi ça sert ? Si un pays découvre du pétrole et s’enrichit (+ 10 000 $ de PIB), on peut prédire que son espérance de vie augmentera de 4 ans."
-  },
-  {
-    "objectID": "slides_retours.html#fin-de-la-séquence-1",
-    "href": "slides_retours.html#fin-de-la-séquence-1",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Fin de la séquence 1",
-    "text": "Fin de la séquence 1"
-  },
-  {
     "objectID": "slides_retours.html#le-nuage-de-points",
     "href": "slides_retours.html#le-nuage-de-points",
     "title": "Statistique et informatique appliquées aux sciences sociales",
     "section": "Le Nuage de points",
     "text": "Le Nuage de points\nAvant de calculer, il faut regarder. Posons-nous la question : “Est-ce que la richesse monétaire augmente la longévité ?”\n\nAxe X (Horizontal) : La richesse (PIB/habitant).\nAxe Y (Vertical) : La santé (Espérance de vie).\nChaque point est un pays.\n\n\n\nVoir le code R\nlibrary(ggplot2)\n\n# Données exactes (Banque Mondiale 2022)\ndf_demo &lt;- data.frame(\n  Pays = c(\"Sierra Leone\", \"Inde\", \"Vietnam\", \"Brésil\", \"Chine\", \"France\", \"USA\", \"Suisse\"),\n  PIB = c(860, 2347, 4147, 9281, 12970, 40988, 76657, 94394),\n  Esp_Vie = c(61, 72, 75, 75, 78, 82, 77, 84)\n)\n\nggplot(df_demo, aes(x = PIB, y = Esp_Vie)) +\n  geom_point(size = 4, color = \"#404080\") +\n  # Ajustement des étiquettes pour éviter qu'elles ne se chevauchent\n  geom_text(aes(label = Pays), vjust = -1.2, size = 3.5) + \n  \n  # Axe X : Format monétaire propre\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \"), limits = c(0, 100000)) +\n  \n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  \n  labs(title = \"Lien PIB par hab. / espérance de vie\", \n       subtitle = \"Sélection de 8 pays (2022)\",\n       x = \"PIB/hab (en $)\", y = \"Espérance de vie (années)\") +\n  theme_minimal() +\n  ylim(50, 90)\n\n\n\n\n\n\n\n\nFigure 3: Lien PIB par hab / espérance de vie (source : Banque Mondiale 2022)\n\n\n\n\n\n\n\nQu’est-ce qu’on observe ?\n\nOn voit que les points ne sont pas mis au hasard. Ils forment une “banane” ou une ligne qui “monte”.\n\nTendance globale : Il y a une corrélation positive \\(\\rightarrow\\) Plus un pays est riche, plus l’espérance de vie est élevée (Sierra Leone vs Suisse).\n\nNuance (Efficacité) : L’argent ne fait pas tout.\n\nLe Vietnam a une espérance de vie élevée (75 ans) malgré un PIB modeste.\n\nLes USA “sous-performent” : ils sont très riches mais stagnent à 77 ans (inégalités, système de santé)."
-  },
-  {
-    "objectID": "slides_retours.html#la-régression-linéaire-la-prédiction",
-    "href": "slides_retours.html#la-régression-linéaire-la-prédiction",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La régression linéaire : la “prédiction”",
-    "text": "La régression linéaire : la “prédiction”\nOn ne veut plus juste constater le lien, on veut le modéliser pour faire des prévisions. On trace une droite qui passe “au milieu” du nuage.\nC’est l’équation : \\(Y = a \\cdot X + b\\)\nMais en langage courant : \\[Espérance = (Pente \\times Richesse) + Socle\\]\n\nLa pente (\\(a\\)) : C’est le “taux de conversion” (combien d’argent pour gagner 1 an ?).\nL’ordonnée à l’origine, le “socle” (\\(b\\)) : Le point de départ (espérance de vie sans richesse).\n\n\n\nVoir le code R et le calcul\nlibrary(ggplot2)\n\n# 1. Données\ndf_demo &lt;- data.frame(\n  Pays = c(\"Sierra Leone\", \"Inde\", \"Vietnam\", \"Brésil\", \"Chine\", \"France\", \"USA\", \"Suisse\"),\n  PIB = c(860, 2347, 4147, 9281, 12970, 40988, 76657, 94394),\n  Esp_Vie = c(61, 72, 75, 75, 78, 82, 77, 84)\n)\n\n# 2. Le Calcul (La machine à prédiction)\nmodele &lt;- lm(Esp_Vie ~ PIB, data = df_demo)\ncoeffs &lt;- coef(modele)\nb_socle &lt;- round(coeffs[1], 1)       # L'ordonnée à l'origine\na_pente &lt;- format(coeffs[2], scientific=FALSE, digits=5) # La pente\n\n# 3. Le Graphique\nggplot(df_demo, aes(x = PIB, y = Esp_Vie)) +\n  geom_point(size = 4, color = \"#404080\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"#C04657\", size = 1.5) +\n  geom_text(aes(label = Pays), vjust = -1.2, size = 2.5) +\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  labs(\n    title = paste0(\"Modèle : Espérance = \", a_pente, \" * PIB + \", b_socle),\n    subtitle = \"L'équation est calculée automatiquement par R ci-dessus\",\n    x = \"PIB/hab (en $)\", y = \"Espérance de vie (en années)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 4: Modèle linéaire calculé\n\n\n\n\n\n\n\nLecture des résultats\n\nR a calculé la droite idéale et affiche l’équation au-dessus du graphique.\nL’équation exacte est :\n\\[Y = 0.000126X + 71,7\\]\n\n1. Le socle (\\(b = 71,7\\)) :\nLe modèle est très optimiste ! Il suggère que le niveau de base théorique (si PIB = 0) est de 71,7 ans.\nCela met en évidence la situation critique de la Sierra Leone (le point tout en bas à 61 ans), qui est 10 ans en dessous de ce standard théorique.\nCependant, ce résultat est a relativiter, seuls 8 pays ont été pris en compte dans le modèle !\n\n2. L’effet richesse (\\(a = 0.000126\\)) :\nLa pente est douce. Pour gagner 1 an d’espérance de vie supplémentaire, il faut augmenter le PIB d’environ 7 950 $.\n(Calcul : \\(1 / 0.00012586 \\approx 7945\\)).\n— Analyse des résidus (Les points loin de la ligne) :\n\nLes USA (à droite) sont nettement en dessous de la ligne rouge. Vu leur richesse massive, le modèle “prédit” qu’ils devraient vivre plus vieux (vers 85 ans), mais ils stagnent à 77.\n\nLe Vietnam et la Chine sont au-dessus ou sur la ligne : ils transforment très efficacement leur richesse en santé."
-  },
-  {
-    "objectID": "slides_retours.html#fin-du-retour-sur-les-notions",
-    "href": "slides_retours.html#fin-du-retour-sur-les-notions",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Fin du retour sur les notions",
-    "text": "Fin du retour sur les notions"
   },
   {
     "objectID": "slides_retours.html#le-coefficient-de-corrélation-r",
@@ -350,17 +126,17 @@
     "text": "Comment le calcule-t-on ?\nLa formule est : \\(r = \\frac{Cov(X,Y)}{\\sigma_X \\cdot \\sigma_Y}\\) ?\nC’est une opération en deux temps : mesurer, puis nettoyer.\n1. Le numérateur : La covariance (\\(Cov\\))\n\n\nVoir la formule de la Covariance\n\n\\[Cov(X,Y) = \\frac{1}{n} \\times [ (x_1 - \\bar{x})(y_1 - \\bar{y}) + \\dots + (x_n - \\bar{x})(y_n - \\bar{y}) ]\\] Dans notre cas \\((x_1 - \\bar{x})\\) est le PIB/hab du premier pays - le Pib/hab moyen ;\nEt \\((y_1 - \\bar{y})\\) est l’espérance de vie du premier pays - l’espérance de vie moyenne\n\nC’est la mesure brute du lien.\nElle fait la moyenne des produits des écarts.\n\nProblème : Elle dépend des unités.\nExemple : Ici, on multiplie des Dollars par des Années. Le résultat est en “Dollars-Années”. Ce chiffre est gigantesque et impossible à interpréter.\n\n2. Le dénominateur : Les Écarts-types des variables (\\(\\sigma_X \\cdot \\sigma_Y\\))\nC’est la mesure de la dispersion de chaque variable.\n* \\(\\sigma_X\\) est en Dollars.\n* \\(\\sigma_Y\\) est en Années.\n3. Le résultat : Pourquoi on divise ?\nOn divise le Numérateur par le Dénominateur pour annuler les unités.\nVoici en langage courant la formule du coefficient de corrélation :\n\\[\\text{Corrélation} = \\frac{\\text{Variation commune (Dollars} \\times \\text{Années)}}{\\text{Variation totale (Dollars} \\times \\text{Années)}}\\]\n\n\n\nImportant\n\n\nCe qu’il faut retenir :\nEn divisant la Covariance par les Écarts-types, on “nettoie” l’indicateur. On passe d’un chiffre flou (ex: 450 000) à un ratio pur compris entre -1 et 1.\nCalculons le coefficient de corrélation pour PIB/hab & l’espérance de vie via R\n\n\n\n\n\nVérifier le calcul en R\n# Nos données\npib &lt;- c(860, 2347, 4147, 9281, 12970, 40988, 76657, 94394)\nesp &lt;- c(61, 72, 75, 75, 78, 82, 77, 84)\n\n# Calcul direct\nresultat &lt;- cor(pib, esp)\n# Affiche le résultat\nprint(paste(\"Le coefficient de corrélation est de :\", round(resultat, 2)))\n\n\n[1] \"Le coefficient de corrélation est de : 0.66\"\n\n\n\nInterprétation :\nLe résultat (\\(r = 0.66\\)) confirme une forte corrélation positive. Cela signifie qu’un PIB/habitant élevé est généralement associé à une espérance de vie plus longue (les deux varient dans le même sens)."
   },
   {
-    "objectID": "slides_intro.html#mon-parcours-en-bref",
-    "href": "slides_intro.html#mon-parcours-en-bref",
+    "objectID": "slides_retours.html#la-régression-linéaire-la-prédiction",
+    "href": "slides_retours.html#la-régression-linéaire-la-prédiction",
     "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Mon parcours en bref",
-    "text": "Mon parcours en bref\nDe la démographie à la data analyse\nFormation académique (IDUP)\n* Licence de sciences sociales\n* L3 mention Démographie\n* Master “Expert-Démographe” (IDUP)\nParcours professionnel\n* Actuellement : Data analyst & Chargé d’enquête à Sciences Po."
+    "section": "La régression linéaire : la “prédiction”",
+    "text": "La régression linéaire : la “prédiction”\nOn ne veut plus juste constater le lien, on veut le modéliser pour faire des prévisions. On trace une droite qui passe “au milieu” du nuage.\nC’est l’équation : \\(Y = a \\cdot X + b\\)\nMais en langage courant : \\[Espérance = (Pente \\times Richesse) + Socle\\]\n\nLa pente (\\(a\\)) : C’est le “taux de conversion” (combien d’argent pour gagner 1 an ?).\nL’ordonnée à l’origine, le “socle” (\\(b\\)) : Le point de départ (espérance de vie sans richesse).\n\n\n\nVoir le code R et le calcul\nlibrary(ggplot2)\n\n# 1. Données\ndf_demo &lt;- data.frame(\n  Pays = c(\"Sierra Leone\", \"Inde\", \"Vietnam\", \"Brésil\", \"Chine\", \"France\", \"USA\", \"Suisse\"),\n  PIB = c(860, 2347, 4147, 9281, 12970, 40988, 76657, 94394),\n  Esp_Vie = c(61, 72, 75, 75, 78, 82, 77, 84)\n)\n\n# 2. Le Calcul (La machine à prédiction)\nmodele &lt;- lm(Esp_Vie ~ PIB, data = df_demo)\ncoeffs &lt;- coef(modele)\nb_socle &lt;- round(coeffs[1], 1)       # L'ordonnée à l'origine\na_pente &lt;- format(coeffs[2], scientific=FALSE, digits=5) # La pente\n\n# 3. Le Graphique\nggplot(df_demo, aes(x = PIB, y = Esp_Vie)) +\n  geom_point(size = 4, color = \"#404080\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"#C04657\", size = 1.5) +\n  geom_text(aes(label = Pays), vjust = -1.2, size = 2.5) +\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  labs(\n    title = paste0(\"Modèle : Espérance = \", a_pente, \" * PIB + \", b_socle),\n    subtitle = \"L'équation est calculée automatiquement par R ci-dessus\",\n    x = \"PIB/hab (en $)\", y = \"Espérance de vie (en années)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 4: Modèle linéaire calculé\n\n\n\n\n\n\n\nLecture des résultats\n\nR a calculé la droite idéale et affiche l’équation au-dessus du graphique.\nL’équation exacte est :\n\\[Y = 0.000126X + 71,7\\]\n\n1. Le socle (\\(b = 71,7\\)) :\nLe modèle est très optimiste ! Il suggère que le niveau de base théorique (si PIB = 0) est de 71,7 ans.\nCela met en évidence la situation critique de la Sierra Leone (le point tout en bas à 61 ans), qui est 10 ans en dessous de ce standard théorique.\nCependant, ce résultat est a relativiter, seuls 8 pays ont été pris en compte dans le modèle !\n\n2. L’effet richesse (\\(a = 0.000126\\)) :\nLa pente est douce. Pour gagner 1 an d’espérance de vie supplémentaire, il faut augmenter le PIB d’environ 7 950 $.\n(Calcul : \\(1 / 0.00012586 \\approx 7945\\)).\n— Analyse des résidus (Les points loin de la ligne) :\n\nLes USA (à droite) sont nettement en dessous de la ligne rouge. Vu leur richesse massive, le modèle “prédit” qu’ils devraient vivre plus vieux (vers 85 ans), mais ils stagnent à 77.\n\nLe Vietnam et la Chine sont au-dessus ou sur la ligne : ils transforment très efficacement leur richesse en santé."
   },
   {
-    "objectID": "slides_seq1.html#les-données-étudiées",
-    "href": "slides_seq1.html#les-données-étudiées",
+    "objectID": "slides_retours.html#fin-du-retour-sur-les-notions",
+    "href": "slides_retours.html#fin-du-retour-sur-les-notions",
     "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Les données étudiées",
-    "text": "Les données étudiées\nPour ce premier excercice, nous disposons d’une base de donnnées issue du Programme des Nations Unies pour le Développement (PNUD) avec :\n\nIndividus statistiques : Ce sont les Pays (44 dans notre exemple).\n\nVariables disponibles :\n\nL’Indice de Développement Humain (IDH)\n\nPIB par habitant\n\nEspérance de vie à la naissance\n\nNombre d’année de scolarisation\n\nTaille de la population\n\nRatio de palma (Revenus Top10% / Revenus bottom 40%)\n\nISO 3 (norme de codification cartographique)\n\n\n\nObjectif : Passer d’un tableau de chiffres illisible à des indicateurs clairs et permettre des comparaisons."
+    "section": "Fin du retour sur les notions",
+    "text": "Fin du retour sur les notions"
   }
 ]
