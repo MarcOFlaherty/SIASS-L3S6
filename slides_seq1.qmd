@@ -6,186 +6,29 @@ format:
   revealjs:
     theme: simple
     slide-number: c/t
+    lightbox: true
     chalkboard: true
     footer: "Marc O'Flaherty - L3 Sciences Sociales"
     echo: true
 ---
 
-# 1. Introduction & Données
-*Fiche TD - Question 1*
+# 1. Première séquence
+*Excercice 1*
 
-## Le Jeu de Données : IDH
-Pour comprendre les inégalités mondiales, nous utilisons les données du **PNUD** (Programme des Nations Unies pour le Développement).
+## Les données étudiées {.scrollable}
+Pour ce premier excercice, nous disposons d'une base de donnnées issue du Programme des Nations Unies pour le Développement **(PNUD)** avec :  
 
-* **Individus statistiques :** Ce sont des **Pays** (N ≈ 180).
-* **Variables disponibles :**
-    * *Espérance de vie* (Quantitative)
-    * *Durée moyenne de scolarisation* (Quantitative)
-    * *PIB par habitant* (Quantitative - Richesse)
+* **Individus statistiques :** Ce sont les **Pays** (44 dans notre exemple).  
+* **Variables disponibles :**  
+    * *L'Indice de Développement Humain (IDH)*  
+    * *PIB par habitant*  
+    * *Espérance de vie à la naissance*  
+    * *Nombre d'année de scolarisation*  
+    * *Taille de la population*  
+    * *Ratio de palma* (Revenus Top10% / Revenus bottom 40%)  
+    * *ISO 3* (norme de codification cartographique)  
 
-> **Objectif :** Passer d'un tableau de chiffres illisible à des indicateurs clairs.
+> **Objectif :** Passer d'un tableau de chiffres illisible à des indicateurs clairs et permettre des comparaisons.
 
-
-# 2. Tendance Centrale & Dispersion
-*Fiche TD - Questions 2 & 3*
-
-## La Moyenne vs La Médiane
-Comment résumer une distribution en un seul chiffre ?
-
-::: {.columns}
-::: {.column width="50%"}
-### La Moyenne
-* **Calcul :** Somme des valeurs / Nombre total.
-* **Défaut :** Sensible aux extrêmes.
-    * *Exemple :* Si Bill Gates entre dans un bar, le "salaire moyen" explose.
-:::
-
-::: {.column width="50%"}
-### La Médiane
-* **Calcul :** La valeur du milieu (50% au-dessus, 50% en-dessous).
-* **Qualité :** Robuste.
-    * *Exemple :* Le salaire médian du bar ne bouge pas avec Bill Gates.
-:::
-:::
-
-## La Dispersion : Variance & Écart-type
-La moyenne cache la réalité. Tout le monde est-il "moyen" ?
-
-* **La Variance ($V$) :** C'est la moyenne des carrés des écarts.
-    * *Problème :* L'unité est au carré (des "ans²"). Ininterprétable.
-* **L'Écart-type ($\sigma$) :** Racine carrée de la Variance.
-    * *Solution :* On revient à l'unité d'origine.
-    * *Sens :* C'est l'écart "typique" entre un pays et la moyenne mondiale.
-
-## Les Quantiles (Le découpage du gâteau)
-Pour voir les inégalités, on découpe la population en parts égales.
-
-* **Quartiles (4 parts) :**
-    * Q1 : Les 25% les plus pauvres.
-    * Q2 (Médiane) : 50%.
-    * Q3 : Les 75% (le début des 25% les plus riches).
-* **Déciles (10 parts) :** D1 (les 10% les plus pauvres) à D9.
-
-# 3. Visualisation Graphique
-*Fiche TD - Questions 4 à 6*
-
-## La Boîte à Moustache (Boxplot)
-Un résumé visuel en 5 informations clés.
-
-* La **Boîte** contient 50% des pays (l'écart inter-quartile).
-* La **Barre** au milieu est la médiane.
-* Les **Points** extérieurs sont les *Outliers* (pays atypiques).
-
-## L'Histogramme
-Pour voir la **forme** de la distribution.
-
-* On crée des "classes" (ex: pays entre 50 et 60 ans d'espérance de vie).
-* On compte combien de pays tombent dans chaque classe.
-* Cela permet de voir si la distribution est "Normale" (en cloche) ou asymétrique.
-
-
-# 4. Statistiques Bivariées
-*Fiche TD - Questions 7 à 9*
-
-## Covariance & Corrélation
-Est-ce que quand la richesse augmente, l'espérance de vie augmente ?
-
-* **Covariance :** Indique le sens (+ ou -), mais dépend des unités. Dur à lire.
-* **Corrélation ($r$) :** Indique la **force** du lien (entre -1 et +1).
-    * $r \approx 0$ : Aucun lien.
-    * $r \rightarrow 1$ : Lien parfait positif.
-    * $r \rightarrow -1$ : Lien parfait négatif.
-
-## La Régression Linéaire
-On cherche à **modéliser** le lien par une droite : $Y = aX + b$
-
-* **$Y$** : Variable à expliquer (Espérance de vie).
-* **$X$** : Variable explicative (PIB).
-* **$a$ (pente)** : "Si le PIB augmente de 1$, de combien augmente l'espérance de vie ?"
-* **$R^2$** : La qualité de la prédiction (entre 0 et 1).
-
-
-# 5. Atelier Pratique R
-*Passons aux choses sérieuses ! Copiez les codes suivants dans RStudio.*
-
-## Étape 1 : Charger les données
-Dans RStudio, créez un nouveau script et copiez ce code.
-
-```{r}
-#| echo: true
-#| eval: false
-
-# 1. Définir le dossier de travail (A adapter selon votre PC !)
-# setwd("C:/MesDocuments/L3_Stats/TD1")
-
-# 2. Lire le fichier CSV
-# 'sep' définit le séparateur (souvent ";" ou ",")
-# 'dec' définit la décimale ("." ou ",")
-donnees <- read.csv("DonneesTD1.csv", sep = ";", dec = ",")
-
-# 3. Vérifier que tout va bien
-head(donnees) # Affiche les 6 premières lignes
-str(donnees)  # Affiche la structure des variables
-
-```
-
-## Étape 2 : Calculs Univariés (A vous de jouer)
-Remplacez les ___ par le nom des variables (ex: donnees$Esperance_Vie).
-```{r}
-#| echo: true
-#| eval: false
-
-# --- Calcul de la Moyenne ---
-# na.rm = TRUE permet d'ignorer les valeurs manquantes
-moyenne_vie <- mean(___, na.rm = TRUE)
-print(moyenne_vie)
-
-# --- Calcul de l'Écart-type (Standard Deviation) ---
-ecart_type <- sd(___, na.rm = TRUE)
-
-# --- Résumé complet (Moyenne, Médiane, Quartiles) ---
-summary(___)
-```
-
-## Étape 3 : Graphiques
-Visualisons la distribution de l'Espérance de Vie.
-```{r}
-#| echo: true
-#| eval: false
-
-# --- Histogramme ---
-# col = couleur, main = Titre, xlab = étiquette axe X
-hist(donnees$Esperance_Vie, 
-     col = "lightblue", 
-     main = "Distribution de l'Espérance de Vie",
-     xlab = "Années")
-
-# --- Boîte à Moustache ---
-boxplot(donnees$Esperance_Vie,
-        col = "orange",
-        main = "Boîte à moustache - Espérance de vie")
-```
-
-## Étape 4 : Corrélation & Régression
-Y a-t-il un lien entre Richesse (PIB) et Santé (Espérance de vie) ?
-```{r}
-#| echo: true
-#| eval: false
-
-# --- 1. Corrélation ---
-cor(donnees$PIB, donnees$Esperance_Vie, use = "complete.obs")
-
-# --- 2. Nuage de points ---
-plot(x = donnees$PIB, 
-     y = donnees$Esperance_Vie,
-     pch = 19, # Forme des points
-     col = "blue",
-     xlab = "PIB par habitant",
-     ylab = "Espérance de vie")
-
-# --- 3. Droite de régression ---
-modele <- lm(Esperance_Vie ~ PIB, data = donnees)
-abline(modele, col = "red", lwd = 2) # Ajoute la ligne rouge
-```
 
 ## Fin de la séquence 1

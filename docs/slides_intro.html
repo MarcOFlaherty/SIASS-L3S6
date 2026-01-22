@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Marc O’Flaherty">
-  <title>SIASS - L3 Sciences Sociales – Introduction au cours</title>
+  <title>SIASS - L3 Sciences Sociales – Statistique et informatique appliquées aux sciences sociales</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -128,8 +128,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Introduction au cours</h1>
-  <p class="subtitle">Statistiques et informatique appliquées aux sciences sociales (L3)</p>
+  <h1 class="title">Statistique et informatique appliquées aux sciences sociales</h1>
+  <p class="subtitle">Introduction au cours</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -145,13 +145,13 @@ Marc O’Flaherty
 <h1>1. Qui suis-je ?</h1>
 
 </section>
-<section id="mon-parcours" class="slide level2">
-<h2>Mon parcours</h2>
-<p><em>De la socio-démographie à la data science</em></p>
+<section id="mon-parcours-en-bref" class="slide level2">
+<h2>Mon parcours en bref</h2>
+<p><em>De la démographie à la data analyse</em></p>
 <p><strong>Formation académique (IDUP)</strong><br>
 * Licence de sciences sociales<br>
 * L3 mention <strong>Démographie</strong><br>
-* Master “Expert-démographe” (IDUP)</p>
+* Master “Expert-Démographe” (IDUP)</p>
 <p><strong>Parcours professionnel</strong><br>
 * Actuellement : Data analyst &amp; Chargé d’enquête à Sciences Po.</p>
 </section></section>
@@ -162,18 +162,17 @@ Marc O’Flaherty
 </section>
 <section id="je-suis-littéraire-pourquoi-faire-des-stats" class="slide level2 scrollable">
 <h2>“Je suis littéraire, pourquoi faire des stats ?”</h2>
-<p>C’est la question que vous vous posez tous. Voici la réalité du terrain.</p>
 <ol type="1">
 <li><strong>L’autonomie du chercheur :</strong>
 <ul>
 <li>Ne dépendez pas d’un tiers pour vérifier vos hypothèses.</li>
 <li>La sociologie donne le “pourquoi”, la stat donne le “combien”.</li>
-<li><em>Exemple :</em> Vous observez une discrimination à l’embauche sur un terrain <span class="math inline">\(\rightarrow\)</span> Les stats vous permettent de prouver qu’elle est systémique.</li>
+<li><em>Exemple :</em> Vous observez des discriminations à l’embauche sur un terrain <span class="math inline">\(\rightarrow\)</span> Les stats vous permettent de quantifier et de prouver qu’elles sont systémiques.</li>
 </ul></li>
 <li><strong>L’employabilité (le nerf de la guerre) :</strong>
 <ul>
 <li>ONG, ministères, collectivités, instituts de sondage…</li>
-<li>Tout le monde cherche des profils “hybrides” : capables de comprendre le social <strong>ET</strong> de traiter les données.</li>
+<li>Tout le monde cherche des profils “hybrides” : capables de comprendre les faits sociaux <strong>ET</strong> de les quantifier.</li>
 </ul></li>
 </ol>
 </section>
@@ -183,8 +182,11 @@ Marc O’Flaherty
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Cas 1 : Sociologie de l’éducation</a></li><li><a href="#tabset-1-2">Cas 2 : Sociologie du travail</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<p><strong>Le “paradoxe” des héritiers</strong> * <em>Données :</em> Enquête “Mes Héritiers” (G. Henri-Panabière).<br>
-* <em>La question :</em> Le capital culturel protège-t-il toujours de l’échec scolaire ? * <em>Vos variables :</em> <code>Moyenne en français</code>, <code>Diplôme de la mère</code>, <code>Sentiment d'aisance</code>. * <em>L’outil :</em> Régression linéaire &amp; analyse des résidus (Séquence 3).</p>
+<p><strong>Le “paradoxe” des héritiers</strong><br>
+* <em>Données :</em> Enquête “Mes Héritiers” (G. Henri-Panabière).<br>
+* <em>La question :</em> Le capital culturel protège-t-il toujours de l’échec scolaire ?<br>
+* <em>Vos variables :</em> <code>Moyenne scolaire</code>, <code>Diplôme de la mère</code>, <code>Sentiment d'aisance</code>.<br>
+* <em>L’outil :</em> Régression linéaire &amp; analyse des résidus (Séquence 3).</p>
 </div>
 <div id="tabset-1-2">
 <p><strong>Qui sont les “mobiles” en Europe ?</strong><br>
@@ -199,10 +201,10 @@ Marc O’Flaherty
 <section>
 <section id="le-programme-du-semestre" class="title-slide slide level1 center">
 <h1>3. Le programme du semestre</h1>
-<p><em>Objectif : devenir autonome sur la donnée</em></p>
+<p><em>Objectif : devenir autonome sur l’analyse des données</em></p>
 </section>
-<section id="votre-feuille-de-route" class="slide level2 scrollable">
-<h2>Votre feuille de route</h2>
+<section id="la-feuille-de-route" class="slide level2 scrollable">
+<h2>La feuille de route</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 25%">
@@ -223,46 +225,48 @@ Marc O’Flaherty
 <td style="text-align: left;"><strong>1. Les bases</strong></td>
 <td style="text-align: left;">Stats descriptives &amp; prise en main</td>
 <td style="text-align: left;"><strong>Excel &amp; R</strong></td>
-<td style="text-align: left;">Inégalités mondiales (IDH)</td>
+<td style="text-align: left;">UNDP (IDH)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>2. Carto</strong></td>
 <td style="text-align: left;">Représentation spatiale</td>
-<td style="text-align: left;"><strong>Khartis</strong></td>
-<td style="text-align: left;">Production d’éolienne en Europe</td>
+<td style="text-align: left;"><strong>Excel &amp; Khartis</strong></td>
+<td style="text-align: left;">Production d’éoliennes en Europe</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>3. Expliquer</strong></td>
 <td style="text-align: left;">Corrélation &amp; régression simple</td>
-<td style="text-align: left;"><strong>R</strong></td>
-<td style="text-align: left;">Notes au collège &amp; origine sociale</td>
+<td style="text-align: left;"><strong>Excel &amp; R</strong></td>
+<td style="text-align: left;">Enquête “Mes Héritiers”</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>4. Enquêter</strong></td>
 <td style="text-align: left;">Analyse bivariée &amp; multivariée</td>
-<td style="text-align: left;"><strong>R</strong></td>
-<td style="text-align: left;">Enquêtes “Mes Héritiers” &amp; “JobMob”</td>
+<td style="text-align: left;"><strong>Excel &amp; R</strong></td>
+<td style="text-align: left;">Enquête “JobMob”</td>
 </tr>
 </tbody>
 </table>
 </section></section>
 <section>
-<section id="onboarding" class="title-slide slide level1 center">
-<h1>4. Onboarding</h1>
-<p><em>Commençons maintenant !</em></p>
+<section id="avant-de-commencer" class="title-slide slide level1 center">
+<h1>4. Avant de commencer</h1>
+
 </section>
 <section id="contacts" class="slide level2">
 <h2>Contacts</h2>
 <p>Voici l’adresse e-mail avec laquelle nous allons échanger.</p>
 <p><strong>Email :</strong> <code>oflahertymarc.etudes@gmail.com</code></p>
-<p><strong>Le site du cours :</strong> <code>https://marcoflaherty.github.io/SIASS-L3S6/</code> <em>(L’ensemble du cours y sera posté)</em></p>
+<p><strong>Le site du cours :</strong> <a href="https://marcoflaherty.github.io/SIASS-L3S6/" class="uri">https://marcoflaherty.github.io/SIASS-L3S6/</a><br>
+<em>(L’ensemble du cours y sera posté)</em></p>
 </section>
 <section id="formulaire-de-rentrée" class="slide level2">
 <h2>Formulaire de rentrée</h2>
-<p>Merci de scanner ce QR Code et de répondre maintenant (2 min).</p>
+<p>Merci de scanner ce QR Code et de répondre maintenant (1 min).</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Informations demandées :</strong> 1. Nom &amp; Prénom<br>
+<p><strong>Informations demandées :</strong><br>
+1. Nom &amp; Prénom<br>
 2. Email universitaire<br>
 3. Niveau Excel (1 à 6)<br>
 4. Niveau R (1 à 6)</p>
