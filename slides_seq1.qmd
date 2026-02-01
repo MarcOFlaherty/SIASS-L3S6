@@ -371,12 +371,12 @@ data.frame(Moyenne_Pays = m_pays, Moyenne_Monde = m_monde)
 
 # Conclusion (Q11-13)
 
-## Comparaison et Bilan
+## Comparaison et bilan
 
-* **Q11 (Ouverture) :** Vous pouvez tester d'autres modèles chez vous.
+* **Q11 (Ouverture) :** Vous pouvez tester d'autres modèles de régression sur d'autres variables et/ou d'autres données. .  
 * **Q12 (Excel vs R) :**
-    * **Excel :** Intuitif pour voir les données, bon pour la saisie manuelle.
+    * **Excel :** Intuitif pour "voir" les données, bon pour la saisie manuelle.
     * **R :** Plus puissant pour les graphiques (ggplot), la modélisation (lm) et surtout la **reproductibilité** (on relance le script, tout se met à jour).
 * **Q13 (Commentaires) :**
     * Le développement est très inégal.
-    * La richesse est fortement liée à la santé, mais l'éducation joue aussi un rôle clé (comme vu en Q9).
+    * La richesse est fortement liée à l'espérance de vie, mais c'est l'éducation qui joue le rôle le plus important (comme vu en Q9).  
