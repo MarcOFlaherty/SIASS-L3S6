@@ -618,15 +618,15 @@ Années éducation (2017)                    1.00</code></pre>
 </div>
 </div>
 </section>
-<section id="nuage-de-points-et-régression-simple-q8" class="slide level2 scrollable">
-<h2>Nuage de points et Régression Simple (Q8)</h2>
+<section id="nuage-de-points-et-régression-linéaire-q8" class="slide level2 scrollable">
+<h2>Nuage de points et Régression linéaire (Q8)</h2>
 <p><em>Espérance de vie ~ PIB par tête.</em></p>
 <div style="max-height: 450px; overflow-y: auto;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">PIB/tête (2017)</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
 <span id="cb17-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
 <span id="cb17-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"#C04657"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Droite de régression</span></span>
-<span id="cb17-4"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q8 : Régression Simple"</span>, <span class="at">x =</span> <span class="st">"PIB ($)"</span>, <span class="at">y =</span> <span class="st">"Espérance de vie"</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q8 : Régression linéaire"</span>, <span class="at">x =</span> <span class="st">"PIB ($)"</span>, <span class="at">y =</span> <span class="st">"Espérance de vie"</span>) <span class="sc">+</span></span>
 <span id="cb17-5"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -711,37 +711,106 @@ Années éducation (2017)                    1.00</code></pre>
 <h1>Q10. Le piège de l’agrégation</h1>
 <p><em>Pays vs Population mondiale</em></p>
 </section>
-<section id="pondération-par-la-population-q10" class="slide level2 scrollable">
-<h2>Pondération par la population (Q10)</h2>
-<p>Peut-on faire les calculs pour la <strong>population mondiale</strong> ? Oui, mais il faut pondérer chaque pays par son nombre d’habitants.</p>
+<section id="espérance-de-vie-mondiale-q10" class="slide level2 scrollable">
+<h2>Espérance de vie mondiale (Q10)</h2>
+<p><em>Calculez l’espérance de vie des habitants de la planète et sa variance inter-pays.</em></p>
+<p>On cherche ici à décrire la “population mondiale” et non plus une liste de pays. Il faut donc <strong>pondérer</strong> par la population.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>🟢 Sur Excel</strong></p>
+<p><strong>🟢 Sur Excel (Méthode avec pondération)</strong></p>
 </div>
 <div class="callout-content">
-<p>Utilisez <code>=SOMMEPROD(Valeurs; Poids) / SOMME(Poids)</code>.</p>
+<p>Pour la variance pondérée, il faut une colonne intermédiaire.<br>
+1. <strong>Moyenne Monde (<span class="math inline">\(M\)</span>) :</strong> <code>=SOMMEPROD(Esp; Pop) / SOMME(Pop)</code><br>
+* <em>Cela donne l’espérance de vie moyenne d’un terrien.</em><br>
+2. <strong>Colonne “Ecart Carré Pondéré” :</strong><br>
+* Formule : <code>= Population * (Espérance - $M)^2</code><br>
+3. <strong>Variance Inter-Pays :</strong> <code>= SOMME(Colonne_Ecart) / SOMME(Pop)</code></p>
 </div>
 </div>
 </div>
-<div style="max-height: 300px; overflow-y: auto;">
+<p><strong>Résultats sur R :</strong></p>
+<div style="max-height: 400px; overflow-y: auto;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Moyenne "Pays" (Non pondérée)</span></span>
-<span id="cb20-2"><a></a>m_pays <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-3"><a></a></span>
-<span id="cb20-4"><a></a><span class="co"># Moyenne "Monde" (Pondérée par la population)</span></span>
-<span id="cb20-5"><a></a>m_monde <span class="ot">&lt;-</span> <span class="fu">weighted.mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">w =</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-6"><a></a></span>
-<span id="cb20-7"><a></a><span class="fu">data.frame</span>(<span class="at">Moyenne_Pays =</span> m_pays, <span class="at">Moyenne_Monde =</span> m_monde)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Moyenne_Pays Moyenne_Monde
-1     73.42727      73.47755</code></pre>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># 1. Moyenne Mondiale (Pondérée)</span></span>
+<span id="cb20-2"><a></a><span class="co"># C'est l'espérance de vie moyenne d'un être humain sur Terre (dans notre échantillon)</span></span>
+<span id="cb20-3"><a></a><span class="co"># Moyenne non pondérée</span></span>
+<span id="cb20-4"><a></a>moy_Q2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-5"><a></a></span>
+<span id="cb20-6"><a></a><span class="co"># Moyenne pondérée</span></span>
+<span id="cb20-7"><a></a>moy_monde <span class="ot">&lt;-</span> <span class="fu">weighted.mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, </span>
+<span id="cb20-8"><a></a>                           <span class="at">w =</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span>, </span>
+<span id="cb20-9"><a></a>                           <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-10"><a></a></span>
+<span id="cb20-11"><a></a><span class="co"># 2. Variance Inter-Pays (Pondérée)</span></span>
+<span id="cb20-12"><a></a><span class="co"># Formule : Somme(Pop * (Esp - Moy)^2) / Somme(Pop)</span></span>
+<span id="cb20-13"><a></a><span class="co"># Variance non pondérée</span></span>
+<span id="cb20-14"><a></a>var_Q2 <span class="ot">&lt;-</span> <span class="fu">var</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-15"><a></a><span class="co"># Écart type non pondérée</span></span>
+<span id="cb20-16"><a></a>sd_Q2 <span class="ot">&lt;-</span> <span class="fu">sd</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-17"><a></a></span>
+<span id="cb20-18"><a></a><span class="co"># Moyenne pondérée</span></span>
+<span id="cb20-19"><a></a>var_inter <span class="ot">&lt;-</span> <span class="fu">sum</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span> <span class="sc">*</span> (df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span> <span class="sc">-</span> moy_monde)<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> </span>
+<span id="cb20-20"><a></a>             <span class="fu">sum</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-21"><a></a></span>
+<span id="cb20-22"><a></a><span class="co"># Affichage des résultats</span></span>
+<span id="cb20-23"><a></a><span class="fu">data.frame</span>(</span>
+<span id="cb20-24"><a></a>  <span class="at">Indicateur =</span> <span class="fu">c</span>(<span class="st">"Espérance de vie (Q2 - non pondérée)"</span>, <span class="st">"Espérance de vie (Monde - pondérée)"</span>, <span class="st">"Variance non pondérée"</span>, <span class="st">"Variance Inter-Pays (Pondérée)"</span>, <span class="st">"Ecart-type non pondéré"</span>, <span class="st">"Ecart-type Inter-Pays"</span>),</span>
+<span id="cb20-25"><a></a>  <span class="at">Valeur =</span> <span class="fu">c</span>(moy_Q2, moy_monde, var_Q2, var_inter, sd_Q2, <span class="fu">sqrt</span>(var_inter)) <span class="co"># sqrt -&gt; racine carré de la variance</span></span>
+<span id="cb20-26"><a></a>) <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Indicateur</th>
+<th style="text-align: right;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Espérance de vie (Q2 - non pondérée)</td>
+<td style="text-align: right;">73.43</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Espérance de vie (Monde - pondérée)</td>
+<td style="text-align: right;">73.48</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variance non pondérée</td>
+<td style="text-align: right;">85.77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Variance Inter-Pays (Pondérée)</td>
+<td style="text-align: right;">86.69</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ecart-type non pondéré</td>
+<td style="text-align: right;">9.26</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ecart-type Inter-Pays</td>
+<td style="text-align: right;">9.31</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
+<h3 id="commentaire">Commentaire</h3>
+<ol type="1">
+<li><strong>L’Espérance de vie mondiale :</strong> Une fois pondérée, la moyenne est différente de la moyenne simple des pays. Ici, elle est tirée vers le haut, à la marge.<br>
+</li>
+<li><strong>La Variance Inter-Pays :</strong> Elle mesure les inégalités <strong>entre les nations</strong>.
+<ul>
+<li><em>Ce qu’elle rate :</em> Elle ignore les inégalités <strong>à l’intérieur</strong> des pays (riches vs pauvres au sein d’un même pays).<br>
+</li>
+<li><em>Conclusion :</em> La vraie variance de l’espérance de vie mondiale (si on prenait chaque humain individuellement) serait beaucoup plus élevée, car elle ajouterait les inégalités internes aux inégalités nationale et internationales.</li>
+</ul></li>
+</ol>
 </section></section>
 <section>
 <section id="conclusion-q11-13" class="title-slide slide level1 center">
@@ -749,23 +818,61 @@ Années éducation (2017)                    1.00</code></pre>
 
 </section>
 <section id="comparaison-et-bilan" class="slide level2">
-<h2>Comparaison et Bilan</h2>
+<h2>Comparaison et bilan</h2>
 <ul>
-<li><strong>Q11 (Ouverture) :</strong> Vous pouvez tester d’autres modèles chez vous.</li>
+<li><strong>Q11 (Ouverture) :</strong> Vous pouvez tester d’autres modèles de régression sur d’autres variables et/ou d’autres données. .<br>
+</li>
 <li><strong>Q12 (Excel vs R) :</strong>
 <ul>
-<li><strong>Excel :</strong> Intuitif pour voir les données, bon pour la saisie manuelle.</li>
+<li><strong>Excel :</strong> Intuitif pour “voir” les données, bon pour la saisie manuelle.</li>
 <li><strong>R :</strong> Plus puissant pour les graphiques (ggplot), la modélisation (lm) et surtout la <strong>reproductibilité</strong> (on relance le script, tout se met à jour).</li>
 </ul></li>
-<li><strong>Q13 (Commentaires) :</strong>
-<ul>
-<li>Le développement est très inégal.</li>
-<li>La richesse est fortement liée à la santé, mais l’éducation joue aussi un rôle clé (comme vu en Q9).</li>
-</ul></li>
 </ul>
-
-
+</section>
+<section id="q13-synthèse-et-interprétation-des-résultats" class="slide level2 scrollable">
+<h2>Q13 : Synthèse et interprétation des résultats</h2>
+<p>L’objectif était d’analyser les déterminants de l’espérance de vie à travers un échantillon de 44 pays en 2017. Voici les trois conclusions majeures issues de nos traitements statistiques.</p>
+<h3 id="a.-une-distribution-mondiale-étonnamment-stable-q2-vs-q10">A. Une distribution mondiale étonnamment stable (Q2 vs Q10)</h3>
+<p>Contrairement à l’intuition, la prise en compte de la taille de la population ne change presque rien aux résultats globaux sur cet échantillon :</p>
+<ul>
+<li><strong>Moyenne :</strong> L’espérance de vie moyenne par pays est de <strong>73,43 ans</strong>. L’espérance de vie mondiale pondérée (celle d’un “habitant terrien moyen”) est quasi identique à <strong>73,48 ans</strong>.<br>
+</li>
+<li><strong>Interprétation :</strong> Cela signifie qu’il n’y a pas de biais démographique majeur : les géants démographiques de l’échantillon ne sont ni systématiquement plus pauvres, ni plus riches que les petits pays.<br>
+</li>
+<li><strong>Inégalités :</strong> La variance reste élevée, signe que le lieu de naissance détermine encore fortement la durée de vie.</li>
+</ul>
+<h3 id="b.-léducation-est-le-moteur-la-richesse-nest-que-le-carburant-q9">B. L’Éducation est le moteur, la richesse n’est que le carburant (Q9)</h3>
+<p>La régression multiple (<span class="math inline">\(R^2 = 0,89\)</span>) nous a permis de départager les facteurs d’influence avec précision :</p>
+<ol type="1">
+<li><strong>L’Éducation est la cause réelle :</strong> C’est la seule variable hautement significative (<span class="math inline">\(p &lt; 0,001\)</span>). Chaque année d’étude supplémentaire augmente l’espérance de vie de <strong>2,16 ans</strong>.<br>
+</li>
+<li><strong>L’effet “masqué” du PIB :</strong> Une fois l’éducation prise en compte, le PIB par tête devient non-significatif (<span class="math inline">\(p = 0,72\)</span>).
+<ul>
+<li><em>Sens sociologique :</em> La richesse économique n’est pas une fin en soi pour la santé. Elle n’est utile que si elle est convertie en services publics et en <strong>éducation</strong> notamment (ex : USA).<br>
+</li>
+</ul></li>
+<li><strong>La neutralité démographique :</strong> La taille de la population n’a aucun impact (<span class="math inline">\(p = 0,60\)</span>).</li>
+</ol>
+<h3 id="c.-le-socle-biologique">C. Le “socle biologique”</h3>
+<p>L’ordonnée à l’origine (Intercept) est de <strong>43,05 ans</strong>.<br>
+Cela représente l’espérance de vie théorique “brute” d’une population qui n’aurait aucune instruction ni développement économique. L’écart entre ce socle (43 ans) et la moyenne actuelle (~73,5 ans) mesure l’apport du développement humain.</p>
 </section></section>
+<section id="fin-de-la-séquence-1" class="title-slide slide level1 center">
+<h1>Fin de la séquence 1</h1>
+<p><strong>Merci de votre attention !</strong></p>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>🔗 Accéder au corrigé</strong></p>
+</div>
+<div class="callout-content">
+<p><a href="https://y.yarn.co/6e13b700-cce4-47e6-a5db-5999fd581141_text.gif">Cliquez ici pour accéder au Excel corrigé</a></p>
+</div>
+</div>
+</div>
+
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

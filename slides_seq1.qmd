@@ -274,7 +274,7 @@ cor(vars, use = "complete.obs") %>% round(2)
 ```
 :::
 
-## Nuage de points et Régression Simple (Q8) {.scrollable}
+## Nuage de points et Régression linéaire (Q8) {.scrollable}
 *Espérance de vie ~ PIB par tête.*
 
 ::: {style="max-height: 450px; overflow-y: auto;"}
@@ -285,7 +285,7 @@ cor(vars, use = "complete.obs") %>% round(2)
 ggplot(df, aes(x = `PIB/tête (2017)`, y = `Esp Vie Naiss 2017`)) +
   geom_point(alpha = 0.6) +
   geom_smooth(method = "lm", color = "#C04657", se = FALSE) + # Droite de régression
-  labs(title = "Q8 : Régression Simple", x = "PIB ($)", y = "Espérance de vie") +
+  labs(title = "Q8 : Régression linéaire", x = "PIB ($)", y = "Espérance de vie") +
   theme_minimal()
 ```
 :::
@@ -344,30 +344,64 @@ summary(modele_safe)$coefficients %>% round(5)
 # Q10. Le piège de l'agrégation
 *Pays vs Population mondiale*
 
-## Pondération par la population (Q10) {.scrollable}
+## Espérance de vie mondiale (Q10) {.scrollable}
+*Calculez l'espérance de vie des habitants de la planète et sa variance inter-pays.*
 
-Peut-on faire les calculs pour la **population mondiale** ?
-Oui, mais il faut pondérer chaque pays par son nombre d'habitants.
+On cherche ici à décrire la "population mondiale" et non plus une liste de pays. Il faut donc **pondérer** par la population.
 
 ::: {.callout-tip}
-### 🟢 Sur Excel
-Utilisez `=SOMMEPROD(Valeurs; Poids) / SOMME(Poids)`.
+### 🟢 Sur Excel (Méthode avec pondération)  
+
+Pour la variance pondérée, il faut une colonne intermédiaire.  
+1.  **Moyenne Monde ($M$) :** `=SOMMEPROD(Esp; Pop) / SOMME(Pop)`  
+    * *Cela donne l'espérance de vie moyenne d'un terrien.*  
+2.  **Colonne "Ecart Carré Pondéré" :**  
+    * Formule : `= Population * (Espérance - $M)^2`  
+3.  **Variance Inter-Pays :** `= SOMME(Colonne_Ecart) / SOMME(Pop)`  
 :::
 
-::: {style="max-height: 300px; overflow-y: auto;"}
+**Résultats sur R :**
+
+::: {style="max-height: 400px; overflow-y: auto;"}
 ```{r}
-#| label: q10-ponderation
+#| label: q10-monde-pondere
 #| echo: true
 
-# Moyenne "Pays" (Non pondérée)
-m_pays <- mean(df$`Esp Vie Naiss 2017`, na.rm = TRUE)
+# 1. Moyenne Mondiale (Pondérée)
+# C'est l'espérance de vie moyenne d'un être humain sur Terre (dans notre échantillon)
+# Moyenne non pondérée
+moy_Q2 <- mean(df$`Esp Vie Naiss 2017`, na.rm = TRUE)
 
-# Moyenne "Monde" (Pondérée par la population)
-m_monde <- weighted.mean(df$`Esp Vie Naiss 2017`, w = df$`Population totale (2017)`, na.rm = TRUE)
+# Moyenne pondérée
+moy_monde <- weighted.mean(df$`Esp Vie Naiss 2017`, 
+                           w = df$`Population totale (2017)`, 
+                           na.rm = TRUE)
 
-data.frame(Moyenne_Pays = m_pays, Moyenne_Monde = m_monde)
+# 2. Variance Inter-Pays (Pondérée)
+# Formule : Somme(Pop * (Esp - Moy)^2) / Somme(Pop)
+# Variance non pondérée
+var_Q2 <- var(df$`Esp Vie Naiss 2017`, na.rm = TRUE)
+# Écart type non pondérée
+sd_Q2 <- sd(df$`Esp Vie Naiss 2017`, na.rm = TRUE)
+
+# Moyenne pondérée
+var_inter <- sum(df$`Population totale (2017)` * (df$`Esp Vie Naiss 2017` - moy_monde)^2, na.rm = TRUE) / 
+             sum(df$`Population totale (2017)`, na.rm = TRUE)
+
+# Affichage des résultats
+data.frame(
+  Indicateur = c("Espérance de vie (Q2 - non pondérée)", "Espérance de vie (Monde - pondérée)", "Variance non pondérée", "Variance Inter-Pays (Pondérée)", "Ecart-type non pondéré", "Ecart-type Inter-Pays"),
+  Valeur = c(moy_Q2, moy_monde, var_Q2, var_inter, sd_Q2, sqrt(var_inter)) # sqrt -> racine carré de la variance
+) %>% knitr::kable(digits = 2)
 ```
 :::
+
+### Commentaire
+1.  **L'Espérance de vie mondiale :** Une fois pondérée, la moyenne est différente de la moyenne simple des pays. Ici, elle est tirée vers le haut, à la marge.    
+2.  **La Variance Inter-Pays :** Elle mesure les inégalités **entre les nations**.  
+    * *Ce qu'elle rate :* Elle ignore les inégalités **à l'intérieur** des pays (riches vs pauvres au sein d'un même pays).  
+    * *Conclusion :* La vraie variance de l'espérance de vie mondiale (si on prenait chaque humain individuellement) serait beaucoup plus élevée, car elle ajouterait les inégalités internes aux inégalités nationale et internationales.    
+
 
 # Conclusion (Q11-13)
 
@@ -377,6 +411,37 @@ data.frame(Moyenne_Pays = m_pays, Moyenne_Monde = m_monde)
 * **Q12 (Excel vs R) :**
     * **Excel :** Intuitif pour "voir" les données, bon pour la saisie manuelle.
     * **R :** Plus puissant pour les graphiques (ggplot), la modélisation (lm) et surtout la **reproductibilité** (on relance le script, tout se met à jour).
-* **Q13 (Commentaires) :**
-    * Le développement est très inégal.
-    * La richesse est fortement liée à l'espérance de vie, mais c'est l'éducation qui joue le rôle le plus important (comme vu en Q9).  
+
+
+## Q13 : Synthèse et interprétation des résultats {.scrollable}  
+
+L'objectif était d'analyser les déterminants de l'espérance de vie à travers un échantillon de 44 pays en 2017. Voici les trois conclusions majeures issues de nos traitements statistiques.  
+
+### A. Une distribution mondiale étonnamment stable (Q2 vs Q10)  
+Contrairement à l'intuition, la prise en compte de la taille de la population ne change presque rien aux résultats globaux sur cet échantillon :  
+
+* **Moyenne :** L'espérance de vie moyenne par pays est de **73,43 ans**. L'espérance de vie mondiale pondérée (celle d'un "habitant terrien moyen") est quasi identique à **73,48 ans**.  
+* **Interprétation :** Cela signifie qu'il n'y a pas de biais démographique majeur : les géants démographiques de l'échantillon ne sont ni systématiquement plus pauvres, ni plus riches que les petits pays.  
+* **Inégalités :** La variance reste élevée, signe que le lieu de naissance détermine encore fortement la durée de vie.  
+
+### B. L'Éducation est le moteur, la richesse n'est que le carburant (Q9)
+La régression multiple ($R^2 = 0,89$) nous a permis de départager les facteurs d'influence avec précision :  
+
+1.  **L'Éducation est la cause réelle :** C'est la seule variable hautement significative ($p < 0,001$). Chaque année d'étude supplémentaire augmente l'espérance de vie de **2,16 ans**.  
+2.  **L'effet "masqué" du PIB :** Une fois l'éducation prise en compte, le PIB par tête devient non-significatif ($p = 0,72$).  
+    * *Sens sociologique :* La richesse économique n'est pas une fin en soi pour la santé. Elle n'est utile que si elle est convertie en services publics et en **éducation** notamment (ex : USA).  
+3.  **La neutralité démographique :** La taille de la population n'a aucun impact ($p = 0,60$).  
+
+### C. Le "socle biologique"
+L'ordonnée à l'origine (Intercept) est de **43,05 ans**.  
+Cela représente l'espérance de vie théorique "brute" d'une population qui n'aurait aucune instruction ni développement économique. L'écart entre ce socle (43 ans) et la moyenne actuelle (~73,5 ans) mesure l'apport du développement humain.  
+
+# Fin de la séquence 1
+
+**Merci de votre attention !**
+
+::: {.callout-note appearance="minimal"}
+### 🔗 Accéder au corrigé
+[Cliquez ici pour accéder au Excel corrigé](https://y.yarn.co/6e13b700-cce4-47e6-a5db-5999fd581141_text.gif)
+:::
+
