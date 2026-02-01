@@ -15,7 +15,7 @@ format:
 # Rappel des notions
 *Que vous avez vues en CM*
 
-# 2. Tendance centrale & dispersion
+# 1. Tendance centrale & dispersion
 
 ## La Moyenne vs la Médiane {.scrollable}
 Comment résumer une distribution en un seul chiffre ?

@@ -6,11 +6,14 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Marc O’Flaherty">
-  <title>SIASS - L3 Sciences Sociales – Statistique et informatique appliquées aux sciences sociales</title>
+  <title>SIASS - L3 Sciences Sociales – Séquence 1 : Prise en main &amp; statistiques descriptives</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,6 +31,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-8f3eebe07241f08526c91a7e9cbef8fd.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -129,8 +197,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Statistique et informatique appliquées aux sciences sociales</h1>
-  <p class="subtitle">L3 Sciences Sociales - Séquence 1</p>
+  <h1 class="title">Séquence 1 : Prise en main &amp; statistiques descriptives</h1>
+  <p class="subtitle">Analyse des inégalités de développement (Données PNUD)</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -142,46 +210,566 @@ Marc O’Flaherty
 
 </section>
 <section>
-<section id="première-séquence" class="title-slide slide level1 center">
-<h1>1. Première séquence</h1>
-<p><em>Excercice 1</em></p>
+<section id="q1.-découverte-des-données" class="title-slide slide level1 center">
+<h1>Q1. Découverte des données</h1>
+<p><em>Importation et caractérisation</em></p>
 </section>
-<section id="les-données-étudiées" class="slide level2 scrollable">
-<h2>Les données étudiées</h2>
-<p>Pour ce premier excercice, nous disposons d’une base de donnnées issue du Programme des Nations Unies pour le Développement <strong>(PNUD)</strong> avec :</p>
+<section id="présentation-des-données-q1" class="slide level2 scrollable">
+<h2>Présentation des données (Q1)</h2>
 <ul>
-<li><strong>Individus statistiques :</strong> Ce sont les <strong>Pays</strong> (44 dans notre exemple).<br>
-</li>
-<li><strong>Variables disponibles :</strong>
+<li><strong>Population étudiée :</strong> Un échantillon de 44 pays (Source PNUD 2017).</li>
+<li><strong>Individu statistique :</strong> Le Pays (et non l’habitant).</li>
+<li><strong>Variables clés :</strong>
 <ul>
-<li><em>L’Indice de Développement Humain (IDH)</em><br>
-</li>
-<li><em>PIB par habitant</em><br>
-</li>
-<li><em>Espérance de vie à la naissance</em><br>
-</li>
-<li><em>Nombre d’année de scolarisation</em><br>
-</li>
-<li><em>Taille de la population</em><br>
-</li>
-<li><em>Ratio de palma</em> (Revenus Top10% / Revenus bottom 40%)<br>
-</li>
-<li><em>ISO 3</em> (norme de codification cartographique)</li>
+<li><code>IDH</code> : Indice synthétique (0 à 1).</li>
+<li><code>PIB/tête</code> : Richesse.</li>
+<li><code>Espérance de vie</code> : Santé.</li>
+<li><code>Population</code> : Démographie.</li>
+<li><code>Ratio Palma</code> : Inégalités (Top 10% / Bottom 40%).</li>
 </ul></li>
 </ul>
-<blockquote>
-<p><strong>Objectif :</strong> Passer d’un tableau de chiffres illisible à des indicateurs clairs et permettre des comparaisons.</p>
-</blockquote>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Objectif Q1</strong></p>
+</div>
+<div class="callout-content">
+<p>Télécharger le fichier, l’ouvrir et identifier ces variables.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="fin-de-la-séquence-1" class="slide level2">
-<h2>Fin de la séquence 1</h2>
+<section id="importation-la-technique" class="slide level2">
+<h2>Importation : La technique</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">🟢 Sur Excel</a></li><li><a href="#tabset-1-2">🔵 Sur R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<ol type="1">
+<li>Ouvrez le fichier <code>DonneesTD1.xlsx</code>.</li>
+</ol>
+</div>
+<div id="tabset-1-2">
+<div style="max-height: 400px; overflow-y: auto;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a><span class="co"># --- ÉTAPE 1 : DÉFINIR LE FICHIER ---</span></span>
+<span id="cb1-6"><a></a><span class="co"># Remplacez ce chemin par le vôtre !</span></span>
+<span id="cb1-7"><a></a>mon_fichier <span class="ot">&lt;-</span> <span class="st">"C:/Users/oflah/Downloads/DonneesTD1.xlsx"</span> </span>
+<span id="cb1-8"><a></a></span>
+<span id="cb1-9"><a></a><span class="co"># --- ÉTAPE 2 : IMPORTER ---</span></span>
+<span id="cb1-10"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(mon_fichier)</span>
+<span id="cb1-11"><a></a></span>
+<span id="cb1-12"><a></a><span class="co"># Aperçu</span></span>
+<span id="cb1-13"><a></a><span class="fu">head</span>(df, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 9
+  Pays  `IDH 2017` `PIB/tête (2017)` `Esp Vie Naiss 2017` Années éducation (20…¹
+  &lt;chr&gt;      &lt;dbl&gt;             &lt;dbl&gt;                &lt;dbl&gt;                  &lt;dbl&gt;
+1 Alba…      0.785             11886                 78.5                   14.8
+2 Algé…      0.754             13802                 76.3                   14.4
+3 Alle…      0.936             46136                 81.2                   17  
+# ℹ abbreviated name: ¹​`Années éducation (2017)`
+# ℹ 4 more variables: `Population totale (2017)` &lt;dbl&gt;, `Ratio Palma` &lt;dbl&gt;,
+#   iso3 &lt;chr&gt;, country &lt;chr&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="q2-q3.-indicateurs-simples" class="title-slide slide level1 center">
+<h1>Q2 &amp; Q3. Indicateurs simples</h1>
+<p><em>Moyenne, Variance, Médiane, Quartiles</em></p>
+</section>
+<section id="tendance-centrale-dispersion-q2" class="slide level2 scrollable">
+<h2>Tendance centrale &amp; Dispersion (Q2)</h2>
+<p>On demande la <strong>Moyenne</strong> et la <strong>Variance</strong>.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🟢 Sur Excel (Standard Scientifique)</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Moyenne :</strong> <code>=MOYENNE(Plage)</code></li>
+<li><strong>Variance :</strong> <code>=VAR.S(Plage)</code>
+<ul>
+<li><em>Note :</em> On utilise la variance d’échantillon (.S) qui est le standard en sciences sociales (comme sur R).</li>
+</ul></li>
+<li><strong>Écart-type :</strong> <code>=ECARTYPE.STANDARD(Plage)</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div style="max-height: 300px; overflow-y: auto;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Calcul des indicateurs pour l'Espérance de vie</span></span>
+<span id="cb3-2"><a></a>df <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(</span>
+<span id="cb3-3"><a></a>  <span class="at">Moyenne =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-4"><a></a>  <span class="at">Variance =</span> <span class="fu">var</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-5"><a></a>  <span class="at">Ecart_Type =</span> <span class="fu">sd</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-6"><a></a>) <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Moyenne</th>
+<th style="text-align: right;">Variance</th>
+<th style="text-align: right;">Ecart_Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">73.43</td>
+<td style="text-align: right;">85.77</td>
+<td style="text-align: right;">9.26</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="médiane-et-quantiles-q3" class="slide level2 scrollable">
+<h2>Médiane et quantiles (Q3)</h2>
+<p>On découpe la distribution pour voir les inégalités.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🟢 Sur Excel</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Médiane :</strong> <code>=MEDIANE(Plage)</code></li>
+<li><strong>Quartiles :</strong> <code>=QUARTILE.EXC(Plage; 1)</code> (Q1) et <code>3</code> (Q3).</li>
+<li><strong>Déciles :</strong> <code>=CENTILE(Plage; 0,1)</code> (D1) et <code>0,9</code> (D9).</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Résultats R :</strong> ::: {style=“max-height: 200px; overflow-y: auto;”}</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># La fonction quantile fait tout d'un coup</span></span>
+<span id="cb4-2"><a></a><span class="fu">quantile</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, </span>
+<span id="cb4-3"><a></a>         <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="fl">0.9</span>), </span>
+<span id="cb4-4"><a></a>         <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  10%   25%   50%   75%   90% 
+59.02 66.20 76.10 81.40 82.67 </code></pre>
+</div>
+</div>
+<p>:::</p>
+</section></section>
+<section>
+<section id="q4-q5-q6.-visualisation" class="title-slide slide level1 center">
+<h1>Q4, Q5 &amp; Q6. Visualisation</h1>
+<p><em>Boxplot, graphique cumulé et Histogramme</em></p>
+</section>
+<section id="la-boîte-à-moustache-q4" class="slide level2 scrollable">
+<h2>La Boîte à moustache (Q4)</h2>
+<p>Visualiser la médiane, l’écart interquartile et les extrêmes.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>Lecture :</strong> * Trait gras = Médiane (Q2).<br>
+* Boîte = 50% des pays.<br>
+* Extrêmes = Pays atypiques.</p>
+</div><div class="column" style="width:60%;">
+<div style="max-height: 400px; overflow-y: auto;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"#404080"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q4 - Espérance de vie : Boite à moustaches"</span>, <span class="at">y =</span> <span class="st">"Années"</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="slides_seq1_files/figure-revealjs/q4-boxplot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="slides_seq1_files/figure-revealjs/q4-boxplot-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🟢 Sur Excel</strong></p>
+</div>
+<div class="callout-content">
+<p>Insertion <span class="math inline">\(\rightarrow\)</span> Graphiques recommandés <span class="math inline">\(\rightarrow\)</span> Tous les graphiques <span class="math inline">\(\rightarrow\)</span> <strong>Boîte à moustaches</strong>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="graphique-cumulé-q5" class="slide level2 scrollable">
+<h2>Graphique cumulé (Q5)</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🟢 Sur Excel (Méthode simple)</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li><strong>Triez</strong> la colonne <code>Espérance de vie</code> du plus petit au plus grand.<br>
+</li>
+<li><em>Créez</em> la médiane et <strong>copier/coller</strong> en valeur.<br>
+</li>
+<li>Sélectionnez les valeurs.<br>
+</li>
+<li>Insertion <span class="math inline">\(\rightarrow\)</span> <strong>Histogramme (ou Barres)</strong>.
+<ul>
+<li><em>Résultat :</em> Des bâtons de plus en plus grands.<br>
+</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+<p><strong>Le résultat identique sur R (données triées) :</strong></p>
+<div style="max-height: 450px; overflow-y: auto;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># 1. On trie les données (comme sur Excel)</span></span>
+<span id="cb7-2"><a></a>df_trie <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a></a>  <span class="fu">arrange</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a></a>  <span class="fu">mutate</span>(<span class="at">Rang =</span> <span class="fu">row_number</span>()) <span class="co"># On crée un numéro d'ordre (1, 2, 3...)</span></span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a><span class="co"># 2. On trace des BÂTONS (geom_col)</span></span>
+<span id="cb7-8"><a></a><span class="fu">ggplot</span>(df_trie, <span class="fu">aes</span>(<span class="at">x =</span> Rang, <span class="at">y =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb7-9"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#404080"</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb7-10"><a></a>  </span>
+<span id="cb7-11"><a></a>  <span class="co"># On ajoute la ligne de la Médiane (Horizontalement)</span></span>
+<span id="cb7-12"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">median</span>(df_trie<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>), </span>
+<span id="cb7-13"><a></a>             <span class="at">color =</span> <span class="st">"#b89e14"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb7-14"><a></a>  </span>
+<span id="cb7-15"><a></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">78</span>, <span class="at">label =</span> <span class="st">"Médiane"</span>, <span class="at">color =</span> <span class="st">"#b89e14"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
+<span id="cb7-16"><a></a></span>
+<span id="cb7-17"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q5 : Distribution de l'Espérance de vie (Triée)"</span>, </span>
+<span id="cb7-18"><a></a>       <span class="at">y =</span> <span class="st">"Espérance de vie (en années)"</span>, </span>
+<span id="cb7-19"><a></a>       <span class="at">x =</span> <span class="st">"Pays"</span>) <span class="sc">+</span></span>
+<span id="cb7-20"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="slides_seq1_files/figure-revealjs/q5-sorted-bars-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="slides_seq1_files/figure-revealjs/q5-sorted-bars-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="histogramme-q6" class="slide level2 scrollable">
+<h2>Histogramme (Q6)</h2>
+<p><em>Constituer des classes appropriées (5 ans).</em></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🟢 Sur Excel</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Sélectionnez la colonne “Espérance de vie”.<br>
+</li>
+<li>Insertion <span class="math inline">\(\rightarrow\)</span> Graphiques statistiques (l’icône bleue avec des barres) <span class="math inline">\(\rightarrow\)</span> <strong>Histogramme</strong>.<br>
+</li>
+<li><strong>Important :</strong> Par défaut, les classes sont automatiques.
+<ul>
+<li><em>Clic droit sur l’axe horizontal</em> <span class="math inline">\(\rightarrow\)</span> <em>Mise en forme de l’axe</em>.<br>
+</li>
+<li>Option “Largeur des classes” <span class="math inline">\(\rightarrow\)</span> Écrire <strong>5</strong> <span class="math inline">\(\rightarrow\)</span> Classe de soupassement : <strong>50</strong>.<br>
+</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+<p><strong>Le résultat attendu (Version R) :</strong></p>
+<div style="max-height: 400px; overflow-y: auto;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb8-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb8-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">5</span>,       <span class="co"># Largeur de 5 ans</span></span>
+<span id="cb8-4"><a></a>    <span class="at">boundary =</span> <span class="dv">50</span>,      <span class="co"># On force le démarrage sur un chiffre rond (50)</span></span>
+<span id="cb8-5"><a></a>    <span class="at">closed =</span> <span class="st">"left"</span>,    <span class="co"># L'intervalle est [50, 55[ (50 inclus, 55 exclu)</span></span>
+<span id="cb8-6"><a></a>    <span class="at">fill =</span> <span class="st">"#1591EA"</span>, </span>
+<span id="cb8-7"><a></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb8-8"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb8-9"><a></a>  <span class="co"># C'est ici qu'on force l'affichage des bornes sur l'axe X</span></span>
+<span id="cb8-10"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">90</span>, <span class="dv">5</span>)) <span class="sc">+</span> </span>
+<span id="cb8-11"><a></a>  </span>
+<span id="cb8-12"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-13"><a></a>    <span class="at">title =</span> <span class="st">"Q6 : Histogramme (Classes de 5 ans)"</span>, </span>
+<span id="cb8-14"><a></a>    <span class="at">subtitle =</span> <span class="st">"Chaque barre représente une tranche stricte (ex: [75 à 80[ ans)"</span>,</span>
+<span id="cb8-15"><a></a>    <span class="at">y =</span> <span class="st">"Nombre de pays"</span>, </span>
+<span id="cb8-16"><a></a>    <span class="at">x =</span> <span class="st">"Espérance de vie"</span></span>
+<span id="cb8-17"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb8-18"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="slides_seq1_files/figure-revealjs/q6-histo-clean-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="slides_seq1_files/figure-revealjs/q6-histo-clean-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="q7-q8-q9.-bivarié-régressions" class="title-slide slide level1 center">
+<h1>Q7, Q8 &amp; Q9. Bivarié &amp; régressions</h1>
+<p><em>Expliquer les liens</em></p>
+</section>
+<section id="covariances-et-corrélations-q7" class="slide level2 scrollable">
+<h2>Covariances et Corrélations (Q7)</h2>
+<p><em>Comprendre les liens avec l’IDH.</em></p>
+<p>On calcule d’abord la <strong>Covariance</strong> (le lien brut) puis la <strong>Corrélation</strong> (le lien standardisé).</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🟢 Sur Excel</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Covariance :</strong> <code>=COVARIANCE.STANDARD(Plage1; Plage2)</code>
+<ul>
+<li><em>Résultat flou (ex: 4500)</em>.</li>
+</ul></li>
+<li><strong>Corrélation :</strong> <code>=COEFFICIENT.CORRELATION(Plage1; Plage2)</code>
+<ul>
+<li><em>Résultat clair (entre -1 et 1)</em>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Résultats sur R (Matrices complètes) :</strong></p>
+<div style="max-height: 450px; overflow-y: auto;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># 1. Sélection des variables</span></span>
+<span id="cb9-2"><a></a>vars <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">IDH 2017</span><span class="st">`</span>, <span class="st">`</span><span class="at">PIB/tête (2017)</span><span class="st">`</span>, <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="st">`</span><span class="at">Années éducation (2017)</span><span class="st">`</span>)</span>
+<span id="cb9-4"><a></a></span>
+<span id="cb9-5"><a></a><span class="co"># 2. Matrice de COVARIANCE (Brute)</span></span>
+<span id="cb9-6"><a></a><span class="co"># Difficile à interpréter car les unités sont mélangées ($ * Années)</span></span>
+<span id="cb9-7"><a></a><span class="fu">print</span>(<span class="st">"--- Matrice de COVARIANCE ---"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "--- Matrice de COVARIANCE ---"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">cov</span>(vars, <span class="at">use =</span> <span class="st">"complete.obs"</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        IDH 2017 PIB/tête (2017) Esp Vie Naiss 2017
+IDH 2017                     0.0          2927.8                1.6
+PIB/tête (2017)           2927.8     331042329.2           128981.7
+Esp Vie Naiss 2017           1.6        128981.7               85.8
+Années éducation (2017)      0.6         56017.0               30.2
+                        Années éducation (2017)
+IDH 2017                                    0.6
+PIB/tête (2017)                         56017.0
+Esp Vie Naiss 2017                         30.2
+Années éducation (2017)                    13.4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># 3. Matrice de CORRÉLATION (Standardisée)</span></span>
+<span id="cb13-2"><a></a><span class="co"># Idéale pour voir les liens avec l'IDH (Max = 1)</span></span>
+<span id="cb13-3"><a></a><span class="fu">print</span>(<span class="st">"--- Matrice de CORRÉLATION ---"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "--- Matrice de CORRÉLATION ---"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">cor</span>(vars, <span class="at">use =</span> <span class="st">"complete.obs"</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        IDH 2017 PIB/tête (2017) Esp Vie Naiss 2017
+IDH 2017                    1.00            0.88               0.93
+PIB/tête (2017)             0.88            1.00               0.77
+Esp Vie Naiss 2017          0.93            0.77               1.00
+Années éducation (2017)     0.97            0.84               0.89
+                        Années éducation (2017)
+IDH 2017                                   0.97
+PIB/tête (2017)                            0.84
+Esp Vie Naiss 2017                         0.89
+Années éducation (2017)                    1.00</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="nuage-de-points-et-régression-simple-q8" class="slide level2 scrollable">
+<h2>Nuage de points et Régression Simple (Q8)</h2>
+<p><em>Espérance de vie ~ PIB par tête.</em></p>
+<div style="max-height: 450px; overflow-y: auto;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">PIB/tête (2017)</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb17-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb17-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"#C04657"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Droite de régression</span></span>
+<span id="cb17-4"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q8 : Régression Simple"</span>, <span class="at">x =</span> <span class="st">"PIB ($)"</span>, <span class="at">y =</span> <span class="st">"Espérance de vie"</span>) <span class="sc">+</span></span>
+<span id="cb17-5"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="slides_seq1_files/figure-revealjs/q8-reg-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="slides_seq1_files/figure-revealjs/q8-reg-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p><em>La ligne droite ne colle pas parfaitement (le lien est courbe), mais la tendance est là.</em></p>
+</section>
+<section id="régression-linéaire-multiple-q9" class="slide level2 scrollable">
+<h2>Régression Linéaire Multiple (Q9)</h2>
+<p><em>Espérance de vie ~ PIB + Éducation + Population</em></p>
+<p>On cherche à expliquer la santé par toutes les variables disponibles (sauf l’IDH qui est une synthèse).</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🟢 Sur Excel</strong></p>
+</div>
+<div class="callout-content">
+<p>Excel impose une règle stricte : les variables explicatives (<span class="math inline">\(X\)</span>) doivent être <strong>collées</strong> (dans des colonnes adjacentes).<br>
+1. <strong>Préparez les données :</strong> Dans une nouvelle zone, copiez la colonne <code>PIB</code>, la colonne <code>Éducation</code> et la colonne <code>Population</code> pour qu’elles soient côte à côte.<br>
+2. <strong>Outil :</strong> Onglet <strong>Données</strong> <span class="math inline">\(\rightarrow\)</span> <strong>Utilitaire d’analyse</strong> <span class="math inline">\(\rightarrow\)</span> <strong>Régression</strong>. <a href="https://www.youtube.com/watch?v=hy-lTUZ4whk">En cas d’absence de l’option 🔗</a><br>
+3. <strong>Paramètres :</strong><br>
+* <strong>Plage Y :</strong> La colonne <code>Espérance de vie</code>.<br>
+* <strong>Plage X :</strong> Le bloc des <strong>3 colonnes</strong> (PIB, Éducation, Pop) ensemble.<br>
+* Cochez <strong>“Intitulés”</strong> (Labels).</p>
+</div>
+</div>
+</div>
+<p><strong>Résultat sur R :</strong></p>
+<div style="max-height: 400px; overflow-y: auto;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># Modèle sans le Palma (données manquantes) et sans l'IDH (tautologie)</span></span>
+<span id="cb18-2"><a></a>modele_safe <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span> <span class="sc">~</span> <span class="st">`</span><span class="at">PIB/tête (2017)</span><span class="st">`</span> <span class="sc">+</span> </span>
+<span id="cb18-3"><a></a>                  <span class="st">`</span><span class="at">Années éducation (2017)</span><span class="st">`</span> <span class="sc">+</span> </span>
+<span id="cb18-4"><a></a>                  <span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span>, </span>
+<span id="cb18-5"><a></a>                  <span class="at">data =</span> df)</span>
+<span id="cb18-6"><a></a></span>
+<span id="cb18-7"><a></a><span class="co"># Affichage des coefficients arrondis</span></span>
+<span id="cb18-8"><a></a><span class="fu">summary</span>(modele_safe)<span class="sc">$</span>coefficients <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           Estimate Std. Error  t value Pr(&gt;|t|)
+(Intercept)                43.04944    3.62061 11.89010  0.00000
+`PIB/tête (2017)`           0.00002    0.00007  0.36147  0.71965
+`Années éducation (2017)`   2.15964    0.33512  6.44444  0.00000
+`Population totale (2017)`  0.01337    0.02509  0.53282  0.59710</code></pre>
+</div>
+</div>
+</div>
+<h3 id="interprétation-des-résultats">Interprétation des résultats</h3>
+<ol type="1">
+<li><strong>L’Intercept (Ordonnée à l’origine) : ~43 ans</strong>
+<ul>
+<li><em>C’est quoi ?</em> C’est l’espérance de vie théorique d’un pays qui aurait <strong>0 partout</strong> (0$ PIB, 0 éducation).<br>
+</li>
+<li><em>Sens :</em> C’est notre “socle biologique” minimum sans aucun développement.</li>
+</ul></li>
+<li><strong>L’Éducation (Significatif <code>***</code>) :</strong>
+<ul>
+<li>C’est le <strong>moteur principal</strong>. Chaque année d’étude supplémentaire fait gagner environ <strong>2,15 ans</strong> d’espérance de vie (Coeff: 2.159).</li>
+</ul></li>
+<li><strong>La surprise du PIB (Non-significatif) :</strong>
+<ul>
+<li>Sa p-value est de <strong>0.71</strong> (&gt; 0.05).<br>
+</li>
+<li><em>Pourquoi ?</em> Car l’Éducation a “absorbé” l’effet richesse. Le modèle nous dit : ce n’est pas d’être riche qui compte, mais d’être éduqué (ce qui arrive souvent quand on est riche).</li>
+</ul></li>
+<li><strong>La Population (Non-significatif) :</strong>
+<ul>
+<li>La taille du pays n’a aucun impact sur la durée de vie.</li>
+</ul></li>
+</ol>
+</section></section>
+<section>
+<section id="q10.-le-piège-de-lagrégation" class="title-slide slide level1 center">
+<h1>Q10. Le piège de l’agrégation</h1>
+<p><em>Pays vs Population mondiale</em></p>
+</section>
+<section id="pondération-par-la-population-q10" class="slide level2 scrollable">
+<h2>Pondération par la population (Q10)</h2>
+<p>Peut-on faire les calculs pour la <strong>population mondiale</strong> ? Oui, mais il faut pondérer chaque pays par son nombre d’habitants.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🟢 Sur Excel</strong></p>
+</div>
+<div class="callout-content">
+<p>Utilisez <code>=SOMMEPROD(Valeurs; Poids) / SOMME(Poids)</code>.</p>
+</div>
+</div>
+</div>
+<div style="max-height: 300px; overflow-y: auto;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Moyenne "Pays" (Non pondérée)</span></span>
+<span id="cb20-2"><a></a>m_pays <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-3"><a></a></span>
+<span id="cb20-4"><a></a><span class="co"># Moyenne "Monde" (Pondérée par la population)</span></span>
+<span id="cb20-5"><a></a>m_monde <span class="ot">&lt;-</span> <span class="fu">weighted.mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">w =</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-6"><a></a></span>
+<span id="cb20-7"><a></a><span class="fu">data.frame</span>(<span class="at">Moyenne_Pays =</span> m_pays, <span class="at">Moyenne_Monde =</span> m_monde)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Moyenne_Pays Moyenne_Monde
+1     73.42727      73.47755</code></pre>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="conclusion-q11-13" class="title-slide slide level1 center">
+<h1>Conclusion (Q11-13)</h1>
+
+</section>
+<section id="comparaison-et-bilan" class="slide level2">
+<h2>Comparaison et Bilan</h2>
+<ul>
+<li><strong>Q11 (Ouverture) :</strong> Vous pouvez tester d’autres modèles chez vous.</li>
+<li><strong>Q12 (Excel vs R) :</strong>
+<ul>
+<li><strong>Excel :</strong> Intuitif pour voir les données, bon pour la saisie manuelle.</li>
+<li><strong>R :</strong> Plus puissant pour les graphiques (ggplot), la modélisation (lm) et surtout la <strong>reproductibilité</strong> (on relance le script, tout se met à jour).</li>
+</ul></li>
+<li><strong>Q13 (Commentaires) :</strong>
+<ul>
+<li>Le développement est très inégal.</li>
+<li>La richesse est fortement liée à la santé, mais l’éducation joue aussi un rôle clé (comme vu en Q9).</li>
+</ul></li>
+</ul>
 
 
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Marc O’Flaherty - L3 Sciences Sociales</p>
+<p>Séquence 1 - L3 Sciences Sociales</p>
 </div>
 </div></div>
 
@@ -395,6 +983,82 @@ Marc O’Flaherty
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -580,6 +1244,38 @@ Marc O’Flaherty
       }
     });
     </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

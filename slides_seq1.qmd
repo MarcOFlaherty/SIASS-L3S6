@@ -1,6 +1,6 @@
 ---
-title: "Statistique et informatique appliquées aux sciences sociales"
-subtitle: "L3 Sciences Sociales - Séquence 1"
+title: "Séquence 1 : Prise en main & statistiques descriptives"
+subtitle: "Analyse des inégalités de développement (Données PNUD)"
 author: "Marc O'Flaherty"
 format: 
   revealjs:
@@ -8,27 +8,375 @@ format:
     slide-number: c/t
     lightbox: true
     chalkboard: true
-    footer: "Marc O'Flaherty - L3 Sciences Sociales"
+    footer: "Séquence 1 - L3 Sciences Sociales"
     echo: true
 ---
 
-# 1. Première séquence
-*Excercice 1*
+# Q1. Découverte des données
+*Importation et caractérisation*
 
-## Les données étudiées {.scrollable}
-Pour ce premier excercice, nous disposons d'une base de donnnées issue du Programme des Nations Unies pour le Développement **(PNUD)** avec :  
+## Présentation des données (Q1) {.scrollable}
 
-* **Individus statistiques :** Ce sont les **Pays** (44 dans notre exemple).  
-* **Variables disponibles :**  
-    * *L'Indice de Développement Humain (IDH)*  
-    * *PIB par habitant*  
-    * *Espérance de vie à la naissance*  
-    * *Nombre d'année de scolarisation*  
-    * *Taille de la population*  
-    * *Ratio de palma* (Revenus Top10% / Revenus bottom 40%)  
-    * *ISO 3* (norme de codification cartographique)  
+* **Population étudiée :** Un échantillon de 44 pays (Source PNUD 2017).
+* **Individu statistique :** Le Pays (et non l'habitant).
+* **Variables clés :**
+    * `IDH` : Indice synthétique (0 à 1).
+    * `PIB/tête` : Richesse.
+    * `Espérance de vie` : Santé.
+    * `Population` : Démographie.
+    * `Ratio Palma` : Inégalités (Top 10% / Bottom 40%).
 
-> **Objectif :** Passer d'un tableau de chiffres illisible à des indicateurs clairs et permettre des comparaisons.
+::: {.callout-note}
+### Objectif Q1
+Télécharger le fichier, l'ouvrir et identifier ces variables.
+:::
 
+## Importation : La technique
 
-## Fin de la séquence 1
+::: {.panel-tabset}
+
+### 🟢 Sur Excel
+1.  Ouvrez le fichier `DonneesTD1.xlsx`.
+
+### 🔵 Sur R
+::: {style="max-height: 400px; overflow-y: auto;"}
+```{r}
+#| label: setup
+#| echo: true
+#| message: false
+#| warning: false
+
+library(ggplot2)
+library(dplyr)
+library(readxl)
+
+# --- ÉTAPE 1 : DÉFINIR LE FICHIER ---
+# Remplacez ce chemin par le vôtre !
+mon_fichier <- "C:/Users/oflah/Downloads/DonneesTD1.xlsx" 
+
+# --- ÉTAPE 2 : IMPORTER ---
+df <- read_excel(mon_fichier)
+
+# Aperçu
+head(df, 3)
+```
+:::
+:::
+
+# Q2 & Q3. Indicateurs simples
+*Moyenne, Variance, Médiane, Quartiles*
+
+## Tendance centrale & Dispersion (Q2) {.scrollable}
+
+On demande la **Moyenne** et la **Variance**.
+
+::: {.callout-tip}
+### 🟢 Sur Excel (Standard Scientifique)
+* **Moyenne :** `=MOYENNE(Plage)`
+* **Variance :** `=VAR.S(Plage)`
+    * *Note :* On utilise la variance d'échantillon (.S) qui est le standard en sciences sociales (comme sur R).
+* **Écart-type :** `=ECARTYPE.STANDARD(Plage)`
+:::
+
+::: {style="max-height: 300px; overflow-y: auto;"}
+```{r}
+#| label: q2-stats
+#| echo: true
+
+# Calcul des indicateurs pour l'Espérance de vie
+df %>% summarise(
+  Moyenne = mean(`Esp Vie Naiss 2017`, na.rm = TRUE),
+  Variance = var(`Esp Vie Naiss 2017`, na.rm = TRUE),
+  Ecart_Type = sd(`Esp Vie Naiss 2017`, na.rm = TRUE)
+) %>% knitr::kable(digits = 2)
+```
+:::
+
+## Médiane et quantiles (Q3) {.scrollable}
+
+On découpe la distribution pour voir les inégalités.
+
+::: {.callout-tip}
+### 🟢 Sur Excel
+* **Médiane :** `=MEDIANE(Plage)`
+* **Quartiles :** `=QUARTILE.EXC(Plage; 1)` (Q1) et `3` (Q3).
+* **Déciles :** `=CENTILE(Plage; 0,1)` (D1) et `0,9` (D9).
+:::
+
+**Résultats R :**
+::: {style="max-height: 200px; overflow-y: auto;"}
+```{r}
+#| label: q3-quantiles
+#| echo: true
+
+# La fonction quantile fait tout d'un coup
+quantile(df$`Esp Vie Naiss 2017`, 
+         probs = c(0.1, 0.25, 0.5, 0.75, 0.9), 
+         na.rm = TRUE)
+```
+:::
+
+# Q4, Q5 & Q6. Visualisation
+*Boxplot, graphique cumulé et Histogramme*
+
+## La Boîte à moustache (Q4) {.scrollable}
+
+Visualiser la médiane, l'écart interquartile et les extrêmes.
+
+::: {.columns}
+::: {.column width="40%"}
+**Lecture :**
+* Trait gras = Médiane (Q2).  
+* Boîte = 50% des pays.  
+* Extrêmes = Pays atypiques.  
+:::
+
+::: {.column width="60%"}
+::: {style="max-height: 400px; overflow-y: auto;"}
+```{r}
+#| label: q4-boxplot
+#| fig-height: 5
+
+ggplot(df, aes(y = `Esp Vie Naiss 2017`)) +
+  geom_boxplot(fill = "#404080", color = "black", alpha = 0.6) +
+  labs(title = "Q4 - Espérance de vie : Boite à moustaches", y = "Années") +
+  theme_minimal() +
+  theme(axis.text.x = element_blank())
+```
+:::
+:::
+:::
+
+::: {.callout-tip}
+### 🟢 Sur Excel
+Insertion $\rightarrow$ Graphiques recommandés $\rightarrow$ Tous les graphiques $\rightarrow$ **Boîte à moustaches**.
+:::
+
+## Graphique cumulé (Q5) {.scrollable}
+
+::: {.callout-tip}
+### 🟢 Sur Excel (Méthode simple)
+1.  **Triez** la colonne `Espérance de vie` du plus petit au plus grand.  
+2. *Créez* la médiane et **copier/coller** en valeur.  
+2.  Sélectionnez les valeurs.  
+3.  Insertion $\rightarrow$ **Histogramme (ou Barres)**.  
+    * *Résultat :* Des bâtons de plus en plus grands.  
+:::
+
+**Le résultat identique sur R (données triées) :**
+
+::: {style="max-height: 450px; overflow-y: auto;"}
+```{r}
+#| label: q5-sorted-bars
+#| fig-height: 5
+
+# 1. On trie les données (comme sur Excel)
+df_trie <- df %>%
+  filter(!is.na(`Esp Vie Naiss 2017`)) %>%
+  arrange(`Esp Vie Naiss 2017`) %>%
+  mutate(Rang = row_number()) # On crée un numéro d'ordre (1, 2, 3...)
+
+# 2. On trace des BÂTONS (geom_col)
+ggplot(df_trie, aes(x = Rang, y = `Esp Vie Naiss 2017`)) +
+  geom_col(fill = "#404080", width = 0.8) +
+  
+  # On ajoute la ligne de la Médiane (Horizontalement)
+  geom_hline(yintercept = median(df_trie$`Esp Vie Naiss 2017`), 
+             color = "#b89e14", size = 1.5) +
+  
+  annotate("text", x = 5, y = 78, label = "Médiane", color = "#b89e14", fontface = "bold") +
+
+  labs(title = "Q5 : Distribution de l'Espérance de vie (Triée)", 
+       y = "Espérance de vie (en années)", 
+       x = "Pays") +
+  theme_minimal()
+```
+:::
+
+---
+
+## Histogramme (Q6) {.scrollable}
+*Constituer des classes appropriées (5 ans).*
+
+::: {.callout-tip}
+### 🟢 Sur Excel
+1.  Sélectionnez la colonne "Espérance de vie".  
+2.  Insertion $\rightarrow$ Graphiques statistiques (l'icône bleue avec des barres) $\rightarrow$ **Histogramme**.  
+3.  **Important :** Par défaut, les classes sont automatiques.  
+    * *Clic droit sur l'axe horizontal* $\rightarrow$ *Mise en forme de l'axe*.  
+    * Option "Largeur des classes " $\rightarrow$ Écrire **5** $\rightarrow$ Classe de soupassement : **50**.     
+:::
+
+**Le résultat attendu (Version R) :**
+
+::: {style="max-height: 400px; overflow-y: auto;"}
+```{r}
+#| label: q6-histo-clean
+#| fig-height: 5
+
+ggplot(df, aes(x = `Esp Vie Naiss 2017`)) +
+  geom_histogram(
+    binwidth = 5,       # Largeur de 5 ans
+    boundary = 50,      # On force le démarrage sur un chiffre rond (50)
+    closed = "left",    # L'intervalle est [50, 55[ (50 inclus, 55 exclu)
+    fill = "#1591EA", 
+    color = "white"
+  ) +
+  # C'est ici qu'on force l'affichage des bornes sur l'axe X
+  scale_x_continuous(breaks = seq(50, 90, 5)) + 
+  
+  labs(
+    title = "Q6 : Histogramme (Classes de 5 ans)", 
+    subtitle = "Chaque barre représente une tranche stricte (ex: [75 à 80[ ans)",
+    y = "Nombre de pays", 
+    x = "Espérance de vie"
+  ) +
+  theme_minimal()
+```
+:::
+
+# Q7, Q8 & Q9. Bivarié & régressions
+*Expliquer les liens*
+
+## Covariances et Corrélations (Q7) {.scrollable}
+*Comprendre les liens avec l'IDH.*
+
+On calcule d'abord la **Covariance** (le lien brut) puis la **Corrélation** (le lien standardisé).
+
+::: {.callout-tip}
+### 🟢 Sur Excel
+* **Covariance :** `=COVARIANCE.STANDARD(Plage1; Plage2)`
+    * *Résultat flou (ex: 4500)*.
+* **Corrélation :** `=COEFFICIENT.CORRELATION(Plage1; Plage2)`
+    * *Résultat clair (entre -1 et 1)*.
+:::
+
+**Résultats sur R (Matrices complètes) :**
+
+::: {style="max-height: 450px; overflow-y: auto;"}
+```{r}
+#| label: q7-cov-cor
+#| echo: true
+
+# 1. Sélection des variables
+vars <- df %>% 
+  select(`IDH 2017`, `PIB/tête (2017)`, `Esp Vie Naiss 2017`, `Années éducation (2017)`)
+
+# 2. Matrice de COVARIANCE (Brute)
+# Difficile à interpréter car les unités sont mélangées ($ * Années)
+print("--- Matrice de COVARIANCE ---")
+cov(vars, use = "complete.obs") %>% round(1)
+
+# 3. Matrice de CORRÉLATION (Standardisée)
+# Idéale pour voir les liens avec l'IDH (Max = 1)
+print("--- Matrice de CORRÉLATION ---")
+cor(vars, use = "complete.obs") %>% round(2)
+```
+:::
+
+## Nuage de points et Régression Simple (Q8) {.scrollable}
+*Espérance de vie ~ PIB par tête.*
+
+::: {style="max-height: 450px; overflow-y: auto;"}
+```{r}
+#| label: q8-reg
+#| fig-height: 5
+
+ggplot(df, aes(x = `PIB/tête (2017)`, y = `Esp Vie Naiss 2017`)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", color = "#C04657", se = FALSE) + # Droite de régression
+  labs(title = "Q8 : Régression Simple", x = "PIB ($)", y = "Espérance de vie") +
+  theme_minimal()
+```
+:::
+*La ligne droite ne colle pas parfaitement (le lien est courbe), mais la tendance est là.*
+
+## Régression Linéaire Multiple (Q9) {.scrollable}
+*Espérance de vie ~ PIB + Éducation + Population*
+
+On cherche à expliquer la santé par toutes les variables disponibles (sauf l'IDH qui est une synthèse).
+
+::: {.callout-tip}
+### 🟢 Sur Excel 
+Excel impose une règle stricte : les variables explicatives ($X$) doivent être **collées** (dans des colonnes adjacentes).  
+1.  **Préparez les données :** Dans une nouvelle zone, copiez la colonne `PIB`, la colonne `Éducation` et la colonne `Population` pour qu'elles soient côte à côte.  
+2.  **Outil :** Onglet **Données** $\rightarrow$ **Utilitaire d'analyse** $\rightarrow$ **Régression**. [En cas d'absence de l'option 🔗](https://www.youtube.com/watch?v=hy-lTUZ4whk)  
+3.  **Paramètres :**  
+    * **Plage Y :** La colonne `Espérance de vie`.  
+    * **Plage X :** Le bloc des **3 colonnes** (PIB, Éducation, Pop) ensemble.  
+    * Cochez **"Intitulés"** (Labels).  
+:::
+
+**Résultat sur R :**  
+
+::: {style="max-height: 400px; overflow-y: auto;"}
+```{r}
+#| label: q9-multi-final
+#| echo: true
+
+# Modèle sans le Palma (données manquantes) et sans l'IDH (tautologie)
+modele_safe <- lm(`Esp Vie Naiss 2017` ~ `PIB/tête (2017)` + 
+                  `Années éducation (2017)` + 
+                  `Population totale (2017)`, 
+                  data = df)
+
+# Affichage des coefficients arrondis
+summary(modele_safe)$coefficients %>% round(5)
+```
+:::
+
+### Interprétation des résultats  
+
+1.  **L'Intercept (Ordonnée à l'origine) : ~43 ans**  
+    * *C'est quoi ?* C'est l'espérance de vie théorique d'un pays qui aurait   **0 partout** (0$ PIB, 0 éducation).  
+    * *Sens :* C'est notre "socle biologique" minimum sans aucun développement.  
+
+2.  **L'Éducation (Significatif `***`) :**  
+    * C'est le **moteur principal**. Chaque année d'étude supplémentaire fait gagner environ **2,15 ans** d'espérance de vie (Coeff: 2.159).  
+
+3.  **La surprise du PIB (Non-significatif) :**  
+    * Sa p-value est de **0.71** (> 0.05).  
+    * *Pourquoi ?* Car l'Éducation a "absorbé" l'effet richesse. Le modèle nous dit : ce n'est pas d'être riche qui compte, mais d'être éduqué (ce qui arrive souvent quand on est riche).  
+
+4.  **La Population (Non-significatif) :**  
+    * La taille du pays n'a aucun impact sur la durée de vie.  
+    
+# Q10. Le piège de l'agrégation
+*Pays vs Population mondiale*
+
+## Pondération par la population (Q10) {.scrollable}
+
+Peut-on faire les calculs pour la **population mondiale** ?
+Oui, mais il faut pondérer chaque pays par son nombre d'habitants.
+
+::: {.callout-tip}
+### 🟢 Sur Excel
+Utilisez `=SOMMEPROD(Valeurs; Poids) / SOMME(Poids)`.
+:::
+
+::: {style="max-height: 300px; overflow-y: auto;"}
+```{r}
+#| label: q10-ponderation
+#| echo: true
+
+# Moyenne "Pays" (Non pondérée)
+m_pays <- mean(df$`Esp Vie Naiss 2017`, na.rm = TRUE)
+
+# Moyenne "Monde" (Pondérée par la population)
+m_monde <- weighted.mean(df$`Esp Vie Naiss 2017`, w = df$`Population totale (2017)`, na.rm = TRUE)
+
+data.frame(Moyenne_Pays = m_pays, Moyenne_Monde = m_monde)
+```
+:::
+
+# Conclusion (Q11-13)
+
+## Comparaison et Bilan
+
+* **Q11 (Ouverture) :** Vous pouvez tester d'autres modèles chez vous.
+* **Q12 (Excel vs R) :**
+    * **Excel :** Intuitif pour voir les données, bon pour la saisie manuelle.
+    * **R :** Plus puissant pour les graphiques (ggplot), la modélisation (lm) et surtout la **reproductibilité** (on relance le script, tout se met à jour).
+* **Q13 (Commentaires) :**
+    * Le développement est très inégal.
+    * La richesse est fortement liée à la santé, mais l'éducation joue aussi un rôle clé (comme vu en Q9).
