@@ -27,7 +27,7 @@ format:
 
 
 # 2. Pourquoi ce cours pour vous ? 
-*Socio-anthropologie & statistiques : le mariage de raison*
+*Sciences sociales & statistiques : le mariage de raison*
 
 ## "Je suis littéraire, pourquoi faire des stats ?" {.scrollable}
 

@@ -255,19 +255,23 @@ Marc O’Flaherty
 <div id="tabset-1-2">
 <div style="max-height: 400px; overflow-y: auto;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(readxl)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co">#install.packages("ggplot2")</span></span>
+<span id="cb1-2"><a></a><span class="co">#install.packages("dplyr")</span></span>
+<span id="cb1-3"><a></a><span class="co">#install.packages("readxl")</span></span>
 <span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="co"># --- ÉTAPE 1 : DÉFINIR LE FICHIER ---</span></span>
-<span id="cb1-6"><a></a><span class="co"># Remplacez ce chemin par le vôtre !</span></span>
-<span id="cb1-7"><a></a>mon_fichier <span class="ot">&lt;-</span> <span class="st">"C:/Users/oflah/Downloads/DonneesTD1.xlsx"</span> </span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-6"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-7"><a></a><span class="fu">library</span>(readxl)</span>
 <span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="co"># --- ÉTAPE 2 : IMPORTER ---</span></span>
-<span id="cb1-10"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(mon_fichier)</span>
-<span id="cb1-11"><a></a></span>
-<span id="cb1-12"><a></a><span class="co"># Aperçu</span></span>
-<span id="cb1-13"><a></a><span class="fu">head</span>(df, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a></a><span class="co"># --- ÉTAPE 1 : DÉFINIR LE FICHIER ---</span></span>
+<span id="cb1-10"><a></a><span class="co"># Remplacez ce chemin par le vôtre !</span></span>
+<span id="cb1-11"><a></a>mon_fichier <span class="ot">&lt;-</span> <span class="st">"C:/Users/187997/Desktop/SIASS - L3S6/Sequence 1 Variables Numériques/DonneesTD1.xlsx"</span></span>
+<span id="cb1-12"><a></a></span>
+<span id="cb1-13"><a></a><span class="co"># --- ÉTAPE 2 : IMPORTER ---</span></span>
+<span id="cb1-14"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(mon_fichier)</span>
+<span id="cb1-15"><a></a></span>
+<span id="cb1-16"><a></a><span class="co"># Aperçu</span></span>
+<span id="cb1-17"><a></a><span class="fu">head</span>(df, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 9
   Pays  `IDH 2017` `PIB/tête (2017)` `Esp Vie Naiss 2017` Années éducation (20…¹
@@ -320,24 +324,12 @@ Marc O’Flaherty
 <span id="cb3-3"><a></a>  <span class="at">Moyenne =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb3-4"><a></a>  <span class="at">Variance =</span> <span class="fu">var</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb3-5"><a></a>  <span class="at">Ecart_Type =</span> <span class="fu">sd</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-6"><a></a>) <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Moyenne</th>
-<th style="text-align: right;">Variance</th>
-<th style="text-align: right;">Ecart_Type</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">73.43</td>
-<td style="text-align: right;">85.77</td>
-<td style="text-align: right;">9.26</td>
-</tr>
-</tbody>
-</table>
+<span id="cb3-6"><a></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  Moyenne Variance Ecart_Type
+    &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+1    73.4     85.8       9.26</code></pre>
 </div>
 </div>
 </div>
@@ -364,10 +356,10 @@ Marc O’Flaherty
 </div>
 <p><strong>Résultats R :</strong> ::: {style=“max-height: 200px; overflow-y: auto;”}</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># La fonction quantile fait tout d'un coup</span></span>
-<span id="cb4-2"><a></a><span class="fu">quantile</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, </span>
-<span id="cb4-3"><a></a>         <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="fl">0.9</span>), </span>
-<span id="cb4-4"><a></a>         <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># La fonction quantile fait tout d'un coup</span></span>
+<span id="cb5-2"><a></a><span class="fu">quantile</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, </span>
+<span id="cb5-3"><a></a>         <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="fl">0.9</span>), </span>
+<span id="cb5-4"><a></a>         <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  10%   25%   50%   75%   90% 
 59.02 66.20 76.10 81.40 82.67 </code></pre>
@@ -391,11 +383,11 @@ Marc O’Flaherty
 </div><div class="column" style="width:60%;">
 <div style="max-height: 400px; overflow-y: auto;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"#404080"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb6-3"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q4 - Espérance de vie : Boite à moustaches"</span>, <span class="at">y =</span> <span class="st">"Années"</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb6-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"#404080"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q4 - Espérance de vie : Boite à moustaches"</span>, <span class="at">y =</span> <span class="st">"Années"</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -450,26 +442,26 @@ Marc O’Flaherty
 <p><strong>Le résultat identique sur R (données triées) :</strong></p>
 <div style="max-height: 450px; overflow-y: auto;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># 1. On trie les données (comme sur Excel)</span></span>
-<span id="cb7-2"><a></a>df_trie <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a></a>  <span class="fu">arrange</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-5"><a></a>  <span class="fu">mutate</span>(<span class="at">Rang =</span> <span class="fu">row_number</span>()) <span class="co"># On crée un numéro d'ordre (1, 2, 3...)</span></span>
-<span id="cb7-6"><a></a></span>
-<span id="cb7-7"><a></a><span class="co"># 2. On trace des BÂTONS (geom_col)</span></span>
-<span id="cb7-8"><a></a><span class="fu">ggplot</span>(df_trie, <span class="fu">aes</span>(<span class="at">x =</span> Rang, <span class="at">y =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb7-9"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#404080"</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb7-10"><a></a>  </span>
-<span id="cb7-11"><a></a>  <span class="co"># On ajoute la ligne de la Médiane (Horizontalement)</span></span>
-<span id="cb7-12"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">median</span>(df_trie<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>), </span>
-<span id="cb7-13"><a></a>             <span class="at">color =</span> <span class="st">"#b89e14"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb7-14"><a></a>  </span>
-<span id="cb7-15"><a></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">78</span>, <span class="at">label =</span> <span class="st">"Médiane"</span>, <span class="at">color =</span> <span class="st">"#b89e14"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
-<span id="cb7-16"><a></a></span>
-<span id="cb7-17"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q5 : Distribution de l'Espérance de vie (Triée)"</span>, </span>
-<span id="cb7-18"><a></a>       <span class="at">y =</span> <span class="st">"Espérance de vie (en années)"</span>, </span>
-<span id="cb7-19"><a></a>       <span class="at">x =</span> <span class="st">"Pays"</span>) <span class="sc">+</span></span>
-<span id="cb7-20"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># 1. On trie les données (comme sur Excel)</span></span>
+<span id="cb8-2"><a></a>df_trie <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a></a>  <span class="fu">arrange</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">mutate</span>(<span class="at">Rang =</span> <span class="fu">row_number</span>()) <span class="co"># On crée un numéro d'ordre (1, 2, 3...)</span></span>
+<span id="cb8-6"><a></a></span>
+<span id="cb8-7"><a></a><span class="co"># 2. On trace des BÂTONS (geom_col)</span></span>
+<span id="cb8-8"><a></a><span class="fu">ggplot</span>(df_trie, <span class="fu">aes</span>(<span class="at">x =</span> Rang, <span class="at">y =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb8-9"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#404080"</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb8-10"><a></a>  </span>
+<span id="cb8-11"><a></a>  <span class="co"># On ajoute la ligne de la Médiane (Horizontalement)</span></span>
+<span id="cb8-12"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">median</span>(df_trie<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>), </span>
+<span id="cb8-13"><a></a>             <span class="at">color =</span> <span class="st">"#b89e14"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb8-14"><a></a>  </span>
+<span id="cb8-15"><a></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">78</span>, <span class="at">label =</span> <span class="st">"Médiane"</span>, <span class="at">color =</span> <span class="st">"#b89e14"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
+<span id="cb8-16"><a></a></span>
+<span id="cb8-17"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q5 : Distribution de l'Espérance de vie (Triée)"</span>, </span>
+<span id="cb8-18"><a></a>       <span class="at">y =</span> <span class="st">"Espérance de vie (en années)"</span>, </span>
+<span id="cb8-19"><a></a>       <span class="at">x =</span> <span class="st">"Pays"</span>) <span class="sc">+</span></span>
+<span id="cb8-20"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -511,24 +503,24 @@ Marc O’Flaherty
 <p><strong>Le résultat attendu (Version R) :</strong></p>
 <div style="max-height: 400px; overflow-y: auto;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb8-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb8-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">5</span>,       <span class="co"># Largeur de 5 ans</span></span>
-<span id="cb8-4"><a></a>    <span class="at">boundary =</span> <span class="dv">50</span>,      <span class="co"># On force le démarrage sur un chiffre rond (50)</span></span>
-<span id="cb8-5"><a></a>    <span class="at">closed =</span> <span class="st">"left"</span>,    <span class="co"># L'intervalle est [50, 55[ (50 inclus, 55 exclu)</span></span>
-<span id="cb8-6"><a></a>    <span class="at">fill =</span> <span class="st">"#1591EA"</span>, </span>
-<span id="cb8-7"><a></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
-<span id="cb8-8"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb8-9"><a></a>  <span class="co"># C'est ici qu'on force l'affichage des bornes sur l'axe X</span></span>
-<span id="cb8-10"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">90</span>, <span class="dv">5</span>)) <span class="sc">+</span> </span>
-<span id="cb8-11"><a></a>  </span>
-<span id="cb8-12"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb8-13"><a></a>    <span class="at">title =</span> <span class="st">"Q6 : Histogramme (Classes de 5 ans)"</span>, </span>
-<span id="cb8-14"><a></a>    <span class="at">subtitle =</span> <span class="st">"Chaque barre représente une tranche stricte (ex: [75 à 80[ ans)"</span>,</span>
-<span id="cb8-15"><a></a>    <span class="at">y =</span> <span class="st">"Nombre de pays"</span>, </span>
-<span id="cb8-16"><a></a>    <span class="at">x =</span> <span class="st">"Espérance de vie"</span></span>
-<span id="cb8-17"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb8-18"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb9-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">5</span>,       <span class="co"># Largeur de 5 ans</span></span>
+<span id="cb9-4"><a></a>    <span class="at">boundary =</span> <span class="dv">50</span>,      <span class="co"># On force le démarrage sur un chiffre rond (50)</span></span>
+<span id="cb9-5"><a></a>    <span class="at">closed =</span> <span class="st">"left"</span>,    <span class="co"># L'intervalle est [50, 55[ (50 inclus, 55 exclu)</span></span>
+<span id="cb9-6"><a></a>    <span class="at">fill =</span> <span class="st">"#1591EA"</span>, </span>
+<span id="cb9-7"><a></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb9-8"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb9-9"><a></a>  <span class="co"># C'est ici qu'on force l'affichage des bornes sur l'axe X</span></span>
+<span id="cb9-10"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">90</span>, <span class="dv">5</span>)) <span class="sc">+</span> </span>
+<span id="cb9-11"><a></a>  </span>
+<span id="cb9-12"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-13"><a></a>    <span class="at">title =</span> <span class="st">"Q6 : Histogramme (Classes de 5 ans)"</span>, </span>
+<span id="cb9-14"><a></a>    <span class="at">subtitle =</span> <span class="st">"Chaque barre représente une tranche stricte (ex: [75 à 80[ ans)"</span>,</span>
+<span id="cb9-15"><a></a>    <span class="at">y =</span> <span class="st">"Nombre de pays"</span>, </span>
+<span id="cb9-16"><a></a>    <span class="at">x =</span> <span class="st">"Espérance de vie"</span></span>
+<span id="cb9-17"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb9-18"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -573,17 +565,17 @@ Marc O’Flaherty
 <p><strong>Résultats sur R (Matrices complètes) :</strong></p>
 <div style="max-height: 450px; overflow-y: auto;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># 1. Sélection des variables</span></span>
-<span id="cb9-2"><a></a>vars <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">IDH 2017</span><span class="st">`</span>, <span class="st">`</span><span class="at">PIB/tête (2017)</span><span class="st">`</span>, <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="st">`</span><span class="at">Années éducation (2017)</span><span class="st">`</span>)</span>
-<span id="cb9-4"><a></a></span>
-<span id="cb9-5"><a></a><span class="co"># 2. Matrice de COVARIANCE (Brute)</span></span>
-<span id="cb9-6"><a></a><span class="co"># Difficile à interpréter car les unités sont mélangées ($ * Années)</span></span>
-<span id="cb9-7"><a></a><span class="fu">print</span>(<span class="st">"--- Matrice de COVARIANCE ---"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># 1. Sélection des variables</span></span>
+<span id="cb10-2"><a></a>vars <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">IDH 2017</span><span class="st">`</span>, <span class="st">`</span><span class="at">PIB/tête (2017)</span><span class="st">`</span>, <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="st">`</span><span class="at">Années éducation (2017)</span><span class="st">`</span>)</span>
+<span id="cb10-4"><a></a></span>
+<span id="cb10-5"><a></a><span class="co"># 2. Matrice de COVARIANCE (Brute)</span></span>
+<span id="cb10-6"><a></a><span class="co"># Difficile à interpréter car les unités sont mélangées ($ * Années)</span></span>
+<span id="cb10-7"><a></a><span class="fu">print</span>(<span class="st">"--- Matrice de COVARIANCE ---"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "--- Matrice de COVARIANCE ---"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">cov</span>(vars, <span class="at">use =</span> <span class="st">"complete.obs"</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">cov</span>(vars, <span class="at">use =</span> <span class="st">"complete.obs"</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                        IDH 2017 PIB/tête (2017) Esp Vie Naiss 2017
 IDH 2017                     0.0          2927.8                1.6
@@ -596,13 +588,13 @@ PIB/tête (2017)                         56017.0
 Esp Vie Naiss 2017                         30.2
 Années éducation (2017)                    13.4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># 3. Matrice de CORRÉLATION (Standardisée)</span></span>
-<span id="cb13-2"><a></a><span class="co"># Idéale pour voir les liens avec l'IDH (Max = 1)</span></span>
-<span id="cb13-3"><a></a><span class="fu">print</span>(<span class="st">"--- Matrice de CORRÉLATION ---"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># 3. Matrice de CORRÉLATION (Standardisée)</span></span>
+<span id="cb14-2"><a></a><span class="co"># Idéale pour voir les liens avec l'IDH (Max = 1)</span></span>
+<span id="cb14-3"><a></a><span class="fu">print</span>(<span class="st">"--- Matrice de CORRÉLATION ---"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "--- Matrice de CORRÉLATION ---"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">cor</span>(vars, <span class="at">use =</span> <span class="st">"complete.obs"</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">cor</span>(vars, <span class="at">use =</span> <span class="st">"complete.obs"</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                        IDH 2017 PIB/tête (2017) Esp Vie Naiss 2017
 IDH 2017                    1.00            0.88               0.93
@@ -623,11 +615,11 @@ Années éducation (2017)                    1.00</code></pre>
 <p><em>Espérance de vie ~ PIB par tête.</em></p>
 <div style="max-height: 450px; overflow-y: auto;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">PIB/tête (2017)</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb17-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb17-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"#C04657"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Droite de régression</span></span>
-<span id="cb17-4"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q8 : Régression linéaire"</span>, <span class="at">x =</span> <span class="st">"PIB ($)"</span>, <span class="at">y =</span> <span class="st">"Espérance de vie"</span>) <span class="sc">+</span></span>
-<span id="cb17-5"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">PIB/tête (2017)</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb18-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb18-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"#C04657"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Droite de régression</span></span>
+<span id="cb18-4"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q8 : Régression linéaire"</span>, <span class="at">x =</span> <span class="st">"PIB ($)"</span>, <span class="at">y =</span> <span class="st">"Espérance de vie"</span>) <span class="sc">+</span></span>
+<span id="cb18-5"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -665,14 +657,14 @@ Années éducation (2017)                    1.00</code></pre>
 <p><strong>Résultat sur R :</strong></p>
 <div style="max-height: 400px; overflow-y: auto;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># Modèle sans le Palma (données manquantes) et sans l'IDH (tautologie)</span></span>
-<span id="cb18-2"><a></a>modele_safe <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span> <span class="sc">~</span> <span class="st">`</span><span class="at">PIB/tête (2017)</span><span class="st">`</span> <span class="sc">+</span> </span>
-<span id="cb18-3"><a></a>                  <span class="st">`</span><span class="at">Années éducation (2017)</span><span class="st">`</span> <span class="sc">+</span> </span>
-<span id="cb18-4"><a></a>                  <span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span>, </span>
-<span id="cb18-5"><a></a>                  <span class="at">data =</span> df)</span>
-<span id="cb18-6"><a></a></span>
-<span id="cb18-7"><a></a><span class="co"># Affichage des coefficients arrondis</span></span>
-<span id="cb18-8"><a></a><span class="fu">summary</span>(modele_safe)<span class="sc">$</span>coefficients <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Modèle sans le Palma (données manquantes) et sans l'IDH (tautologie)</span></span>
+<span id="cb19-2"><a></a>modele_safe <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span> <span class="sc">~</span> <span class="st">`</span><span class="at">PIB/tête (2017)</span><span class="st">`</span> <span class="sc">+</span> </span>
+<span id="cb19-3"><a></a>                  <span class="st">`</span><span class="at">Années éducation (2017)</span><span class="st">`</span> <span class="sc">+</span> </span>
+<span id="cb19-4"><a></a>                  <span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span>, </span>
+<span id="cb19-5"><a></a>                  <span class="at">data =</span> df)</span>
+<span id="cb19-6"><a></a></span>
+<span id="cb19-7"><a></a><span class="co"># Affichage des coefficients arrondis</span></span>
+<span id="cb19-8"><a></a><span class="fu">summary</span>(modele_safe)<span class="sc">$</span>coefficients <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                           Estimate Std. Error  t value Pr(&gt;|t|)
 (Intercept)                43.04944    3.62061 11.89010  0.00000
@@ -736,32 +728,32 @@ Années éducation (2017)                    1.00</code></pre>
 <p><strong>Résultats sur R :</strong></p>
 <div style="max-height: 400px; overflow-y: auto;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># 1. Moyenne Mondiale (Pondérée)</span></span>
-<span id="cb20-2"><a></a><span class="co"># C'est l'espérance de vie moyenne d'un être humain sur Terre (dans notre échantillon)</span></span>
-<span id="cb20-3"><a></a><span class="co"># Moyenne non pondérée</span></span>
-<span id="cb20-4"><a></a>moy_Q2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-5"><a></a></span>
-<span id="cb20-6"><a></a><span class="co"># Moyenne pondérée</span></span>
-<span id="cb20-7"><a></a>moy_monde <span class="ot">&lt;-</span> <span class="fu">weighted.mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, </span>
-<span id="cb20-8"><a></a>                           <span class="at">w =</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span>, </span>
-<span id="cb20-9"><a></a>                           <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-10"><a></a></span>
-<span id="cb20-11"><a></a><span class="co"># 2. Variance Inter-Pays (Pondérée)</span></span>
-<span id="cb20-12"><a></a><span class="co"># Formule : Somme(Pop * (Esp - Moy)^2) / Somme(Pop)</span></span>
-<span id="cb20-13"><a></a><span class="co"># Variance non pondérée</span></span>
-<span id="cb20-14"><a></a>var_Q2 <span class="ot">&lt;-</span> <span class="fu">var</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-15"><a></a><span class="co"># Écart type non pondérée</span></span>
-<span id="cb20-16"><a></a>sd_Q2 <span class="ot">&lt;-</span> <span class="fu">sd</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-17"><a></a></span>
-<span id="cb20-18"><a></a><span class="co"># Moyenne pondérée</span></span>
-<span id="cb20-19"><a></a>var_inter <span class="ot">&lt;-</span> <span class="fu">sum</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span> <span class="sc">*</span> (df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span> <span class="sc">-</span> moy_monde)<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> </span>
-<span id="cb20-20"><a></a>             <span class="fu">sum</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-21"><a></a></span>
-<span id="cb20-22"><a></a><span class="co"># Affichage des résultats</span></span>
-<span id="cb20-23"><a></a><span class="fu">data.frame</span>(</span>
-<span id="cb20-24"><a></a>  <span class="at">Indicateur =</span> <span class="fu">c</span>(<span class="st">"Espérance de vie (Q2 - non pondérée)"</span>, <span class="st">"Espérance de vie (Monde - pondérée)"</span>, <span class="st">"Variance non pondérée"</span>, <span class="st">"Variance Inter-Pays (Pondérée)"</span>, <span class="st">"Ecart-type non pondéré"</span>, <span class="st">"Ecart-type Inter-Pays"</span>),</span>
-<span id="cb20-25"><a></a>  <span class="at">Valeur =</span> <span class="fu">c</span>(moy_Q2, moy_monde, var_Q2, var_inter, sd_Q2, <span class="fu">sqrt</span>(var_inter)) <span class="co"># sqrt -&gt; racine carré de la variance</span></span>
-<span id="cb20-26"><a></a>) <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># 1. Moyenne Mondiale (Pondérée)</span></span>
+<span id="cb21-2"><a></a><span class="co"># C'est l'espérance de vie moyenne d'un être humain sur Terre (dans notre échantillon)</span></span>
+<span id="cb21-3"><a></a><span class="co"># Moyenne non pondérée</span></span>
+<span id="cb21-4"><a></a>moy_Q2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-5"><a></a></span>
+<span id="cb21-6"><a></a><span class="co"># Moyenne pondérée</span></span>
+<span id="cb21-7"><a></a>moy_monde <span class="ot">&lt;-</span> <span class="fu">weighted.mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, </span>
+<span id="cb21-8"><a></a>                           <span class="at">w =</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span>, </span>
+<span id="cb21-9"><a></a>                           <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-10"><a></a></span>
+<span id="cb21-11"><a></a><span class="co"># 2. Variance Inter-Pays (Pondérée)</span></span>
+<span id="cb21-12"><a></a><span class="co"># Formule : Somme(Pop * (Esp - Moy)^2) / Somme(Pop)</span></span>
+<span id="cb21-13"><a></a><span class="co"># Variance non pondérée</span></span>
+<span id="cb21-14"><a></a>var_Q2 <span class="ot">&lt;-</span> <span class="fu">var</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-15"><a></a><span class="co"># Écart type non pondérée</span></span>
+<span id="cb21-16"><a></a>sd_Q2 <span class="ot">&lt;-</span> <span class="fu">sd</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-17"><a></a></span>
+<span id="cb21-18"><a></a><span class="co"># Moyenne pondérée</span></span>
+<span id="cb21-19"><a></a>var_inter <span class="ot">&lt;-</span> <span class="fu">sum</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span> <span class="sc">*</span> (df<span class="sc">$</span><span class="st">`</span><span class="at">Esp Vie Naiss 2017</span><span class="st">`</span> <span class="sc">-</span> moy_monde)<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> </span>
+<span id="cb21-20"><a></a>             <span class="fu">sum</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Population totale (2017)</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-21"><a></a></span>
+<span id="cb21-22"><a></a><span class="co"># Affichage des résultats</span></span>
+<span id="cb21-23"><a></a><span class="fu">data.frame</span>(</span>
+<span id="cb21-24"><a></a>  <span class="at">Indicateur =</span> <span class="fu">c</span>(<span class="st">"Espérance de vie (Q2 - non pondérée)"</span>, <span class="st">"Espérance de vie (Monde - pondérée)"</span>, <span class="st">"Variance non pondérée"</span>, <span class="st">"Variance Inter-Pays (Pondérée)"</span>, <span class="st">"Ecart-type non pondéré"</span>, <span class="st">"Ecart-type Inter-Pays"</span>),</span>
+<span id="cb21-25"><a></a>  <span class="at">Valeur =</span> <span class="fu">c</span>(moy_Q2, moy_monde, var_Q2, var_inter, sd_Q2, <span class="fu">sqrt</span>(var_inter)) <span class="co"># sqrt -&gt; racine carré de la variance</span></span>
+<span id="cb21-26"><a></a>) <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top">
 <thead>

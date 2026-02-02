@@ -46,13 +46,17 @@ Télécharger le fichier, l'ouvrir et identifier ces variables.
 #| message: false
 #| warning: false
 
+#install.packages("ggplot2")
+#install.packages("dplyr")
+#install.packages("readxl")
+
 library(ggplot2)
 library(dplyr)
 library(readxl)
 
 # --- ÉTAPE 1 : DÉFINIR LE FICHIER ---
 # Remplacez ce chemin par le vôtre !
-mon_fichier <- "C:/Users/oflah/Downloads/DonneesTD1.xlsx" 
+mon_fichier <- "C:/Users/187997/Desktop/SIASS - L3S6/Sequence 1 Variables Numériques/DonneesTD1.xlsx"
 
 # --- ÉTAPE 2 : IMPORTER ---
 df <- read_excel(mon_fichier)
@@ -88,7 +92,7 @@ df %>% summarise(
   Moyenne = mean(`Esp Vie Naiss 2017`, na.rm = TRUE),
   Variance = var(`Esp Vie Naiss 2017`, na.rm = TRUE),
   Ecart_Type = sd(`Esp Vie Naiss 2017`, na.rm = TRUE)
-) %>% knitr::kable(digits = 2)
+) 
 ```
 :::
 
