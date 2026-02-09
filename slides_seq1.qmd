@@ -108,7 +108,6 @@ On découpe la distribution pour voir les inégalités.
 :::
 
 **Résultats R :**
-::: {style="max-height: 200px; overflow-y: auto;"}
 ```{r}
 #| label: q3-quantiles
 #| echo: true
@@ -171,28 +170,42 @@ Insertion $\rightarrow$ Graphiques recommandés $\rightarrow$ Tous les graphique
 
 ::: {style="max-height: 450px; overflow-y: auto;"}
 ```{r}
-#| label: q5-sorted-bars
+#| label: q5-sorted-bars-quantiles
 #| fig-height: 5
 
 # 1. On trie les données (comme sur Excel)
 df_trie <- df %>%
   filter(!is.na(`Esp Vie Naiss 2017`)) %>%
   arrange(`Esp Vie Naiss 2017`) %>%
-  mutate(Rang = row_number()) # On crée un numéro d'ordre (1, 2, 3...)
+  mutate(Rang = row_number())
 
-# 2. On trace des BÂTONS (geom_col)
+# 2. On calcule les valeurs des quantiles pour les lignes
+# D1 (10%), Q1 (25%), Q3 (75%), D9 (90%)
+vals_q <- quantile(df_trie$`Esp Vie Naiss 2017`, probs = c(0.1, 0.25, 0.75, 0.9))
+
+# 3. Le graphique
 ggplot(df_trie, aes(x = Rang, y = `Esp Vie Naiss 2017`)) +
-  geom_col(fill = "#404080", width = 0.8) +
+  geom_col(fill = "#404080", width = 0.8, alpha = 0.7) +
   
-  # On ajoute la ligne de la Médiane (Horizontalement)
+  # Ligne de la Médiane (déjà présente)
   geom_hline(yintercept = median(df_trie$`Esp Vie Naiss 2017`), 
-             color = "#b89e14", size = 1.5) +
+             color = "#b89e14", linewidth = 1.2) +
   
+  # Ajout des lignes pour D1, Q1, Q3, D9
+  geom_hline(yintercept = vals_q, linetype = "dashed", color = "grey40", alpha = 0.8) +
+  
+  # Annotations pour la Médiane
   annotate("text", x = 5, y = 78, label = "Médiane", color = "#b89e14", fontface = "bold") +
+  
+  # Annotations pour les autres seuils
+  annotate("text", x = 1, y = vals_q["10%"] - 3, label = "D1", color = "grey40", size = 3) +
+  annotate("text", x = 1, y = vals_q["25%"] - 3, label = "Q1", color = "grey40", size = 3) +
+  annotate("text", x = 1, y = vals_q["75%"] + 3, label = "Q3", color = "grey40", size = 3) +
+  annotate("text", x = 1, y = vals_q["90%"] + 3, label = "D9", color = "grey40", size = 3) +
 
-  labs(title = "Q5 : Distribution de l'Espérance de vie (Triée)", 
+  labs(title = "Q5 : Distribution triée avec Quantiles (D1, Q1, Q3, D9)", 
        y = "Espérance de vie (en années)", 
-       x = "Pays") +
+       x = "Pays (du moins au plus âgé)") +
   theme_minimal()
 ```
 :::
