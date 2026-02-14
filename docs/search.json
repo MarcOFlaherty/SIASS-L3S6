@@ -368,27 +368,27 @@
     "href": "slides_seq3.html#préparation-des-données",
     "title": "Séquence 3 : Statistique & Cartographie",
     "section": "Préparation des données",
-    "text": "Préparation des données\nAvant d’aller sur Khartis, il faut nettoyer le fichier Excel.\n\nCalculs finis : Assurez-vous d’avoir calculé le % Éolien 2019 et le TAM 2014-2019.\nFormatage :\n\nArrondir à 1 ou 2 décimales.\nSi vos % sont en décimaux (0,15), multipliez par 100 pour avoir (15) si nécessaire, ou laissez Khartis gérer.\n\nCopier-Coller :\n\nSélectionnez les colonnes : Pays + Part Eolien 2019 + TAM.\nCollez dans la fenêtre “Données” de Khartis.\n\n\n\n\n\n\n\n\nRéglage Khartis\n\n\n\nFond de carte : Europe &gt; Pays (2016).\nIdentifiant : Vérifiez que la colonne “Pays” est bien reconnue."
+    "text": "Préparation des données\nAvant d’aller sur Khartis, il faut nettoyer le fichier Excel.\n\nCalculs finis : Assurez-vous d’avoir calculé le % Éolien 2019 et le TAM 2014-2019.\nFormatage :\n\nArrondir à 1 ou 2 décimales.\nSi vos % sont en décimaux (0,15), multipliez par 100 pour avoir (15) si nécessaire, ou laissez Khartis gérer.\n\nCopier-Coller :\n\nSélectionnez les colonnes : Name Khartis + Part Éolien 2019 + TAM.\nCollez dans la fenêtre “Données” de Khartis.\n\n\n\n\n\n\n\n\nRéglage Khartis\n\n\n\nFond de carte : Europe &gt; Pays (2016).\nDonnées : Vérifiez que les données sont bien reconnue."
   },
   {
     "objectID": "slides_seq3.html#couche-1-la-part-de-léolien-aplat",
     "href": "slides_seq3.html#couche-1-la-part-de-léolien-aplat",
     "title": "Séquence 3 : Statistique & Cartographie",
     "section": "Couche 1 : La Part de l’éolien (Aplat)",
-    "text": "Couche 1 : La Part de l’éolien (Aplat)\nVariable de stock/ratio \\(\\rightarrow\\) Couleur\nOn veut montrer l’intensité de l’éolien en 2019.\n\nType de visualisation : Couleur ordonnée (Choroplèthe).\nVariable : % Éolien 2019.\nDiscrétisation (Le découpage) :\n\nLe TD suggère “Moyennes emboitées”.\nPrincipe : La moyenne divise le groupe en 2, puis on redivise chaque sous-groupe par sa moyenne.\nAvantage : Utile pour les distributions dissymétriques (ce qui est souvent le cas pour l’énergie)."
+    "text": "Couche 1 : La Part de l’éolien (Aplat)\nVariable de stock/ratio \\(\\rightarrow\\) Couleur\nOn veut montrer l’intensité de l’éolien en 2019.\n\nType de visualisation : Couleur ordonnée (par classes).\nVariable : % Éolien 2019.\nDiscrétisation (Le découpage) :\n\nLe TD suggère “Moyennes emboitées”.\nMais vous pouvez utiliser “Quantiles” ou “Jenks”."
   },
   {
     "objectID": "slides_seq3.html#couche-2-la-dynamique-symboles",
     "href": "slides_seq3.html#couche-2-la-dynamique-symboles",
     "title": "Séquence 3 : Statistique & Cartographie",
     "section": "Couche 2 : La Dynamique (Symboles)",
-    "text": "Couche 2 : La Dynamique (Symboles)\nVariable d’évolution \\(\\rightarrow\\) Taille\nOn veut montrer qui a progressé le plus vite (TAM).\n\nType de visualisation : Symboles proportionnels.\nVariable : TAM 2014-2019.\nForme : Barres (ou cercles).\nAstuce de lecture :\n\nUtilisez des couleurs distinctes pour le positif (Vert) et le négatif (Rouge).\nAugmentez la taille des symboles pour qu’ils soient lisibles par-dessus la couleur de fond."
+    "text": "Couche 2 : La Dynamique (Symboles)\nVariable d’évolution \\(\\rightarrow\\) Taille\nOn veut montrer qui a progressé le plus vite (TAM).\n\nType de visualisation : Symboles proportionnels.\nVariable : TAM 2014-2019.\nForme : Barres.\nAstuce de lecture :\n\nAugmentez la taille et réduisez la largeur."
   },
   {
     "objectID": "slides_seq3.html#finalisation",
     "href": "slides_seq3.html#finalisation",
     "title": "Séquence 3 : Statistique & Cartographie",
     "section": "Finalisation",
-    "text": "Finalisation\nUne bonne carte doit se suffire à elle-même.\n\nHabillage :\n\nAjoutez un Titre explicite (ex: L’énergie éolienne en UE : Poids actuel et dynamique récente).\nIndiquez la Source (Eurostat / TD).\n\nLégende :\n\nRenommez les variables pour qu’elles soient propres (pas de “colonne_B”).\nArrondissez les bornes des classes (pas de 12,4564%).\n\nExport :\n\nTéléchargez en PNG ou SVG pour l’intégrer à votre rapport.\n\n\n\n\n\n\n\n\nBilan Séquence 3\n\n\nVous savez maintenant : 1. Utiliser SOMME.SI pour des calculs conditionnels. 2. Calculer un Taux Annuel Moyen (TAM) correct. 3. Superposer deux variables (Stock + Évolution) sur une carte Khartis."
+    "text": "Finalisation\nUne bonne carte doit se suffire à elle-même.\n\nHabillage :\n\nAjoutez un Titre explicite.\nIndiquez la Source.\n\nLégende :\n\nRenommez les variables pour qu’elles soient propres.\n\nExport :\n\nTéléchargez l’image pour l’intégrer à votre rapport.\n\n\n\n\n\n\n\n\nBilan Séquence 3\n\n\nVous savez maintenant : 1. Utiliser SOMME.SI pour des calculs conditionnels. 2. Calculer un Taux Annuel Moyen (TAM) correct. 3. Superposer deux variables (Stock + Évolution) sur une carte Khartis."
   }
 ]
