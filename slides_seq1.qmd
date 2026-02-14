@@ -459,6 +459,6 @@ Cela représente l'espérance de vie théorique "brute" d'une population qui n'a
 
 ::: {.callout-note appearance="minimal"}
 ### 🔗 Accéder au corrigé
-[Cliquez ici pour accéder au Excel corrigé](https://docs.google.com/spreadsheets/d/1az6-DW0RLoC0v6wDbRmRFQ83SPlMd4bn/edit?usp=sharing&ouid=117189060126746781209&rtpof=true&sd=true)
+[Cliquez ici pour accéder au Excel corrigé](https://drive.google.com/drive/folders/1mCL7dYh4UpdKQz0c729nowAzpDm6N8cr?usp=sharing)
 :::
 

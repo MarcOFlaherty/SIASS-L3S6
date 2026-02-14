@@ -216,7 +216,7 @@ Marc O’Flaherty
 
 <section>
 <section id="tendance-centrale-dispersion" class="title-slide slide level1 center">
-<h1>2. Tendance centrale &amp; dispersion</h1>
+<h1>1. Tendance centrale &amp; dispersion</h1>
 
 </section>
 <section id="la-moyenne-vs-la-médiane" class="slide level2 scrollable">
@@ -436,7 +436,7 @@ Comment lire ce tableau ?
 <div id="fig-salaires" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-salaires-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="slides_retours_files/figure-revealjs/fig-salaires-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Dispersion des salaires"><img data-src="slides_retours_files/figure-revealjs/fig-salaires-1.png" width="864"></a>
+<a href="slides_retours_files/figure-html/fig-salaires-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Dispersion des salaires"><img data-src="slides_retours_files/figure-html/fig-salaires-1.png" width="864"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-salaires-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Dispersion des salaires
@@ -513,7 +513,7 @@ Figure&nbsp;1: Dispersion des salaires
 <div id="fig-histo" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-histo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="slides_retours_files/figure-revealjs/fig-histo-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Distribution mondiale de l’espérance de vie (183 pays, OMS 2015)"><img data-src="slides_retours_files/figure-revealjs/fig-histo-1.png" width="960"></a>
+<a href="slides_retours_files/figure-html/fig-histo-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Distribution mondiale de l’espérance de vie (183 pays, OMS 2015)"><img data-src="slides_retours_files/figure-html/fig-histo-1.png" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Distribution mondiale de l’espérance de vie (183 pays, OMS 2015)
@@ -564,11 +564,15 @@ Figure&nbsp;2: Distribution mondiale de l’espérance de vie (183 pays, OMS 201
 <span id="cb3-23"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb3-24"><a></a>  <span class="fu">ylim</span>(<span class="dv">50</span>, <span class="dv">90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Scale for x is already present.
+Adding another scale for x, which will replace the existing scale.</code></pre>
+</div>
 <div class="cell-output-display">
 <div id="fig-nuage-reel" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-nuage-reel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="slides_retours_files/figure-revealjs/fig-nuage-reel-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Lien PIB par hab / espérance de vie (source : Banque Mondiale 2022)"><img data-src="slides_retours_files/figure-revealjs/fig-nuage-reel-1.png" width="960"></a>
+<a href="slides_retours_files/figure-html/fig-nuage-reel-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Lien PIB par hab / espérance de vie (source : Banque Mondiale 2022)"><img data-src="slides_retours_files/figure-html/fig-nuage-reel-1.png" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nuage-reel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: Lien PIB par hab / espérance de vie (source : Banque Mondiale 2022)
@@ -658,14 +662,14 @@ En divisant la Covariance par les Écarts-types, on “nettoie” l’indicateur
 <div class="cell">
 <details class="code-fold">
 <summary>Vérifier le calcul en R</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Nos données</span></span>
-<span id="cb4-2"><a></a>pib <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">860</span>, <span class="dv">2347</span>, <span class="dv">4147</span>, <span class="dv">9281</span>, <span class="dv">12970</span>, <span class="dv">40988</span>, <span class="dv">76657</span>, <span class="dv">94394</span>)</span>
-<span id="cb4-3"><a></a>esp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">61</span>, <span class="dv">72</span>, <span class="dv">75</span>, <span class="dv">75</span>, <span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">77</span>, <span class="dv">84</span>)</span>
-<span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a><span class="co"># Calcul direct</span></span>
-<span id="cb4-6"><a></a>resultat <span class="ot">&lt;-</span> <span class="fu">cor</span>(pib, esp)</span>
-<span id="cb4-7"><a></a><span class="co"># Affiche le résultat</span></span>
-<span id="cb4-8"><a></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Le coefficient de corrélation est de :"</span>, <span class="fu">round</span>(resultat, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Nos données</span></span>
+<span id="cb5-2"><a></a>pib <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">860</span>, <span class="dv">2347</span>, <span class="dv">4147</span>, <span class="dv">9281</span>, <span class="dv">12970</span>, <span class="dv">40988</span>, <span class="dv">76657</span>, <span class="dv">94394</span>)</span>
+<span id="cb5-3"><a></a>esp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">61</span>, <span class="dv">72</span>, <span class="dv">75</span>, <span class="dv">75</span>, <span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">77</span>, <span class="dv">84</span>)</span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a><span class="co"># Calcul direct</span></span>
+<span id="cb5-6"><a></a>resultat <span class="ot">&lt;-</span> <span class="fu">cor</span>(pib, esp)</span>
+<span id="cb5-7"><a></a><span class="co"># Affiche le résultat</span></span>
+<span id="cb5-8"><a></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Le coefficient de corrélation est de :"</span>, <span class="fu">round</span>(resultat, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Le coefficient de corrélation est de : 0.66"</code></pre>
@@ -688,39 +692,46 @@ Le résultat (<span class="math inline">\(r = 0.66\)</span>) confirme une forte 
 <div class="cell">
 <details class="code-fold">
 <summary>Voir le code R et le calcul</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb6-2"><a></a></span>
-<span id="cb6-3"><a></a><span class="co"># 1. Données</span></span>
-<span id="cb6-4"><a></a>df_demo <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb6-5"><a></a>  <span class="at">Pays =</span> <span class="fu">c</span>(<span class="st">"Sierra Leone"</span>, <span class="st">"Inde"</span>, <span class="st">"Vietnam"</span>, <span class="st">"Brésil"</span>, <span class="st">"Chine"</span>, <span class="st">"France"</span>, <span class="st">"USA"</span>, <span class="st">"Suisse"</span>),</span>
-<span id="cb6-6"><a></a>  <span class="at">PIB =</span> <span class="fu">c</span>(<span class="dv">860</span>, <span class="dv">2347</span>, <span class="dv">4147</span>, <span class="dv">9281</span>, <span class="dv">12970</span>, <span class="dv">40988</span>, <span class="dv">76657</span>, <span class="dv">94394</span>),</span>
-<span id="cb6-7"><a></a>  <span class="at">Esp_Vie =</span> <span class="fu">c</span>(<span class="dv">61</span>, <span class="dv">72</span>, <span class="dv">75</span>, <span class="dv">75</span>, <span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">77</span>, <span class="dv">84</span>)</span>
-<span id="cb6-8"><a></a>)</span>
-<span id="cb6-9"><a></a></span>
-<span id="cb6-10"><a></a><span class="co"># 2. Le Calcul (La machine à prédiction)</span></span>
-<span id="cb6-11"><a></a>modele <span class="ot">&lt;-</span> <span class="fu">lm</span>(Esp_Vie <span class="sc">~</span> PIB, <span class="at">data =</span> df_demo)</span>
-<span id="cb6-12"><a></a>coeffs <span class="ot">&lt;-</span> <span class="fu">coef</span>(modele)</span>
-<span id="cb6-13"><a></a>b_socle <span class="ot">&lt;-</span> <span class="fu">round</span>(coeffs[<span class="dv">1</span>], <span class="dv">1</span>)       <span class="co"># L'ordonnée à l'origine</span></span>
-<span id="cb6-14"><a></a>a_pente <span class="ot">&lt;-</span> <span class="fu">format</span>(coeffs[<span class="dv">2</span>], <span class="at">scientific=</span><span class="cn">FALSE</span>, <span class="at">digits=</span><span class="dv">5</span>) <span class="co"># La pente</span></span>
-<span id="cb6-15"><a></a></span>
-<span id="cb6-16"><a></a><span class="co"># 3. Le Graphique</span></span>
-<span id="cb6-17"><a></a><span class="fu">ggplot</span>(df_demo, <span class="fu">aes</span>(<span class="at">x =</span> PIB, <span class="at">y =</span> Esp_Vie)) <span class="sc">+</span></span>
-<span id="cb6-18"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"#404080"</span>) <span class="sc">+</span></span>
-<span id="cb6-19"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"#C04657"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb6-20"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Pays), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">1.2</span>, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
-<span id="cb6-21"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>)) <span class="sc">+</span></span>
-<span id="cb6-22"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-23"><a></a>    <span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">"Modèle : Espérance = "</span>, a_pente, <span class="st">" * PIB + "</span>, b_socle),</span>
-<span id="cb6-24"><a></a>    <span class="at">subtitle =</span> <span class="st">"L'équation est calculée automatiquement par R ci-dessus"</span>,</span>
-<span id="cb6-25"><a></a>    <span class="at">x =</span> <span class="st">"PIB/hab (en $)"</span>, <span class="at">y =</span> <span class="st">"Espérance de vie (en années)"</span></span>
-<span id="cb6-26"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb6-27"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="co"># 1. Données</span></span>
+<span id="cb7-4"><a></a>df_demo <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb7-5"><a></a>  <span class="at">Pays =</span> <span class="fu">c</span>(<span class="st">"Sierra Leone"</span>, <span class="st">"Inde"</span>, <span class="st">"Vietnam"</span>, <span class="st">"Brésil"</span>, <span class="st">"Chine"</span>, <span class="st">"France"</span>, <span class="st">"USA"</span>, <span class="st">"Suisse"</span>),</span>
+<span id="cb7-6"><a></a>  <span class="at">PIB =</span> <span class="fu">c</span>(<span class="dv">860</span>, <span class="dv">2347</span>, <span class="dv">4147</span>, <span class="dv">9281</span>, <span class="dv">12970</span>, <span class="dv">40988</span>, <span class="dv">76657</span>, <span class="dv">94394</span>),</span>
+<span id="cb7-7"><a></a>  <span class="at">Esp_Vie =</span> <span class="fu">c</span>(<span class="dv">61</span>, <span class="dv">72</span>, <span class="dv">75</span>, <span class="dv">75</span>, <span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">77</span>, <span class="dv">84</span>)</span>
+<span id="cb7-8"><a></a>)</span>
+<span id="cb7-9"><a></a></span>
+<span id="cb7-10"><a></a><span class="co"># 2. Le Calcul (La machine à prédiction)</span></span>
+<span id="cb7-11"><a></a>modele <span class="ot">&lt;-</span> <span class="fu">lm</span>(Esp_Vie <span class="sc">~</span> PIB, <span class="at">data =</span> df_demo)</span>
+<span id="cb7-12"><a></a>coeffs <span class="ot">&lt;-</span> <span class="fu">coef</span>(modele)</span>
+<span id="cb7-13"><a></a>b_socle <span class="ot">&lt;-</span> <span class="fu">round</span>(coeffs[<span class="dv">1</span>], <span class="dv">1</span>)       <span class="co"># L'ordonnée à l'origine</span></span>
+<span id="cb7-14"><a></a>a_pente <span class="ot">&lt;-</span> <span class="fu">format</span>(coeffs[<span class="dv">2</span>], <span class="at">scientific=</span><span class="cn">FALSE</span>, <span class="at">digits=</span><span class="dv">5</span>) <span class="co"># La pente</span></span>
+<span id="cb7-15"><a></a></span>
+<span id="cb7-16"><a></a><span class="co"># 3. Le Graphique</span></span>
+<span id="cb7-17"><a></a><span class="fu">ggplot</span>(df_demo, <span class="fu">aes</span>(<span class="at">x =</span> PIB, <span class="at">y =</span> Esp_Vie)) <span class="sc">+</span></span>
+<span id="cb7-18"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"#404080"</span>) <span class="sc">+</span></span>
+<span id="cb7-19"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"#C04657"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb7-20"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Pays), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">1.2</span>, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb7-21"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>)) <span class="sc">+</span></span>
+<span id="cb7-22"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-23"><a></a>    <span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">"Modèle : Espérance = "</span>, a_pente, <span class="st">" * PIB + "</span>, b_socle),</span>
+<span id="cb7-24"><a></a>    <span class="at">subtitle =</span> <span class="st">"L'équation est calculée automatiquement par R ci-dessus"</span>,</span>
+<span id="cb7-25"><a></a>    <span class="at">x =</span> <span class="st">"PIB/hab (en $)"</span>, <span class="at">y =</span> <span class="st">"Espérance de vie (en années)"</span></span>
+<span id="cb7-26"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb7-27"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
 <div class="cell-output-display">
 <div id="fig-reg-calc" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-reg-calc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="slides_retours_files/figure-revealjs/fig-reg-calc-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;4: Modèle linéaire calculé"><img data-src="slides_retours_files/figure-revealjs/fig-reg-calc-1.png" width="960"></a>
+<a href="slides_retours_files/figure-html/fig-reg-calc-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;4: Modèle linéaire calculé"><img data-src="slides_retours_files/figure-html/fig-reg-calc-1.png" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reg-calc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Modèle linéaire calculé
@@ -977,82 +988,6 @@ La pente est douce. Pour gagner <strong>1 an</strong> d’espérance de vie supp
         ]
       });
     </script>
-    
-
-    <script>
-
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
-      // slide changes (different for each slide format).
-
-      (function () {
-
-        // dispatch for htmlwidgets
-
-        function fireSlideEnter() {
-
-          const event = window.document.createEvent("Event");
-
-          event.initEvent("slideenter", true, true);
-
-          window.document.dispatchEvent(event);
-
-        }
-
-    
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          fireSlideEnter();
-
-    
-
-          // dispatch for shiny
-
-          if (window.jQuery) {
-
-            if (previousSlide) {
-
-              window.jQuery(previousSlide).trigger("hidden");
-
-            }
-
-            if (currentSlide) {
-
-              window.jQuery(currentSlide).trigger("shown");
-
-            }
-
-          }
-
-        }
-
-    
-
-        // hookup for slidy
-
-        if (window.w3c_slidy) {
-
-          window.w3c_slidy.add_observer(function (slide_num) {
-
-            // slide_num starts at position 1
-
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
-          });
-
-        }
-
-    
-
-      })();
-
-    </script>
-
-    
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
