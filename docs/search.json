@@ -327,5 +327,68 @@
     "title": "Séquence 1 : Prise en main & statistiques descriptives",
     "section": "Q13 : Synthèse et interprétation des résultats",
     "text": "Q13 : Synthèse et interprétation des résultats\nL’objectif était d’analyser les déterminants de l’espérance de vie à travers un échantillon de 44 pays en 2017. Voici les trois conclusions majeures issues de nos traitements statistiques.\nA. Une distribution mondiale étonnamment stable (Q2 vs Q10)\nContrairement à l’intuition, la prise en compte de la taille de la population ne change presque rien aux résultats globaux sur cet échantillon :\n\nMoyenne : L’espérance de vie moyenne par pays est de 73,43 ans. L’espérance de vie mondiale pondérée (celle d’un “habitant terrien moyen”) est quasi identique à 73,48 ans.\n\nInterprétation : Cela signifie qu’il n’y a pas de biais démographique majeur : les géants démographiques de l’échantillon ne sont ni systématiquement plus pauvres, ni plus riches que les petits pays.\n\nInégalités : La variance reste élevée, signe que le lieu de naissance détermine encore fortement la durée de vie.\n\nB. L’Éducation est le moteur, la richesse n’est que le carburant (Q9)\nLa régression multiple (\\(R^2 = 0,89\\)) nous a permis de départager les facteurs d’influence avec précision :\n\nL’Éducation est la cause réelle : C’est la seule variable hautement significative (\\(p &lt; 0,001\\)). Chaque année d’étude supplémentaire augmente l’espérance de vie de 2,16 ans.\n\nL’effet “masqué” du PIB : Une fois l’éducation prise en compte, le PIB par tête devient non-significatif (\\(p = 0,72\\)).\n\nSens sociologique : La richesse économique n’est pas une fin en soi pour la santé. Elle n’est utile que si elle est convertie en services publics et en éducation notamment (ex : USA).\n\n\nLa neutralité démographique : La taille de la population n’a aucun impact (\\(p = 0,60\\)).\n\nC. Le “socle biologique”\nL’ordonnée à l’origine (Intercept) est de 43,05 ans.\nCela représente l’espérance de vie théorique “brute” d’une population qui n’aurait aucune instruction ni développement économique. L’écart entre ce socle (43 ans) et la moyenne actuelle (~73,5 ans) mesure l’apport du développement humain."
+  },
+  {
+    "objectID": "slides_seq3.html#le-sujet-du-td",
+    "href": "slides_seq3.html#le-sujet-du-td",
+    "title": "Séquence 3 : Statistique & Cartographie",
+    "section": "Le sujet du TD",
+    "text": "Le sujet du TD\nNous allons analyser la transition énergétique en Europe à travers la production d’électricité éolienne.\n\nDonnées : Production électrique de l’UE (Totale vs Éolienne) de 1999 à 2019.\nOutils :\n\nExcel : Calculs d’évolution, tris conditionnels (Zone Euro vs UE).\nKhartis : Cartographie thématique (Représenter des ratios et des évolutions).\n\n\n\n\n\n\n\n\nObjectif final\n\n\nProduire une carte double représentant à la fois la part de l’éolien (en 2019) et sa dynamique de croissance (2014-2019)."
+  },
+  {
+    "objectID": "slides_seq3.html#identifier-et-isoler-nb.si-somme.si",
+    "href": "slides_seq3.html#identifier-et-isoler-nb.si-somme.si",
+    "title": "Séquence 3 : Statistique & Cartographie",
+    "section": "1. Identifier et Isoler (NB.SI & SOMME.SI)",
+    "text": "1. Identifier et Isoler (NB.SI & SOMME.SI)\nNous devons distinguer les pays de la Zone Euro des autres.\n\nCompter les paysSommer sous condition\n\n\nPour savoir combien de pays sont dans la Zone Euro :\n\n\n\n\n\n\n🟢 Formule NB.SI\n\n\n=NB.SI(Plage_Critère; \"Oui\")\n\n\n\n\nPlage_Critère : La colonne indiquant l’appartenance à la zone.\nCritère : Le texte exact “Oui” (avec les guillemets) car c’est le critère retenu.\n\n\n\nPour additionner la production électrique uniquement pour la Zone Euro :\n\n\n\n\n\n\n🟢 Formule SOMME.SI\n\n\n=SOMME.SI(Plage_Critère; \"Oui\"; Plage_à_Sommer)\n\n\n\n\nLogique : Excel regarde la colonne “Zone”, si il voit “Zone Euro”, il ajoute le chiffre de la production correspondant. Sinon, il l’ignore."
+  },
+  {
+    "objectID": "slides_seq3.html#indicateurs-dévolution-taux-simple",
+    "href": "slides_seq3.html#indicateurs-dévolution-taux-simple",
+    "title": "Séquence 3 : Statistique & Cartographie",
+    "section": "2. Indicateurs d’évolution (Taux simple)",
+    "text": "2. Indicateurs d’évolution (Taux simple)\nComment a évolué la production entre 2014 et 2019 ?\nFormule du Taux d’évolution global : \\[Taux = \\frac{V_{Arrivée} - V_{Départ}}{V_{Départ}}\\]\n\n\n\n\n\n\n🟢 Sur Excel\n\n\n\nFormule : =(Valeur2019 - Valeur2014) / Valeur2014\nImportant : Mettre la cellule en format Pourcentage (%).\n\n\n\n\n\nInterprétation :\n\nSi \\(&gt; 0\\) : Augmentation.\nSi \\(&lt; 0\\) : Baisse."
+  },
+  {
+    "objectID": "slides_seq3.html#la-part-ratio",
+    "href": "slides_seq3.html#la-part-ratio",
+    "title": "Séquence 3 : Statistique & Cartographie",
+    "section": "3. La Part (Ratio)",
+    "text": "3. La Part (Ratio)\nQuelle est la part de l’éolien dans l’électricité totale ?\nFormule : \\[Part = \\frac{\\text{Sous-Ensemble}}{\\text{Ensemble}}\\]\n\n\n\n\n\n\n🟢 Sur Excel\n\n\n= Production_Eolienne / Production_Totale\n\n\n\nÀ calculer pour 1999, 2009, 2014 et 2019 pour voir la progression."
+  },
+  {
+    "objectID": "slides_seq3.html#le-taux-annuel-moyen-tam",
+    "href": "slides_seq3.html#le-taux-annuel-moyen-tam",
+    "title": "Séquence 3 : Statistique & Cartographie",
+    "section": "4. Le Taux Annuel Moyen (TAM)",
+    "text": "4. Le Taux Annuel Moyen (TAM)\nLe piège du “n”\nPour comparer des périodes différentes, il faut ramener l’évolution à une moyenne annuelle.\nFormule Mathématique : \\[TAM = \\left( \\frac{V_{Arrivée}}{V_{Départ}} \\right)^{\\frac{1}{n}} - 1\\]\n\n\\(n\\) = Nombre d’années d’écart (ou nombre de périodes).\nEntre 2014 et 2019 : \\(2019 - 2014 = 5\\). Donc \\(n = 5\\).\n\n\n\n\n\n\n\n⚠️ Attention aux parenthèses sur Excel\n\n\n=(Valeur2019 / Valeur2014)^(1/5) - 1\n\n\n\nSans les parenthèses autour de 1/5, Excel calcule la puissance 1, puis divise tout par 5, ce qui est faux."
+  },
+  {
+    "objectID": "slides_seq3.html#préparation-des-données",
+    "href": "slides_seq3.html#préparation-des-données",
+    "title": "Séquence 3 : Statistique & Cartographie",
+    "section": "Préparation des données",
+    "text": "Préparation des données\nAvant d’aller sur Khartis, il faut nettoyer le fichier Excel.\n\nCalculs finis : Assurez-vous d’avoir calculé le % Éolien 2019 et le TAM 2014-2019.\nFormatage :\n\nArrondir à 1 ou 2 décimales.\nSi vos % sont en décimaux (0,15), multipliez par 100 pour avoir (15) si nécessaire, ou laissez Khartis gérer.\n\nCopier-Coller :\n\nSélectionnez les colonnes : Pays + Part Eolien 2019 + TAM.\nCollez dans la fenêtre “Données” de Khartis.\n\n\n\n\n\n\n\n\nRéglage Khartis\n\n\n\nFond de carte : Europe &gt; Pays (2016).\nIdentifiant : Vérifiez que la colonne “Pays” est bien reconnue."
+  },
+  {
+    "objectID": "slides_seq3.html#couche-1-la-part-de-léolien-aplat",
+    "href": "slides_seq3.html#couche-1-la-part-de-léolien-aplat",
+    "title": "Séquence 3 : Statistique & Cartographie",
+    "section": "Couche 1 : La Part de l’éolien (Aplat)",
+    "text": "Couche 1 : La Part de l’éolien (Aplat)\nVariable de stock/ratio \\(\\rightarrow\\) Couleur\nOn veut montrer l’intensité de l’éolien en 2019.\n\nType de visualisation : Couleur ordonnée (Choroplèthe).\nVariable : % Éolien 2019.\nDiscrétisation (Le découpage) :\n\nLe TD suggère “Moyennes emboitées”.\nPrincipe : La moyenne divise le groupe en 2, puis on redivise chaque sous-groupe par sa moyenne.\nAvantage : Utile pour les distributions dissymétriques (ce qui est souvent le cas pour l’énergie)."
+  },
+  {
+    "objectID": "slides_seq3.html#couche-2-la-dynamique-symboles",
+    "href": "slides_seq3.html#couche-2-la-dynamique-symboles",
+    "title": "Séquence 3 : Statistique & Cartographie",
+    "section": "Couche 2 : La Dynamique (Symboles)",
+    "text": "Couche 2 : La Dynamique (Symboles)\nVariable d’évolution \\(\\rightarrow\\) Taille\nOn veut montrer qui a progressé le plus vite (TAM).\n\nType de visualisation : Symboles proportionnels.\nVariable : TAM 2014-2019.\nForme : Barres (ou cercles).\nAstuce de lecture :\n\nUtilisez des couleurs distinctes pour le positif (Vert) et le négatif (Rouge).\nAugmentez la taille des symboles pour qu’ils soient lisibles par-dessus la couleur de fond."
+  },
+  {
+    "objectID": "slides_seq3.html#finalisation",
+    "href": "slides_seq3.html#finalisation",
+    "title": "Séquence 3 : Statistique & Cartographie",
+    "section": "Finalisation",
+    "text": "Finalisation\nUne bonne carte doit se suffire à elle-même.\n\nHabillage :\n\nAjoutez un Titre explicite (ex: L’énergie éolienne en UE : Poids actuel et dynamique récente).\nIndiquez la Source (Eurostat / TD).\n\nLégende :\n\nRenommez les variables pour qu’elles soient propres (pas de “colonne_B”).\nArrondissez les bornes des classes (pas de 12,4564%).\n\nExport :\n\nTéléchargez en PNG ou SVG pour l’intégrer à votre rapport.\n\n\n\n\n\n\n\n\nBilan Séquence 3\n\n\nVous savez maintenant : 1. Utiliser SOMME.SI pour des calculs conditionnels. 2. Calculer un Taux Annuel Moyen (TAM) correct. 3. Superposer deux variables (Stock + Évolution) sur une carte Khartis."
   }
 ]

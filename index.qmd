@@ -11,3 +11,4 @@ Vous trouverez ici les supports de cours.
 * [Introduction](slides_intro.html)
 * [Retour sur les notions](slides_retours.html)
 * [Séquence 1](slides_seq1.html)
+* [Séquence 3](slides_seq3.html)  
