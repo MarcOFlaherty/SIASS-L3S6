@@ -179,5 +179,5 @@ Vous savez maintenant :
 
 ::: {.callout-note appearance="minimal"}
 ### 🔗 Accéder au corrigé
-[Cliquez ici pour accéder au Excel corrigé](https://y.yarn.co/6e13b700-cce4-47e6-a5db-5999fd581141_text.gif)
+[Cliquez ici pour accéder au Excel corrigé](https://drive.google.com/drive/folders/1mIFu5eTwG9-2bAM6S9O4yx7Ij2VN7vTp?usp=sharing)
 :::

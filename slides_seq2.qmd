@@ -1,0 +1,230 @@
+---
+title: "Séquence 2 : Sociologie électorale & Inégalités"
+subtitle: "Analyse du vote parisien (Présidentielle 2022)"
+author: "Marc O'Flaherty"
+format: 
+  revealjs:
+    theme: simple
+    slide-number: c/t
+    lightbox: true
+    chalkboard: true
+    footer: "Séquence 2 - L3 Sciences Sociales"
+    echo: true
+---
+
+# Introduction & Données
+*Le vote est-il une question de revenus ?*
+
+## Le jeu de données {.scrollable}
+
+Nous analysons les résultats du 1er tour 2022 dans les **20 arrondissements de Paris**.
+
+* **Source :** Julia Cagé & Thomas Piketty (*Une histoire du conflit politique*) + INSEE.
+* **Variables :**
+    * `Médiane du revenu` : Niveau de richesse de l'arrondissement.
+    * `Votes (%)` : Mélenchon (JLM), Zemmour (EZ), Le Pen (MLP), Macron (EM).
+
+::: {.callout-note}
+### Hypothèse de travail
+Existe-t-il une corrélation linéaire entre la richesse d'un arrondissement et son orientation politique ?
+:::
+
+## Préparation des données
+
+::: {.panel-tabset}
+
+### 🟢 Excel
+1. Ouvrez votre fichier Excel.
+
+
+### 🔵 R (Importation)
+::: {style="max-height: 400px; overflow-y: auto;"}
+```{r}
+#| label: setup-data
+#| echo: true
+#| message: false
+
+library(tidyverse)
+library(ggplot2)
+library(readxl) # Nécessaire pour lire le Excel
+
+# --- ÉTAPE 1 : DÉFINIR LE CHEMIN ---
+mon_fichier <- "C:/Users/187997/Desktop/SIASS - L3S6/Sequence 2 Elections Présidentielles 2022/Donnees TD special présidentielles.xlsx"
+
+# --- ÉTAPE 2 : IMPORTER ET RENOMMER ---
+df <- read_excel(mon_fichier) %>%
+  rename( # Fonction pour renommer mes variables
+    # Nouveau_Nom = Ancien_Nom_Excel
+    Arrondissement = IDCOM,
+    JLM = pvoixMELENCHON,
+    EZ = pvoixZEMMOUR,
+    MLP = pvoixMLEPEN,
+    EM = pvoixMACRON,
+    Revenu = `Médiane du revenu disponible par unité de consommation en 2019, en euros`
+  )
+
+# Aperçu pour vérifier que tout va bien
+head(df, 3)
+```
+:::
+:::
+
+# 1. Statistiques Univariées
+*Min, Max, Dispersion*
+
+## Indicateurs de position et dispersion {.scrollable}
+
+Calculez les indicateurs suivants pour toutes les variables (Revenus et Candidats).
+
+::: {.panel-tabset}
+### 🟢 Formules Excel
+| Indicateur | Formule Excel (Fr) |
+| :--- | :--- |
+| **Min** | `=MIN(Plage)`|  
+| **Max** |`=MAX(Plage)` |  
+| **Moyenne** | `=MOYENNE(Plage)` |
+| **Médiane** | `=MEDIANE(Plage)` |
+| **Quartile 1** | `=QUARTILE.EXC(Plage; 1)` |
+| **Quartile 3** | `=QUARTILE.EXC(Plage; 3)` |
+| **Écart Inter-Q** | `= Q3 - Q1` (Calcul manuel) |
+| **Variance** | `=VAR.S(Plage)` |
+| **Écart-Type** | `=ECARTYPE.STANDARD(Plage)` |
+| **Coeff. Variation** | `= EcartType / Moyenne` |
+
+### 🔵 Code R
+```{r}
+#| label: univar
+#| echo: true
+
+# Résumé rapide avec summary()
+summary(df$Revenu)
+
+# Exemple calcul manuel Coefficient de variation pour Macron
+cv_macron <- sd(df$EM) / mean(df$EM)
+print(paste("CV Macron :", round(cv_macron, 3)))
+```
+Le coefficient de variation du vote Macron est de 0,204 (ou 20,4 %). Cela indique une **dispersion modérée** des résultats autour de la moyenne.  
+Si le CV était de 0,05 (5 %) : Le vote serait **identique** partout  
+Si le CV était de 0,85 (80 %) : Il y aurait une **énorme disparité** entre les différents arrondissement  
+
+:::
+
+# 2. Analyse Bivariée
+*Lien Revenu / Vote*
+
+## Corrélation et Régression ($r$ et $R^2$) {.scrollable}
+
+On cherche à expliquer le vote ($Y$) par le revenu ($X$).
+
+::: {.panel-tabset}
+### 🟢 Excel
+1.  **Corrélation ($r$) :** `=COEFFICIENT.CORRELATION(Col_Revenu; Col_Vote)`
+    * *Rappel :* Proche de 1 ou -1 = Lien fort.
+2.  **Régression Linéaire :** * Données > Utilitaire d'analyse > Régression.
+    * **Y :** Colonne Vote (ex: % Macron).
+    * **X :** Colonne Revenu.
+
+### 🔵 R (Matrice)
+```{r}
+#| label: correlation
+#| echo: true
+
+# On sélectionne uniquement les colonnes numériques pour la corrélation
+matrice_cor <- df %>% 
+  select(Revenu, JLM, EZ, MLP, EM)
+
+cor(matrice_cor, use = "complete.obs") %>% round(2)
+```
+*Lecture R :*   
+• EM vs Revenu = **Positif fort** (Les riches votent Macron).  
+• JLM vs Revenu = **Négatif fort** (Les moins riches votent Mélenchon).
+• Dans les quartiers où Macron fait un bon score, on observe que Zemmour fait aussi un score élevé.
+:::
+
+# 3. Visualisation
+*Nuage de points*
+
+## Graphique comparatif {.scrollable}
+
+Représentez les votes EZ, EM et JLM en fonction du revenu sur un même graphique.
+
+::: {.panel-tabset}
+### 🟢 Excel
+1. Sélectionnez la colonne `Revenu` (X) et les colonnes `JLM`, `EZ`, `EM` (Y).
+2. Insertion > Nuage de points.
+3. Le revenu doit être en axe horizontal (Abscisses).
+
+### 🔵 R (ggplot)
+```{r}
+#| label: plot-votes
+#| echo: true
+#| fig-height: 4
+
+ggplot(df, aes(x = Revenu)) +
+  geom_point(aes(y = EM, color = "Macron"), size=3) +
+  geom_smooth(aes(y = EM, color = "Macron"), method="lm", se=FALSE) +
+  
+  geom_point(aes(y = JLM, color = "Mélenchon"), size=3) +
+  geom_smooth(aes(y = JLM, color = "Mélenchon"), method="lm", se=FALSE) +
+  
+  geom_point(aes(y = EZ, color = "Zemmour"), size=3) +
+  geom_smooth(aes(y = EZ, color = "Zemmour"), method="lm", se=FALSE) +
+  
+  # Axe X : Espace pour les milliers
+  scale_x_continuous(labels = scales::label_number(big.mark = " ")) +
+  
+  # Axe Y : Conversion automatique 0.3 -> 30%
+  # accuracy = 1 permet d'arrondir à l'entier (30% et pas 30.0%)
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
+  # ----------------------
+  
+  labs(title = "Vote selon le revenu à Paris", y = "% de voix", x = "Revenu Médian (€)") +
+  theme_minimal()
+```
+:::
+
+# 4. Cartographie (Khartis)
+*Spatialisation du vote*
+
+## Consignes Khartis {.scrollable}
+
+Réalisez 4 cartes distinctes (JLM, EZ, EM, Revenu) pour comparer les géographies.
+
+1.  **Import :** Copiez les colonnes `IDCOM` (Arrondissement), `Votes` et `Revenu` dans Khartis.
+2.  **Fond de carte :** Arrondissements de Paris (code postal ou INSEE).
+3.  **Visualisation :**
+    * Variable de Ratio (%) $\rightarrow$ **Couleurs Ordonnées** (Choroplèthe).
+    * Discrétisation : Essayez *Jenks* ou *Quantiles* pour bien voir les contrastes.
+4.  **Export :** Téléchargez les 4 images pour les mettre côte à côte dans votre rapport.
+
+::: {.callout-tip}
+### Ce qu'il faut regarder
+Observez l'opposition **Est / Ouest** parisienne. Le vote Mélenchon se superpose-t-il aux zones à bas revenus ? Le vote Zemmour suit-il la même géographie que le vote Macron ?
+:::
+
+# 5. Analyse Sociologique
+*Synthèse des résultats et infographies*
+
+## Interprétation des résultats (Données + Images) {.scrollable}
+
+En vous appuyant sur vos calculs et les graphiques fournis :
+
+### 1. La polarisation économique (Vos calculs)
+* **Macron / Zemmour :** Forte corrélation positive avec le revenu. Ce sont des votes de classes aisées (Ouest Parisien).
+* **Mélenchon :** Forte corrélation négative. Vote des quartiers populaires (Nord-Est).
+* **Le Pen :** Faiblement représentée à Paris, corrélation moins nette (vote plus péri-urbain/rural que parisien intra-muros).
+
+### 2. Les dynamiques historiques (Infographies)
+* **Le basculement ouvrier :** Historiquement à gauche (Mitterrand 81), le vote ouvrier s'est effondré vers l'abstention et l'extrême droite.
+* **Le vote "Cadre" :** Cœur de l'électorat Macron (et Zemmour à Paris), alors qu'il se partageait davantage auparavant.
+* **L'abstention :** Très marquée chez les ouvriers/employés, faible chez les cadres. Cela renforce le poids politique des classes aisées.
+
+::: {.callout-important}
+### Conclusion
+À Paris, le revenu est un **prédicteur presque parfait** du vote ($R^2 > 0.9$ pour EM et JLM). La fracture géographique Est/Ouest recoupe parfaitement la fracture sociale.
+:::
+
+::: {.callout-note appearance="minimal"}
+### 🔗 Accéder au corrigé
+[Cliquez ici pour accéder au Excel corrigé]((https://y.yarn.co/6e13b700-cce4-47e6-a5db-5999fd581141_text.gif))
+:::
