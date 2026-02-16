@@ -49,7 +49,7 @@ library(ggplot2)
 library(readxl) # Nécessaire pour lire le Excel
 
 # --- ÉTAPE 1 : DÉFINIR LE CHEMIN ---
-mon_fichier <- "C:/Users/187997/Desktop/SIASS - L3S6/Sequence 2 Elections Présidentielles 2022/Donnees TD special présidentielles.xlsx"
+mon_fichier <- "data/DonneesTD2.xlsx"
 
 # --- ÉTAPE 2 : IMPORTER ET RENOMMER ---
 df <- read_excel(mon_fichier) %>%

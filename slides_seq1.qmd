@@ -56,7 +56,7 @@ library(readxl)
 
 # --- ÉTAPE 1 : DÉFINIR LE FICHIER ---
 # Remplacez ce chemin par le vôtre !
-mon_fichier <- "C:/Users/187997/Desktop/SIASS - L3S6/Sequence 1 Variables Numériques/DonneesTD1.xlsx"
+mon_fichier <- "data/DonneesTD1.xlsx"
 
 # --- ÉTAPE 2 : IMPORTER ---
 df <- read_excel(mon_fichier)
