@@ -196,6 +196,13 @@
     "text": "Interprétation des résultats (Données + Images)\nEn vous appuyant sur vos calculs et les graphiques fournis :\n1. La polarisation économique (Vos calculs)\n\nMacron / Zemmour : Forte corrélation positive avec le revenu. Ce sont des votes de classes aisées (Ouest Parisien).\nMélenchon : Forte corrélation négative. Vote des quartiers populaires (Nord-Est).\nLe Pen : Faiblement représentée à Paris, corrélation moins nette (vote plus péri-urbain/rural que parisien intra-muros).\n\n2. Les dynamiques historiques (Infographies)\n\nLe basculement ouvrier : Historiquement à gauche (Mitterrand 81), le vote ouvrier s’est effondré vers l’abstention et l’extrême droite.\nLe vote “Cadre” : Cœur de l’électorat Macron (et Zemmour à Paris), alors qu’il se partageait davantage auparavant.\nL’abstention : Très marquée chez les ouvriers/employés, faible chez les cadres. Cela renforce le poids politique des classes aisées.\n\n\n\n\n\n\n\nConclusion\n\n\nÀ Paris, le revenu est un prédicteur presque parfait du vote (\\(R^2 &gt; 0.9\\) pour EM et JLM). La fracture géographique Est/Ouest recoupe parfaitement la fracture sociale.\n\n\n\n\n\n\n🔗 Accéder au corrigé\n\n\nCliquez ici pour accéder au Excel corrigé"
   },
   {
+    "objectID": "slides_seq2.html#bonus-cartographie-des-inégalités-électorales-sur-r",
+    "href": "slides_seq2.html#bonus-cartographie-des-inégalités-électorales-sur-r",
+    "title": "Séquence 2 : Sociologie électorale & Inégalités",
+    "section": "Bonus : Cartographie des inégalités électorales sur R",
+    "text": "Bonus : Cartographie des inégalités électorales sur R\nCliquez ici pour télécharger le Geojson des arrondissements de Paris\n\n🗺️ J.L. Mélenchon🗺️ E. Macron🗺️ É. Zemmour🗺️ Revenu Médian"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Année universitaire 2025-26",
