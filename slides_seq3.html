@@ -271,11 +271,11 @@ Marc O’Flaherty
 </div>
 <p><em>À calculer pour 1999, 2009, 2014 et 2019 pour voir la progression.</em></p>
 </section>
-<section id="le-taux-annuel-moyen-tam" class="slide level2 scrollable">
-<h2>4. Le Taux Annuel Moyen (TAM)</h2>
+<section id="le-taux-de-croissance-annuel-moyen-tcam" class="slide level2 scrollable">
+<h2>4. Le Taux de Croissance Annuel Moyen (TCAM)</h2>
 <p><em>Le piège du “n”</em></p>
 <p>Pour comparer des périodes différentes, il faut ramener l’évolution à une moyenne annuelle.</p>
-<p><strong>Formule Mathématique :</strong> <span class="math display">\[TAM = \left( \frac{V_{Arrivée}}{V_{Départ}} \right)^{\frac{1}{n}} - 1\]</span></p>
+<p><strong>Formule Mathématique :</strong> <span class="math display">\[TCAM = \left( \frac{V_{Arrivée}}{V_{Départ}} \right)^{\frac{1}{n}} - 1\]</span></p>
 <ul>
 <li><strong><span class="math inline">\(n\)</span></strong> = Nombre d’années d’écart (ou nombre de périodes).</li>
 <li>Entre 2014 et 2019 : <span class="math inline">\(2019 - 2014 = 5\)</span>. Donc <strong><span class="math inline">\(n = 5\)</span></strong>.</li>
@@ -304,7 +304,7 @@ Marc O’Flaherty
 <h2>Préparation des données</h2>
 <p>Avant d’aller sur <a href="https://www.sciencespo.fr/cartographie/khartis/">Khartis</a>, il faut nettoyer le fichier Excel.</p>
 <ol type="1">
-<li><strong>Calculs finis :</strong> Assurez-vous d’avoir calculé le <strong>% Éolien 2019</strong> et le <strong>TAM 2014-2019</strong>.</li>
+<li><strong>Calculs finis :</strong> Assurez-vous d’avoir calculé le <strong>% Éolien 2019</strong> et le <strong>TCAM 2014-2019</strong>.</li>
 <li><strong>Formatage :</strong>
 <ul>
 <li>Arrondir à 1 ou 2 décimales.</li>
@@ -312,7 +312,7 @@ Marc O’Flaherty
 </ul></li>
 <li><strong>Copier-Coller :</strong>
 <ul>
-<li>Sélectionnez les colonnes : <code>Name Khartis</code> + <code>Part Éolien 2019</code> + <code>TAM</code>.</li>
+<li>Sélectionnez les colonnes : <code>Name Khartis</code> + <code>Part Éolien 2019</code> + <code>TCAM</code>.</li>
 <li>Collez dans la fenêtre “Données” de Khartis.</li>
 </ul></li>
 </ol>
@@ -350,10 +350,10 @@ Marc O’Flaherty
 <section id="couche-2-la-dynamique-symboles" class="slide level2 scrollable">
 <h2>Couche 2 : La Dynamique (Symboles)</h2>
 <p><em>Variable d’évolution <span class="math inline">\(\rightarrow\)</span> Taille</em></p>
-<p>On veut montrer qui a progressé le plus vite (TAM).</p>
+<p>On veut montrer qui a progressé le plus vite (TCAM).</p>
 <ul>
 <li><strong>Type de visualisation :</strong> Symboles proportionnels.</li>
-<li><strong>Variable :</strong> <code>TAM 2014-2019</code>.</li>
+<li><strong>Variable :</strong> <code>TCAM 2014-2019</code>.</li>
 <li><strong>Forme :</strong> Barres.</li>
 <li><strong>Astuce de lecture :</strong>
 <ul>
@@ -393,7 +393,7 @@ Marc O’Flaherty
 <p><strong>Bilan Séquence 3</strong></p>
 </div>
 <div class="callout-content">
-<p>Vous savez maintenant : 1. Utiliser <code>SOMME.SI</code> pour des calculs conditionnels. 2. Calculer un Taux Annuel Moyen (TAM) correct. 3. Superposer deux variables (Stock + Évolution) sur une carte Khartis.</p>
+<p>Vous savez maintenant : 1. Utiliser <code>SOMME.SI</code> pour des calculs conditionnels. 2. Calculer un Taux de croissance annuel moyen (TCAM) correct. 3. Superposer deux variables (Stock + Évolution) sur une carte Khartis.</p>
 </div>
 </div>
 </div>

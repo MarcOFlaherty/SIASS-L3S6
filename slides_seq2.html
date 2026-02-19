@@ -304,7 +304,7 @@ Marc O’Flaherty
 <thead>
 <tr class="header">
 <th style="text-align: left;">Indicateur</th>
-<th style="text-align: left;">Formule Excel (Fr)</th>
+<th style="text-align: left;">Formule Excel</th>
 </tr>
 </thead>
 <tbody>
@@ -313,28 +313,36 @@ Marc O’Flaherty
 <td style="text-align: left;"><code>=MIN(Plage)</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Max</strong></td>
-<td style="text-align: left;"><code>=MAX(Plage)</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Moyenne</strong></td>
-<td style="text-align: left;"><code>=MOYENNE(Plage)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Médiane</strong></td>
-<td style="text-align: left;"><code>=MEDIANE(Plage)</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Quartile 1</strong></td>
+<td style="text-align: left;"><strong>Quartile 1 (Q1)</strong></td>
 <td style="text-align: left;"><code>=QUARTILE.EXC(Plage; 1)</code></td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Médiane (Q2)</strong></td>
+<td style="text-align: left;"><code>=MEDIANE(Plage)</code></td>
+</tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Quartile 3</strong></td>
+<td style="text-align: left;"><strong>Quartile 3 (Q3)</strong></td>
 <td style="text-align: left;"><code>=QUARTILE.EXC(Plage; 3)</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Écart Inter-Q</strong></td>
+<td style="text-align: left;"><strong>Max</strong></td>
+<td style="text-align: left;"><code>=MAX(Plage)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Étendue</strong></td>
+<td style="text-align: left;"><code>= MAX(Plage) - MIN(Plage)</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Écart Inter-Q (EIQ)</strong></td>
 <td style="text-align: left;"><code>= Q3 - Q1</code> (Calcul manuel)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>EIQ Relatif</strong></td>
+<td style="text-align: left;"><code>= EIQ / Médiane</code> (Calcul manuel)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Rapport Inter-Q</strong></td>
+<td style="text-align: left;"><code>= Q3 / Q1</code> (Calcul manuel)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Variance</strong></td>
@@ -346,29 +354,82 @@ Marc O’Flaherty
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Coeff. Variation</strong></td>
-<td style="text-align: left;"><code>= EcartType / Moyenne</code></td>
+<td style="text-align: left;"><code>= Ecart-Type / Moyenne</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Résumé rapide avec summary()</span></span>
-<span id="cb3-2"><a></a><span class="fu">summary</span>(df<span class="sc">$</span>Revenu)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-2"><a></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="co"># Calcul groupé pour TOUTES les variables (Logique SQL : GROUP BY)</span></span>
+<span id="cb3-5"><a></a>tableau_stats <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a></a>  <span class="fu">select</span>(Revenu, JLM, EZ, MLP, EM) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Variable"</span>, <span class="at">values_to =</span> <span class="st">"Valeur"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a></a>  <span class="fu">group_by</span>(Variable) <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-10"><a></a>    <span class="at">Min =</span> <span class="fu">min</span>(Valeur),</span>
+<span id="cb3-11"><a></a>    <span class="at">Q1 =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>),</span>
+<span id="cb3-12"><a></a>    <span class="at">Mediane =</span> <span class="fu">median</span>(Valeur),</span>
+<span id="cb3-13"><a></a>    <span class="at">Q3 =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>),</span>
+<span id="cb3-14"><a></a>    <span class="at">Max =</span> <span class="fu">max</span>(Valeur),</span>
+<span id="cb3-15"><a></a>    <span class="at">Etendue =</span> <span class="fu">max</span>(Valeur) <span class="sc">-</span> <span class="fu">min</span>(Valeur),</span>
+<span id="cb3-16"><a></a>    <span class="at">EIQ =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>) <span class="sc">-</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>),</span>
+<span id="cb3-17"><a></a>    <span class="at">EIQ_Rel =</span> (<span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>) <span class="sc">-</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>)) <span class="sc">/</span> <span class="fu">median</span>(Valeur),</span>
+<span id="cb3-18"><a></a>    <span class="at">Rap_IQ =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>) <span class="sc">/</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>),</span>
+<span id="cb3-19"><a></a>    <span class="at">Var =</span> <span class="fu">var</span>(Valeur),</span>
+<span id="cb3-20"><a></a>    <span class="at">Ecart_Type =</span> <span class="fu">sd</span>(Valeur),</span>
+<span id="cb3-21"><a></a>    <span class="at">CV =</span> <span class="fu">sd</span>(Valeur) <span class="sc">/</span> <span class="fu">mean</span>(Valeur)</span>
+<span id="cb3-22"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-23"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span><span class="fu">round</span>(., <span class="dv">3</span>)))</span>
+<span id="cb3-24"><a></a></span>
+<span id="cb3-25"><a></a><span class="fu">print</span>(tableau_stats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  21460   28312   32025   32116   35010   44400 </code></pre>
+<pre><code># A tibble: 5 × 13
+  Variable       Min        Q1   Mediane      Q3     Max Etendue     EIQ EIQ_Rel
+  &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 EM           0.237     0.325     0.408 4.36e-1 4.85e-1 2.48e-1 1.11e-1   0.272
+2 EZ           0.047     0.062     0.072 1   e-1 1.75e-1 1.28e-1 3.8 e-2   0.527
+3 JLM          0.09      0.206     0.254 3.62e-1 4.72e-1 3.81e-1 1.56e-1   0.613
+4 MLP          0.038     0.044     0.053 5.8 e-2 6.6 e-2 2.9 e-2 1.4 e-2   0.265
+5 Revenu   21460     28312.    32025     3.50e+4 4.44e+4 2.29e+4 6.70e+3   0.209
+# ℹ 4 more variables: Rap_IQ &lt;dbl&gt;, Var &lt;dbl&gt;, Ecart_Type &lt;dbl&gt;, CV &lt;dbl&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Exemple calcul manuel Coefficient de variation pour Macron</span></span>
-<span id="cb5-2"><a></a>cv_macron <span class="ot">&lt;-</span> <span class="fu">sd</span>(df<span class="sc">$</span>EM) <span class="sc">/</span> <span class="fu">mean</span>(df<span class="sc">$</span>EM)</span>
-<span id="cb5-3"><a></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"CV Macron :"</span>, <span class="fu">round</span>(cv_macron, <span class="dv">3</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "CV Macron : 0.204"</code></pre>
 </div>
 </div>
-<p>Le coefficient de variation du vote Macron est de 0,204 (ou 20,4 %). Cela indique une <strong>dispersion modérée</strong> des résultats autour de la moyenne.<br>
-Si le CV était de 0,05 (5 %) : Le vote serait <strong>identique</strong> partout<br>
-Si le CV était de 0,85 (80 %) : Il y aurait une <strong>énorme disparité</strong> entre les différents arrondissement</p>
+</div>
+</div>
+</section>
+<section id="interprétation-des-résultats" class="slide level2 scrollable">
+<h2>Interprétation des résultats</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>💡 Lecture 1 : Les extrêmes et la dispersion absolue (EIQ et Étendue)</strong></p>
+</div>
+<div class="callout-content">
+<p>L’observation des indicateurs bruts nous montre la réalité géographique des votes sur le territoire parisien :</p>
+<ul>
+<li><strong>Le grand écart (Mélenchon) :</strong> C’est le vote le plus polarisé en valeur absolue. Son score varie de <strong>9%</strong> à <strong>47%</strong> (une Étendue massive de 38 points). La moitié centrale de ses électeurs est dispersée sur une large plage de 16 points (son EIQ).</li>
+<li><strong>L’homogénéité (Macron) :</strong> Bien qu’il ait une étendue de 25 points, sa médiane est très haute (41%). Son EIQ de 12 points montre une base électorale large et présente dans quasiment tous les arrondissements.</li>
+<li><strong>Le plafond de verre (Le Pen) :</strong> Avec un minimum à 4% et un maximum à 7%, l’étendue est de seulement 3 points. Le vote est uniformément faible et ne varie quasiment pas (EIQ de 1 point).</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>🎯 Lecture 2 : La dispersion relative (L’intensité de la ségrégation)</strong></p>
+</div>
+<div class="callout-content">
+<p>C’est ici que le <strong>Coefficient de Variation (CV)</strong> et l’<strong>EIQ Relatif</strong> révèlent la vraie sociologie des votes. En divisant la dispersion par le score moyen/médian, on neutralise la taille du candidat :</p>
+<ul>
+<li><strong>Le miroir Zemmour / Mélenchon :</strong> Zemmour a un tout petit EIQ brut (4 points) contre 16 pour Mélenchon. Pourtant, leurs indicateurs relatifs sont quasi identiques : <strong>CV à 42%</strong> et <strong>EIQ Relatif autour de 60%</strong>. Cela prouve sociologiquement que ces deux votes fonctionnent exactement de la même manière : ce sont des votes de “niche” extrêmement concentrés dans certains arrondissements spécifiques. Passer d’un quartier à un autre fait doubler ou diviser par deux leur score (Rapport Inter-Q &gt; 170%).</li>
+<li><strong>L’alignement Macron / Revenus :</strong> Le vote Macron affiche un CV de <strong>20%</strong> et un EIQ relatif de <strong>29%</strong>, ce qui est remarquablement proche de la dispersion des revenus parisiens (CV <strong>20%</strong>, EIQ Relatif <strong>24%</strong>). Cela illustre une ségrégation modérée et spatialement très étalée.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -380,42 +441,93 @@ Si le CV était de 0,85 (80 %) : Il y aurait une <strong>énorme disparité</str
 </section>
 <section id="corrélation-et-régression-r-et-r2" class="slide level2 scrollable">
 <h2>Corrélation et Régression (<span class="math inline">\(r\)</span> et <span class="math inline">\(R^2\)</span>)</h2>
-<p>On cherche à expliquer le vote (<span class="math inline">\(Y\)</span>) par le revenu (<span class="math inline">\(X\)</span>).</p>
+<p>On cherche à analyser la relation entre le vote de chaque candidat (<span class="math inline">\(Y\)</span>) et le revenu médian (<span class="math inline">\(X\)</span>).</p>
 <div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">🟢 Excel</a></li><li><a href="#tabset-3-2">🔵 R (Matrice)</a></li></ul>
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">🟢 Formules Excel</a></li><li><a href="#tabset-3-2">🔵 Code R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<ol type="1">
-<li><strong>Corrélation (<span class="math inline">\(r\)</span>) :</strong> <code>=COEFFICIENT.CORRELATION(Col_Revenu; Col_Vote)</code>
-<ul>
-<li><em>Rappel :</em> Proche de 1 ou -1 = Lien fort.</li>
-</ul></li>
-<li><strong>Régression Linéaire :</strong> * Données &gt; Utilitaire d’analyse &gt; Régression.
-<ul>
-<li><strong>Y :</strong> Colonne Vote (ex: % Macron).</li>
-<li><strong>X :</strong> Colonne Revenu.</li>
-</ul></li>
-</ol>
+<p>Pour un candidat donné (ex: colonne EM) en fonction du Revenu :</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Indicateur</th>
+<th style="text-align: left;">Formule Excel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Covariance</strong></td>
+<td style="text-align: left;"><code>=COVARIANCE.PEARSON(Col_Vote; Col_Revenu)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Corrélation (<span class="math inline">\(r\)</span>)</strong></td>
+<td style="text-align: left;"><code>=COEFFICIENT.CORRELATION(Col_Vote; Col_Revenu)</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>R² (Détermination)</strong></td>
+<td style="text-align: left;"><code>=COEFFICIENT.DETERMINATION(Col_Vote; Col_Revenu)</code></td>
+</tr>
+</tbody>
+</table>
+<p><em>Note : Le R² peut aussi s’obtenir simplement en mettant le <span class="math inline">\(r\)</span> au carré (<code>= Cellule_r ^ 2</code>).</em></p>
 </div>
 <div id="tabset-3-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># On sélectionne uniquement les colonnes numériques pour la corrélation</span></span>
-<span id="cb7-2"><a></a>matrice_cor <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a></a>  <span class="fu">select</span>(Revenu, JLM, EZ, MLP, EM)</span>
-<span id="cb7-4"><a></a></span>
-<span id="cb7-5"><a></a><span class="fu">cor</span>(matrice_cor, <span class="at">use =</span> <span class="st">"complete.obs"</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-2"><a></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb5-3"><a></a></span>
+<span id="cb5-4"><a></a><span class="co"># Calcul des indicateurs bivariés pour chaque candidat par rapport au Revenu</span></span>
+<span id="cb5-5"><a></a>tableau_bivarie <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a></a>  <span class="co"># 1. On garde le Revenu (notre X) et on rassemble les candidats (nos Y)</span></span>
+<span id="cb5-7"><a></a>  <span class="fu">select</span>(Revenu, JLM, EZ, MLP, EM) <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Revenu, <span class="at">names_to =</span> <span class="st">"Candidat"</span>, <span class="at">values_to =</span> <span class="st">"Score_Vote"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-9"><a></a>  <span class="co"># 2. On groupe par candidat (équivalent d'un GROUP BY)</span></span>
+<span id="cb5-10"><a></a>  <span class="fu">group_by</span>(Candidat) <span class="sc">%&gt;%</span></span>
+<span id="cb5-11"><a></a>  <span class="co"># 3. On calcule les trois indicateurs demandés</span></span>
+<span id="cb5-12"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-13"><a></a>    <span class="at">Covariance =</span> <span class="fu">cov</span>(Score_Vote, Revenu),</span>
+<span id="cb5-14"><a></a>    <span class="at">r =</span> <span class="fu">cor</span>(Score_Vote, Revenu),</span>
+<span id="cb5-15"><a></a>    <span class="at">R2 =</span> <span class="fu">cor</span>(Score_Vote, Revenu)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb5-16"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-17"><a></a>  <span class="co"># 4. On arrondit pour la lisibilité</span></span>
+<span id="cb5-18"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span><span class="fu">round</span>(., <span class="dv">3</span>)))</span>
+<span id="cb5-19"><a></a></span>
+<span id="cb5-20"><a></a><span class="fu">print</span>(tableau_bivarie)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       Revenu   JLM    EZ   MLP    EM
-Revenu   1.00 -0.95  0.81 -0.19  0.94
-JLM     -0.95  1.00 -0.85  0.01 -0.96
-EZ       0.81 -0.85  1.00  0.25  0.72
-MLP     -0.19  0.01  0.25  1.00 -0.23
-EM       0.94 -0.96  0.72 -0.23  1.00</code></pre>
+<pre><code># A tibble: 4 × 4
+  Candidat Covariance      r    R2
+  &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 EM            483.   0.94  0.883
+2 EZ            189.   0.807 0.651
+3 JLM          -715.  -0.951 0.905
+4 MLP           -10.3 -0.188 0.035</code></pre>
 </div>
 </div>
-<p><em>Lecture R :</em><br>
-• EM vs Revenu = <strong>Positif fort</strong> (Les riches votent Macron).<br>
-• JLM vs Revenu = <strong>Négatif fort</strong> (Les moins riches votent Mélenchon). • Dans les quartiers où Macron fait un bon score, on observe que Zemmour fait aussi un score élevé.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="interprétation-des-résultats-1" class="slide level2 scrollable">
+<h2>Interprétation des résultats</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>💡 Interprétation des résultats</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>La Covariance :</strong> Elle indique le sens de la relation (positive ou négative), mais sa valeur brute est difficile à interpréter car elle dépend des unités (ici, on multiplie des % par des euros).</li>
+<li><strong>Le coefficient de corrélation (<span class="math inline">\(r\)</span>) :</strong> Il standardise la relation entre -1 et 1.
+<ul>
+<li>EM et EZ (<span class="math inline">\(r &gt; 0\)</span>) : Corrélation <strong>positive</strong> (plus le revenu monte, plus le vote monte).</li>
+<li>JLM (<span class="math inline">\(r &lt; 0\)</span>) : Corrélation <strong>négative</strong> (plus le revenu monte, plus le vote baisse).</li>
+</ul></li>
+<li><strong>Le <span class="math inline">\(R^2\)</span> (Pouvoir explicatif) :</strong> C’est le pourcentage de la variance du vote qui est “expliqué” par le revenu. Par exemple, si le <span class="math inline">\(R^2\)</span> de Macron est de <span class="math inline">\(0.85\)</span>, cela signifie que <strong>85% des écarts de vote pour Macron d’un arrondissement à l’autre s’expliquent uniquement par la différence de revenu</strong>.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -440,26 +552,26 @@ EM       0.94 -0.96  0.72 -0.23  1.00</code></pre>
 </div>
 <div id="tabset-4-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Revenu)) <span class="sc">+</span></span>
-<span id="cb9-2"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> EM, <span class="at">color =</span> <span class="st">"Macron"</span>), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb9-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> EM, <span class="at">color =</span> <span class="st">"Macron"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb9-4"><a></a>  </span>
-<span id="cb9-5"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> JLM, <span class="at">color =</span> <span class="st">"Mélenchon"</span>), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb9-6"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> JLM, <span class="at">color =</span> <span class="st">"Mélenchon"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb9-7"><a></a>  </span>
-<span id="cb9-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> EZ, <span class="at">color =</span> <span class="st">"Zemmour"</span>), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb9-9"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> EZ, <span class="at">color =</span> <span class="st">"Zemmour"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb9-10"><a></a>  </span>
-<span id="cb9-11"><a></a>  <span class="co"># Axe X : Espace pour les milliers</span></span>
-<span id="cb9-12"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>)) <span class="sc">+</span></span>
-<span id="cb9-13"><a></a>  </span>
-<span id="cb9-14"><a></a>  <span class="co"># Axe Y : Conversion automatique 0.3 -&gt; 30%</span></span>
-<span id="cb9-15"><a></a>  <span class="co"># accuracy = 1 permet d'arrondir à l'entier (30% et pas 30.0%)</span></span>
-<span id="cb9-16"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb9-17"><a></a>  <span class="co"># ----------------------</span></span>
-<span id="cb9-18"><a></a>  </span>
-<span id="cb9-19"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vote selon le revenu à Paris"</span>, <span class="at">y =</span> <span class="st">"% de voix"</span>, <span class="at">x =</span> <span class="st">"Revenu Médian (€)"</span>) <span class="sc">+</span></span>
-<span id="cb9-20"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Revenu)) <span class="sc">+</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> EM, <span class="at">color =</span> <span class="st">"Macron"</span>), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> EM, <span class="at">color =</span> <span class="st">"Macron"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a></a>  </span>
+<span id="cb7-5"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> JLM, <span class="at">color =</span> <span class="st">"Mélenchon"</span>), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb7-6"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> JLM, <span class="at">color =</span> <span class="st">"Mélenchon"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb7-7"><a></a>  </span>
+<span id="cb7-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> EZ, <span class="at">color =</span> <span class="st">"Zemmour"</span>), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> EZ, <span class="at">color =</span> <span class="st">"Zemmour"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb7-10"><a></a>  </span>
+<span id="cb7-11"><a></a>  <span class="co"># Axe X : Espace pour les milliers</span></span>
+<span id="cb7-12"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>)) <span class="sc">+</span></span>
+<span id="cb7-13"><a></a>  </span>
+<span id="cb7-14"><a></a>  <span class="co"># Axe Y : Conversion automatique 0.3 -&gt; 30%</span></span>
+<span id="cb7-15"><a></a>  <span class="co"># accuracy = 1 permet d'arrondir à l'entier (30% et pas 30.0%)</span></span>
+<span id="cb7-16"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb7-17"><a></a>  <span class="co"># ----------------------</span></span>
+<span id="cb7-18"><a></a>  </span>
+<span id="cb7-19"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vote selon le revenu à Paris"</span>, <span class="at">y =</span> <span class="st">"% de voix"</span>, <span class="at">x =</span> <span class="st">"Revenu Médian (€)"</span>) <span class="sc">+</span></span>
+<span id="cb7-20"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
