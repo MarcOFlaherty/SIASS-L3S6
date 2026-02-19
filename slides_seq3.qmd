@@ -91,13 +91,13 @@ $$Part = \frac{\text{Sous-Ensemble}}{\text{Ensemble}}$$
 
 *À calculer pour 1999, 2009, 2014 et 2019 pour voir la progression.*
 
-## 4. Le Taux Annuel Moyen (TAM) {.scrollable}
+## 4. Le Taux de Croissance Annuel Moyen (TCAM) {.scrollable}
 *Le piège du "n"*
 
 Pour comparer des périodes différentes, il faut ramener l'évolution à une moyenne annuelle.
 
 **Formule Mathématique :**
-$$TAM = \left( \frac{V_{Arrivée}}{V_{Départ}} \right)^{\frac{1}{n}} - 1$$
+$$TCAM = \left( \frac{V_{Arrivée}}{V_{Départ}} \right)^{\frac{1}{n}} - 1$$
 
 * **$n$** = Nombre d'années d'écart (ou nombre de périodes).
 * Entre 2014 et 2019 : $2019 - 2014 = 5$. Donc **$n = 5$**.
@@ -115,12 +115,12 @@ $$TAM = \left( \frac{V_{Arrivée}}{V_{Départ}} \right)^{\frac{1}{n}} - 1$$
 
 Avant d'aller sur [Khartis](https://www.sciencespo.fr/cartographie/khartis/), il faut nettoyer le fichier Excel.
 
-1.  **Calculs finis :** Assurez-vous d'avoir calculé le **% Éolien 2019** et le **TAM 2014-2019**.
+1.  **Calculs finis :** Assurez-vous d'avoir calculé le **% Éolien 2019** et le **TCAM 2014-2019**.
 2.  **Formatage :**
     * Arrondir à 1 ou 2 décimales.
     * Si vos % sont en décimaux (0,15), multipliez par 100 pour avoir (15) si nécessaire, ou laissez Khartis gérer.
 3.  **Copier-Coller :**
-    * Sélectionnez les colonnes : `Name Khartis` + `Part Éolien 2019` + `TAM`.
+    * Sélectionnez les colonnes : `Name Khartis` + `Part Éolien 2019` + `TCAM`.
     * Collez dans la fenêtre "Données" de Khartis.
 
 ::: {.callout-note}
@@ -143,10 +143,10 @@ On veut montrer l'intensité de l'éolien en 2019.
 ## Couche 2 : La Dynamique (Symboles) {.scrollable}
 *Variable d'évolution $\rightarrow$ Taille*
 
-On veut montrer qui a progressé le plus vite (TAM).
+On veut montrer qui a progressé le plus vite (TCAM).
 
 * **Type de visualisation :** Symboles proportionnels.
-* **Variable :** `TAM 2014-2019`.
+* **Variable :** `TCAM 2014-2019`.
 * **Forme :** Barres.
 * **Astuce de lecture :**
     * Augmentez la taille et réduisez la largeur.
@@ -169,7 +169,7 @@ Une bonne carte doit se suffire à elle-même.
 ### Bilan Séquence 3
 Vous savez maintenant :
 1.  Utiliser `SOMME.SI` pour des calculs conditionnels.
-2.  Calculer un Taux Annuel Moyen (TAM) correct.
+2.  Calculer un Taux de croissance annuel moyen (TCAM) correct.
 3.  Superposer deux variables (Stock + Évolution) sur une carte Khartis.
 :::
 

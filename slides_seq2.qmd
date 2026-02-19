@@ -78,68 +78,136 @@ Calculez les indicateurs suivants pour toutes les variables (Revenus et Candidat
 
 ::: {.panel-tabset}
 ### 🟢 Formules Excel
-| Indicateur | Formule Excel (Fr) |
+| Indicateur | Formule Excel |
 | :--- | :--- |
 | **Min** | `=MIN(Plage)`|  
+| **Quartile 1 (Q1)** | `=QUARTILE.EXC(Plage; 1)` |
+| **Médiane (Q2)** | `=MEDIANE(Plage)` |
+| **Quartile 3 (Q3)** | `=QUARTILE.EXC(Plage; 3)` |
 | **Max** |`=MAX(Plage)` |  
-| **Moyenne** | `=MOYENNE(Plage)` |
-| **Médiane** | `=MEDIANE(Plage)` |
-| **Quartile 1** | `=QUARTILE.EXC(Plage; 1)` |
-| **Quartile 3** | `=QUARTILE.EXC(Plage; 3)` |
-| **Écart Inter-Q** | `= Q3 - Q1` (Calcul manuel) |
+| **Étendue** | `= MAX(Plage) - MIN(Plage)` |
+| **Écart Inter-Q (EIQ)** | `= Q3 - Q1` (Calcul manuel) |
+| **EIQ Relatif** | `= EIQ / Médiane` (Calcul manuel) |
+| **Rapport Inter-Q** | `= Q3 / Q1` (Calcul manuel) |
 | **Variance** | `=VAR.S(Plage)` |
 | **Écart-Type** | `=ECARTYPE.STANDARD(Plage)` |
-| **Coeff. Variation** | `= EcartType / Moyenne` |
+| **Coeff. Variation** | `= Ecart-Type / Moyenne` |
 
 ### 🔵 Code R
 ```{r}
 #| label: univar
 #| echo: true
+#| message: false
 
-# Résumé rapide avec summary()
-summary(df$Revenu)
+library(dplyr)
+library(tidyr)
 
-# Exemple calcul manuel Coefficient de variation pour Macron
-cv_macron <- sd(df$EM) / mean(df$EM)
-print(paste("CV Macron :", round(cv_macron, 3)))
+# Calcul groupé pour TOUTES les variables (Logique SQL : GROUP BY)
+tableau_stats <- df %>%
+  select(Revenu, JLM, EZ, MLP, EM) %>%
+  pivot_longer(cols = everything(), names_to = "Variable", values_to = "Valeur") %>%
+  group_by(Variable) %>%
+  summarise(
+    Min = min(Valeur),
+    Q1 = quantile(Valeur, 0.25),
+    Mediane = median(Valeur),
+    Q3 = quantile(Valeur, 0.75),
+    Max = max(Valeur),
+    Etendue = max(Valeur) - min(Valeur),
+    EIQ = quantile(Valeur, 0.75) - quantile(Valeur, 0.25),
+    EIQ_Rel = (quantile(Valeur, 0.75) - quantile(Valeur, 0.25)) / median(Valeur),
+    Rap_IQ = quantile(Valeur, 0.75) / quantile(Valeur, 0.25),
+    Var = var(Valeur),
+    Ecart_Type = sd(Valeur),
+    CV = sd(Valeur) / mean(Valeur)
+  ) %>%
+  mutate(across(where(is.numeric), ~round(., 3)))
+
+print(tableau_stats)
 ```
-Le coefficient de variation du vote Macron est de 0,204 (ou 20,4 %). Cela indique une **dispersion modérée** des résultats autour de la moyenne.  
-Si le CV était de 0,05 (5 %) : Le vote serait **identique** partout  
-Si le CV était de 0,85 (80 %) : Il y aurait une **énorme disparité** entre les différents arrondissement  
-
 :::
+
+## Interprétation des résultats {.scrollable}
+
+::: {.callout-note icon=false}
+### 💡 Lecture 1 : Les extrêmes et la dispersion absolue (EIQ et Étendue)
+L'observation des indicateurs bruts nous montre la réalité géographique des votes sur le territoire parisien :
+
+* **Le grand écart (Mélenchon) :** C'est le vote le plus polarisé en valeur absolue. Son score varie de **9%** à **47%** (une Étendue massive de 38 points). La moitié centrale de ses électeurs est dispersée sur une large plage de 16 points (son EIQ).
+* **L'homogénéité (Macron) :** Bien qu'il ait une étendue de 25 points, sa médiane est très haute (41%). Son EIQ de 12 points montre une base électorale large et présente dans quasiment tous les arrondissements.
+* **Le plafond de verre (Le Pen) :** Avec un minimum à 4% et un maximum à 7%, l'étendue est de seulement 3 points. Le vote est uniformément faible et ne varie quasiment pas (EIQ de 1 point).
+:::
+
+::: {.callout-tip icon=false}
+### 🎯 Lecture 2 : La dispersion relative (L'intensité de la ségrégation)
+
+C'est ici que le **Coefficient de Variation (CV)** et l'**EIQ Relatif** révèlent la vraie sociologie des votes. En divisant la dispersion par le score moyen/médian, on neutralise la taille du candidat :
+
+* **Le miroir Zemmour / Mélenchon :** Zemmour a un tout petit EIQ brut (4 points) contre 16 pour Mélenchon. Pourtant, leurs indicateurs relatifs sont quasi identiques : **CV à 42%** et **EIQ Relatif autour de 60%**. Cela prouve sociologiquement que ces deux votes fonctionnent exactement de la même manière : ce sont des votes de "niche" extrêmement concentrés dans certains arrondissements spécifiques. Passer d'un quartier à un autre fait doubler ou diviser par deux leur score (Rapport Inter-Q > 170%).
+* **L'alignement Macron / Revenus :** Le vote Macron affiche un CV de **20%** et un EIQ relatif de **29%**, ce qui est remarquablement proche de la dispersion des revenus parisiens (CV **20%**, EIQ Relatif **24%**). Cela illustre une ségrégation modérée et spatialement très étalée.
+:::
+
 
 # 2. Analyse Bivariée
 *Lien Revenu / Vote*
 
 ## Corrélation et Régression ($r$ et $R^2$) {.scrollable}
 
-On cherche à expliquer le vote ($Y$) par le revenu ($X$).
+On cherche à analyser la relation entre le vote de chaque candidat ($Y$) et le revenu médian ($X$).
 
 ::: {.panel-tabset}
-### 🟢 Excel
-1.  **Corrélation ($r$) :** `=COEFFICIENT.CORRELATION(Col_Revenu; Col_Vote)`
-    * *Rappel :* Proche de 1 ou -1 = Lien fort.
-2.  **Régression Linéaire :** * Données > Utilitaire d'analyse > Régression.
-    * **Y :** Colonne Vote (ex: % Macron).
-    * **X :** Colonne Revenu.
+### 🟢 Formules Excel
+Pour un candidat donné (ex: colonne EM) en fonction du Revenu :
 
-### 🔵 R (Matrice)
+| Indicateur | Formule Excel |
+| :--- | :--- |
+| **Covariance** | `=COVARIANCE.PEARSON(Col_Vote; Col_Revenu)` |
+| **Corrélation ($r$)** | `=COEFFICIENT.CORRELATION(Col_Vote; Col_Revenu)` |
+| **R² (Détermination)** | `=COEFFICIENT.DETERMINATION(Col_Vote; Col_Revenu)` |
+
+*Note : Le R² peut aussi s'obtenir simplement en mettant le $r$ au carré (`= Cellule_r ^ 2`).*
+
+### 🔵 Code R
 ```{r}
-#| label: correlation
+#| label: bivar-revenu
 #| echo: true
+#| message: false
 
-# On sélectionne uniquement les colonnes numériques pour la corrélation
-matrice_cor <- df %>% 
-  select(Revenu, JLM, EZ, MLP, EM)
+library(dplyr)
+library(tidyr)
 
-cor(matrice_cor, use = "complete.obs") %>% round(2)
+# Calcul des indicateurs bivariés pour chaque candidat par rapport au Revenu
+tableau_bivarie <- df %>%
+  # 1. On garde le Revenu (notre X) et on rassemble les candidats (nos Y)
+  select(Revenu, JLM, EZ, MLP, EM) %>%
+  pivot_longer(cols = -Revenu, names_to = "Candidat", values_to = "Score_Vote") %>%
+  # 2. On groupe par candidat (équivalent d'un GROUP BY)
+  group_by(Candidat) %>%
+  # 3. On calcule les trois indicateurs demandés
+  summarise(
+    Covariance = cov(Score_Vote, Revenu),
+    r = cor(Score_Vote, Revenu),
+    R2 = cor(Score_Vote, Revenu)^2
+  ) %>%
+  # 4. On arrondit pour la lisibilité
+  mutate(across(where(is.numeric), ~round(., 3)))
+
+print(tableau_bivarie)
 ```
-*Lecture R :*   
-• EM vs Revenu = **Positif fort** (Les riches votent Macron).  
-• JLM vs Revenu = **Négatif fort** (Les moins riches votent Mélenchon).
-• Dans les quartiers où Macron fait un bon score, on observe que Zemmour fait aussi un score élevé.
+
 :::
+
+## Interprétation des résultats {.scrollable}
+
+::: {.callout-note icon=false}
+### 💡 Interprétation des résultats
+* **La Covariance :** Elle indique le sens de la relation (positive ou négative), mais sa valeur brute est difficile à interpréter car elle dépend des unités (ici, on multiplie des % par des euros).
+* **Le coefficient de corrélation ($r$) :** Il standardise la relation entre -1 et 1.
+    * EM et EZ ($r > 0$) : Corrélation **positive** (plus le revenu monte, plus le vote monte).
+    * JLM ($r < 0$) : Corrélation **négative** (plus le revenu monte, plus le vote baisse).
+* **Le $R^2$ (Pouvoir explicatif) :** C'est le pourcentage de la variance du vote qui est "expliqué" par le revenu. Par exemple, si le $R^2$ de Macron est de $0.85$, cela signifie que **85% des écarts de vote pour Macron d'un arrondissement à l'autre s'expliquent uniquement par la différence de revenu**.
+:::
+
 
 # 3. Visualisation
 *Nuage de points*
