@@ -296,3 +296,92 @@ En vous appuyant sur vos calculs et les graphiques fournis :
 ### 🔗 Accéder au corrigé
 [Cliquez ici pour accéder au Excel corrigé](https://y.yarn.co/6e13b700-cce4-47e6-a5db-5999fd581141_text.gif)
 :::
+
+
+## Bonus : Cartographie des inégalités électorales sur R {.scrollable}
+
+[Cliquez ici pour télécharger le Geojson des arrondissements de Paris](https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/arrondissements/exports/geojson)
+
+::: {.panel-tabset}
+
+### 🗺️ J.L. Mélenchon
+```{r}
+#| label: map-jlm
+#| echo: false
+#| message: false
+#| warning: false
+
+library(sf)
+library(dplyr)
+library(ggplot2)
+
+# 1. Chargement et nettoyage de la clé de la carte
+carte_paris <- st_read("data/arrondissements.geojson", quiet = TRUE) %>%
+  mutate(cle_geo = as.numeric(c_ar))
+
+# 2. Nettoyage de la clé Excel (Astuce du Modulo 100 pour gérer les 75000)
+df_clean <- df %>%
+  mutate(cle_excel = as.numeric(Arrondissement) %% 100)
+
+# 3. La Jointure infaillible
+paris_data <- carte_paris %>%
+  left_join(df_clean, by = c("cle_geo" = "cle_excel"))
+
+# Carte JLM
+ggplot(data = paris_data) +
+  geom_sf(aes(fill = JLM), color = "white", linewidth = 0.3) +
+  scale_fill_viridis_c(option = "magma", direction = -1, 
+                       labels = scales::label_percent(accuracy = 1)) +
+  labs(title = "Vote J.L. Mélenchon à Paris", subtitle = "Forte concentration Nord-Est", fill = "Score") +
+  theme_void()
+```
+
+### 🗺️ E. Macron
+```{r}
+#| label: map-em
+#| echo: false
+#| message: false
+#| warning: false
+
+# Carte EM
+ggplot(data = paris_data) +
+  geom_sf(aes(fill = EM), color = "white", linewidth = 0.3) +
+  scale_fill_viridis_c(option = "viridis", direction = -1, 
+                       labels = scales::label_percent(accuracy = 1)) +
+  labs(title = "Vote E. Macron à Paris", subtitle = "Un vote étendu avec un socle au Centre/Ouest", fill = "Score") +
+  theme_void()
+```
+
+### 🗺️ É. Zemmour
+```{r}
+#| label: map-ez
+#| echo: false
+#| message: false
+#| warning: false
+
+# Carte EZ
+ggplot(data = paris_data) +
+  geom_sf(aes(fill = EZ), color = "white", linewidth = 0.3) +
+  # Utilisation d'un gradient manuel pour marquer le clivage Ouest
+  scale_fill_gradient(low = "#e0e0e0", high = "#00205b", 
+                      labels = scales::label_percent(accuracy = 1)) +
+  labs(title = "Vote É. Zemmour à Paris", subtitle = "Micro-concentration à l'Ouest (16e, 8e, 7e)", fill = "Score") +
+  theme_void()
+```
+
+### 🗺️ Revenu Médian
+```{r}
+#| label: map-rev
+#| echo: false
+#| message: false
+#| warning: false
+
+# Carte Revenu
+ggplot(data = paris_data) +
+  geom_sf(aes(fill = Revenu), color = "white", linewidth = 0.3) +
+  scale_fill_viridis_c(option = "mako", direction = -1, 
+                       labels = scales::label_number(big.mark = " ", suffix = " €")) +
+  labs(title = "Revenu Médian à Paris", subtitle = "La fracture classique Est / Ouest", fill = "Revenu") +
+  theme_void()
+```
+:::

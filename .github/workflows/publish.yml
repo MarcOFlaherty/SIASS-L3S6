@@ -32,6 +32,7 @@ jobs:
             any::readxl
             any::ggplot2
             any::dplyr
+            any::sf
 
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
