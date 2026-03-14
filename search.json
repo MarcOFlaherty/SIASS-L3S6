@@ -389,63 +389,63 @@
     "href": "slides_seq4.html#létude-sociologique",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "L’étude sociologique",
-    "text": "L’étude sociologique\nNous travaillons sur l’article de Gaële Henri-Panabière (2010) : « Élèves en difficultés de parents fortement diplômés ».\n📝 Travail à faire (Questions de contexte) :\nÀ l’aide du document TexteTD4.pdf, répondez aux questions suivantes :\n\nQuel est le champ de l’étude ?\nQuelle est l’unité statistique ?\nQuelle est l’année de la collecte ?\nQui a collecté les données ?\nQuelle est la taille de l’échantillon ?\n\n\n\n\n\n\n\n🔓 Voir les réponses (Spoiler)\n\n\n\nChamp : Élèves de 6ème/5ème de 4 collèges lyonnais (familles diplômées).\nUnité : Le collégien.\nAnnée : 1999.\nCollecteur : G. Henri-Panabière (recherche doctorale).\nTaille : 677 questionnaires."
+    "text": "L’étude sociologique\nNous travaillons sur l’article de Gaële Henri-Panabière (2010) : « Élèves en difficultés de parents fortement diplômés ».\n📝 Travail à faire (Questions de contexte) :\nÀ l’aide du document TexteTD4.pdf, répondez aux questions suivantes :\n\nQuel est le champ de l’étude ?\nQuelle est l’unité statistique ?\nQuelle est l’année de la collecte ?\nQui a collecté les données ?\nQuelle est la taille de l’échantillon ?\n\n\n\n\n\n\n\n🔓 Voir les réponses (Spoiler)\n\n\n\nChamp : Élèves de 6ème/5ème de 4 collèges lyonnais (familles fortement diplômées).\nUnité : Le collégien (unité statistique de base).\nAnnée : 1999 (enquête de terrain).\nCollecteur : G. Henri-Panabière (pour sa recherche doctorale).\nTaille : 677 questionnaires exploitables."
   },
   {
-    "objectID": "slides_seq4.html#les-enjeux-du-croisement",
-    "href": "slides_seq4.html#les-enjeux-du-croisement",
+    "objectID": "slides_seq4.html#la-question-de-recherche",
+    "href": "slides_seq4.html#la-question-de-recherche",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
-    "section": "Les enjeux du croisement",
-    "text": "Les enjeux du croisement\nDans les familles à fort capital culturel, la réussite est la norme. L’échec y est donc un paradoxe sociologique.\nLa question du jour : Le rang de naissance (être l’aîné, le cadet ou l’unique) influence-t-il les chances de rencontrer des difficultés scolaires ?"
+    "section": "La question de recherche",
+    "text": "La question de recherche\nDans ces familles, la réussite est la “norme”. On cherche donc à identifier des facteurs de fragilité inhabituelle.\nHypothèse : Le rang de naissance influence-t-il les résultats ? Les “cadets” sont-ils plus fragiles que les “aînés” ?"
   },
   {
     "objectID": "slides_seq4.html#le-dictionnaire-des-variables",
     "href": "slides_seq4.html#le-dictionnaire-des-variables",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "Le dictionnaire des variables",
-    "text": "Le dictionnaire des variables\nOuvrez le fichier TD4- ghp_mesheritiers_dico.rtf.\n🔍 Focus sur la Question 1 :\n\nVariable étudiée : Aisance relationnelle au collège (« Comment se sent votre enfant au collège avec ses camarades »).\nModalités : 1. À l’aise / 2. Mal à l’aise / 3. Ça dépend / 4. Autre.\nType de variable : Qualitative nominale.\n\n📁 Les données brutes :\nOuvrez DonneesTD4.xlsx. * Colonnes : Variables (V0001, V0002…). * Lignes : Individus (chaque élève). * Formule Excel utile : Pour voir les titres, figez la première ligne (Affichage &gt; Figer les volets)."
+    "text": "Le dictionnaire des variables\nOuvrez le fichier TD4- ghp_mesheritiers_dico.rtf.\n🔍 Focus sur la Question 1 :\n\nVariable : « Comment se sent votre enfant au collège avec ses camarades ».\nModalités : 1. À l’aise / 2. Mal à l’aise / 3. Ça dépend / 4. Autre.\nType : Qualitative nominale.\n\n📁 Les données brutes :\nOuvrez DonneesTD4.xlsx. * Lignes : Chaque ligne est un élève différent. * Colonnes : Chaque colonne est une réponse (V0001…). * Astuce Excel : Sélectionnez la ligne 1, puis Affichage &gt; Figer les volets pour garder les titres visibles."
   },
   {
     "objectID": "slides_seq4.html#vérification-des-variables",
     "href": "slides_seq4.html#vérification-des-variables",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "1. Vérification des variables",
-    "text": "1. Vérification des variables\nL’énoncé signale deux variables de difficultés scolaires. Vérifions si elles sont identiques.\n\n🟢 Excel🔵 R\n\n\n\nCréez un TCD.\nMettez V0006 en ligne et V0008 en colonne.\nObservation : Les effectifs sont uniquement sur la diagonale. Les variables sont redondantes.\n\n\n\n\nlibrary(tidyverse)\nlibrary(readxl)\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Comparaison rapide\ntable(df$V0006, df$V0008)\n\n                       \n                        élèves en difficultés élèves en réussite élèves moyens\n  élèves en difficultés                   177                  0             0\n  élèves en réussite                        0                205             0\n  élèves moyens                             0                  0           295"
+    "text": "1. Vérification des variables\nL’énoncé signale deux variables de difficultés scolaires (V0006 et V0008).\n\n🟢 Excel🔵 R\n\n\n\nCréez un TCD.\nMettez V0006 en lignes et V0008 en colonnes.\nSi les chiffres ne sont que sur la “diagonale”, c’est que les deux variables disent exactement la même chose.\n\n\n\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(questionr)\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Comparaison\ntable(df$V0006, df$V0008)\n\n                       \n                        élèves en difficultés élèves en réussite élèves moyens\n  élèves en difficultés                   177                  0             0\n  élèves en réussite                        0                205             0\n  élèves moyens                             0                  0           295"
   },
   {
     "objectID": "slides_seq4.html#le-tri-croisé-effectifs",
     "href": "slides_seq4.html#le-tri-croisé-effectifs",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "2. Le Tri Croisé (Effectifs)",
-    "text": "2. Le Tri Croisé (Effectifs)\nCroisons les Difficultés (V0008) et le Rang de naissance (V0153).\n\n🟢 Excel🔵 R\n\n\n\nLignes : V0153 (Rang) | Colonnes : V0008 (Difficultés).\nAction : Copiez les données (ex: plage A3:D6) et collez-les plus bas en “Valeurs”.\nFormule : Pour calculer le total ligne si besoin : =SOMME(B4:D4).\n\n\n\n\nlibrary(questionr)\n\n# Nettoyage pour les labels\ntab &lt;- table(df$V0153, df$V0008)\nrownames(tab) &lt;- c(\"Aînés\", \"Cadets\", \"Uniques\")\ncolnames(tab) &lt;- c(\"Réussite\", \"Moyens\", \"Difficultés\")\ntab\n\n         \n          Réussite Moyens Difficultés\n  Aînés         48     70          94\n  Cadets        64     64          93\n  Uniques       11     28          27"
+    "text": "2. Le Tri Croisé (Effectifs)\nOn croise le Rang de naissance (V0153) et les Difficultés (V0008).\n\n🟢 Excel🔵 R\n\n\n\nLignes : V0153 | Colonnes : V0008 | Valeurs : V0008 (Nombre).\nAction : Copiez ce tableau et collez-le plus bas en “Valeurs” pour faire vos calculs.\nTotal Ligne : Utilisez =SOMME(B4:D4) pour vérifier vos totaux.\n\n\n\n\n# Création du tableau de base\ntab &lt;- table(df$V0153, df$V0008)\nrownames(tab) &lt;- c(\"Aînés\", \"Cadets\", \"Uniques\")\ncolnames(tab) &lt;- c(\"Réussite\", \"Moyens\", \"Difficultés\")\ntab\n\n         \n          Réussite Moyens Difficultés\n  Aînés         48     70          94\n  Cadets        64     64          93\n  Uniques       11     28          27"
   },
   {
     "objectID": "slides_seq4.html#pourcentages-en-ligne",
     "href": "slides_seq4.html#pourcentages-en-ligne",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "3. Pourcentages en ligne",
-    "text": "3. Pourcentages en ligne\nPour comparer les profils, on ramène chaque ligne à 100%.\n\n🟢 Excel🔵 R\n\n\nDans votre tableau copié, si la case “Aînés en réussite” est en B10 et le total ligne en E10 : * Formule : =B10/$E10 (puis étirez vers la droite). * Note : Le $ bloque la colonne du total.\n\n\n\n# lprop = pourcentages en ligne\nlprop(tab)\n\n         \n          Réussite Moyens Difficultés Total\n  Aînés    22.6     33.0   44.3       100.0\n  Cadets   29.0     29.0   42.1       100.0\n  Uniques  16.7     42.4   40.9       100.0\n  All      24.6     32.5   42.9       100.0"
+    "text": "3. Pourcentages en ligne\nPour comparer les profils, on veut savoir : “Sur 100 Aînés, combien réussissent ?”\n\n🟢 Excel🔵 R\n\n\nSi votre case “Aînés en réussite” est en B20 et son total ligne en E20 : * Formule : =B20/$E20 * Le signe $ permet de “bloquer” la colonne E quand vous étirez la formule vers la droite.\n\n\n\nlprop(tab)\n\n         \n          Réussite Moyens Difficultés Total\n  Aînés    22.6     33.0   44.3       100.0\n  Cadets   29.0     29.0   42.1       100.0\n  Uniques  16.7     42.4   40.9       100.0\n  All      24.6     32.5   42.9       100.0"
   },
   {
-    "objectID": "slides_seq4.html#test-et-significativité",
-    "href": "slides_seq4.html#test-et-significativité",
+    "objectID": "slides_seq4.html#test-du-khi-deux",
+    "href": "slides_seq4.html#test-du-khi-deux",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
-    "section": "4. Test et Significativité",
-    "text": "4. Test et Significativité\n\n🟢 Excel🔵 R💡 Interprétation\n\n\n\nKhi-deux : Utilisez =TEST.CHISQ(Plage_Observée; Plage_Théorique).\nNote : Excel demande de calculer d’abord le tableau théorique (Total Ligne * Total Col / Total Général).\n\n\n\n\nchisq.test(tab)\n\n\n    Pearson's Chi-squared test\n\ndata:  tab\nX-squared = 6.7894, df = 4, p-value = 0.1474\n\ncramer.v(tab)\n\n[1] 0.08248055\n\n\n\n\n\np-value &lt; 0.05 : Lien significatif (pas dû au hasard).\nV de Cramer : Intensité du lien."
+    "section": "4. Test du Khi-deux",
+    "text": "4. Test du Khi-deux\nComme en régression, on cherche à savoir si le lien est statistiquement “significatif”.\n\n🟢 Excel🔵 R\n\n\n\nCalculez le tableau théorique (Total Ligne * Total Col / Total Général).\nUtilisez la formule : =TEST.CHISQ(Plage_Réelle ; Plage_Théorique).\nSi le résultat est &lt; 0,05, le lien est significatif.\n\n\n\n\nchisq.test(tab)\n\n\n    Pearson's Chi-squared test\n\ndata:  tab\nX-squared = 6.7894, df = 4, p-value = 0.1474\n\n# Force du lien (0 à 1)\ncramer.v(tab)\n\n[1] 0.08248055"
   },
   {
-    "objectID": "slides_seq4.html#le-graphique-des-écarts",
-    "href": "slides_seq4.html#le-graphique-des-écarts",
+    "objectID": "slides_seq4.html#comprendre-les-écarts",
+    "href": "slides_seq4.html#comprendre-les-écarts",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
-    "section": "Le graphique des écarts",
-    "text": "Le graphique des écarts\nUn Mosaic Plot colore les cases selon les résidus standardisés : l’écart entre le réel et le théorique.\n\n🔵 R (Graphique)📊 Lecture des couleurs\n\n\n\n# On utilise la fonction association du package vcd pour de meilleures couleurs\nlibrary(vcd)\nassoc(tab, shade = TRUE, gp = shading_Friendly, \n      main = \"Écarts à l'indépendance (Rang vs Résultats)\")\n\n\n\n\n\n\n\n\n\n\n\nBleu : Sur-représentation (plus d’élèves que prévu).\nRouge : Sous-représentation (moins d’élèves que prévu).\nBlanc/Gris : Conforme à l’indépendance (hasard)."
+    "section": "Comprendre les écarts",
+    "text": "Comprendre les écarts\nEn régression, le résidu est l’écart entre le point réel et la droite. En tableau croisé, c’est la même chose !\n\nRésidu positif : Sur-représentation (la case est plus remplie que prévu).\nRésidu négatif : Sous-représentation.\n\n\n🔵 R (Graphique des résidus)📊 Interprétation\n\n\n\n# On extrait les résidus du test du Khi-deux\nres &lt;- as.data.frame(chisq.test(tab)$residuals)\n\nggplot(res, aes(x = Var1, y = Freq, fill = Freq &gt; 0)) +\n  geom_bar(stat = \"identity\") +\n  facet_wrap(~Var2) +\n  scale_fill_manual(values = c(\"firebrick\", \"dodgerblue4\"), \n                    labels = c(\"Sous-représenté\", \"Sur-représenté\")) +\n  theme_minimal() +\n  labs(title = \"Écarts à l'indépendance (Résidus)\",\n       x = \"Rang de naissance\", y = \"Intensité de l'écart\", fill = \"Sens\")\n\n\n\n\n\n\n\n\n\n\nSi la barre des “Cadets” dans le graphique “Difficultés” monte vers le haut (bleu), cela signifie que les cadets sont plus souvent en difficulté que ce que le hasard seul prévoirait. C’est le “signal” sociologique."
   },
   {
     "objectID": "slides_seq4.html#ce-quil-faut-retenir",
     "href": "slides_seq4.html#ce-quil-faut-retenir",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "Ce qu’il faut retenir",
-    "text": "Ce qu’il faut retenir\n\nLe TCD permet de passer des individus aux groupes.\nLes % en ligne sont les outils du sociologue pour comparer des trajectoires.\nLe \\(\\chi^2\\) sépare le signal du bruit (hasard).\nLe Mosaic Plot localise visuellement où se jouent les inégalités."
+    "text": "Ce qu’il faut retenir\n\nLe TCD transforme des données individuelles en statistiques de groupe.\nLes % en ligne permettent de comparer des groupes d’inégales tailles (Aînés vs Cadets).\nLes Résidus (comme en régression) montrent où la réalité s’écarte du hasard (l’indépendance).\nLe Khi-deux valide que cet écart n’est pas un coup de chance."
   },
   {
     "objectID": "slides_seq4.html#ressources",
