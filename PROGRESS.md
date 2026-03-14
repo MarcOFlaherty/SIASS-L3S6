@@ -39,6 +39,3 @@
 - **Séquence 1 :** Terminée (fix d'une balise `::: ` orpheline).
 - **Séquence 2 :** Terminée (Plotly interactif).
 - **Séquence 4 :** **Terminée & Auditée**.
-
----
-*Document généré pour la continuité du contexte par Gemini CLI.*

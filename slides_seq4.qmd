@@ -17,6 +17,8 @@ format:
 
 **L'objectif :** Explorer pourquoi certains enfants de familles très diplômées rencontrent des difficultés scolaires. Est-ce une question de "rang de naissance" ?
 
+---
+
 ### Le parcours de l'enquête :
 1.  **Exploration (A & B) :** Comprendre qui a été interrogé et comment les données sont codées.
 2.  **Croisement (C) :** Construire un Tableau Croisé (TCD) pour comparer Aînés et Cadets.

@@ -1,499 +1,191 @@
 [
   {
-    "objectID": "slides_seq1.html#les-données-étudiées",
-    "href": "slides_seq1.html#les-données-étudiées",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Les données étudiées",
-    "text": "Les données étudiées\nPour ce premier excercice, nous disposons d’une base de donnnées issue du Programme des Nations Unies pour le Développement (PNUD) avec :\n\nIndividus statistiques : Ce sont les Pays (44 dans notre exemple).\n\nVariables disponibles :\n\nL’Indice de Développement Humain (IDH)\n\nPIB par habitant\n\nEspérance de vie à la naissance\n\nNombre d’année de scolarisation\n\nTaille de la population\n\nRatio de palma (Revenus Top10% / Revenus bottom 40%)\n\nISO 3 (norme de codification cartographique)\n\n\n\nObjectif : Passer d’un tableau de chiffres illisible à des indicateurs clairs et permettre des comparaisons."
+    "objectID": "slides_seq4.html#létude-sociologique",
+    "href": "slides_seq4.html#létude-sociologique",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "L’étude sociologique",
+    "text": "L’étude sociologique\nNous travaillons sur l’article de Gaële Henri-Panabière (2010) : « Élèves en difficultés de parents fortement diplômés ».\n📝 Travail à faire (Questions de contexte) :\nÀ l’aide du document TexteTD4.pdf, répondez aux questions suivantes :\n\nQuel est le champ de l’étude ?\nQuelle est l’unité statistique ?\nQuelle est l’année de la collecte ?\nQui a collecté les données ?\nQuelle est la taille de l’échantillon ?\n\n\n\nCliquez ici pour voir les réponses\n\n\nChamp : Élèves de 6ème/5ème de 4 collèges lyonnais (familles fortement diplômées).\nUnité : Le collégien (unité statistique de base).\nAnnée : 1999 (enquête de terrain).\nCollecteur : G. Henri-Panabière (recherche doctorale).\nTaille : 677 questionnaires exploitables."
   },
   {
-    "objectID": "slides_seq1.html#fin-de-la-séquence-1",
-    "href": "slides_seq1.html#fin-de-la-séquence-1",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Fin de la séquence 1",
-    "text": "Fin de la séquence 1"
-  },
-  {
-    "objectID": "slides_intro.html#mon-parcours-en-bref",
-    "href": "slides_intro.html#mon-parcours-en-bref",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Mon parcours en bref",
-    "text": "Mon parcours en bref\nDe la démographie à la data analyse\nFormation académique (IDUP)\n* Licence de sciences sociales\n* L3 mention Démographie\n* Master “Expert-Démographe” (IDUP)\nParcours professionnel\n* Actuellement : Data analyst & Chargé d’enquête à Sciences Po."
-  },
-  {
-    "objectID": "slides_intro.html#je-suis-littéraire-pourquoi-faire-des-stats",
-    "href": "slides_intro.html#je-suis-littéraire-pourquoi-faire-des-stats",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "“Je suis littéraire, pourquoi faire des stats ?”",
-    "text": "“Je suis littéraire, pourquoi faire des stats ?”\n\nL’autonomie du chercheur :\n\nNe dépendez pas d’un tiers pour vérifier vos hypothèses.\nLa sociologie donne le “pourquoi”, la stat donne le “combien”.\nExemple : Vous observez des discriminations à l’embauche sur un terrain \\(\\rightarrow\\) Les stats vous permettent de quantifier et de prouver qu’elles sont systémiques.\n\nL’employabilité (le nerf de la guerre) :\n\nONG, ministères, collectivités, instituts de sondage…\nTout le monde cherche des profils “hybrides” : capables de comprendre les faits sociaux ET de les quantifier."
-  },
-  {
-    "objectID": "slides_intro.html#cas-concrets-à-quoi-ça-sert",
-    "href": "slides_intro.html#cas-concrets-à-quoi-ça-sert",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Cas concrets : à quoi ça sert ?",
-    "text": "Cas concrets : à quoi ça sert ?\n\nCas 1 : Sociologie de l’éducationCas 2 : Sociologie du travail\n\n\nLe “paradoxe” des héritiers\n* Données : Enquête “Mes Héritiers” (G. Henri-Panabière).\n* La question : Le capital culturel protège-t-il toujours de l’échec scolaire ?\n* Vos variables : Moyenne scolaire, Diplôme de la mère, Sentiment d'aisance.\n* L’outil : Régression linéaire & analyse des résidus (Séquence 3).\n\n\nQui sont les “mobiles” en Europe ?\n* Données : Enquête “Job Mobilities and Family Lives”.\n* La question : La mobilité professionnelle est-elle une chance ou une contrainte ? Y a-t-il une inégalité de genre ?\n* Vos variables : Sexe, Pays, Volonté de déménager.\n* L’outil : Régression logistique (Séquence 4)."
-  },
-  {
-    "objectID": "slides_intro.html#la-feuille-de-route",
-    "href": "slides_intro.html#la-feuille-de-route",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La feuille de route",
-    "text": "La feuille de route\n\n\n\n\n\n\n\n\n\nSéquence\nThème\nOutils\nJeu de données\n\n\n\n\n1. Les bases\nStats descriptives & prise en main\nExcel & R\nUNDP (IDH)\n\n\n2. Carto\nReprésentation spatiale\nExcel & Khartis\nProduction d’éoliennes en Europe\n\n\n3. Expliquer\nCorrélation & régression simple\nExcel & R\nEnquête “Mes Héritiers”\n\n\n4. Enquêter\nAnalyse bivariée & multivariée\nExcel & R\nEnquête “JobMob”"
-  },
-  {
-    "objectID": "slides_intro.html#contacts",
-    "href": "slides_intro.html#contacts",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Contacts",
-    "text": "Contacts\nVoici l’adresse e-mail avec laquelle nous allons échanger.\nEmail : oflahertymarc.etudes@gmail.com\nLe site du cours : https://marcoflaherty.github.io/SIASS-L3S6/\n(L’ensemble du cours y sera posté)"
-  },
-  {
-    "objectID": "slides_intro.html#formulaire-de-rentrée",
-    "href": "slides_intro.html#formulaire-de-rentrée",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Formulaire de rentrée",
-    "text": "Formulaire de rentrée\nMerci de scanner ce QR Code et de répondre maintenant (1 min).\n\n\nInformations demandées :\n1. Nom & Prénom\n2. Email universitaire\n3. Niveau Excel (1 à 6)\n4. Niveau R (1 à 6)"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Année universitaire 2025-26",
-    "section": "",
-    "text": "Bienvenue sur le site du cours de SIASS. Vous trouverez ici les supports de cours.\n\n\n\nIntroduction\nRetour sur les notions\nSéquence 1\nSéquence 3"
-  },
-  {
-    "objectID": "index.html#accès-rapide",
-    "href": "index.html#accès-rapide",
-    "title": "Année universitaire 2025-26",
-    "section": "",
-    "text": "Introduction\nRetour sur les notions\nSéquence 1\nSéquence 3"
-  },
-  {
-    "objectID": "slides_retours.html#la-moyenne-vs-la-médiane",
-    "href": "slides_retours.html#la-moyenne-vs-la-médiane",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La Moyenne vs la Médiane",
-    "text": "La Moyenne vs la Médiane\nComment résumer une distribution en un seul chiffre ?\n\n\nLa Moyenne\n\nCalcul : Somme des valeurs / Nombre de valeurs.\n\nQualité : Rapide, connu; compréhensible.\n\nDéfaut : Sensible aux extrêmes.\n\nExemple : Si un milliardaire entre dans un PMU, le “salaire moyen” explose.\n\n\n\n\nLa Médiane\n\nCalcul : La valeur du milieu (50% au-dessus, 50% en-dessous).\n\nQualité : Robuste.\n\nDéfaut : Plus long à calculer à la main.\n\nExemple : Le salaire médian du bar ne bouge presque pas avec le milliardaire."
-  },
-  {
-    "objectID": "slides_retours.html#la-dispersion-variance-écart-type",
-    "href": "slides_retours.html#la-dispersion-variance-écart-type",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La dispersion : Variance & Écart-type",
-    "text": "La dispersion : Variance & Écart-type\nLa moyenne cache la réalité. Voici des outils pour s’en prémunir.\n\nLa Variance (\\(V\\)) : C’est la moyenne des carrés des écarts à la moyenne.\n\nUtilité : C’est une étape mathématique préalable à l’écart-type.\n\nProblème : Difficile à interpréter\n\nL’Écart-type (\\(\\sigma\\)) : Racine carrée de la variance.\n\nUtilité : On revient à l’unité d’origine.\n\nSens : C’est l’écart “moyen” ou “typique” entre les individus.\n\n\nUn exemple concret : Nous avons deux classes de terminale (10 élèves).\n* Classe A : 5 élèves ont eu 8/20 et 5 élèves ont eu 12/20.\n* Classe B : 5 élèves ont eu 5/20 et 5 élèves ont eu 15/20.\nEst-ce que les moyennes sont les mêmes ?\n\n\nVoir les moyennes des classes\n\nOui, elles sont identiques \\(\\rightarrow\\) 10 de moyenne.\n\nClasse A : \\((5 \\times 8 + 5 \\times 12) = 100\\)\n\\(100/ 10 = \\mathbf{10}\\)\nClasse B : \\((5 \\times 5 + 5 \\times 15) = 100\\)\n\\(100/ 10 = \\mathbf{10}\\)\n\n\nEt la dispersion est-elle la même ? Calculons la variance et l’écart-type.\n\n\nCalcul de la Variance\n\nFormule : On fait la moyenne des écarts au carré.\nPour la Classe A :\n* Écarts : \\(8-10 = -2\\) et \\(12-10 = +2\\)\n* Carrés : \\((-2)^2 = 4\\) et \\((2)^2 = 4\\)\n* Variance : \\((5 \\times 4 + 5 \\times 4) = 40\\)\n\\(40/ 10 = \\mathbf{4}\\)\nPour la Classe B :\n* Écarts : \\(5-10 = -5\\) et \\(15-10 = +5\\)\n* Carrés : \\((-5)^2 = 25\\) et \\((5)^2 = 25\\)\n* Variance : \\((5 \\times 25 + 5 \\times 25) = 250\\)\n\\(250/ 10 = \\mathbf{25}\\)\n\n\n\nRésultats (Écart-type) et Interprétation\n\nPour revenir à une note sur 20, on prend la racine carrée (\\(\\sqrt{V}\\)).\n\nClasse A : \\(\\sigma = \\sqrt{4} = \\mathbf{2}\\)\nClasse B : \\(\\sigma = \\sqrt{25} = \\mathbf{5}\\)\nConclusion :\nBien que la moyenne soit la même (10/20), la Classe B est beaucoup plus hétérogène (plus dispersée) que la Classe A qui est plus homogène.\nEn moyenne, dans la classe B, les élèves sont à 5 points de la moyenne, contre seulement 2 points dans la classe A."
-  },
-  {
-    "objectID": "slides_retours.html#les-quantiles",
-    "href": "slides_retours.html#les-quantiles",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Les Quantiles",
-    "text": "Les Quantiles\nPour voir les inégalités, on découpe la population en parts égales.\n\nQuartiles (4 parts) :\n\nQ1 : Les 25% les plus pauvres.\n\nQ2 (Médiane) : 50% de la population gagne moins, 50% gagne plus.\n\nQ3 : Les 75% (le seuil d’entrée des 25% les plus riches).\n\n\nDéciles (10 parts) : D1 (les 10% les plus pauvres) à D9.\n\n\n\n\nQuantile\nSecteur privé (€)\nFonction publique (€)\n\n\n\n\n1ᵉʳ décile (D1)\n1 510\n1 670\n\n\n1ᵉʳ quartile (Q1)\n1 740\n1 950\n\n\nMédiane (Q2)\n2 180\n2 380\n\n\n3ᵉ quartile (Q3)\n2 990\n2 990\n\n\n9ᵉ décile (D9)\n4 300\n3 800\n\n\n\n\n\nComment lire ce tableau ?\n\nLecture :\n\nPour D1 (Privé) : “10 % des salariés du secteur privé gagnent moins de 1 510 euros nets par mois.” (On peut aussi dire : “90 % gagnent plus”).\n\nPour la Médiane (Public) : “La moitié des agents du public gagne moins de 2 380 euros, l’autre moitié gagne plus.”\n\nPour D9 (Privé) : “90 % des salariés gagnent moins de 4 300 euros.” (Ou : “Les 10 % les mieux payés gagnent plus de 4 300 euros”).\n\nObservation sociologique : On remarque que les bas salaires sont mieux rémunérés dans le public (D1 public &gt; D1 privé), mais que les très hauts salaires s’envolent dans le privé (D9 privé &gt; D9 public).\n\n(Source : Insee, Dispersion des salaires nets mensuels en équivalent temps plein en 2023)"
-  },
-  {
-    "objectID": "slides_retours.html#la-boîte-à-moustache-boxplot",
-    "href": "slides_retours.html#la-boîte-à-moustache-boxplot",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La boîte à moustache (Boxplot)",
-    "text": "La boîte à moustache (Boxplot)\nUn résumé visuel de 5 informations clés.\n\nLa Boîte contient 50% des salariés (l’écart inter-quartile).\nLa Barre au milieu est la médiane.\nLes Moustaches vont ici jusqu’aux déciles (D1 et D9) pour voir les extrêmes.\n\n\n\nVoir le code R\nlibrary(ggplot2)\n\n# 1. On crée la \"DB\" (le petit tableau de données) manuellement\ndf_salaires &lt;- data.frame(\n  Secteur = c(\"Secteur Privé\", \"Fonction Publique\"),\n  D1      = c(1510, 1670),  \n  Q1      = c(1740, 1950),  \n  Mediane = c(2180, 2380),  \n  Q3      = c(2990, 2990),  \n  D9      = c(4300, 3800)   \n)\n\n# 2. On génère le graphique\nggplot(df_salaires, aes(x = Secteur, fill = Secteur)) +\n  geom_boxplot(\n    aes(ymin = D1, lower = Q1, middle = Mediane, upper = Q3, ymax = D9),\n    stat = \"identity\",  \n    width = 0.5         \n  ) +\n  scale_fill_manual(values = c(\"#404080\", \"#C04657\")) + \n  labs(\n    title = \"Dispersion des salaires (Nets mensuels)\",\n    y = \"Euros (€)\",\n    x = \"\",\n    caption = \"Source : Insee 2023\"\n  ) +\n  \n  scale_y_continuous(labels = scales::label_number(big.mark = \" \")) + # Séparateur de milliers\n  \n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\nFigure 1: Dispersion des salaires"
-  },
-  {
-    "objectID": "slides_retours.html#lhistogramme",
-    "href": "slides_retours.html#lhistogramme",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "L’Histogramme",
-    "text": "L’Histogramme\nLe principe des “Classes” :\nPour résumer l’information, on regroupe les pays par paquets (ici des tranches de 5 ans).\n\nL’axe horizontal : L’espérance de vie.\n\nL’axe vertical : Le nombre de pays dans cette tranche.\n\nLa forme : Avec 183 pays, on voit une inégalité pour l’espérance de vie.\n\n\n\nVoir le code R\nlibrary(ggplot2)\n\n# 1. Données\ndf_pays &lt;- data.frame(\n  Esp_Vie = c(\n    83.7, 83.4, 83.1, 82.8, 82.8, 82.7, 82.7, 82.5, 82.4, 82.4, \n    82.3, 82.2, 82.0, 81.9, 81.81, 81.8, 81.7, 81.6, 81.5, 81.4, \n    81.2, 81.1, 81.0, 81.0, 80.8, 80.6, 80.5, 80.5, 79.6, 79.1, \n    79.1, 78.8, 78.5, 78.2, 78.1, 78.0, 77.8, 77.8, 77.7, 77.6, \n    77.5, 77.4, 77.1, 77.0, 76.9, 76.7, 76.7, 76.6, 76.4, 76.3, \n    76.2, 76.2, 76.1, 76.1, 76.1, 76.0, 75.9, 75.8, 75.7, 75.6, \n    75.6, 75.5, 75.5, 75.5, 75.3, 75.2, 75.0, 75.0, 75.0, 74.9, \n    74.9, 74.9, 74.8, 74.8, 74.8, 74.7, 74.6, 74.6, 74.6, 74.5, \n    74.5, 74.4, 74.3, 74.1, 74.1, 74.0, 74.0, 73.9, 73.6, 73.6, \n    73.5, 73.5, 73.3, 73.2, 73.2, 72.7, 72.7, 72.3, 72.1, 72.0, \n    71.9, 71.8, 71.6, 71.3, 71.2, 71.1, 70.9, 70.7, 70.6, 70.5, \n    70.2, 70.1, 69.9, 69.8, 69.7, 69.4, 69.4, 69.2, 69.2, 69.1, \n    68.9, 68.8, 68.7, 68.5, 68.3, 68.3, 67.5, 66.7, 66.6, 66.4, \n    66.3, 66.3, 66.2, 66.1, 66.0, 65.8, 65.7, 65.7, 65.7, 65.5, \n    64.8, 64.7, 64.7, 64.5, 64.1, 63.5, 63.5, 63.5, 63.4, 63.1, \n    62.9, 62.9, 62.4, 62.3, 61.8, 61.8, 61.8, 61.4, 61.1, 60.7, \n    60.5, 60.0, 59.9, 59.9, 59.8, 59.6, 59.0, 58.9, 58.9, 58.3, \n    58.2, 58.2, 57.6, 57.3, 57.3, 55.0, 54.5, 53.7, 53.3, 53.1, \n    52.5, 52.4, 50.1\n  )\n)\n\n# 2. Histogramme avec bornes strictes\nggplot(df_pays, aes(x = Esp_Vie)) +\n  geom_histogram(\n    breaks = seq(50, 85, 5), # On impose les coupures : 50, 55, 60...\n    closed = \"left\",        # [50, 55[ (50 inclus, 55 exclu) - Un standard en démographie\n    \n    fill = \"#404080\",       \n    color = \"white\",\n    alpha = 0.8\n  ) +\n  labs(\n    y = \"Nombre de pays\",\n    x = \"Espérance de vie (années)\",\n    title = \"Répartition mondiale (OMS 2015)\"\n  ) +\n  theme_minimal() +\n  # Légende de l'ordonnée\n  scale_y_continuous(breaks = seq(0, 60, 10)) +\n  \n  # Légende de l'abscisse X :\n  scale_x_continuous(breaks = seq(50, 85, 5))\n\n\n\n\n\n\n\n\nFigure 2: Distribution mondiale de l’espérance de vie (183 pays, OMS 2015)"
-  },
-  {
-    "objectID": "slides_retours.html#le-nuage-de-points",
-    "href": "slides_retours.html#le-nuage-de-points",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Le Nuage de points",
-    "text": "Le Nuage de points\nAvant de calculer, il faut regarder. Posons-nous la question : “Est-ce que la richesse monétaire augmente la longévité ?”\n\nAxe X (Horizontal) : La richesse (PIB/habitant).\nAxe Y (Vertical) : La santé (Espérance de vie).\nChaque point est un pays.\n\n\n\nVoir le code R\nlibrary(ggplot2)\n\n# Données exactes (Banque Mondiale 2022)\ndf_demo &lt;- data.frame(\n  Pays = c(\"Sierra Leone\", \"Inde\", \"Vietnam\", \"Brésil\", \"Chine\", \"France\", \"USA\", \"Suisse\"),\n  PIB = c(860, 2347, 4147, 9281, 12970, 40988, 76657, 94394),\n  Esp_Vie = c(61, 72, 75, 75, 78, 82, 77, 84)\n)\n\nggplot(df_demo, aes(x = PIB, y = Esp_Vie)) +\n  geom_point(size = 4, color = \"#404080\") +\n  # Ajustement des étiquettes pour éviter qu'elles ne se chevauchent\n  geom_text(aes(label = Pays), vjust = -1.2, size = 3.5) + \n  \n  # Axe X : Format monétaire propre\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \"), limits = c(0, 100000)) +\n  \n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  \n  labs(title = \"Lien PIB par hab. / espérance de vie\", \n       subtitle = \"Sélection de 8 pays (2022)\",\n       x = \"PIB/hab (en $)\", y = \"Espérance de vie (années)\") +\n  theme_minimal() +\n  ylim(50, 90)\n\n\nScale for x is already present.\nAdding another scale for x, which will replace the existing scale.\n\n\n\n\n\n\n\n\nFigure 3: Lien PIB par hab / espérance de vie (source : Banque Mondiale 2022)\n\n\n\n\n\n\n\nQu’est-ce qu’on observe ?\n\nOn voit que les points ne sont pas mis au hasard. Ils forment une “banane” ou une ligne qui “monte”.\n\nTendance globale : Il y a une corrélation positive \\(\\rightarrow\\) Plus un pays est riche, plus l’espérance de vie est élevée (Sierra Leone vs Suisse).\n\nNuance (Efficacité) : L’argent ne fait pas tout.\n\nLe Vietnam a une espérance de vie élevée (75 ans) malgré un PIB modeste.\n\nLes USA “sous-performent” : ils sont très riches mais stagnent à 77 ans (inégalités, système de santé)."
-  },
-  {
-    "objectID": "slides_retours.html#le-coefficient-de-corrélation-r",
-    "href": "slides_retours.html#le-coefficient-de-corrélation-r",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Le coefficient de corrélation (\\(r\\))",
-    "text": "Le coefficient de corrélation (\\(r\\))\nC’est un indicateur standardisé (entre -1 et +1) qui mesure l’intensité du lien linéaire.\nLe sens de la pente (+ ou -)\nLe signe dépend de la direction du nuage de points.\n\n\nCorrélation Positive (\\(r &gt; 0\\))\nLes variables varient dans le même sens.\n* Quand X monte, Y monte.\n* Quand X descend, Y descend.\n* Forme : Une pente montante 📈.\n* Exemple : PIB/hab et Espérance de vie.\n\nCorrélation Négative (\\(r &lt; 0\\))\nLes variables varient en sens inverse.\n* Quand X monte, Y descend.\n* Quand X descend, Y monte.\n* Forme : Une pente descendante 📉.\n* Exemple : Nombre de cigarettes fumées et Espérance de vie."
-  },
-  {
-    "objectID": "slides_retours.html#comment-le-calcule-t-on",
-    "href": "slides_retours.html#comment-le-calcule-t-on",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Comment le calcule-t-on ?",
-    "text": "Comment le calcule-t-on ?\nLa formule est : \\(r = \\frac{Cov(X,Y)}{\\sigma_X \\cdot \\sigma_Y}\\) ?\nC’est une opération en deux temps : mesurer, puis nettoyer.\n1. Le numérateur : La covariance (\\(Cov\\))\n\n\nVoir la formule de la Covariance\n\n\\[Cov(X,Y) = \\frac{1}{n} \\times [ (x_1 - \\bar{x})(y_1 - \\bar{y}) + \\dots + (x_n - \\bar{x})(y_n - \\bar{y}) ]\\] Dans notre cas \\((x_1 - \\bar{x})\\) est le PIB/hab du premier pays - le Pib/hab moyen ;\nEt \\((y_1 - \\bar{y})\\) est l’espérance de vie du premier pays - l’espérance de vie moyenne\n\nC’est la mesure brute du lien.\nElle fait la moyenne des produits des écarts.\n\nProblème : Elle dépend des unités.\nExemple : Ici, on multiplie des Dollars par des Années. Le résultat est en “Dollars-Années”. Ce chiffre est gigantesque et impossible à interpréter.\n\n2. Le dénominateur : Les Écarts-types des variables (\\(\\sigma_X \\cdot \\sigma_Y\\))\nC’est la mesure de la dispersion de chaque variable.\n* \\(\\sigma_X\\) est en Dollars.\n* \\(\\sigma_Y\\) est en Années.\n3. Le résultat : Pourquoi on divise ?\nOn divise le Numérateur par le Dénominateur pour annuler les unités.\nVoici en langage courant la formule du coefficient de corrélation :\n\\[\\text{Corrélation} = \\frac{\\text{Variation commune (Dollars} \\times \\text{Années)}}{\\text{Variation totale (Dollars} \\times \\text{Années)}}\\]\n\n\n\nImportant\n\n\nCe qu’il faut retenir :\nEn divisant la Covariance par les Écarts-types, on “nettoie” l’indicateur. On passe d’un chiffre flou (ex: 450 000) à un ratio pur compris entre -1 et 1.\nCalculons le coefficient de corrélation pour PIB/hab & l’espérance de vie via R\n\n\n\n\n\nVérifier le calcul en R\n# Nos données\npib &lt;- c(860, 2347, 4147, 9281, 12970, 40988, 76657, 94394)\nesp &lt;- c(61, 72, 75, 75, 78, 82, 77, 84)\n\n# Calcul direct\nresultat &lt;- cor(pib, esp)\n# Affiche le résultat\nprint(paste(\"Le coefficient de corrélation est de :\", round(resultat, 2)))\n\n\n[1] \"Le coefficient de corrélation est de : 0.66\"\n\n\n\nInterprétation :\nLe résultat (\\(r = 0.66\\)) confirme une forte corrélation positive. Cela signifie qu’un PIB/habitant élevé est généralement associé à une espérance de vie plus longue (les deux varient dans le même sens)."
-  },
-  {
-    "objectID": "slides_retours.html#la-régression-linéaire-la-prédiction",
-    "href": "slides_retours.html#la-régression-linéaire-la-prédiction",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "La régression linéaire : la “prédiction”",
-    "text": "La régression linéaire : la “prédiction”\nOn ne veut plus juste constater le lien, on veut le modéliser pour faire des prévisions. On trace une droite qui passe “au milieu” du nuage.\nC’est l’équation : \\(Y = a \\cdot X + b\\)\nMais en langage courant : \\[Espérance = (Pente \\times Richesse) + Socle\\]\n\nLa pente (\\(a\\)) : C’est le “taux de conversion” (combien d’argent pour gagner 1 an ?).\nL’ordonnée à l’origine, le “socle” (\\(b\\)) : Le point de départ (espérance de vie sans richesse).\n\n\n\nVoir le code R et le calcul\nlibrary(ggplot2)\n\n# 1. Données\ndf_demo &lt;- data.frame(\n  Pays = c(\"Sierra Leone\", \"Inde\", \"Vietnam\", \"Brésil\", \"Chine\", \"France\", \"USA\", \"Suisse\"),\n  PIB = c(860, 2347, 4147, 9281, 12970, 40988, 76657, 94394),\n  Esp_Vie = c(61, 72, 75, 75, 78, 82, 77, 84)\n)\n\n# 2. Le Calcul (La machine à prédiction)\nmodele &lt;- lm(Esp_Vie ~ PIB, data = df_demo)\ncoeffs &lt;- coef(modele)\nb_socle &lt;- round(coeffs[1], 1)       # L'ordonnée à l'origine\na_pente &lt;- format(coeffs[2], scientific=FALSE, digits=5) # La pente\n\n# 3. Le Graphique\nggplot(df_demo, aes(x = PIB, y = Esp_Vie)) +\n  geom_point(size = 4, color = \"#404080\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"#C04657\", size = 1.5) +\n  geom_text(aes(label = Pays), vjust = -1.2, size = 2.5) +\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  labs(\n    title = paste0(\"Modèle : Espérance = \", a_pente, \" * PIB + \", b_socle),\n    subtitle = \"L'équation est calculée automatiquement par R ci-dessus\",\n    x = \"PIB/hab (en $)\", y = \"Espérance de vie (en années)\"\n  ) +\n  theme_minimal()\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\nFigure 4: Modèle linéaire calculé\n\n\n\n\n\n\n\nLecture des résultats\n\nR a calculé la droite idéale et affiche l’équation au-dessus du graphique.\nL’équation exacte est :\n\\[Y = 0.000126X + 71,7\\]\n\n1. Le socle (\\(b = 71,7\\)) :\nLe modèle est très optimiste ! Il suggère que le niveau de base théorique (si PIB = 0) est de 71,7 ans.\nCela met en évidence la situation critique de la Sierra Leone (le point tout en bas à 61 ans), qui est 10 ans en dessous de ce standard théorique.\nCependant, ce résultat est a relativiter, seuls 8 pays ont été pris en compte dans le modèle !\n\n2. L’effet richesse (\\(a = 0.000126\\)) :\nLa pente est douce. Pour gagner 1 an d’espérance de vie supplémentaire, il faut augmenter le PIB d’environ 7 950 $.\n(Calcul : \\(1 / 0.00012586 \\approx 7945\\)).\n— Analyse des résidus (Les points loin de la ligne) :\n\nLes USA (à droite) sont nettement en dessous de la ligne rouge. Vu leur richesse massive, le modèle “prédit” qu’ils devraient vivre plus vieux (vers 85 ans), mais ils stagnent à 77.\n\nLe Vietnam et la Chine sont au-dessus ou sur la ligne : ils transforment très efficacement leur richesse en santé."
-  },
-  {
-    "objectID": "slides_retours.html#fin-du-retour-sur-les-notions",
-    "href": "slides_retours.html#fin-du-retour-sur-les-notions",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "Fin du retour sur les notions",
-    "text": "Fin du retour sur les notions"
-  },
-  {
-    "objectID": "slides_seq1.html#le-jeu-de-données-dataset",
-    "href": "slides_seq1.html#le-jeu-de-données-dataset",
-    "title": "Séquence 1 : Prise en main & Statistiques descriptives",
-    "section": "Le jeu de données (Dataset)",
-    "text": "Le jeu de données (Dataset)\nNous travaillons sur des données du PNUD (Nations Unies).\n\nIndividus (Lignes) : 44 Pays.\nVariables (Colonnes) :\n\nIDH : Indice de Développement Humain (Synthèse).\nPIB/tête : Richesse économique.\nEspérance de vie : Santé.\nAnnées éducation : Capital scolaire.\nPopulation : Poids démographique.\nRatio Palma : Inégalités internes (Riches vs Pauvres).\n\n\n\n\n\n\n\n\nObjectif du TD\n\n\nTransformer ce tableau brut en informations sociologiques claires."
-  },
-  {
-    "objectID": "slides_seq1.html#importation-excel-r",
-    "href": "slides_seq1.html#importation-excel-r",
-    "title": "Séquence 1 : Prise en main & Statistiques descriptives",
-    "section": "Importation (Excel & R)",
-    "text": "Importation (Excel & R)\n\n🟢 Sur Excel🔵 Sur R\n\n\n\nOuvrez le fichier DonneesTD1.Excel.\n\n\n\n\n\nlibrary(ggplot2)\nlibrary(dplyr)\n# On charge la librairie capable de lire les fichiers Excel\nlibrary(readxl)\n\n# --- ÉTAPE 1 : DÉFINIR LE FICHIER ---\n# Je défini le chemin de mon fichier, lisible via : clique droit, propriété, sécurité :\nmon_fichier &lt;- \"C:/Users/oflah/Downloads/DonneesTD1.xlsx\"\n\n# --- ÉTAPE 2 : IMPORTER ---\n# On utilise la fonction 'read_excel' (spécifique aux .xlsx)\ndf &lt;- read_excel(mon_fichier)\n\n# Aperçu des 3 premières lignes\nhead(df, 3)\n\n# A tibble: 3 × 9\n  Pays  `IDH 2017` `PIB/tête (2017)` `Esp Vie Naiss 2017` Années éducation (20…¹\n  &lt;chr&gt;      &lt;dbl&gt;             &lt;dbl&gt;                &lt;dbl&gt;                  &lt;dbl&gt;\n1 Alba…      0.785             11886                 78.5                   14.8\n2 Algé…      0.754             13802                 76.3                   14.4\n3 Alle…      0.936             46136                 81.2                   17  \n# ℹ abbreviated name: ¹​`Années éducation (2017)`\n# ℹ 4 more variables: `Population totale (2017)` &lt;dbl&gt;, `Ratio Palma` &lt;dbl&gt;,\n#   iso3 &lt;chr&gt;, country &lt;chr&gt;"
-  },
-  {
-    "objectID": "slides_seq1.html#tendance-centrale-dispersion",
-    "href": "slides_seq1.html#tendance-centrale-dispersion",
-    "title": "Séquence 1 : Prise en main & Statistiques descriptives",
-    "section": "Tendance centrale & Dispersion",
-    "text": "Tendance centrale & Dispersion\nOn cherche le “centre” (Moyenne/Médiane) et la “largeur” (Écart-type) de la distribution.\n\n\n\n\n\n\n🟢 Formules Excel\n\n\n\nMoyenne : =MOYENNE(Plage)\nMédiane : =MEDIANE(Plage)\nÉcart-type : =ECARTYPE.STANDARD(Plage) (ou .S)\n\nAttention : ECARTYPE.PEARSON (.P) divise par \\(N\\) (Population), alors que R et les chercheurs divisent généralement par \\(N-1\\) (Échantillon).\n\n\n\n\n\nRésultats (calculés via R) :\n\n\nVoir le code R\n# On crée un résumé propre\nsummary_stats &lt;- df %&gt;%\n  summarise(\n    Variable = \"Espérance de vie\",\n    Moyenne = mean(`Esp Vie Naiss 2017`, na.rm = TRUE),\n    Mediane = median(`Esp Vie Naiss 2017`, na.rm = TRUE),\n    EcartType = sd(`Esp Vie Naiss 2017`, na.rm = TRUE),\n    Min = min(`Esp Vie Naiss 2017`, na.rm = TRUE),\n    Max = max(`Esp Vie Naiss 2017`, na.rm = TRUE)\n  )\n\nknitr::kable(summary_stats, digits = 1)\n\n\n\n\n\nVariable\nMoyenne\nMediane\nEcartType\nMin\nMax\n\n\n\n\nEspérance de vie\n73.4\n76.1\n9.3\n53.2\n83.5"
-  },
-  {
-    "objectID": "slides_seq1.html#la-boîte-à-moustache-boxplot---q4",
-    "href": "slides_seq1.html#la-boîte-à-moustache-boxplot---q4",
-    "title": "Séquence 1 : Prise en main & Statistiques descriptives",
-    "section": "La Boîte à moustache (Boxplot) - Q4",
-    "text": "La Boîte à moustache (Boxplot) - Q4\nUn outil visuel pour voir la dispersion et les valeurs extrêmes.\n\n\nLecture : * La boîte : 50% des pays sont dedans. * Le trait noir : La médiane. * Les points : Les “Outliers” (pays atypiques).\n\n\n\nCode\nggplot(df, aes(y = `Esp Vie Naiss 2017`)) +\n  geom_boxplot(fill = \"#404080\", color = \"black\", alpha = 0.6) +\n  labs(title = \"Dispersion : Espérance de vie\", y = \"Années\") +\n  theme_minimal() +\n  theme(axis.text.x = element_blank())\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🟢 Sur Excel\n\n\nSélectionnez la colonne \\(\\rightarrow\\) Insertion \\(\\rightarrow\\) Graphique Statistique \\(\\rightarrow\\) Boîte et moustaches."
-  },
-  {
-    "objectID": "slides_seq1.html#fonction-de-répartition-q5",
-    "href": "slides_seq1.html#fonction-de-répartition-q5",
-    "title": "Séquence 1 : Prise en main & Statistiques descriptives",
-    "section": "Fonction de répartition (Q5)",
-    "text": "Fonction de répartition (Q5)\nPour répondre à : “Combien de pays ont moins de X ans d’espérance de vie ?”\n\n\n\n\n\n\n🟢 Sur Excel\n\n\nC’est laborieux : 1. Trier la colonne du plus petit au plus grand. 2. Ajouter une colonne “Fréquence cumulée” (\\(1/N, 2/N, ...\\)). 3. Tracer le graphique (Nuage de points reliés).\n\n\n\nLe résultat attendu :\n\n\nCode\nggplot(df, aes(x = `Esp Vie Naiss 2017`)) +\n  stat_ecdf(geom = \"step\", color = \"#C04657\", linewidth = 1.2) +\n  geom_hline(yintercept = 0.5, linetype = \"dashed\", color = \"grey\") +\n  annotate(\"text\", x = 58, y = 0.55, label = \"Médiane (50%)\") +\n  labs(title = \"Courbe cumulative (ECDF)\", y = \"% cumulé des pays\", x = \"Espérance de vie\") +\n  theme_minimal()"
-  },
-  {
-    "objectID": "slides_seq1.html#lhistogramme-q6",
-    "href": "slides_seq1.html#lhistogramme-q6",
-    "title": "Séquence 1 : Prise en main & Statistiques descriptives",
-    "section": "L’Histogramme (Q6)",
-    "text": "L’Histogramme (Q6)\nOn regroupe les pays par “classes” (ici des tranches de 5 ans).\n\n\nCode\nggplot(df, aes(x = `Esp Vie Naiss 2017`)) +\n  geom_histogram(binwidth = 5, fill = \"#404080\", color = \"white\") +\n  labs(title = \"Distribution des pays\", y = \"Effectif\", x = \"Espérance de vie\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\\(\\rightarrow\\) On voit que la distribution n’est pas symétrique (plus de pays “vieux”)."
-  },
-  {
-    "objectID": "slides_seq1.html#la-corrélation-q7",
-    "href": "slides_seq1.html#la-corrélation-q7",
-    "title": "Séquence 1 : Prise en main & Statistiques descriptives",
-    "section": "La Corrélation (Q7)",
-    "text": "La Corrélation (Q7)\nMesurer l’intensité du lien linéaire (de -1 à +1).\n\n\n\n\n\n\n🟢 Sur Excel\n\n\n\nFonction : =COEFFICIENT.CORRELATION(Col1; Col2)\nMatrice complète : Données \\(\\rightarrow\\) Utilitaire d’analyse \\(\\rightarrow\\) Corrélation.\n\n\n\n\nMatrice de corrélation (R) :\n\n# Sélection des variables numériques\nvars &lt;- df %&gt;% select(`IDH 2017`, `PIB/tête (2017)`, `Esp Vie Naiss 2017`)\ncor(vars, use = \"complete.obs\") %&gt;% round(2)\n\n                   IDH 2017 PIB/tête (2017) Esp Vie Naiss 2017\nIDH 2017               1.00            0.88               0.93\nPIB/tête (2017)        0.88            1.00               0.77\nEsp Vie Naiss 2017     0.93            0.77               1.00\n\n\n\n0.85 entre PIB et Santé : Très forte corrélation positive."
-  },
-  {
-    "objectID": "slides_seq1.html#régression-linéaire-q8",
-    "href": "slides_seq1.html#régression-linéaire-q8",
-    "title": "Séquence 1 : Prise en main & Statistiques descriptives",
-    "section": "Régression Linéaire (Q8)",
-    "text": "Régression Linéaire (Q8)\nVisualiser le lien Richesse \\(\\rightarrow\\) Santé.\n\n\nCode\nggplot(df, aes(x = `PIB/tête (2017)`, y = `Esp Vie Naiss 2017`)) +\n  geom_point(alpha = 0.6) +\n  geom_smooth(method = \"lm\", color = \"#C04657\", se = FALSE) +\n  geom_text(aes(label = ifelse(`PIB/tête (2017)` &gt; 40000 | `Esp Vie Naiss 2017` &lt; 60, iso3, \"\")),\n            vjust = -1, size = 3) +\n  labs(x = \"PIB par habitant ($)\", y = \"Espérance de vie\") +\n  theme_minimal()\n\n\n\n\n\nQ8 : Nuage de points et Droite de régression\n\n\n\n\n\n\n\n\n\n\n🟢 Sur Excel\n\n\nClic droit sur les points du graphique \\(\\rightarrow\\) Ajouter une courbe de tendance \\(\\rightarrow\\) Linéaire (cocher “Afficher l’équation”)."
-  },
-  {
-    "objectID": "slides_seq1.html#attention-à-lunité-de-compte",
-    "href": "slides_seq1.html#attention-à-lunité-de-compte",
-    "title": "Séquence 1 : Prise en main & Statistiques descriptives",
-    "section": "Attention à l’unité de compte !",
-    "text": "Attention à l’unité de compte !\nLa moyenne calculée en Q2 (73.8 ans) est la moyenne des Pays. Elle considère que : \\[Chine (1.4 \\text{ Mrds hab}) = Luxembourg (0.6 \\text{ M hab})\\]\nPour avoir l’espérance de vie d’un humain moyen sur Terre (dans notre échantillon), il faut pondérer par la population.\n\n\n\n\n\n\n🟢 Sur Excel\n\n\nOn ne peut pas utiliser =MOYENNE(). Formule : =SOMMEPROD(Col_Esp; Col_Pop) / SOMME(Col_Pop)\n\n\n\nComparaison R :\n\n# Moyenne simple (Pays)\nmoy_pays &lt;- mean(df$`Esp Vie Naiss 2017`, na.rm = TRUE)\n\n# Moyenne pondérée (Habitants)\nmoy_monde &lt;- weighted.mean(df$`Esp Vie Naiss 2017`, w = df$`Population totale (2017)`, na.rm = TRUE)\n\ndata.frame(Moyenne_Pays = moy_pays, Moyenne_Monde = moy_monde)\n\n  Moyenne_Pays Moyenne_Monde\n1     73.42727      73.47755\n\n\nIci, la différence est faible, mais sur d’autres variables (comme le PIB), cela change tout."
-  },
-  {
-    "objectID": "slides_seq1.html#bilan-de-la-séquence-1",
-    "href": "slides_seq1.html#bilan-de-la-séquence-1",
-    "title": "Séquence 1 : Prise en main & Statistiques descriptives",
-    "section": "Bilan de la Séquence 1",
-    "text": "Bilan de la Séquence 1\n\nNettoyer : Toujours vérifier ses données (virgules, textes).\nExcel est mieux pour l’exploration : Pour les calculs simples (Moyenne, Médiane), c’est très bien.\nR est plus reproductible : Pour les graphiques complexes (Boxplots, densités) et les gros volumes, R est plus rapide.\nVigilance sociologique : Ne jamais oublier de pondérer quand les tailles des groupes sont différentes."
-  },
-  {
-    "objectID": "slides_seq1.html#importation-excel-r-.scrollable",
-    "href": "slides_seq1.html#importation-excel-r-.scrollable",
-    "title": "Séquence 1 : Prise en main & Statistiques descriptives",
-    "section": "Importation (Excel & R) .{scrollable}",
-    "text": "Importation (Excel & R) .{scrollable}\n\n🟢 Sur Excel🔵 Bonus R\n\n\n\nOuvrez le fichier DonneesTD1.Excel.\n\n\n\n\nlibrary(ggplot2)\nlibrary(dplyr)\n# On charge la librairie capable de lire les fichiers Excel\nlibrary(readxl)\n\n# --- ÉTAPE 1 : DÉFINIR LE FICHIER ---\n# Je défini le chemin de mon fichier, lisible via : clique droit, propriété, sécurité :\nmon_fichier &lt;- \"C:/Users/oflah/Downloads/DonneesTD1.xlsx\"\n\n# --- ÉTAPE 2 : IMPORTER ---\n# On utilise la fonction 'read_excel' (spécifique aux .xlsx)\ndf &lt;- read_excel(mon_fichier)\n\n# Aperçu des 3 premières lignes\nhead(df, 3)\n\n# A tibble: 3 × 9\n  Pays  `IDH 2017` `PIB/tête (2017)` `Esp Vie Naiss 2017` Années éducation (20…¹\n  &lt;chr&gt;      &lt;dbl&gt;             &lt;dbl&gt;                &lt;dbl&gt;                  &lt;dbl&gt;\n1 Alba…      0.785             11886                 78.5                   14.8\n2 Algé…      0.754             13802                 76.3                   14.4\n3 Alle…      0.936             46136                 81.2                   17  \n# ℹ abbreviated name: ¹​`Années éducation (2017)`\n# ℹ 4 more variables: `Population totale (2017)` &lt;dbl&gt;, `Ratio Palma` &lt;dbl&gt;,\n#   iso3 &lt;chr&gt;, country &lt;chr&gt;"
-  },
-  {
-    "objectID": "slides_seq1.html#présentation-des-données-q1",
-    "href": "slides_seq1.html#présentation-des-données-q1",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Présentation des données (Q1)",
-    "text": "Présentation des données (Q1)\n\nPopulation étudiée : Un échantillon de 44 pays (Source PNUD 2017).\nIndividu statistique : Le Pays (et non l’habitant).\nVariables clés :\n\nIDH : Indice synthétique (0 à 1).\nPIB/tête : Richesse.\nEspérance de vie : Santé.\nPopulation : Démographie.\nRatio Palma : Inégalités (Top 10% / Bottom 40%).\n\n\n\n\n\n\n\n\nObjectif Q1\n\n\nTélécharger le fichier, l’ouvrir et identifier ces variables."
-  },
-  {
-    "objectID": "slides_seq1.html#importation-la-technique",
-    "href": "slides_seq1.html#importation-la-technique",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Importation : La technique",
-    "text": "Importation : La technique\n\n🟢 Sur Excel🔵 Sur R\n\n\n\nOuvrez le fichier DonneesTD1.xlsx.\n\n\n\n\n\n#install.packages(\"ggplot2\")\n#install.packages(\"dplyr\")\n#install.packages(\"readxl\")\n\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(readxl)\n\n# --- ÉTAPE 1 : DÉFINIR LE FICHIER ---\n# Remplacez ce chemin par le vôtre !\nmon_fichier &lt;- \"C:/Users/187997/Desktop/SIASS - L3S6/Sequence 1 Variables Numériques/DonneesTD1.xlsx\"\n\n# --- ÉTAPE 2 : IMPORTER ---\ndf &lt;- read_excel(mon_fichier)\n\n# Aperçu\nhead(df, 3)\n\n# A tibble: 3 × 9\n  Pays  `IDH 2017` `PIB/tête (2017)` `Esp Vie Naiss 2017` Années éducation (20…¹\n  &lt;chr&gt;      &lt;dbl&gt;             &lt;dbl&gt;                &lt;dbl&gt;                  &lt;dbl&gt;\n1 Alba…      0.785             11886                 78.5                   14.8\n2 Algé…      0.754             13802                 76.3                   14.4\n3 Alle…      0.936             46136                 81.2                   17  \n# ℹ abbreviated name: ¹​`Années éducation (2017)`\n# ℹ 4 more variables: `Population totale (2017)` &lt;dbl&gt;, `Ratio Palma` &lt;dbl&gt;,\n#   iso3 &lt;chr&gt;, country &lt;chr&gt;"
-  },
-  {
-    "objectID": "slides_seq1.html#tendance-centrale-dispersion-q2",
-    "href": "slides_seq1.html#tendance-centrale-dispersion-q2",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Tendance centrale & Dispersion (Q2)",
-    "text": "Tendance centrale & Dispersion (Q2)\nOn demande la Moyenne et la Variance.\n\n\n\n\n\n\n🟢 Sur Excel (Standard Scientifique)\n\n\n\nMoyenne : =MOYENNE(Plage)\nVariance : =VAR.S(Plage)\n\nNote : On utilise la variance d’échantillon (.S) qui est le standard en sciences sociales (comme sur R).\n\nÉcart-type : =ECARTYPE.STANDARD(Plage)\n\n\n\n\n\n\n# Calcul des indicateurs pour l'Espérance de vie\ndf %&gt;% summarise(\n  Moyenne = mean(`Esp Vie Naiss 2017`, na.rm = TRUE),\n  Variance = var(`Esp Vie Naiss 2017`, na.rm = TRUE),\n  Ecart_Type = sd(`Esp Vie Naiss 2017`, na.rm = TRUE)\n) \n\n# A tibble: 1 × 3\n  Moyenne Variance Ecart_Type\n    &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1    73.4     85.8       9.26"
-  },
-  {
-    "objectID": "slides_seq1.html#médiane-et-quantiles-q3",
-    "href": "slides_seq1.html#médiane-et-quantiles-q3",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Médiane et quantiles (Q3)",
-    "text": "Médiane et quantiles (Q3)\nOn découpe la distribution pour voir les inégalités.\n\n\n\n\n\n\n🟢 Sur Excel\n\n\n\nMédiane : =MEDIANE(Plage)\nQuartiles : =QUARTILE.EXC(Plage; 1) (Q1) et 3 (Q3).\nDéciles : =CENTILE(Plage; 0,1) (D1) et 0,9 (D9).\n\n\n\n\nRésultats R :\n\n# La fonction quantile fait tout d'un coup\nquantile(df$`Esp Vie Naiss 2017`, \n         probs = c(0.1, 0.25, 0.5, 0.75, 0.9), \n         na.rm = TRUE)\n\n  10%   25%   50%   75%   90% \n59.02 66.20 76.10 81.40 82.67 \n\n\n:::"
-  },
-  {
-    "objectID": "slides_seq1.html#la-boîte-à-moustache-q4",
-    "href": "slides_seq1.html#la-boîte-à-moustache-q4",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "La Boîte à moustache (Q4)",
-    "text": "La Boîte à moustache (Q4)\nVisualiser la médiane, l’écart interquartile et les extrêmes.\n\n\nLecture : * Trait gras = Médiane (Q2).\n* Boîte = 50% des pays.\n* Extrêmes = Pays atypiques.\n\n\n\nggplot(df, aes(y = `Esp Vie Naiss 2017`)) +\n  geom_boxplot(fill = \"#404080\", color = \"black\", alpha = 0.6) +\n  labs(title = \"Q4 - Espérance de vie : Boite à moustaches\", y = \"Années\") +\n  theme_minimal() +\n  theme(axis.text.x = element_blank())\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🟢 Sur Excel\n\n\nInsertion \\(\\rightarrow\\) Graphiques recommandés \\(\\rightarrow\\) Tous les graphiques \\(\\rightarrow\\) Boîte à moustaches."
-  },
-  {
-    "objectID": "slides_seq1.html#graphique-cumulé-q5",
-    "href": "slides_seq1.html#graphique-cumulé-q5",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Graphique cumulé (Q5)",
-    "text": "Graphique cumulé (Q5)\n\n\n\n\n\n\n🟢 Sur Excel (Méthode simple)\n\n\n\nTriez la colonne Espérance de vie du plus petit au plus grand.\n\nCréez la médiane et copier/coller en valeur.\n\nSélectionnez les valeurs.\n\nInsertion \\(\\rightarrow\\) Histogramme (ou Barres).\n\nRésultat : Des bâtons de plus en plus grands.\n\n\n\n\n\n\nLe résultat identique sur R (données triées) :\n\n\n# 1. On trie les données (comme sur Excel)\ndf_trie &lt;- df %&gt;%\n  filter(!is.na(`Esp Vie Naiss 2017`)) %&gt;%\n  arrange(`Esp Vie Naiss 2017`) %&gt;%\n  mutate(Rang = row_number())\n\n# 2. On calcule les valeurs des quantiles pour les lignes\n# D1 (10%), Q1 (25%), Q3 (75%), D9 (90%)\nvals_q &lt;- quantile(df_trie$`Esp Vie Naiss 2017`, probs = c(0.1, 0.25, 0.75, 0.9))\n\n# 3. Le graphique\nggplot(df_trie, aes(x = Rang, y = `Esp Vie Naiss 2017`)) +\n  geom_col(fill = \"#404080\", width = 0.8, alpha = 0.7) +\n  \n  # Ligne de la Médiane (déjà présente)\n  geom_hline(yintercept = median(df_trie$`Esp Vie Naiss 2017`), \n             color = \"#b89e14\", linewidth = 1.2) +\n  \n  # Ajout des lignes pour D1, Q1, Q3, D9\n  geom_hline(yintercept = vals_q, linetype = \"dashed\", color = \"grey40\", alpha = 0.8) +\n  \n  # Annotations pour la Médiane\n  annotate(\"text\", x = 5, y = 78, label = \"Médiane\", color = \"#b89e14\", fontface = \"bold\") +\n  \n  # Annotations pour les autres seuils\n  annotate(\"text\", x = 1, y = vals_q[\"10%\"] - 3, label = \"D1\", color = \"grey40\", size = 3) +\n  annotate(\"text\", x = 1, y = vals_q[\"25%\"] - 3, label = \"Q1\", color = \"grey40\", size = 3) +\n  annotate(\"text\", x = 1, y = vals_q[\"75%\"] + 3, label = \"Q3\", color = \"grey40\", size = 3) +\n  annotate(\"text\", x = 1, y = vals_q[\"90%\"] + 3, label = \"D9\", color = \"grey40\", size = 3) +\n\n  labs(title = \"Q5 : Distribution triée avec Quantiles (D1, Q1, Q3, D9)\", \n       y = \"Espérance de vie (en années)\", \n       x = \"Pays (du moins au plus âgé)\") +\n  theme_minimal()"
-  },
-  {
-    "objectID": "slides_seq1.html#histogramme-q6",
-    "href": "slides_seq1.html#histogramme-q6",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Histogramme (Q6)",
-    "text": "Histogramme (Q6)\nConstituer des classes appropriées (5 ans).\n\n\n\n\n\n\n🟢 Sur Excel\n\n\n\nSélectionnez la colonne “Espérance de vie”.\n\nInsertion \\(\\rightarrow\\) Graphiques statistiques (l’icône bleue avec des barres) \\(\\rightarrow\\) Histogramme.\n\nImportant : Par défaut, les classes sont automatiques.\n\nClic droit sur l’axe horizontal \\(\\rightarrow\\) Mise en forme de l’axe.\n\nOption “Largeur des classes” \\(\\rightarrow\\) Écrire 5 \\(\\rightarrow\\) Classe de soupassement : 50.\n\n\n\n\n\n\nLe résultat attendu (Version R) :\n\n\nggplot(df, aes(x = `Esp Vie Naiss 2017`)) +\n  geom_histogram(\n    binwidth = 5,       # Largeur de 5 ans\n    boundary = 50,      # On force le démarrage sur un chiffre rond (50)\n    closed = \"left\",    # L'intervalle est [50, 55[ (50 inclus, 55 exclu)\n    fill = \"#1591EA\", \n    color = \"white\"\n  ) +\n  # C'est ici qu'on force l'affichage des bornes sur l'axe X\n  scale_x_continuous(breaks = seq(50, 90, 5)) + \n  \n  labs(\n    title = \"Q6 : Histogramme (Classes de 5 ans)\", \n    subtitle = \"Chaque barre représente une tranche stricte (ex: [75 à 80[ ans)\",\n    y = \"Nombre de pays\", \n    x = \"Espérance de vie\"\n  ) +\n  theme_minimal()"
-  },
-  {
-    "objectID": "slides_seq1.html#covariances-et-corrélations-q7",
-    "href": "slides_seq1.html#covariances-et-corrélations-q7",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Covariances et Corrélations (Q7)",
-    "text": "Covariances et Corrélations (Q7)\nComprendre les liens avec l’IDH.\nOn calcule d’abord la Covariance (le lien brut) puis la Corrélation (le lien standardisé).\n\n\n\n\n\n\n🟢 Sur Excel\n\n\n\nCovariance : =COVARIANCE.STANDARD(Plage1; Plage2)\n\nRésultat flou (ex: 4500).\n\nCorrélation : =COEFFICIENT.CORRELATION(Plage1; Plage2)\n\nRésultat clair (entre -1 et 1).\n\n\n\n\n\nRésultats sur R (Matrices complètes) :\n\n\n# 1. Sélection des variables\nvars &lt;- df %&gt;% \n  select(`IDH 2017`, `PIB/tête (2017)`, `Esp Vie Naiss 2017`, `Années éducation (2017)`)\n\n# 2. Matrice de COVARIANCE (Brute)\n# Difficile à interpréter car les unités sont mélangées ($ * Années)\nprint(\"--- Matrice de COVARIANCE ---\")\n\n[1] \"--- Matrice de COVARIANCE ---\"\n\ncov(vars, use = \"complete.obs\") %&gt;% round(1)\n\n                        IDH 2017 PIB/tête (2017) Esp Vie Naiss 2017\nIDH 2017                     0.0          2927.8                1.6\nPIB/tête (2017)           2927.8     331042329.2           128981.7\nEsp Vie Naiss 2017           1.6        128981.7               85.8\nAnnées éducation (2017)      0.6         56017.0               30.2\n                        Années éducation (2017)\nIDH 2017                                    0.6\nPIB/tête (2017)                         56017.0\nEsp Vie Naiss 2017                         30.2\nAnnées éducation (2017)                    13.4\n\n# 3. Matrice de CORRÉLATION (Standardisée)\n# Idéale pour voir les liens avec l'IDH (Max = 1)\nprint(\"--- Matrice de CORRÉLATION ---\")\n\n[1] \"--- Matrice de CORRÉLATION ---\"\n\ncor(vars, use = \"complete.obs\") %&gt;% round(2)\n\n                        IDH 2017 PIB/tête (2017) Esp Vie Naiss 2017\nIDH 2017                    1.00            0.88               0.93\nPIB/tête (2017)             0.88            1.00               0.77\nEsp Vie Naiss 2017          0.93            0.77               1.00\nAnnées éducation (2017)     0.97            0.84               0.89\n                        Années éducation (2017)\nIDH 2017                                   0.97\nPIB/tête (2017)                            0.84\nEsp Vie Naiss 2017                         0.89\nAnnées éducation (2017)                    1.00"
-  },
-  {
-    "objectID": "slides_seq1.html#nuage-de-points-et-régression-simple-q8",
-    "href": "slides_seq1.html#nuage-de-points-et-régression-simple-q8",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Nuage de points et Régression Simple (Q8)",
-    "text": "Nuage de points et Régression Simple (Q8)\nEspérance de vie ~ PIB par tête.\n\n\nggplot(df, aes(x = `PIB/tête (2017)`, y = `Esp Vie Naiss 2017`)) +\n  geom_point(alpha = 0.6) +\n  geom_smooth(method = \"lm\", color = \"#C04657\", se = FALSE) + # Droite de régression\n  labs(title = \"Q8 : Régression Simple\", x = \"PIB ($)\", y = \"Espérance de vie\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nLa ligne droite ne colle pas parfaitement (le lien est courbe), mais la tendance est là."
-  },
-  {
-    "objectID": "slides_seq1.html#régression-linéaire-multiple-q9",
-    "href": "slides_seq1.html#régression-linéaire-multiple-q9",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Régression Linéaire Multiple (Q9)",
-    "text": "Régression Linéaire Multiple (Q9)\nEspérance de vie ~ PIB + Éducation + Population\nOn cherche à expliquer la santé par toutes les variables disponibles (sauf l’IDH qui est une synthèse).\n\n\n\n\n\n\n🟢 Sur Excel\n\n\nExcel impose une règle stricte : les variables explicatives (\\(X\\)) doivent être collées (dans des colonnes adjacentes).\n1. Préparez les données : Dans une nouvelle zone, copiez la colonne PIB, la colonne Éducation et la colonne Population pour qu’elles soient côte à côte.\n2. Outil : Onglet Données \\(\\rightarrow\\) Utilitaire d’analyse \\(\\rightarrow\\) Régression. En cas d’absence de l’option 🔗\n3. Paramètres :\n* Plage Y : La colonne Espérance de vie.\n* Plage X : Le bloc des 3 colonnes (PIB, Éducation, Pop) ensemble.\n* Cochez “Intitulés” (Labels).\n\n\n\nRésultat sur R :\n\n\n# Modèle sans le Palma (données manquantes) et sans l'IDH (tautologie)\nmodele_safe &lt;- lm(`Esp Vie Naiss 2017` ~ `PIB/tête (2017)` + \n                  `Années éducation (2017)` + \n                  `Population totale (2017)`, \n                  data = df)\n\n# Affichage des coefficients arrondis\nsummary(modele_safe)$coefficients %&gt;% round(5)\n\n                           Estimate Std. Error  t value Pr(&gt;|t|)\n(Intercept)                43.04944    3.62061 11.89010  0.00000\n`PIB/tête (2017)`           0.00002    0.00007  0.36147  0.71965\n`Années éducation (2017)`   2.15964    0.33512  6.44444  0.00000\n`Population totale (2017)`  0.01337    0.02509  0.53282  0.59710\n\n\n\nInterprétation des résultats\n\nL’Intercept (Ordonnée à l’origine) : ~43 ans\n\nC’est quoi ? C’est l’espérance de vie théorique d’un pays qui aurait 0 partout (0$ PIB, 0 éducation).\n\nSens : C’est notre “socle biologique” minimum sans aucun développement.\n\nL’Éducation (Significatif ***) :\n\nC’est le moteur principal. Chaque année d’étude supplémentaire fait gagner environ 2,15 ans d’espérance de vie (Coeff: 2.159).\n\nLa surprise du PIB (Non-significatif) :\n\nSa p-value est de 0.71 (&gt; 0.05).\n\nPourquoi ? Car l’Éducation a “absorbé” l’effet richesse. Le modèle nous dit : ce n’est pas d’être riche qui compte, mais d’être éduqué (ce qui arrive souvent quand on est riche).\n\nLa Population (Non-significatif) :\n\nLa taille du pays n’a aucun impact sur la durée de vie."
-  },
-  {
-    "objectID": "slides_seq1.html#pondération-par-la-population-q10",
-    "href": "slides_seq1.html#pondération-par-la-population-q10",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Pondération par la population (Q10)",
-    "text": "Pondération par la population (Q10)\nPeut-on faire les calculs pour la population mondiale ? Oui, mais il faut pondérer chaque pays par son nombre d’habitants.\n\n\n\n\n\n\n🟢 Sur Excel\n\n\nUtilisez =SOMMEPROD(Valeurs; Poids) / SOMME(Poids).\n\n\n\n\n\n# Moyenne \"Pays\" (Non pondérée)\nm_pays &lt;- mean(df$`Esp Vie Naiss 2017`, na.rm = TRUE)\n\n# Moyenne \"Monde\" (Pondérée par la population)\nm_monde &lt;- weighted.mean(df$`Esp Vie Naiss 2017`, w = df$`Population totale (2017)`, na.rm = TRUE)\n\ndata.frame(Moyenne_Pays = m_pays, Moyenne_Monde = m_monde)\n\n  Moyenne_Pays Moyenne_Monde\n1     73.42727      73.47755"
-  },
-  {
-    "objectID": "slides_seq1.html#comparaison-et-bilan",
-    "href": "slides_seq1.html#comparaison-et-bilan",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Comparaison et bilan",
-    "text": "Comparaison et bilan\n\nQ11 (Ouverture) : Vous pouvez tester d’autres modèles de régression sur d’autres variables et/ou d’autres données. .\n\nQ12 (Excel vs R) :\n\nExcel : Intuitif pour “voir” les données, bon pour la saisie manuelle.\nR : Plus puissant pour les graphiques (ggplot), la modélisation (lm) et surtout la reproductibilité (on relance le script, tout se met à jour)."
-  },
-  {
-    "objectID": "slides_seq1.html#comparaison-et-bilan-.scrollable",
-    "href": "slides_seq1.html#comparaison-et-bilan-.scrollable",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Comparaison et bilan .{scrollable}",
-    "text": "Comparaison et bilan .{scrollable}\n\nQ11 (Ouverture) : Vous pouvez tester d’autres modèles de régression sur d’autres variables et/ou d’autres données. .\n\nQ12 (Excel vs R) :\n\nExcel : Intuitif pour “voir” les données, bon pour la saisie manuelle.\nR : Plus puissant pour les graphiques (ggplot), la modélisation (lm) et surtout la reproductibilité (on relance le script, tout se met à jour)."
-  },
-  {
-    "objectID": "slides_seq1.html#nuage-de-points-et-régression-linéaire-q8",
-    "href": "slides_seq1.html#nuage-de-points-et-régression-linéaire-q8",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Nuage de points et Régression linéaire (Q8)",
-    "text": "Nuage de points et Régression linéaire (Q8)\nEspérance de vie ~ PIB par tête.\n\n\nggplot(df, aes(x = `PIB/tête (2017)`, y = `Esp Vie Naiss 2017`)) +\n  geom_point(alpha = 0.6) +\n  geom_smooth(method = \"lm\", color = \"#C04657\", se = FALSE) + # Droite de régression\n  labs(title = \"Q8 : Régression linéaire\", x = \"PIB ($)\", y = \"Espérance de vie\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nLa ligne droite ne colle pas parfaitement (le lien est courbe), mais la tendance est là."
-  },
-  {
-    "objectID": "slides_seq1.html#espérance-de-vie-mondiale-q10",
-    "href": "slides_seq1.html#espérance-de-vie-mondiale-q10",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Espérance de vie mondiale (Q10)",
-    "text": "Espérance de vie mondiale (Q10)\nCalculez l’espérance de vie des habitants de la planète et sa variance inter-pays.\nOn cherche ici à décrire la “population mondiale” et non plus une liste de pays. Il faut donc pondérer par la population.\n\n\n\n\n\n\n🟢 Sur Excel (Méthode avec pondération)\n\n\nPour la variance pondérée, il faut une colonne intermédiaire.\n1. Moyenne Monde (\\(M\\)) : =SOMMEPROD(Esp; Pop) / SOMME(Pop)\n* Cela donne l’espérance de vie moyenne d’un terrien.\n2. Colonne “Ecart Carré Pondéré” :\n* Formule : = Population * (Espérance - $M)^2\n3. Variance Inter-Pays : = SOMME(Colonne_Ecart) / SOMME(Pop)\n\n\n\nRésultats sur R :\n\n\n# 1. Moyenne Mondiale (Pondérée)\n# C'est l'espérance de vie moyenne d'un être humain sur Terre (dans notre échantillon)\n# Moyenne non pondérée\nmoy_Q2 &lt;- mean(df$`Esp Vie Naiss 2017`, na.rm = TRUE)\n\n# Moyenne pondérée\nmoy_monde &lt;- weighted.mean(df$`Esp Vie Naiss 2017`, \n                           w = df$`Population totale (2017)`, \n                           na.rm = TRUE)\n\n# 2. Variance Inter-Pays (Pondérée)\n# Formule : Somme(Pop * (Esp - Moy)^2) / Somme(Pop)\n# Variance non pondérée\nvar_Q2 &lt;- var(df$`Esp Vie Naiss 2017`, na.rm = TRUE)\n# Écart type non pondérée\nsd_Q2 &lt;- sd(df$`Esp Vie Naiss 2017`, na.rm = TRUE)\n\n# Moyenne pondérée\nvar_inter &lt;- sum(df$`Population totale (2017)` * (df$`Esp Vie Naiss 2017` - moy_monde)^2, na.rm = TRUE) / \n             sum(df$`Population totale (2017)`, na.rm = TRUE)\n\n# Affichage des résultats\ndata.frame(\n  Indicateur = c(\"Espérance de vie (Q2 - non pondérée)\", \"Espérance de vie (Monde - pondérée)\", \"Variance non pondérée\", \"Variance Inter-Pays (Pondérée)\", \"Ecart-type non pondéré\", \"Ecart-type Inter-Pays\"),\n  Valeur = c(moy_Q2, moy_monde, var_Q2, var_inter, sd_Q2, sqrt(var_inter)) # sqrt -&gt; racine carré de la variance\n) %&gt;% knitr::kable(digits = 2)\n\n\n\n\nIndicateur\nValeur\n\n\n\n\nEspérance de vie (Q2 - non pondérée)\n73.43\n\n\nEspérance de vie (Monde - pondérée)\n73.48\n\n\nVariance non pondérée\n85.77\n\n\nVariance Inter-Pays (Pondérée)\n86.69\n\n\nEcart-type non pondéré\n9.26\n\n\nEcart-type Inter-Pays\n9.31\n\n\n\n\n\n\nCommentaire\n\nL’Espérance de vie mondiale : Une fois pondérée, la moyenne est différente de la moyenne simple des pays. Ici, elle est tirée vers le haut, à la marge.\n\nLa Variance Inter-Pays : Elle mesure les inégalités entre les nations.\n\nCe qu’elle rate : Elle ignore les inégalités à l’intérieur des pays (riches vs pauvres au sein d’un même pays).\n\nConclusion : La vraie variance de l’espérance de vie mondiale (si on prenait chaque humain individuellement) serait beaucoup plus élevée, car elle ajouterait les inégalités internes aux inégalités nationale et internationales."
-  },
-  {
-    "objectID": "slides_seq1.html#q13-synthèse-et-interprétation-des-résultats",
-    "href": "slides_seq1.html#q13-synthèse-et-interprétation-des-résultats",
-    "title": "Séquence 1 : Prise en main & statistiques descriptives",
-    "section": "Q13 : Synthèse et interprétation des résultats",
-    "text": "Q13 : Synthèse et interprétation des résultats\nL’objectif était d’analyser les déterminants de l’espérance de vie à travers un échantillon de 44 pays en 2017. Voici les trois conclusions majeures issues de nos traitements statistiques.\nA. Une distribution mondiale étonnamment stable (Q2 vs Q10)\nContrairement à l’intuition, la prise en compte de la taille de la population ne change presque rien aux résultats globaux sur cet échantillon :\n\nMoyenne : L’espérance de vie moyenne par pays est de 73,43 ans. L’espérance de vie mondiale pondérée (celle d’un “habitant terrien moyen”) est quasi identique à 73,48 ans.\n\nInterprétation : Cela signifie qu’il n’y a pas de biais démographique majeur : les géants démographiques de l’échantillon ne sont ni systématiquement plus pauvres, ni plus riches que les petits pays.\n\nInégalités : La variance reste élevée, signe que le lieu de naissance détermine encore fortement la durée de vie.\n\nB. L’Éducation est le moteur, la richesse n’est que le carburant (Q9)\nLa régression multiple (\\(R^2 = 0,89\\)) nous a permis de départager les facteurs d’influence avec précision :\n\nL’Éducation est la cause réelle : C’est la seule variable hautement significative (\\(p &lt; 0,001\\)). Chaque année d’étude supplémentaire augmente l’espérance de vie de 2,16 ans.\n\nL’effet “masqué” du PIB : Une fois l’éducation prise en compte, le PIB par tête devient non-significatif (\\(p = 0,72\\)).\n\nSens sociologique : La richesse économique n’est pas une fin en soi pour la santé. Elle n’est utile que si elle est convertie en services publics et en éducation notamment (ex : USA).\n\n\nLa neutralité démographique : La taille de la population n’a aucun impact (\\(p = 0,60\\)).\n\nC. Le “socle biologique”\nL’ordonnée à l’origine (Intercept) est de 43,05 ans.\nCela représente l’espérance de vie théorique “brute” d’une population qui n’aurait aucune instruction ni développement économique. L’écart entre ce socle (43 ans) et la moyenne actuelle (~73,5 ans) mesure l’apport du développement humain."
-  },
-  {
-    "objectID": "slides_seq3.html#le-sujet-du-td",
-    "href": "slides_seq3.html#le-sujet-du-td",
-    "title": "Séquence 3 : Statistique & Cartographie",
-    "section": "Le sujet du TD",
-    "text": "Le sujet du TD\nNous allons analyser la transition énergétique en Europe à travers la production d’électricité éolienne.\n\nDonnées : Production électrique de l’UE (Totale vs Éolienne) de 1999 à 2019.\nOutils :\n\nExcel : Calculs d’évolution, tris conditionnels (Zone Euro vs UE).\nKhartis : Cartographie thématique (Représenter des ratios et des évolutions).\n\n\n\n\n\n\n\n\nObjectif final\n\n\nProduire une carte double représentant à la fois la part de l’éolien (en 2019) et sa dynamique de croissance (2014-2019)."
-  },
-  {
-    "objectID": "slides_seq3.html#identifier-et-isoler-nb.si-somme.si",
-    "href": "slides_seq3.html#identifier-et-isoler-nb.si-somme.si",
-    "title": "Séquence 3 : Statistique & Cartographie",
-    "section": "1. Identifier et Isoler (NB.SI & SOMME.SI)",
-    "text": "1. Identifier et Isoler (NB.SI & SOMME.SI)\nNous devons distinguer les pays de la Zone Euro des autres.\n\nCompter les paysSommer sous condition\n\n\nPour savoir combien de pays sont dans la Zone Euro :\n\n\n\n\n\n\n🟢 Formule NB.SI\n\n\n=NB.SI(Plage_Critère; \"Oui\")\n\n\n\n\nPlage_Critère : La colonne indiquant l’appartenance à la zone.\nCritère : Le texte exact “Oui” (avec les guillemets) car c’est le critère retenu.\n\n\n\nPour additionner la production électrique uniquement pour la Zone Euro :\n\n\n\n\n\n\n🟢 Formule SOMME.SI\n\n\n=SOMME.SI(Plage_Critère; \"Oui\"; Plage_à_Sommer)\n\n\n\n\nLogique : Excel regarde la colonne “Zone”, si il voit “Zone Euro”, il ajoute le chiffre de la production correspondant. Sinon, il l’ignore."
-  },
-  {
-    "objectID": "slides_seq3.html#indicateurs-dévolution-taux-simple",
-    "href": "slides_seq3.html#indicateurs-dévolution-taux-simple",
-    "title": "Séquence 3 : Statistique & Cartographie",
-    "section": "2. Indicateurs d’évolution (Taux simple)",
-    "text": "2. Indicateurs d’évolution (Taux simple)\nComment a évolué la production entre 2014 et 2019 ?\nFormule du Taux d’évolution global : \\[Taux = \\frac{V_{Arrivée} - V_{Départ}}{V_{Départ}}\\]\n\n\n\n\n\n\n🟢 Sur Excel\n\n\n\nFormule : =(Valeur2019 - Valeur2014) / Valeur2014\nImportant : Mettre la cellule en format Pourcentage (%).\n\n\n\n\n\nInterprétation :\n\nSi \\(&gt; 0\\) : Augmentation.\nSi \\(&lt; 0\\) : Baisse."
-  },
-  {
-    "objectID": "slides_seq3.html#la-part-ratio",
-    "href": "slides_seq3.html#la-part-ratio",
-    "title": "Séquence 3 : Statistique & Cartographie",
-    "section": "3. La Part (Ratio)",
-    "text": "3. La Part (Ratio)\nQuelle est la part de l’éolien dans l’électricité totale ?\nFormule : \\[Part = \\frac{\\text{Sous-Ensemble}}{\\text{Ensemble}}\\]\n\n\n\n\n\n\n🟢 Sur Excel\n\n\n= Production_Eolienne / Production_Totale\n\n\n\nÀ calculer pour 1999, 2009, 2014 et 2019 pour voir la progression."
-  },
-  {
-    "objectID": "slides_seq3.html#le-taux-annuel-moyen-tam",
-    "href": "slides_seq3.html#le-taux-annuel-moyen-tam",
-    "title": "Séquence 3 : Statistique & Cartographie",
-    "section": "4. Le Taux Annuel Moyen (TAM)",
-    "text": "4. Le Taux Annuel Moyen (TAM)\nLe piège du “n”\nPour comparer des périodes différentes, il faut ramener l’évolution à une moyenne annuelle.\nFormule Mathématique : \\[TAM = \\left( \\frac{V_{Arrivée}}{V_{Départ}} \\right)^{\\frac{1}{n}} - 1\\]\n\n\\(n\\) = Nombre d’années d’écart (ou nombre de périodes).\nEntre 2014 et 2019 : \\(2019 - 2014 = 5\\). Donc \\(n = 5\\).\n\n\n\n\n\n\n\n⚠️ Attention aux parenthèses sur Excel\n\n\n=(Valeur2019 / Valeur2014)^(1/5) - 1\n\n\n\nSans les parenthèses autour de 1/5, Excel calcule la puissance 1, puis divise tout par 5, ce qui est faux."
-  },
-  {
-    "objectID": "slides_seq3.html#préparation-des-données",
-    "href": "slides_seq3.html#préparation-des-données",
-    "title": "Séquence 3 : Statistique & Cartographie",
+    "objectID": "slides_seq4.html#préparation-des-données",
+    "href": "slides_seq4.html#préparation-des-données",
+    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
     "section": "Préparation des données",
-    "text": "Préparation des données\nAvant d’aller sur Khartis, il faut nettoyer le fichier Excel.\n\nCalculs finis : Assurez-vous d’avoir calculé le % Éolien 2019 et le TAM 2014-2019.\nFormatage :\n\nArrondir à 1 ou 2 décimales.\nSi vos % sont en décimaux (0,15), multipliez par 100 pour avoir (15) si nécessaire, ou laissez Khartis gérer.\n\nCopier-Coller :\n\nSélectionnez les colonnes : Name Khartis + Part Éolien 2019 + TAM.\nCollez dans la fenêtre “Données” de Khartis.\n\n\n\n\n\n\n\n\nRéglage Khartis\n\n\n\nFond de carte : Europe &gt; Pays (2016).\nDonnées : Vérifiez que les données sont bien reconnue."
+    "text": "Préparation des données\n\n🟢 Excel🔵 R (Importation)\n\n\n\nOuvrez DonneesTD4.xlsx.\nIdentifiez les colonnes V0007 et V0065.\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(questionr)\n\n# --- IMPORTATION ---\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Nettoyage rapide (nommage explicite pour le cours)\ndf_clean &lt;- df %&gt;%\n  select(Passe = V0007, Resultats = V0065) %&gt;%\n  drop_na()"
   },
   {
-    "objectID": "slides_seq3.html#couche-1-la-part-de-léolien-aplat",
-    "href": "slides_seq3.html#couche-1-la-part-de-léolien-aplat",
-    "title": "Séquence 3 : Statistique & Cartographie",
-    "section": "Couche 1 : La Part de l’éolien (Aplat)",
-    "text": "Couche 1 : La Part de l’éolien (Aplat)\nVariable de stock/ratio \\(\\rightarrow\\) Couleur\nOn veut montrer l’intensité de l’éolien en 2019.\n\nType de visualisation : Couleur ordonnée (par classes).\nVariable : % Éolien 2019.\nDiscrétisation (Le découpage) :\n\nLe TD suggère “Moyennes emboitées”.\nMais vous pouvez utiliser “Quantiles” ou “Jenks”."
+    "objectID": "slides_seq4.html#créer-un-tableau-croisé",
+    "href": "slides_seq4.html#créer-un-tableau-croisé",
+    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
+    "section": "Créer un tableau croisé",
+    "text": "Créer un tableau croisé\nCroisons le Passé scolaire et les Résultats actuels.\n\n🟢 Excel (TCD)🔵 R (Effectifs)🔵 R (Pourcentages)\n\n\n\nInsertion &gt; Tableau croisé dynamique.\nLignes : V0007 | Colonnes : V0065.\nValeurs : V0065 (Nombre).\nPour les % : Paramètres du champ &gt; Afficher les valeurs en &gt; % du total de la ligne.\n\n\n\n\n# Tableau des effectifs bruts\ntab &lt;- table(df_clean$Passe, df_clean$Resultats)\ntab\n\n                        \n                         Non Oui\n  0 redoublements        506  31\n  1 redoublement ou plus 119  19\n\n\n\n\n\n# Pourcentages en LIGNE (Profils)\nlprop(tab)\n\n                        \n                         Non   Oui   Total\n  0 redoublements         94.2   5.8 100.0\n  1 redoublement ou plus  86.2  13.8 100.0\n  All                     92.6   7.4 100.0"
   },
   {
-    "objectID": "slides_seq3.html#couche-2-la-dynamique-symboles",
-    "href": "slides_seq3.html#couche-2-la-dynamique-symboles",
-    "title": "Séquence 3 : Statistique & Cartographie",
-    "section": "Couche 2 : La Dynamique (Symboles)",
-    "text": "Couche 2 : La Dynamique (Symboles)\nVariable d’évolution \\(\\rightarrow\\) Taille\nOn veut montrer qui a progressé le plus vite (TAM).\n\nType de visualisation : Symboles proportionnels.\nVariable : TAM 2014-2019.\nForme : Barres.\nAstuce de lecture :\n\nAugmentez la taille et réduisez la largeur."
+    "objectID": "slides_seq4.html#interpréter-les-pourcentages",
+    "href": "slides_seq4.html#interpréter-les-pourcentages",
+    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
+    "section": "Interpréter les pourcentages",
+    "text": "Interpréter les pourcentages\n\n\n\n⚠️ Ligne ou Colonne ? La règle d’or !\n\n\n\nLes % en ligne décrivent le comportement d’une sous-population (Ex: Parmi ceux qui ont redoublé, X% sont en difficulté aujourd’hui.).\nLes % en colonne décrivent la composition d’un groupe (Ex: Parmi les élèves en difficulté, X% avaient déjà redoublé.).\n\n\n\n\nSociologie : Pour tester l’influence du passé sur le présent, on compare les groupes définis par leur passé. On utilise donc les pourcentages en ligne."
   },
   {
-    "objectID": "slides_seq3.html#finalisation",
-    "href": "slides_seq3.html#finalisation",
-    "title": "Séquence 3 : Statistique & Cartographie",
-    "section": "Finalisation",
-    "text": "Finalisation\nUne bonne carte doit se suffire à elle-même.\n\nHabillage :\n\nAjoutez un Titre explicite.\nIndiquez la Source.\n\nLégende :\n\nRenommez les variables pour qu’elles soient propres.\n\nExport :\n\nTéléchargez l’image pour l’intégrer à votre rapport.\n\n\n\n\n\n\n\n\nBilan Séquence 3\n\n\nVous savez maintenant : 1. Utiliser SOMME.SI pour des calculs conditionnels. 2. Calculer un Taux Annuel Moyen (TAM) correct. 3. Superposer deux variables (Stock + Évolution) sur une carte Khartis."
+    "objectID": "slides_seq4.html#le-test-du-khi-deux",
+    "href": "slides_seq4.html#le-test-du-khi-deux",
+    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
+    "section": "Le test du Khi-deux",
+    "text": "Le test du Khi-deux\nLe Khi-deux (\\(\\chi^2\\)) mesure l’écart entre la réalité (observé) et une situation où les deux variables n’auraient aucun lien (théorique).\n\n🔵 Code R💡 Interprétation\n\n\n\n# 1. Le test\ntest_result &lt;- chisq.test(tab)\ntest_result\n\n\n    Pearson's Chi-squared test with Yates' continuity correction\n\ndata:  tab\nX-squared = 9.0999, df = 1, p-value = 0.002556\n\n# 2. Force du lien\ncramer.v(tab)\n\n[1] 0.1231223\n\n\n\n\n\np-value &lt; 0.05 : Le lien est statistiquement significatif. On rejette l’idée que le résultat est dû au hasard.\nV de Cramer :\n\n&lt; 0.10 : Lien faible.\n0.10 - 0.30 : Lien moyen.\n&gt; 0.30 : Lien fort."
   },
   {
-    "objectID": "slides_retours.html",
-    "href": "slides_retours.html",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "",
-    "text": "Que vous avez vues en CM"
+    "objectID": "slides_seq4.html#visualiser-les-écarts",
+    "href": "slides_seq4.html#visualiser-les-écarts",
+    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
+    "section": "Visualiser les écarts",
+    "text": "Visualiser les écarts\nLe mosaicplot montre la taille des groupes et la force des écarts à l’indépendance par la couleur.\n\n\n# shade = TRUE active la couleur (Bleu = Sur-représentation / Rouge = Sous-représentation)\nmosaicplot(tab, \n           las = 1, \n           shade = TRUE, \n           main = \"Passé vs Présent scolaire\",\n           xlab = \"Déjà redoublé ?\", \n           ylab = \"Difficultés actuelles\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLecture sociologique\n\n\nSi la case “Oui (Redoublé) \\(\\times\\) Oui (Difficultés)” est bleue, cela confirme statistiquement que le passé pèse lourdement sur les trajectoires actuelles, au-delà du simple hasard."
   },
   {
-    "objectID": "slides_intro.html",
-    "href": "slides_intro.html",
-    "title": "Statistique et informatique appliquées aux sciences sociales",
-    "section": "",
-    "text": "De la démographie à la data analyse\nFormation académique (IDUP)\n* Licence de sciences sociales\n* L3 mention Démographie\n* Master “Expert-Démographe” (IDUP)\nParcours professionnel\n* Actuellement : Data analyst & Chargé d’enquête à Sciences Po."
+    "objectID": "slides_seq4.html#synthèse-séquence-4",
+    "href": "slides_seq4.html#synthèse-séquence-4",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Synthèse Séquence 4",
+    "text": "Synthèse Séquence 4\n\nLe TCD est l’outil pivot pour croiser deux variables qualitatives.\n\nLa p-value est le juge de paix : si elle est &gt; 0.05, les variables sont considérées comme indépendantes, il n’y a pas de lien statistique significatif.\n\nLes pourcentages en ligne permettent de comparer des comportements de groupes.\n\nLe script R permet d’automatiser et de fiabiliser ces étapes."
   },
   {
-    "objectID": "slides_seq2.html#le-jeu-de-données",
-    "href": "slides_seq2.html#le-jeu-de-données",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Le jeu de données",
-    "text": "Le jeu de données\nNous analysons les résultats du 1er tour 2022 dans les 20 arrondissements de Paris.\n\nSource : Julia Cagé & Thomas Piketty (Une histoire du conflit politique) + INSEE.\nVariables :\n\nMédiane du revenu : Niveau de richesse de l’arrondissement.\nVotes (%) : Mélenchon (JLM), Zemmour (EZ), Le Pen (MLP), Macron (EM).\n\n\n\n\n\n\n\n\nHypothèse de travail\n\n\nExiste-t-il une corrélation linéaire entre la richesse d’un arrondissement et son orientation politique ?"
+    "objectID": "slides_seq4.html#ressources",
+    "href": "slides_seq4.html#ressources",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "🔗 Ressources",
+    "text": "🔗 Ressources\n\nArticle Henri-Panabière (Cairn)\nCorrigé Excel TD4"
   },
   {
-    "objectID": "slides_seq2.html#préparation-des-données",
-    "href": "slides_seq2.html#préparation-des-données",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Préparation des données",
-    "text": "Préparation des données\n\n🟢 Excel🔵 R (Importation)\n\n\n\nOuvrez votre fichier Excel.\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(readxl) # Nécessaire pour lire le Excel\n\n# --- ÉTAPE 1 : DÉFINIR LE CHEMIN ---\nmon_fichier &lt;- \"data/DonneesTD2.xlsx\"\n\n# --- ÉTAPE 2 : IMPORTER ET RENOMMER ---\ndf &lt;- read_excel(mon_fichier) %&gt;%\n  rename( # Fonction pour renommer mes variables\n    # Nouveau_Nom = Ancien_Nom_Excel\n    Arrondissement = IDCOM,\n    JLM = pvoixMELENCHON,\n    EZ = pvoixZEMMOUR,\n    MLP = pvoixMLEPEN,\n    EM = pvoixMACRON,\n    Revenu = `Médiane du revenu disponible par unité de consommation en 2019, en euros`\n  )\n\n# Aperçu pour vérifier que tout va bien\nhead(df, 3)\n\n# A tibble: 3 × 6\n  Arrondissement   JLM     EZ    MLP    EM Revenu\n           &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n1          75101 0.212 0.0928 0.0589 0.430  34720\n2          75102 0.248 0.0701 0.0438 0.435  32650\n3          75103 0.260 0.0597 0.0377 0.431  33570"
+    "objectID": "slides_seq4.html#les-enjeux-du-croisement",
+    "href": "slides_seq4.html#les-enjeux-du-croisement",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Les enjeux du croisement",
+    "text": "Les enjeux du croisement\nDans les familles à fort capital culturel, la réussite est la norme. L’échec y est donc un paradoxe sociologique.\nLa question du jour : Le rang de naissance (être l’aîné, le cadet ou l’unique) influence-t-il les chances de rencontrer des difficultés scolaires ?"
   },
   {
-    "objectID": "slides_seq2.html#indicateurs-de-position-et-dispersion",
-    "href": "slides_seq2.html#indicateurs-de-position-et-dispersion",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Indicateurs de position et dispersion",
-    "text": "Indicateurs de position et dispersion\nCalculez les indicateurs suivants pour toutes les variables (Revenus et Candidats).\n\n🟢 Formules Excel🔵 Code R\n\n\n\n\n\nIndicateur\nFormule Excel\n\n\n\n\nMin\n=MIN(Plage)\n\n\nQuartile 1 (Q1)\n=QUARTILE.EXC(Plage; 1)\n\n\nMédiane (Q2)\n=MEDIANE(Plage)\n\n\nQuartile 3 (Q3)\n=QUARTILE.EXC(Plage; 3)\n\n\nMax\n=MAX(Plage)\n\n\nÉtendue\n= MAX(Plage) - MIN(Plage)\n\n\nÉcart Inter-Q (EIQ)\n= Q3 - Q1 (Calcul manuel)\n\n\nEIQ Relatif\n= EIQ / Médiane (Calcul manuel)\n\n\nRapport Inter-Q\n= Q3 / Q1 (Calcul manuel)\n\n\nVariance\n=VAR.S(Plage)\n\n\nÉcart-Type\n=ECARTYPE.STANDARD(Plage)\n\n\nCoeff. Variation\n= Ecart-Type / Moyenne\n\n\n\n\n\n\n# Calcul groupé pour TOUTES les variables (Logique SQL : GROUP BY)\ntableau_stats &lt;- df %&gt;%\n  select(Revenu, JLM, EZ, MLP, EM) %&gt;%\n  pivot_longer(cols = everything(), names_to = \"Variable\", values_to = \"Valeur\") %&gt;%\n  group_by(Variable) %&gt;%\n  summarise(\n    Min = min(Valeur),\n    Q1 = quantile(Valeur, 0.25),\n    Mediane = median(Valeur),\n    Q3 = quantile(Valeur, 0.75),\n    Max = max(Valeur),\n    Etendue = max(Valeur) - min(Valeur),\n    EIQ = quantile(Valeur, 0.75) - quantile(Valeur, 0.25),\n    EIQ_Rel = (quantile(Valeur, 0.75) - quantile(Valeur, 0.25)) / median(Valeur),\n    Rap_IQ = quantile(Valeur, 0.75) / quantile(Valeur, 0.25),\n    Var = var(Valeur),\n    Ecart_Type = sd(Valeur),\n    CV = sd(Valeur) / mean(Valeur)\n  ) %&gt;%\n  mutate(across(where(is.numeric), ~round(., 3)))\n\nprint(tableau_stats)\n\n# A tibble: 5 × 13\n  Variable       Min        Q1   Mediane      Q3     Max Etendue     EIQ EIQ_Rel\n  &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n1 EM           0.237     0.325     0.408 4.36e-1 4.85e-1 2.48e-1 1.11e-1   0.272\n2 EZ           0.047     0.062     0.072 1   e-1 1.75e-1 1.28e-1 3.8 e-2   0.527\n3 JLM          0.09      0.206     0.254 3.62e-1 4.72e-1 3.81e-1 1.56e-1   0.613\n4 MLP          0.038     0.044     0.053 5.8 e-2 6.6 e-2 2.9 e-2 1.4 e-2   0.265\n5 Revenu   21460     28312.    32025     3.50e+4 4.44e+4 2.29e+4 6.70e+3   0.209\n# ℹ 4 more variables: Rap_IQ &lt;dbl&gt;, Var &lt;dbl&gt;, Ecart_Type &lt;dbl&gt;, CV &lt;dbl&gt;"
+    "objectID": "slides_seq4.html#le-dictionnaire-des-variables",
+    "href": "slides_seq4.html#le-dictionnaire-des-variables",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Le dictionnaire des variables",
+    "text": "Le dictionnaire des variables\nOuvrez le fichier TD4- ghp_mesheritiers_dico.rtf.\n🔍 Focus sur la Question 1 :\n\nLibellé : « Comment se sent votre enfant au collège avec ses camarades ».\nModalités : 1. À l’aise / 2. Mal à l’aise / 3. Ça dépend / 4. Autre / 9. NR.\nType de variable : Qualitative nominale.\n\n📁 Les données brutes :\nOuvrez DonneesTD4.xlsx.\n* Structure : 1 ligne = 1 individu | 1 colonne = 1 variable.\n* Méthode : Les données sont codées. Pour les analyser, il faut toujours croiser le fichier Excel avec le dictionnaire RTF."
   },
   {
-    "objectID": "slides_seq2.html#corrélation-et-régression-r-et-r2",
-    "href": "slides_seq2.html#corrélation-et-régression-r-et-r2",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Corrélation et Régression (\\(r\\) et \\(R^2\\))",
-    "text": "Corrélation et Régression (\\(r\\) et \\(R^2\\))\nOn cherche à analyser la relation entre le vote de chaque candidat (EZ, EM, JLM) (\\(Y\\)) et le revenu médian (\\(X\\)).\n\n🟢 Formules Excel🔵 Code R\n\n\nPour un candidat donné (ex: colonne EM) en fonction du Revenu :\n\n\n\n\n\n\n\nIndicateur\nFormule Excel\n\n\n\n\nCovariance\n=COVARIANCE.PEARSON(Col_Vote; Col_Revenu)\n\n\nCorrélation (\\(r\\))\n=COEFFICIENT.CORRELATION(Col_Vote; Col_Revenu)\n\n\nR² (Détermination)\n=COEFFICIENT.DETERMINATION(Col_Vote; Col_Revenu)\n\n\nPente (\\(a\\))\n=PENTE(Col_Vote; Col_Revenu)\n\n\nOrdonnée à l’origine (\\(b\\))\n=ORDONNEE.ORIGINE(Col_Vote; Col_Revenu)\n\n\n\nNote : Le R² peut aussi s’obtenir simplement en mettant le \\(r\\) au carré (= Cellule_r ^ 2). L’équation de la droite est \\(Y = aX + b\\).\n\n\n\n# Calcul des indicateurs bivariés pour chaque candidat par rapport au Revenu\ntableau_bivarie &lt;- df %&gt;%\n  # 1. On garde le Revenu (notre X) et on rassemble les candidats demandés (nos Y)\n  select(Revenu, JLM, EZ, EM) %&gt;%\n  pivot_longer(cols = -Revenu, names_to = \"Candidat\", values_to = \"Score_Vote\") %&gt;%\n  # 2. On groupe par candidat (équivalent d'un GROUP BY)\n  group_by(Candidat) %&gt;%\n  # 3. On calcule les indicateurs, y compris la pente et l'ordonnée à l'origine\n  summarise(\n    Covariance = cov(Score_Vote, Revenu),\n    r = cor(Score_Vote, Revenu),\n    R2 = cor(Score_Vote, Revenu)^2,\n    a_Pente = coef(lm(Score_Vote ~ Revenu))[2],\n    b_Ordonnee = coef(lm(Score_Vote ~ Revenu))[1]\n  ) %&gt;%\n  # 4. On arrondit pour la lisibilité\n  mutate(\n    across(c(Covariance, r, R2), ~round(., 3)),\n    # On arrondit moins la pente car ce sont de très petits nombres\n    a_Pente = round(a_Pente, 6),\n    b_Ordonnee = round(b_Ordonnee, 3)\n  )\n\nprint(tableau_bivarie)\n\n# A tibble: 3 × 6\n  Candidat Covariance      r    R2   a_Pente b_Ordonnee\n  &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 EM             483.  0.94  0.883  0.000011      0.024\n2 EZ             189.  0.807 0.651  0.000004     -0.055\n3 JLM           -715. -0.951 0.905 -0.000017      0.801"
+    "objectID": "slides_seq4.html#vérification-des-variables",
+    "href": "slides_seq4.html#vérification-des-variables",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "1. Vérification des variables",
+    "text": "1. Vérification des variables\nL’énoncé signale deux variables de difficultés scolaires (V0006 et V0008).\n\n🟢 Excel🔵 R\n\n\n\nCréez un TCD.\nMettez V0006 en lignes et V0008 en colonnes.\nSi les chiffres ne sont que sur la “diagonale”, c’est que les deux variables disent exactement la même chose.\n\n\n\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(questionr)\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Comparaison\ntable(df$V0006, df$V0008)\n\n                       \n                        élèves en difficultés élèves en réussite élèves moyens\n  élèves en difficultés                   177                  0             0\n  élèves en réussite                        0                205             0\n  élèves moyens                             0                  0           295"
   },
   {
-    "objectID": "slides_seq2.html#graphique-comparatif",
-    "href": "slides_seq2.html#graphique-comparatif",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Graphique comparatif",
-    "text": "Graphique comparatif\nReprésentez les votes EZ, EM et JLM en fonction du revenu sur un même graphique.\n\n🟢 Excel🔵 R (ggplot + plotly)\n\n\n\nSélectionnez la colonne Revenu (X) et les colonnes JLM, EZ, EM (Y).\nInsertion &gt; Nuage de points.\nLe revenu doit être en axe horizontal (Abscisses).\n\n\n\n\nlibrary(plotly)\n\np &lt;- ggplot(df, aes(x = Revenu)) +\n  # E. Macron\n  geom_point(aes(y = EM, color = \"Macron\", \n                 text = paste(\"&lt;b&gt;Arrondissement :&lt;/b&gt;\", Arrondissement, \n                              \"&lt;br&gt;&lt;b&gt;Revenu :&lt;/b&gt;\", format(Revenu, big.mark = \" \"), \"€\",\n                              \"&lt;br&gt;&lt;b&gt;Macron :&lt;/b&gt;\", scales::percent(EM, accuracy = 0.1))), \n             size=2) +\n  geom_smooth(aes(y = EM, color = \"Macron\"), method=\"lm\", se=FALSE, linewidth=0.5) +\n  \n  # J.L. Mélenchon\n  geom_point(aes(y = JLM, color = \"Mélenchon\", \n                 text = paste(\"&lt;b&gt;Arrondissement :&lt;/b&gt;\", Arrondissement, \n                              \"&lt;br&gt;&lt;b&gt;Revenu :&lt;/b&gt;\", format(Revenu, big.mark = \" \"), \"€\",\n                              \"&lt;br&gt;&lt;b&gt;Mélenchon :&lt;/b&gt;\", scales::percent(JLM, accuracy = 0.1))), \n             size=2) +\n  geom_smooth(aes(y = JLM, color = \"Mélenchon\"), method=\"lm\", se=FALSE, linewidth=0.5) +\n  \n  # É. Zemmour\n  geom_point(aes(y = EZ, color = \"Zemmour\", \n                 text = paste(\"&lt;b&gt;Arrondissement :&lt;/b&gt;\", Arrondissement, \n                              \"&lt;br&gt;&lt;b&gt;Revenu :&lt;/b&gt;\", format(Revenu, big.mark = \" \"), \"€\",\n                              \"&lt;br&gt;&lt;b&gt;Zemmour :&lt;/b&gt;\", scales::percent(EZ, accuracy = 0.1))), \n             size=2) +\n  geom_smooth(aes(y = EZ, color = \"Zemmour\"), method=\"lm\", se=FALSE, linewidth=0.5) +\n  \n  # Axe X : Espace pour les milliers\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  \n  # Axe Y : Conversion automatique 0.3 -&gt; 30%\n  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +\n  \n  labs(title = \"Vote selon le revenu à Paris\", y = \"% de voix\", x = \"Revenu Médian (€)\", color = \"Candidat\") +\n  theme_minimal()\n\n# On rend le graphique interactif en affichant uniquement l'infobulle personnalisée (\"text\")\nggplotly(p, tooltip = \"text\")"
+    "objectID": "slides_seq4.html#le-tri-croisé-effectifs",
+    "href": "slides_seq4.html#le-tri-croisé-effectifs",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "2. Le Tri Croisé (Effectifs)",
+    "text": "2. Le Tri Croisé (Effectifs)\nOn croise le Rang de naissance (V0153) et les Difficultés (V0008).\n\n🟢 Excel🔵 R\n\n\n\nLignes : V0153 | Colonnes : V0008 | Valeurs : V0008 (Nombre).\nAction : Copiez ce tableau et collez-le plus bas en “Valeurs” pour faire vos calculs.\nTotal Ligne : Utilisez =SOMME(B4:D4) pour vérifier vos totaux.\n\n\n\n\n# Création du tableau de base\ntab &lt;- table(df$V0153, df$V0008)\nrownames(tab) &lt;- c(\"Aînés\", \"Cadets\", \"Uniques\")\ncolnames(tab) &lt;- c(\"Réussite\", \"Moyens\", \"Difficultés\")\ntab\n\n         \n          Réussite Moyens Difficultés\n  Aînés         48     70          94\n  Cadets        64     64          93\n  Uniques       11     28          27"
   },
   {
-    "objectID": "slides_seq2.html#consignes-khartis",
-    "href": "slides_seq2.html#consignes-khartis",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Consignes Khartis",
-    "text": "Consignes Khartis\nRéalisez 4 cartes distinctes (JLM, EZ, EM, Revenu) pour comparer les géographies.\n\nImport : Copiez les colonnes IDCOM (Arrondissement), Votes et Revenu dans Khartis.\nFond de carte : Arrondissements de Paris (code postal ou INSEE).\nVisualisation :\n\nVariable de Ratio (%) \\(\\rightarrow\\) Couleurs Ordonnées (Choroplèthe).\nDiscrétisation : Essayez Jenks ou Quantiles pour bien voir les contrastes.\n\nExport : Téléchargez les 4 images pour les mettre côte à côte dans votre rapport.\n\n\n\n\n\n\n\nCe qu’il faut regarder\n\n\nObservez l’opposition Est / Ouest parisienne. Le vote Mélenchon se superpose-t-il aux zones à bas revenus ? Le vote Zemmour suit-il la même géographie que le vote Macron ?"
+    "objectID": "slides_seq4.html#pourcentages-en-ligne",
+    "href": "slides_seq4.html#pourcentages-en-ligne",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "3. Pourcentages en ligne",
+    "text": "3. Pourcentages en ligne\nPour comparer les profils, on veut savoir : “Sur 100 Aînés, combien réussissent ?”\n\n🟢 Excel🔵 R\n\n\nSi votre case “Aînés en réussite” est en B20 et son total ligne en E20 : * Formule : =B20/$E20 * Le signe $ permet de “bloquer” la colonne E quand vous étirez la formule vers la droite.\n\n\n\nlprop(tab)\n\n         \n          Réussite Moyens Difficultés Total\n  Aînés    22.6     33.0   44.3       100.0\n  Cadets   29.0     29.0   42.1       100.0\n  Uniques  16.7     42.4   40.9       100.0\n  All      24.6     32.5   42.9       100.0"
   },
   {
-    "objectID": "slides_seq2.html#interprétation-des-résultats-données-images",
-    "href": "slides_seq2.html#interprétation-des-résultats-données-images",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Interprétation des résultats (Données + Images)",
-    "text": "Interprétation des résultats (Données + Images)\nEn vous appuyant sur vos calculs et les graphiques fournis :\n1. La polarisation économique (Vos calculs)\n\nMacron / Zemmour : Forte corrélation positive avec le revenu. Ce sont des votes de classes aisées (Ouest Parisien).\nMélenchon : Forte corrélation négative. Vote des quartiers populaires (Nord-Est).\nLe Pen : Qu’importe le niveau de revenu de l’arrondissement, le vote pour MLP est uniformément faible (autour de 5%) et stable à Paris intra-muros. La corrélation est quasi-nulle.\n\n2. Les dynamiques historiques (Infographies)\n\nLe basculement ouvrier : Historiquement à gauche (Mitterrand 81), le vote ouvrier s’est effondré vers l’abstention et l’extrême droite.\nLe vote “Cadre” : Cœur de l’électorat Macron (et Zemmour à Paris), alors qu’il se partageait davantage auparavant.\nL’abstention : Très marquée chez les ouvriers/employés, faible chez les cadres. Cela renforce le poids politique des classes aisées.\n\n\n\n\n\n\n\nConclusion\n\n\nÀ Paris, le revenu est un prédicteur presque parfait du vote (\\(R^2 &gt; 0.9\\) pour EM et JLM). La fracture géographique Est/Ouest recoupe parfaitement la fracture sociale.\n\n\n\n\n\n\n🔗 Accéder au corrigé\n\n\nCliquez ici pour accéder au Excel corrigé"
+    "objectID": "slides_seq4.html#test-et-significativité",
+    "href": "slides_seq4.html#test-et-significativité",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "4. Test et Significativité",
+    "text": "4. Test et Significativité\nLe lien observé est-il dû au hasard ?\n\n💡 La méthode🔵 R (Code)\n\n\n\nTest du \\(\\chi^2\\) : Si la p-value &lt; 0.05, le lien est “réel” (significatif).\nV de Cramer : Mesure la force du lien (0 = nul, 1 = parfait).\n\n\n\n\nchisq.test(tab)\n\n\n    Pearson's Chi-squared test\n\ndata:  tab\nX-squared = 6.7894, df = 4, p-value = 0.1474\n\ncramer.v(tab)\n\n[1] 0.08248055"
   },
   {
-    "objectID": "slides_seq2.html#interprétation-des-résultats",
-    "href": "slides_seq2.html#interprétation-des-résultats",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Interprétation des résultats",
-    "text": "Interprétation des résultats\n\n\n\n💡 Lecture 1 : Les extrêmes et la dispersion absolue (EIQ et Étendue)\n\n\nL’observation des indicateurs bruts nous montre la réalité géographique des votes sur le territoire parisien :\n\nLe grand écart (Mélenchon) : C’est le vote le plus polarisé en valeur absolue. Son score varie de 9% à 47% (une Étendue massive de 38 points). La moitié centrale de ses électeurs est dispersée sur une large plage de 16 points (son EIQ).\nL’homogénéité (Macron) : Bien qu’il ait une étendue de 25 points, sa médiane est très haute (41%). Son EIQ de 12 points montre une base électorale large et présente dans quasiment tous les arrondissements.\nLe plafond de verre (Le Pen) : Avec un minimum à 4% et un maximum à 7%, l’étendue est de seulement 3 points. Le vote est uniformément faible et ne varie quasiment pas (EIQ de 1 point).\n\n\n\n\n\n\n\n🎯 Lecture 2 : La dispersion relative (L’intensité de la ségrégation)\n\n\nC’est ici que le Coefficient de Variation (CV) et l’EIQ Relatif révèlent la vraie sociologie des votes. En divisant la dispersion par le score moyen/médian, on neutralise la taille du candidat :\n\nLe miroir Zemmour / Mélenchon : Zemmour a un tout petit EIQ brut (4 points) contre 16 pour Mélenchon. Pourtant, leurs indicateurs relatifs sont quasi identiques : CV à 42% et EIQ Relatif autour de 60%. Cela prouve sociologiquement que ces deux votes fonctionnent exactement de la même manière : ce sont des votes de “niche” très concentrés. Passer des arrondissements qui leur sont défavorables (Q1) à ceux qui leur sont très favorables (Q3) fait bondir leur score moyen de plus de 70% (Rapport Inter-Q &gt; 170%). Et la dynamique est encore plus violente aux extrêmes : d’un bout à l’autre de Paris, le score de Zemmour triple (de 5% à 17%) et celui de Mélenchon quintuple (de 9% à 47%) !\nL’alignement Macron / Revenus : Le vote Macron affiche un CV de 20% et un EIQ relatif de 29%, ce qui est remarquablement proche de la dispersion des revenus parisiens (CV 20%, EIQ Relatif 24%). Cela illustre une ségrégation modérée et spatialement très étalée."
+    "objectID": "slides_seq4.html#le-graphique-des-écarts",
+    "href": "slides_seq4.html#le-graphique-des-écarts",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Le graphique des écarts",
+    "text": "Le graphique des écarts\nUn écart à l’indépendance, c’est la différence entre ce qu’on observe et ce qu’on devrait observer si le hasard seul décidait.\n\n🔵 R (Mosaic Plot)📊 Interprétation\n\n\n\n# shade=TRUE colore selon les résidus (Bleu = Sur-représentation)\nmosaicplot(tab, shade = TRUE, main = \"Écarts à l'indépendance\",\n           xlab = \"Rang de naissance\", ylab = \"Niveau scolaire\")\n\n\n\n\n\n\n\n\n\n\n\nCouleur Bleue : Il y a plus d’individus dans cette case que prévu par le hasard.\nCouleur Rouge : Il y en a moins.\nAnalyse : Regardez la case “Cadets” et “Difficultés”. S’il y a un écart positif, cela valide l’hypothèse d’une fragilité particulière des cadets dans ces familles."
   },
   {
-    "objectID": "slides_seq2.html#interprétation-des-résultats-.scrollable",
-    "href": "slides_seq2.html#interprétation-des-résultats-.scrollable",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Interprétation des résultats .{scrollable}",
-    "text": "Interprétation des résultats .{scrollable}\n\n\n\n💡 Lecture 1 : Les extrêmes et la dispersion absolue (EIQ et Étendue)\n\n\nL’observation des indicateurs bruts nous montre la réalité géographique des votes sur le territoire parisien :\n\nLe grand écart (Mélenchon) : C’est le vote le plus polarisé en valeur absolue. Son score varie de 9% à 47% (une Étendue massive de 38 points). La moitié centrale de ses électeurs est dispersée sur une large plage de 16 points (son EIQ).\nL’homogénéité (Macron) : Bien qu’il ait une étendue de 25 points, sa médiane est très haute (41%). Son EIQ de 12 points montre une base électorale large et présente dans quasiment tous les arrondissements.\nLe plafond de verre (Le Pen) : Avec un minimum à 4% et un maximum à 7%, l’étendue est de seulement 3 points. Le vote est uniformément faible et ne varie quasiment pas (EIQ de 1 point).\n\n\n\n\n\n\n\n🎯 Lecture 2 : La dispersion relative (L’intensité de la ségrégation)\n\n\nC’est ici que le Coefficient de Variation (CV) et l’EIQ Relatif révèlent la vraie sociologie des votes. En divisant la dispersion par le score moyen/médian, on neutralise la taille du candidat :\n\nLe miroir Zemmour / Mélenchon : Zemmour a un tout petit EIQ brut (4 points) contre 16 pour Mélenchon. Pourtant, leurs indicateurs relatifs sont quasi identiques : CV à 42% et EIQ Relatif autour de 60%. Cela prouve sociologiquement que ces deux votes fonctionnent exactement de la même manière : ce sont des votes de “niche” extrêmement concentrés dans certains arrondissements spécifiques. Passer d’un quartier à un autre fait doubler ou diviser par deux leur score (Rapport Inter-Q &gt; 170%).\nL’alignement Macron / Revenus : Le vote Macron affiche un CV de 20% et un EIQ relatif de 29%, ce qui est remarquablement proche de la dispersion des revenus parisiens (CV 20%, EIQ Relatif 24%). Cela illustre une ségrégation modérée et spatialement très étalée.\n\n\n\n\n:::"
+    "objectID": "slides_seq4.html#ce-quil-faut-retenir",
+    "href": "slides_seq4.html#ce-quil-faut-retenir",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Ce qu’il faut retenir",
+    "text": "Ce qu’il faut retenir\n\nIndépendance : Si la p-value &gt; 0.05, les variables n’ont pas de lien prouvé.\nProfils : On compare les % de chaque groupe au % global pour voir qui s’écarte de la norme.\nRégression qualitative : Le Khi-deux remplace la droite de régression quand on travaille sur des catégories et non des mesures."
   },
   {
-    "objectID": "slides_seq2.html#interprétation-des-résultats-1",
-    "href": "slides_seq2.html#interprétation-des-résultats-1",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Interprétation des résultats",
-    "text": "Interprétation des résultats\n\n\n\n💡 Interprétation des résultats\n\n\n\nLa Covariance : Elle indique le sens de la relation (positive ou négative), mais sa valeur brute est difficile à interpréter car elle dépend des unités (ici, on multiplie des % par des euros).\nLe coefficient de corrélation (\\(r\\)) : Il standardise la relation entre -1 et 1.\n\nEM et EZ (\\(r &gt; 0\\)) : Corrélation positive (plus le revenu monte, plus le vote monte).\nJLM (\\(r &lt; 0\\)) : Corrélation négative (plus le revenu monte, plus le vote baisse).\n\nLe \\(R^2\\) (Pouvoir explicatif) : C’est le pourcentage de la variance du vote qui est “expliqué” par le revenu. Par exemple, si le \\(R^2\\) de Macron est de \\(0.85\\), cela signifie que 85% des écarts de vote pour Macron d’un arrondissement à l’autre s’expliquent uniquement par la différence de revenu.\nLa Pente (\\(a\\)) : Elle est très faible (proche de 0) car l’unité en abscisse est l’Euro, tandis que l’ordonnée est un pourcentage (entre 0 et 1). Pour chaque euro supplémentaire, le vote n’augmente que d’une fraction infime de pourcentage. Pour la rendre plus lisible, il faudrait multiplier le revenu par 1000 (ex: augmentation du vote pour 1000€ de revenu en plus)."
+    "objectID": "slides_seq4.html#la-question-de-recherche",
+    "href": "slides_seq4.html#la-question-de-recherche",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "La question de recherche",
+    "text": "La question de recherche\nL’objectif est d’identifier des facteurs de fragilité inhabituelle au sein de familles dotées d’un fort capital culturel.\nHypothèse de travail : Le rang de naissance (Aîné / Cadet / Unique) influence-t-il la probabilité de rencontrer des difficultés scolaires ?"
   },
   {
-    "objectID": "slides_seq2.html#bonus-test-cartographie-des-inégalités-électorales",
-    "href": "slides_seq2.html#bonus-test-cartographie-des-inégalités-électorales",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Bonus / test Cartographie des inégalités électorales",
-    "text": "Bonus / test Cartographie des inégalités électorales\n\n🗺️ Carte : Le vote Mélenchon🔵 Code R\n\n\nCliquez ici pour télécharger le Geojson des arrondissements de Paris\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(sf)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Chargement du fond de carte local\ncarte_paris &lt;- st_read(\"data/arrondissements.geojson\", quiet = TRUE)\n\n# Jointure des données spatiales et statistiques\nparis_data &lt;- carte_paris %&gt;%\n  mutate(c_ar = as.numeric(c_ar)) %&gt;%\n  left_join(df, by = c(\"c_ar\" = \"Arrondissement\"))\n\n# Génération de la carte choroplèthe\nggplot(data = paris_data) +\n  geom_sf(aes(fill = JLM), color = \"white\", linewidth = 0.2) +\n  scale_fill_viridis_c(option = \"magma\", direction = -1, \n                       labels = scales::label_percent(accuracy = 1)) +\n  labs(title = \"Vote J.L. Mélenchon à Paris (2022)\", fill = \"Score (%)\") +\n  theme_void()"
+    "objectID": "slides_seq4.html#test-du-khi-deux",
+    "href": "slides_seq4.html#test-du-khi-deux",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "4. Test du Khi-deux",
+    "text": "4. Test du Khi-deux\nLe lien observé entre le rang et les difficultés est-il dû au hasard ?\n\n🟢 Excel (Méthode manuelle)🔵 R (Script)💡 Interprétation\n\n\n\nTableau Théorique : Calculez pour chaque case : (Total Ligne * Total Col) / Total Général.\nTest : =TEST.CHISQ(Plage_Réelle ; Plage_Théorique).\n\n\n\n\nchisq.test(tab)\n\n\n    Pearson's Chi-squared test\n\ndata:  tab\nX-squared = 6.7894, df = 4, p-value = 0.1474\n\n# Mesure de l'intensité (V de Cramer)\ncramer.v(tab)\n\n[1] 0.08248055\n\n\n\n\nAvec une p-value = 0.147, le résultat est supérieur au seuil de 0.05.\nConclusion : Il n’y a aucun lien statistique significatif. Dans notre échantillon, le rang de naissance n’a pas d’influence prouvée sur les résultats. Les légers écarts que l’on peut observer dans le tableau sont très probablement dus au simple hasard."
   },
   {
-    "objectID": "slides_seq2.html#bonus-cartographie-des-inégalités-électorales-sur-r",
-    "href": "slides_seq2.html#bonus-cartographie-des-inégalités-électorales-sur-r",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Bonus : Cartographie des inégalités électorales sur R",
-    "text": "Bonus : Cartographie des inégalités électorales sur R\nCliquez ici pour télécharger le Geojson des arrondissements de Paris\n\n🗺️ J.L. Mélenchon🗺️ E. Macron🗺️ É. Zemmour🗺️ Revenu Médian"
+    "objectID": "slides_seq4.html#comprendre-les-écarts",
+    "href": "slides_seq4.html#comprendre-les-écarts",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Comprendre les écarts",
+    "text": "Comprendre les écarts\nEn régression, le résidu est l’écart entre le point réel et la droite. En tableau croisé, c’est la même chose !\n\nRésidu positif : Sur-représentation (la case est plus remplie que prévu).\nRésidu négatif : Sous-représentation.\n\n\n🔵 R (Graphique des résidus)📊 Interprétation\n\n\n\n# On extrait les résidus du test du Khi-deux\nres &lt;- as.data.frame(chisq.test(tab)$residuals)\n\nggplot(res, aes(x = Var1, y = Freq, fill = Freq &gt; 0)) +\n  geom_bar(stat = \"identity\") +\n  facet_wrap(~Var2) +\n  scale_fill_manual(values = c(\"firebrick\", \"dodgerblue4\"), \n                    labels = c(\"Sous-représenté\", \"Sur-représenté\")) +\n  theme_minimal() +\n  labs(title = \"Écarts à l'indépendance (Résidus)\",\n       x = \"Rang de naissance\", y = \"Intensité de l'écart\", fill = \"Sens\")\n\n\n\n\n\n\n\n\n\n\nSi la barre des “Cadets” dans le graphique “Difficultés” monte vers le haut (bleu), cela signifie que les cadets sont plus souvent en difficulté que ce que le hasard seul prévoirait. C’est le “signal” sociologique."
   },
   {
-    "objectID": "slides_seq2.html#droites-de-régression-individuelles",
-    "href": "slides_seq2.html#droites-de-régression-individuelles",
-    "title": "Séquence 2 : Sociologie électorale & Inégalités",
-    "section": "Droites de régression individuelles",
-    "text": "Droites de régression individuelles\nEffectuez une régression linéaire pour les proportions de votes pour EZ, EM, JLM en fonction du revenu médian.\n\n🔵 R (E. Macron)🔵 R (J.L. Mélenchon)🔵 R (É. Zemmour)\n\n\n\nggplot(df, aes(x = Revenu, y = EM)) +\n  geom_point(color = \"#0044cc\", size = 3) +\n  geom_smooth(method = \"lm\", color = \"black\") +\n  geom_text(aes(label = stringr::str_sub(Arrondissement, -2)), size = 2.5, vjust = -1, check_overlap = TRUE) +\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +\n  labs(title = \"Régression : Vote E. Macron selon le Revenu\", x = \"Revenu Médian (€)\", y = \"Vote Macron\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x = Revenu, y = JLM)) +\n  geom_point(color = \"#cc0000\", size = 3) +\n  geom_smooth(method = \"lm\", color = \"black\") +\n  geom_text(aes(label = stringr::str_sub(Arrondissement, -2)), size = 2.5, vjust = -1, check_overlap = TRUE) +\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +\n  labs(title = \"Régression : Vote J.L. Mélenchon selon le Revenu\", x = \"Revenu Médian (€)\", y = \"Vote Mélenchon\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x = Revenu, y = EZ)) +\n  geom_point(color = \"#333333\", size = 3) +\n  geom_smooth(method = \"lm\", color = \"black\") +\n  geom_text(aes(label = stringr::str_sub(Arrondissement, -2)), size = 2.5, vjust = -1, check_overlap = TRUE) +\n  scale_x_continuous(labels = scales::label_number(big.mark = \" \")) +\n  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +\n  labs(title = \"Régression : Vote É. Zemmour selon le Revenu\", x = \"Revenu Médian (€)\", y = \"Vote Zemmour\") +\n  theme_minimal()"
+    "objectID": "slides_seq4.html#créer-le-tcd-sur-excel",
+    "href": "slides_seq4.html#créer-le-tcd-sur-excel",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "1. Créer le TCD sur Excel",
+    "text": "1. Créer le TCD sur Excel\nCroisons le Rang de naissance (V0153) et les Difficultés (V0008).\n\nLignes : V0153.\nColonnes : V0008.\nValeurs : V0008 (choisir le paramètre “Nombre”).\n\n\n\n\n\n\n\nAstuce TCD\n\n\nPour obtenir les pourcentages directement : Clic droit dans le tableau &gt; Afficher les valeurs &gt; % du total de la ligne."
+  },
+  {
+    "objectID": "slides_seq4.html#les-résidus-lécart-au-modèle",
+    "href": "slides_seq4.html#les-résidus-lécart-au-modèle",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Les Résidus (L’écart au modèle)",
+    "text": "Les Résidus (L’écart au modèle)\nEn régression, le résidu est l’écart à la droite. En TCD, c’est l’écart à la moyenne générale.\n🟢 Méthode Excel (Visuelle)\n\nCréez un graphique en barres de vos % en ligne.\nAjoutez une série qui correspond au Profil Moyen (le total général).\nAnalyse : Si les barres des “Aînés” sont identiques aux barres “Moyennes”, il n’y a pas d’écart (Indépendance)."
+  },
+  {
+    "objectID": "slides_seq4.html#visualisation-r-résidus",
+    "href": "slides_seq4.html#visualisation-r-résidus",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Visualisation R (Résidus)",
+    "text": "Visualisation R (Résidus)\nOn observe graphiquement ce que nous venons de calculer.\n\n# Extraction des résidus standardisés\nres &lt;- as.data.frame(chisq.test(tab)$residuals)\n\nggplot(res, aes(x = Var1, y = Freq, fill = Freq &gt; 0)) +\n  geom_bar(stat = \"identity\") +\n  facet_wrap(~Var2) +\n  scale_fill_manual(values = c(\"firebrick\", \"dodgerblue4\"), \n                    labels = c(\"Sous-représenté\", \"Sur-représenté\")) +\n  theme_minimal() +\n  labs(title = \"Écarts à l'indépendance (Résidus)\",\n       x = \"Rang de naissance\", y = \"Intensité de l'écart\", fill = \"Sens\")"
+  },
+  {
+    "objectID": "slides_seq4.html#le-script-de-base-sous-r",
+    "href": "slides_seq4.html#le-script-de-base-sous-r",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "2. Le script de base sous R",
+    "text": "2. Le script de base sous R\nVoici le code pour importer les données et créer le tableau d’effectifs.\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(questionr)\n\n# Importation\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Tableau d'effectifs (V0153 x V0008)\ntab &lt;- table(df$V0153, df$V0008)\n\n# Labellisation pour la clarté\nrownames(tab) &lt;- c(\"Aînés\", \"Cadets\", \"Uniques\")\ncolnames(tab) &lt;- c(\"Réussite\", \"Moyens\", \"Difficultés\")\nprint(tab)\n\n         \n          Réussite Moyens Difficultés\n  Aînés         48     70          94\n  Cadets        64     64          93\n  Uniques       11     28          27"
+  },
+  {
+    "objectID": "slides_seq4.html#calcul-des-pourcentages-en-ligne",
+    "href": "slides_seq4.html#calcul-des-pourcentages-en-ligne",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "3. Calcul des pourcentages en ligne",
+    "text": "3. Calcul des pourcentages en ligne\nIl est nécessaire de passer en pourcentages pour comparer les profils.\n\n🟢 Excel (Formule)🔵 R (Script)\n\n\n\nNote : Le symbole $ bloque la colonne E pour permettre d’étirer la formule.\n\n\n\n\n# Utilisation du package questionr\nlprop(tab)\n\n         \n          Réussite Moyens Difficultés Total\n  Aînés    22.6     33.0   44.3       100.0\n  Cadets   29.0     29.0   42.1       100.0\n  Uniques  16.7     42.4   40.9       100.0\n  All      24.6     32.5   42.9       100.0"
+  },
+  {
+    "objectID": "slides_seq4.html#les-résidus-écarts-au-modèle",
+    "href": "slides_seq4.html#les-résidus-écarts-au-modèle",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Les Résidus (Écarts au modèle)",
+    "text": "Les Résidus (Écarts au modèle)\nMême si le test n’est pas significatif, on peut observer quelles cases s’écartent le plus de la situation “théorique” (le hasard).\n\n# Extraction des résidus standardisés\nres &lt;- as.data.frame(chisq.test(tab)$residuals)\n\nggplot(res, aes(x = Var1, y = Freq, fill = Freq &gt; 0)) +\n  geom_bar(stat = \"identity\") +\n  facet_wrap(~Var2) +\n  scale_fill_manual(values = c(\"firebrick\", \"dodgerblue4\"), \n                    labels = c(\"Sous-représenté\", \"Sur-représenté\")) +\n  theme_minimal() +\n  labs(title = \"Écarts à l'indépendance (Résidus)\",\n       x = \"Rang de naissance\", y = \"Intensité de l'écart\", fill = \"Sens\")"
+  },
+  {
+    "objectID": "slides_seq4.html#pourquoi-pas-une-régression",
+    "href": "slides_seq4.html#pourquoi-pas-une-régression",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Pourquoi pas une régression ?",
+    "text": "Pourquoi pas une régression ?\n\n\n\n\n\n\nThéorie\n\n\nLa régression linéaire (droite) nécessite des variables quantitatives (ex: Revenu en €). Pour des variables qualitatives (catégories comme le Rang), on utilise le Khi-deux. Les résidus que nous venons de tracer sont l’équivalent des résidus de régression : ils mesurent l’écart entre la réalité et la prédiction (ici, la prédiction d’indépendance)."
+  },
+  {
+    "objectID": "slides_seq4.html#calculer-les-résidus-sur-excel",
+    "href": "slides_seq4.html#calculer-les-résidus-sur-excel",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Calculer les Résidus sur Excel",
+    "text": "Calculer les Résidus sur Excel\nLe résidu mesure l’intensité de l’écart. Un résidu &gt; 2 ou &lt; -2 indique une sur/sous-représentation forte.\nLa méthode pas-à-pas :\n\nCalculez votre Tableau Théorique (voir slide précédente).\nCréez un nouveau tableau pour les Résidus.\nDans la première case (ex: Aînés/Réussite), tapez la formule : =(Observé - Théorique) / RACINE(Théorique)\nÉtirez la formule.\nAnalyse : Si la valeur est positive, le groupe est sur-représenté. Si elle est négative, il est sous-représenté."
   }
 ]
