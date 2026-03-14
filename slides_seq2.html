@@ -192,6 +192,15 @@
       margin-right: 0; 
     }
   </style>
+  <link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+  <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <script src="site_libs/plotly-binding-4.12.0/plotly.js"></script>
+  <script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+  <link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+  <script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+  <link href="site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+  <script src="site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -254,26 +263,25 @@ Marc O’Flaherty
 <div style="max-height: 400px; overflow-y: auto;">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(readxl) <span class="co"># Nécessaire pour lire le Excel</span></span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="co"># --- ÉTAPE 1 : DÉFINIR LE CHEMIN ---</span></span>
-<span id="cb1-6"><a></a>mon_fichier <span class="ot">&lt;-</span> <span class="st">"data/DonneesTD2.xlsx"</span></span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a><span class="co"># --- ÉTAPE 2 : IMPORTER ET RENOMMER ---</span></span>
-<span id="cb1-9"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(mon_fichier) <span class="sc">%&gt;%</span></span>
-<span id="cb1-10"><a></a>  <span class="fu">rename</span>( <span class="co"># Fonction pour renommer mes variables</span></span>
-<span id="cb1-11"><a></a>    <span class="co"># Nouveau_Nom = Ancien_Nom_Excel</span></span>
-<span id="cb1-12"><a></a>    <span class="at">Arrondissement =</span> IDCOM,</span>
-<span id="cb1-13"><a></a>    <span class="at">JLM =</span> pvoixMELENCHON,</span>
-<span id="cb1-14"><a></a>    <span class="at">EZ =</span> pvoixZEMMOUR,</span>
-<span id="cb1-15"><a></a>    <span class="at">MLP =</span> pvoixMLEPEN,</span>
-<span id="cb1-16"><a></a>    <span class="at">EM =</span> pvoixMACRON,</span>
-<span id="cb1-17"><a></a>    <span class="at">Revenu =</span> <span class="st">`</span><span class="at">Médiane du revenu disponible par unité de consommation en 2019, en euros</span><span class="st">`</span></span>
-<span id="cb1-18"><a></a>  )</span>
-<span id="cb1-19"><a></a></span>
-<span id="cb1-20"><a></a><span class="co"># Aperçu pour vérifier que tout va bien</span></span>
-<span id="cb1-21"><a></a><span class="fu">head</span>(df, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a></a><span class="fu">library</span>(readxl) <span class="co"># Nécessaire pour lire le Excel</span></span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="co"># --- ÉTAPE 1 : DÉFINIR LE CHEMIN ---</span></span>
+<span id="cb1-5"><a></a>mon_fichier <span class="ot">&lt;-</span> <span class="st">"data/DonneesTD2.xlsx"</span></span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a><span class="co"># --- ÉTAPE 2 : IMPORTER ET RENOMMER ---</span></span>
+<span id="cb1-8"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(mon_fichier) <span class="sc">%&gt;%</span></span>
+<span id="cb1-9"><a></a>  <span class="fu">rename</span>( <span class="co"># Fonction pour renommer mes variables</span></span>
+<span id="cb1-10"><a></a>    <span class="co"># Nouveau_Nom = Ancien_Nom_Excel</span></span>
+<span id="cb1-11"><a></a>    <span class="at">Arrondissement =</span> IDCOM,</span>
+<span id="cb1-12"><a></a>    <span class="at">JLM =</span> pvoixMELENCHON,</span>
+<span id="cb1-13"><a></a>    <span class="at">EZ =</span> pvoixZEMMOUR,</span>
+<span id="cb1-14"><a></a>    <span class="at">MLP =</span> pvoixMLEPEN,</span>
+<span id="cb1-15"><a></a>    <span class="at">EM =</span> pvoixMACRON,</span>
+<span id="cb1-16"><a></a>    <span class="at">Revenu =</span> <span class="st">`</span><span class="at">Médiane du revenu disponible par unité de consommation en 2019, en euros</span><span class="st">`</span></span>
+<span id="cb1-17"><a></a>  )</span>
+<span id="cb1-18"><a></a></span>
+<span id="cb1-19"><a></a><span class="co"># Aperçu pour vérifier que tout va bien</span></span>
+<span id="cb1-20"><a></a><span class="fu">head</span>(df, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 6
   Arrondissement   JLM     EZ    MLP    EM Revenu
@@ -361,31 +369,28 @@ Marc O’Flaherty
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-2"><a></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb3-3"><a></a></span>
-<span id="cb3-4"><a></a><span class="co"># Calcul groupé pour TOUTES les variables (Logique SQL : GROUP BY)</span></span>
-<span id="cb3-5"><a></a>tableau_stats <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a></a>  <span class="fu">select</span>(Revenu, JLM, EZ, MLP, EM) <span class="sc">%&gt;%</span></span>
-<span id="cb3-7"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Variable"</span>, <span class="at">values_to =</span> <span class="st">"Valeur"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-8"><a></a>  <span class="fu">group_by</span>(Variable) <span class="sc">%&gt;%</span></span>
-<span id="cb3-9"><a></a>  <span class="fu">summarise</span>(</span>
-<span id="cb3-10"><a></a>    <span class="at">Min =</span> <span class="fu">min</span>(Valeur),</span>
-<span id="cb3-11"><a></a>    <span class="at">Q1 =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>),</span>
-<span id="cb3-12"><a></a>    <span class="at">Mediane =</span> <span class="fu">median</span>(Valeur),</span>
-<span id="cb3-13"><a></a>    <span class="at">Q3 =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>),</span>
-<span id="cb3-14"><a></a>    <span class="at">Max =</span> <span class="fu">max</span>(Valeur),</span>
-<span id="cb3-15"><a></a>    <span class="at">Etendue =</span> <span class="fu">max</span>(Valeur) <span class="sc">-</span> <span class="fu">min</span>(Valeur),</span>
-<span id="cb3-16"><a></a>    <span class="at">EIQ =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>) <span class="sc">-</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>),</span>
-<span id="cb3-17"><a></a>    <span class="at">EIQ_Rel =</span> (<span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>) <span class="sc">-</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>)) <span class="sc">/</span> <span class="fu">median</span>(Valeur),</span>
-<span id="cb3-18"><a></a>    <span class="at">Rap_IQ =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>) <span class="sc">/</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>),</span>
-<span id="cb3-19"><a></a>    <span class="at">Var =</span> <span class="fu">var</span>(Valeur),</span>
-<span id="cb3-20"><a></a>    <span class="at">Ecart_Type =</span> <span class="fu">sd</span>(Valeur),</span>
-<span id="cb3-21"><a></a>    <span class="at">CV =</span> <span class="fu">sd</span>(Valeur) <span class="sc">/</span> <span class="fu">mean</span>(Valeur)</span>
-<span id="cb3-22"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-23"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span><span class="fu">round</span>(., <span class="dv">3</span>)))</span>
-<span id="cb3-24"><a></a></span>
-<span id="cb3-25"><a></a><span class="fu">print</span>(tableau_stats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Calcul groupé pour TOUTES les variables (Logique SQL : GROUP BY)</span></span>
+<span id="cb3-2"><a></a>tableau_stats <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">select</span>(Revenu, JLM, EZ, MLP, EM) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Variable"</span>, <span class="at">values_to =</span> <span class="st">"Valeur"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a></a>  <span class="fu">group_by</span>(Variable) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-7"><a></a>    <span class="at">Min =</span> <span class="fu">min</span>(Valeur),</span>
+<span id="cb3-8"><a></a>    <span class="at">Q1 =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>),</span>
+<span id="cb3-9"><a></a>    <span class="at">Mediane =</span> <span class="fu">median</span>(Valeur),</span>
+<span id="cb3-10"><a></a>    <span class="at">Q3 =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>),</span>
+<span id="cb3-11"><a></a>    <span class="at">Max =</span> <span class="fu">max</span>(Valeur),</span>
+<span id="cb3-12"><a></a>    <span class="at">Etendue =</span> <span class="fu">max</span>(Valeur) <span class="sc">-</span> <span class="fu">min</span>(Valeur),</span>
+<span id="cb3-13"><a></a>    <span class="at">EIQ =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>) <span class="sc">-</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>),</span>
+<span id="cb3-14"><a></a>    <span class="at">EIQ_Rel =</span> (<span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>) <span class="sc">-</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>)) <span class="sc">/</span> <span class="fu">median</span>(Valeur),</span>
+<span id="cb3-15"><a></a>    <span class="at">Rap_IQ =</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.75</span>) <span class="sc">/</span> <span class="fu">quantile</span>(Valeur, <span class="fl">0.25</span>),</span>
+<span id="cb3-16"><a></a>    <span class="at">Var =</span> <span class="fu">var</span>(Valeur),</span>
+<span id="cb3-17"><a></a>    <span class="at">Ecart_Type =</span> <span class="fu">sd</span>(Valeur),</span>
+<span id="cb3-18"><a></a>    <span class="at">CV =</span> <span class="fu">sd</span>(Valeur) <span class="sc">/</span> <span class="fu">mean</span>(Valeur)</span>
+<span id="cb3-19"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-20"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span><span class="fu">round</span>(., <span class="dv">3</span>)))</span>
+<span id="cb3-21"><a></a></span>
+<span id="cb3-22"><a></a><span class="fu">print</span>(tableau_stats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 13
   Variable       Min        Q1   Mediane      Q3     Max Etendue     EIQ EIQ_Rel
@@ -427,7 +432,7 @@ Marc O’Flaherty
 <div class="callout-content">
 <p>C’est ici que le <strong>Coefficient de Variation (CV)</strong> et l’<strong>EIQ Relatif</strong> révèlent la vraie sociologie des votes. En divisant la dispersion par le score moyen/médian, on neutralise la taille du candidat :</p>
 <ul>
-<li><strong>Le miroir Zemmour / Mélenchon :</strong> Zemmour a un tout petit EIQ brut (4 points) contre 16 pour Mélenchon. Pourtant, leurs indicateurs relatifs sont quasi identiques : <strong>CV à 42%</strong> et <strong>EIQ Relatif autour de 60%</strong>. Cela prouve sociologiquement que ces deux votes fonctionnent exactement de la même manière : ce sont des votes de “niche” extrêmement concentrés dans certains arrondissements spécifiques. Passer d’un quartier à un autre fait doubler ou diviser par deux leur score (Rapport Inter-Q &gt; 170%).</li>
+<li><strong>Le miroir Zemmour / Mélenchon :</strong> Zemmour a un tout petit EIQ brut (4 points) contre 16 pour Mélenchon. Pourtant, leurs indicateurs relatifs sont quasi identiques : <strong>CV à 42%</strong> et <strong>EIQ Relatif autour de 60%</strong>. Cela prouve sociologiquement que ces deux votes fonctionnent exactement de la même manière : ce sont des votes de “niche” très concentrés. Passer des arrondissements qui leur sont défavorables (Q1) à ceux qui leur sont très favorables (Q3) fait bondir leur score moyen de plus de 70% (Rapport Inter-Q &gt; 170%). Et la dynamique est encore plus violente aux extrêmes : d’un bout à l’autre de Paris, le score de Zemmour triple (de 5% à 17%) et celui de Mélenchon quintuple (de 9% à 47%) !</li>
 <li><strong>L’alignement Macron / Revenus :</strong> Le vote Macron affiche un CV de <strong>20%</strong> et un EIQ relatif de <strong>29%</strong>, ce qui est remarquablement proche de la dispersion des revenus parisiens (CV <strong>20%</strong>, EIQ Relatif <strong>24%</strong>). Cela illustre une ségrégation modérée et spatialement très étalée.</li>
 </ul>
 </div>
@@ -441,7 +446,7 @@ Marc O’Flaherty
 </section>
 <section id="corrélation-et-régression-r-et-r2" class="slide level2 scrollable">
 <h2>Corrélation et Régression (<span class="math inline">\(r\)</span> et <span class="math inline">\(R^2\)</span>)</h2>
-<p>On cherche à analyser la relation entre le vote de chaque candidat (<span class="math inline">\(Y\)</span>) et le revenu médian (<span class="math inline">\(X\)</span>).</p>
+<p>On cherche à analyser la relation entre le vote de chaque candidat (EZ, EM, JLM) (<span class="math inline">\(Y\)</span>) et le revenu médian (<span class="math inline">\(X\)</span>).</p>
 <div class="panel-tabset">
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">🟢 Formules Excel</a></li><li><a href="#tabset-3-2">🔵 Code R</a></li></ul>
 <div class="tab-content">
@@ -471,40 +476,51 @@ Marc O’Flaherty
 <td style="text-align: left;"><strong>R² (Détermination)</strong></td>
 <td style="text-align: left;"><code>=COEFFICIENT.DETERMINATION(Col_Vote; Col_Revenu)</code></td>
 </tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Pente (<span class="math inline">\(a\)</span>)</strong></td>
+<td style="text-align: left;"><code>=PENTE(Col_Vote; Col_Revenu)</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Ordonnée à l’origine (<span class="math inline">\(b\)</span>)</strong></td>
+<td style="text-align: left;"><code>=ORDONNEE.ORIGINE(Col_Vote; Col_Revenu)</code></td>
+</tr>
 </tbody>
 </table>
-<p><em>Note : Le R² peut aussi s’obtenir simplement en mettant le <span class="math inline">\(r\)</span> au carré (<code>= Cellule_r ^ 2</code>).</em></p>
+<p><em>Note : Le R² peut aussi s’obtenir simplement en mettant le <span class="math inline">\(r\)</span> au carré (<code>= Cellule_r ^ 2</code>). L’équation de la droite est <span class="math inline">\(Y = aX + b\)</span>.</em></p>
 </div>
 <div id="tabset-3-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb5-2"><a></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb5-3"><a></a></span>
-<span id="cb5-4"><a></a><span class="co"># Calcul des indicateurs bivariés pour chaque candidat par rapport au Revenu</span></span>
-<span id="cb5-5"><a></a>tableau_bivarie <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb5-6"><a></a>  <span class="co"># 1. On garde le Revenu (notre X) et on rassemble les candidats (nos Y)</span></span>
-<span id="cb5-7"><a></a>  <span class="fu">select</span>(Revenu, JLM, EZ, MLP, EM) <span class="sc">%&gt;%</span></span>
-<span id="cb5-8"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Revenu, <span class="at">names_to =</span> <span class="st">"Candidat"</span>, <span class="at">values_to =</span> <span class="st">"Score_Vote"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-9"><a></a>  <span class="co"># 2. On groupe par candidat (équivalent d'un GROUP BY)</span></span>
-<span id="cb5-10"><a></a>  <span class="fu">group_by</span>(Candidat) <span class="sc">%&gt;%</span></span>
-<span id="cb5-11"><a></a>  <span class="co"># 3. On calcule les trois indicateurs demandés</span></span>
-<span id="cb5-12"><a></a>  <span class="fu">summarise</span>(</span>
-<span id="cb5-13"><a></a>    <span class="at">Covariance =</span> <span class="fu">cov</span>(Score_Vote, Revenu),</span>
-<span id="cb5-14"><a></a>    <span class="at">r =</span> <span class="fu">cor</span>(Score_Vote, Revenu),</span>
-<span id="cb5-15"><a></a>    <span class="at">R2 =</span> <span class="fu">cor</span>(Score_Vote, Revenu)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb5-16"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb5-17"><a></a>  <span class="co"># 4. On arrondit pour la lisibilité</span></span>
-<span id="cb5-18"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span><span class="fu">round</span>(., <span class="dv">3</span>)))</span>
-<span id="cb5-19"><a></a></span>
-<span id="cb5-20"><a></a><span class="fu">print</span>(tableau_bivarie)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Calcul des indicateurs bivariés pour chaque candidat par rapport au Revenu</span></span>
+<span id="cb5-2"><a></a>tableau_bivarie <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a></a>  <span class="co"># 1. On garde le Revenu (notre X) et on rassemble les candidats demandés (nos Y)</span></span>
+<span id="cb5-4"><a></a>  <span class="fu">select</span>(Revenu, JLM, EZ, EM) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Revenu, <span class="at">names_to =</span> <span class="st">"Candidat"</span>, <span class="at">values_to =</span> <span class="st">"Score_Vote"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a></a>  <span class="co"># 2. On groupe par candidat (équivalent d'un GROUP BY)</span></span>
+<span id="cb5-7"><a></a>  <span class="fu">group_by</span>(Candidat) <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a></a>  <span class="co"># 3. On calcule les indicateurs, y compris la pente et l'ordonnée à l'origine</span></span>
+<span id="cb5-9"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-10"><a></a>    <span class="at">Covariance =</span> <span class="fu">cov</span>(Score_Vote, Revenu),</span>
+<span id="cb5-11"><a></a>    <span class="at">r =</span> <span class="fu">cor</span>(Score_Vote, Revenu),</span>
+<span id="cb5-12"><a></a>    <span class="at">R2 =</span> <span class="fu">cor</span>(Score_Vote, Revenu)<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb5-13"><a></a>    <span class="at">a_Pente =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(Score_Vote <span class="sc">~</span> Revenu))[<span class="dv">2</span>],</span>
+<span id="cb5-14"><a></a>    <span class="at">b_Ordonnee =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(Score_Vote <span class="sc">~</span> Revenu))[<span class="dv">1</span>]</span>
+<span id="cb5-15"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-16"><a></a>  <span class="co"># 4. On arrondit pour la lisibilité</span></span>
+<span id="cb5-17"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-18"><a></a>    <span class="fu">across</span>(<span class="fu">c</span>(Covariance, r, R2), <span class="sc">~</span><span class="fu">round</span>(., <span class="dv">3</span>)),</span>
+<span id="cb5-19"><a></a>    <span class="co"># On arrondit moins la pente car ce sont de très petits nombres</span></span>
+<span id="cb5-20"><a></a>    <span class="at">a_Pente =</span> <span class="fu">round</span>(a_Pente, <span class="dv">6</span>),</span>
+<span id="cb5-21"><a></a>    <span class="at">b_Ordonnee =</span> <span class="fu">round</span>(b_Ordonnee, <span class="dv">3</span>)</span>
+<span id="cb5-22"><a></a>  )</span>
+<span id="cb5-23"><a></a></span>
+<span id="cb5-24"><a></a><span class="fu">print</span>(tableau_bivarie)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 4
-  Candidat Covariance      r    R2
-  &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-1 EM            483.   0.94  0.883
-2 EZ            189.   0.807 0.651
-3 JLM          -715.  -0.951 0.905
-4 MLP           -10.3 -0.188 0.035</code></pre>
+<pre><code># A tibble: 3 × 6
+  Candidat Covariance      r    R2   a_Pente b_Ordonnee
+  &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+1 EM             483.  0.94  0.883  0.000011      0.024
+2 EZ             189.  0.807 0.651  0.000004     -0.055
+3 JLM           -715. -0.951 0.905 -0.000017      0.801</code></pre>
 </div>
 </div>
 </div>
@@ -527,55 +543,75 @@ Marc O’Flaherty
 <li>JLM (<span class="math inline">\(r &lt; 0\)</span>) : Corrélation <strong>négative</strong> (plus le revenu monte, plus le vote baisse).</li>
 </ul></li>
 <li><strong>Le <span class="math inline">\(R^2\)</span> (Pouvoir explicatif) :</strong> C’est le pourcentage de la variance du vote qui est “expliqué” par le revenu. Par exemple, si le <span class="math inline">\(R^2\)</span> de Macron est de <span class="math inline">\(0.85\)</span>, cela signifie que <strong>85% des écarts de vote pour Macron d’un arrondissement à l’autre s’expliquent uniquement par la différence de revenu</strong>.</li>
+<li><strong>La Pente (<span class="math inline">\(a\)</span>) :</strong> Elle est très faible (proche de 0) car l’unité en abscisse est l’Euro, tandis que l’ordonnée est un pourcentage (entre 0 et 1). Pour chaque euro supplémentaire, le vote n’augmente que d’une fraction infime de pourcentage. Pour la rendre plus lisible, il faudrait multiplier le revenu par 1000 (ex: augmentation du vote pour 1000€ de revenu en plus).</li>
 </ul>
 </div>
 </div>
 </div>
 </section></section>
 <section>
-<section id="visualisation" class="title-slide slide level1 center">
-<h1>3. Visualisation</h1>
-<p><em>Nuage de points</em></p>
+<section id="régressions-linéaires" class="title-slide slide level1 center">
+<h1>3. Régressions Linéaires</h1>
+<p><em>Modèles par candidat</em></p>
 </section>
-<section id="graphique-comparatif" class="slide level2 scrollable">
-<h2>Graphique comparatif</h2>
-<p>Représentez les votes EZ, EM et JLM en fonction du revenu sur un même graphique.</p>
+<section id="droites-de-régression-individuelles" class="slide level2 scrollable">
+<h2>Droites de régression individuelles</h2>
+<p>Effectuez une régression linéaire pour les proportions de votes pour EZ, EM, JLM en fonction du revenu médian.</p>
 <div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">🟢 Excel</a></li><li><a href="#tabset-4-2">🔵 R (ggplot)</a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">🔵 R (E. Macron)</a></li><li><a href="#tabset-4-2">🔵 R (J.L. Mélenchon)</a></li><li><a href="#tabset-4-3">🔵 R (É. Zemmour)</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<ol type="1">
-<li>Sélectionnez la colonne <code>Revenu</code> (X) et les colonnes <code>JLM</code>, <code>EZ</code>, <code>EM</code> (Y).</li>
-<li>Insertion &gt; Nuage de points.</li>
-<li>Le revenu doit être en axe horizontal (Abscisses).</li>
-</ol>
-</div>
-<div id="tabset-4-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Revenu)) <span class="sc">+</span></span>
-<span id="cb7-2"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> EM, <span class="at">color =</span> <span class="st">"Macron"</span>), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb7-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> EM, <span class="at">color =</span> <span class="st">"Macron"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb7-4"><a></a>  </span>
-<span id="cb7-5"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> JLM, <span class="at">color =</span> <span class="st">"Mélenchon"</span>), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb7-6"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> JLM, <span class="at">color =</span> <span class="st">"Mélenchon"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb7-7"><a></a>  </span>
-<span id="cb7-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> EZ, <span class="at">color =</span> <span class="st">"Zemmour"</span>), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb7-9"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> EZ, <span class="at">color =</span> <span class="st">"Zemmour"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb7-10"><a></a>  </span>
-<span id="cb7-11"><a></a>  <span class="co"># Axe X : Espace pour les milliers</span></span>
-<span id="cb7-12"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>)) <span class="sc">+</span></span>
-<span id="cb7-13"><a></a>  </span>
-<span id="cb7-14"><a></a>  <span class="co"># Axe Y : Conversion automatique 0.3 -&gt; 30%</span></span>
-<span id="cb7-15"><a></a>  <span class="co"># accuracy = 1 permet d'arrondir à l'entier (30% et pas 30.0%)</span></span>
-<span id="cb7-16"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb7-17"><a></a>  <span class="co"># ----------------------</span></span>
-<span id="cb7-18"><a></a>  </span>
-<span id="cb7-19"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vote selon le revenu à Paris"</span>, <span class="at">y =</span> <span class="st">"% de voix"</span>, <span class="at">x =</span> <span class="st">"Revenu Médian (€)"</span>) <span class="sc">+</span></span>
-<span id="cb7-20"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Revenu, <span class="at">y =</span> EM)) <span class="sc">+</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#0044cc"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(Arrondissement, <span class="sc">-</span><span class="dv">2</span>)), <span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">check_overlap =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb7-5"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>)) <span class="sc">+</span></span>
+<span id="cb7-6"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb7-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Régression : Vote E. Macron selon le Revenu"</span>, <span class="at">x =</span> <span class="st">"Revenu Médian (€)"</span>, <span class="at">y =</span> <span class="st">"Vote Macron"</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="slides_seq2_files/figure-revealjs/plot-votes-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="slides_seq2_files/figure-revealjs/plot-votes-1.png" width="960"></a></p>
+<p><a href="slides_seq2_files/figure-revealjs/reg-em-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="slides_seq2_files/figure-revealjs/reg-em-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Revenu, <span class="at">y =</span> JLM)) <span class="sc">+</span></span>
+<span id="cb8-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#cc0000"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(Arrondissement, <span class="sc">-</span><span class="dv">2</span>)), <span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">check_overlap =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>)) <span class="sc">+</span></span>
+<span id="cb8-6"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb8-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Régression : Vote J.L. Mélenchon selon le Revenu"</span>, <span class="at">x =</span> <span class="st">"Revenu Médian (€)"</span>, <span class="at">y =</span> <span class="st">"Vote Mélenchon"</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="slides_seq2_files/figure-revealjs/reg-jlm-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="slides_seq2_files/figure-revealjs/reg-jlm-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-3">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Revenu, <span class="at">y =</span> EZ)) <span class="sc">+</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#333333"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb9-4"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(Arrondissement, <span class="sc">-</span><span class="dv">2</span>)), <span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">check_overlap =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>)) <span class="sc">+</span></span>
+<span id="cb9-6"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb9-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Régression : Vote É. Zemmour selon le Revenu"</span>, <span class="at">x =</span> <span class="st">"Revenu Médian (€)"</span>, <span class="at">y =</span> <span class="st">"Vote Zemmour"</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="slides_seq2_files/figure-revealjs/reg-ez-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="slides_seq2_files/figure-revealjs/reg-ez-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -617,8 +653,75 @@ Marc O’Flaherty
 </div>
 </section></section>
 <section>
+<section id="visualisation" class="title-slide slide level1 center">
+<h1>5. Visualisation</h1>
+<p><em>Nuage de points</em></p>
+</section>
+<section id="graphique-comparatif" class="slide level2 scrollable">
+<h2>Graphique comparatif</h2>
+<p>Représentez les votes EZ, EM et JLM en fonction du revenu sur un même graphique.</p>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">🟢 Excel</a></li><li><a href="#tabset-5-2">🔵 R (ggplot + plotly)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<ol type="1">
+<li>Sélectionnez la colonne <code>Revenu</code> (X) et les colonnes <code>JLM</code>, <code>EZ</code>, <code>EM</code> (Y).</li>
+<li>Insertion &gt; Nuage de points.</li>
+<li>Le revenu doit être en axe horizontal (Abscisses).</li>
+</ol>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(plotly)</span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Revenu)) <span class="sc">+</span></span>
+<span id="cb10-4"><a></a>  <span class="co"># E. Macron</span></span>
+<span id="cb10-5"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> EM, <span class="at">color =</span> <span class="st">"Macron"</span>, </span>
+<span id="cb10-6"><a></a>                 <span class="at">text =</span> <span class="fu">paste</span>(<span class="st">"&lt;b&gt;Arrondissement :&lt;/b&gt;"</span>, Arrondissement, </span>
+<span id="cb10-7"><a></a>                              <span class="st">"&lt;br&gt;&lt;b&gt;Revenu :&lt;/b&gt;"</span>, <span class="fu">format</span>(Revenu, <span class="at">big.mark =</span> <span class="st">" "</span>), <span class="st">"€"</span>,</span>
+<span id="cb10-8"><a></a>                              <span class="st">"&lt;br&gt;&lt;b&gt;Macron :&lt;/b&gt;"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(EM, <span class="at">accuracy =</span> <span class="fl">0.1</span>))), </span>
+<span id="cb10-9"><a></a>             <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> EM, <span class="at">color =</span> <span class="st">"Macron"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb10-11"><a></a>  </span>
+<span id="cb10-12"><a></a>  <span class="co"># J.L. Mélenchon</span></span>
+<span id="cb10-13"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> JLM, <span class="at">color =</span> <span class="st">"Mélenchon"</span>, </span>
+<span id="cb10-14"><a></a>                 <span class="at">text =</span> <span class="fu">paste</span>(<span class="st">"&lt;b&gt;Arrondissement :&lt;/b&gt;"</span>, Arrondissement, </span>
+<span id="cb10-15"><a></a>                              <span class="st">"&lt;br&gt;&lt;b&gt;Revenu :&lt;/b&gt;"</span>, <span class="fu">format</span>(Revenu, <span class="at">big.mark =</span> <span class="st">" "</span>), <span class="st">"€"</span>,</span>
+<span id="cb10-16"><a></a>                              <span class="st">"&lt;br&gt;&lt;b&gt;Mélenchon :&lt;/b&gt;"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(JLM, <span class="at">accuracy =</span> <span class="fl">0.1</span>))), </span>
+<span id="cb10-17"><a></a>             <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb10-18"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> JLM, <span class="at">color =</span> <span class="st">"Mélenchon"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb10-19"><a></a>  </span>
+<span id="cb10-20"><a></a>  <span class="co"># É. Zemmour</span></span>
+<span id="cb10-21"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> EZ, <span class="at">color =</span> <span class="st">"Zemmour"</span>, </span>
+<span id="cb10-22"><a></a>                 <span class="at">text =</span> <span class="fu">paste</span>(<span class="st">"&lt;b&gt;Arrondissement :&lt;/b&gt;"</span>, Arrondissement, </span>
+<span id="cb10-23"><a></a>                              <span class="st">"&lt;br&gt;&lt;b&gt;Revenu :&lt;/b&gt;"</span>, <span class="fu">format</span>(Revenu, <span class="at">big.mark =</span> <span class="st">" "</span>), <span class="st">"€"</span>,</span>
+<span id="cb10-24"><a></a>                              <span class="st">"&lt;br&gt;&lt;b&gt;Zemmour :&lt;/b&gt;"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(EZ, <span class="at">accuracy =</span> <span class="fl">0.1</span>))), </span>
+<span id="cb10-25"><a></a>             <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb10-26"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> EZ, <span class="at">color =</span> <span class="st">"Zemmour"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb10-27"><a></a>  </span>
+<span id="cb10-28"><a></a>  <span class="co"># Axe X : Espace pour les milliers</span></span>
+<span id="cb10-29"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>)) <span class="sc">+</span></span>
+<span id="cb10-30"><a></a>  </span>
+<span id="cb10-31"><a></a>  <span class="co"># Axe Y : Conversion automatique 0.3 -&gt; 30%</span></span>
+<span id="cb10-32"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb10-33"><a></a>  </span>
+<span id="cb10-34"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vote selon le revenu à Paris"</span>, <span class="at">y =</span> <span class="st">"% de voix"</span>, <span class="at">x =</span> <span class="st">"Revenu Médian (€)"</span>, <span class="at">color =</span> <span class="st">"Candidat"</span>) <span class="sc">+</span></span>
+<span id="cb10-35"><a></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb10-36"><a></a></span>
+<span id="cb10-37"><a></a><span class="co"># On rend le graphique interactif en affichant uniquement l'infobulle personnalisée ("text")</span></span>
+<span id="cb10-38"><a></a><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="st">"text"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-caacc5754ea460387fe5" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-caacc5754ea460387fe5">{"x":{"data":[{"x":[34720,32650,33570,31840,34520,40490,44400,43230,35880,27810,28750,29040,24970,28480,31930,40300,32120,23650,21460,22510],"y":[0.43037534,0.43523889999999998,0.43145874000000001,0.41353539,0.38819712000000001,0.47621693999999998,0.48466647000000002,0.4675377,0.43736553,0.31467025999999998,0.32836082999999999,0.32851520000000001,0.29955459000000001,0.35050430999999999,0.40259658999999998,0.46753897999999999,0.42349827000000001,0.2903116,0.23867503000000001,0.23706672000000001],"text":["<b>Arrondissement :<\/b> 75101 <br><b>Revenu :<\/b> 34 720 € <br><b>Macron :<\/b> 43.0%","<b>Arrondissement :<\/b> 75102 <br><b>Revenu :<\/b> 32 650 € <br><b>Macron :<\/b> 43.5%","<b>Arrondissement :<\/b> 75103 <br><b>Revenu :<\/b> 33 570 € <br><b>Macron :<\/b> 43.1%","<b>Arrondissement :<\/b> 75104 <br><b>Revenu :<\/b> 31 840 € <br><b>Macron :<\/b> 41.4%","<b>Arrondissement :<\/b> 75105 <br><b>Revenu :<\/b> 34 520 € <br><b>Macron :<\/b> 38.8%","<b>Arrondissement :<\/b> 75106 <br><b>Revenu :<\/b> 40 490 € <br><b>Macron :<\/b> 47.6%","<b>Arrondissement :<\/b> 75107 <br><b>Revenu :<\/b> 44 400 € <br><b>Macron :<\/b> 48.5%","<b>Arrondissement :<\/b> 75108 <br><b>Revenu :<\/b> 43 230 € <br><b>Macron :<\/b> 46.8%","<b>Arrondissement :<\/b> 75109 <br><b>Revenu :<\/b> 35 880 € <br><b>Macron :<\/b> 43.7%","<b>Arrondissement :<\/b> 75110 <br><b>Revenu :<\/b> 27 810 € <br><b>Macron :<\/b> 31.5%","<b>Arrondissement :<\/b> 75111 <br><b>Revenu :<\/b> 28 750 € <br><b>Macron :<\/b> 32.8%","<b>Arrondissement :<\/b> 75112 <br><b>Revenu :<\/b> 29 040 € <br><b>Macron :<\/b> 32.9%","<b>Arrondissement :<\/b> 75113 <br><b>Revenu :<\/b> 24 970 € <br><b>Macron :<\/b> 30.0%","<b>Arrondissement :<\/b> 75114 <br><b>Revenu :<\/b> 28 480 € <br><b>Macron :<\/b> 35.1%","<b>Arrondissement :<\/b> 75115 <br><b>Revenu :<\/b> 31 930 € <br><b>Macron :<\/b> 40.3%","<b>Arrondissement :<\/b> 75116 <br><b>Revenu :<\/b> 40 300 € <br><b>Macron :<\/b> 46.8%","<b>Arrondissement :<\/b> 75117 <br><b>Revenu :<\/b> 32 120 € <br><b>Macron :<\/b> 42.3%","<b>Arrondissement :<\/b> 75118 <br><b>Revenu :<\/b> 23 650 € <br><b>Macron :<\/b> 29.0%","<b>Arrondissement :<\/b> 75119 <br><b>Revenu :<\/b> 21 460 € <br><b>Macron :<\/b> 23.9%","<b>Arrondissement :<\/b> 75120 <br><b>Revenu :<\/b> 22 510 € <br><b>Macron :<\/b> 23.7%"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Macron","legendgroup":"Macron","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[21460,21750.379746835442,22040.759493670885,22331.139240506331,22621.518987341773,22911.898734177215,23202.278481012658,23492.6582278481,23783.037974683546,24073.417721518988,24363.797468354431,24654.177215189873,24944.556962025315,25234.936708860761,25525.316455696204,25815.696202531646,26106.075949367088,26396.455696202531,26686.835443037977,26977.215189873416,27267.594936708861,27557.974683544304,27848.354430379746,28138.734177215189,28429.113924050631,28719.493670886077,29009.873417721519,29300.253164556962,29590.632911392404,29881.012658227846,30171.392405063292,30461.772151898735,30752.151898734177,31042.531645569619,31332.911392405062,31623.291139240508,31913.67088607595,32204.050632911392,32494.430379746835,32784.810126582277,33075.189873417723,33365.569620253162,33655.949367088608,33946.329113924046,34236.708860759492,34527.088607594938,34817.468354430377,35107.848101265823,35398.227848101262,35688.607594936708,35978.987341772154,36269.367088607592,36559.746835443038,36850.126582278477,37140.506329113923,37430.886075949369,37721.265822784808,38011.645569620254,38302.025316455693,38592.405063291139,38882.784810126584,39173.164556962023,39463.544303797469,39753.924050632908,40044.303797468354,40334.6835443038,40625.063291139239,40915.443037974685,41205.822784810123,41496.202531645569,41786.582278481015,42076.962025316454,42367.3417721519,42657.721518987339,42948.101265822785,43238.481012658231,43528.860759493669,43819.240506329108,44109.620253164554,44400],"y":[0.2633686836319129,0.26660944646411289,0.26985020929631287,0.27309097212851291,0.27633173496071284,0.27957249779291282,0.28281326062511281,0.28605402345731279,0.28929478628951277,0.29253554912171276,0.29577631195391274,0.29901707478611272,0.30225783761831265,0.30549860045051269,0.30873936328271268,0.31198012611491266,0.31522088894711264,0.31846165177931257,0.32170241461151261,0.32494317744371254,0.32818394027591258,0.33142470310811251,0.33466546594031249,0.33790622877251247,0.34114699160471246,0.34438775443691244,0.34762851726911242,0.35086928010131241,0.35411004293351239,0.35735080576571238,0.36059156859791236,0.36383233143011234,0.36707309426231233,0.37031385709451231,0.37355461992671229,0.37679538275891228,0.38003614559111226,0.38327690842331225,0.38651767125551223,0.38975843408771216,0.3929991969199122,0.39623995975211213,0.39948072258431216,0.40272148541651209,0.40596224824871208,0.40920301108091212,0.41244377391311204,0.41568453674531208,0.41892529957751201,0.422166062409712,0.42540682524191203,0.42864758807411196,0.43188835090631195,0.43512911373851193,0.43836987657071191,0.44161063940291195,0.44485140223511188,0.44809216506731187,0.45133292789951179,0.45457369073171183,0.45781445356391187,0.4610552163961118,0.46429597922831178,0.46753674206051171,0.47077750489271175,0.47401826772491173,0.47725903055711172,0.4804997933893117,0.48374055622151163,0.48698131905371167,0.49022208188591165,0.49346284471811158,0.49670360755031162,0.49994437038251155,0.50318513321471159,0.50642589604691157,0.50966665887911156,0.51290742171131143,0.51614818454351152,0.51938894737571151],"text":"","type":"scatter","mode":"lines","name":"Macron","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","legendgroup":"Macron","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[34720,32650,33570,31840,34520,40490,44400,43230,35880,27810,28750,29040,24970,28480,31930,40300,32120,23650,21460,22510],"y":[0.21223354,0.24836601,0.26017699,0.23621776999999999,0.26053119000000002,0.15191515,0.097336218000000002,0.11547193,0.23498678000000001,0.38448510000000002,0.36263185999999997,0.31752929000000002,0.36127046000000002,0.30073245999999998,0.20601264,0.090228855999999996,0.20496060999999999,0.4170295,0.46512341000000001,0.47169318999999998],"text":["<b>Arrondissement :<\/b> 75101 <br><b>Revenu :<\/b> 34 720 € <br><b>Mélenchon :<\/b> 21.2%","<b>Arrondissement :<\/b> 75102 <br><b>Revenu :<\/b> 32 650 € <br><b>Mélenchon :<\/b> 24.8%","<b>Arrondissement :<\/b> 75103 <br><b>Revenu :<\/b> 33 570 € <br><b>Mélenchon :<\/b> 26.0%","<b>Arrondissement :<\/b> 75104 <br><b>Revenu :<\/b> 31 840 € <br><b>Mélenchon :<\/b> 23.6%","<b>Arrondissement :<\/b> 75105 <br><b>Revenu :<\/b> 34 520 € <br><b>Mélenchon :<\/b> 26.1%","<b>Arrondissement :<\/b> 75106 <br><b>Revenu :<\/b> 40 490 € <br><b>Mélenchon :<\/b> 15.2%","<b>Arrondissement :<\/b> 75107 <br><b>Revenu :<\/b> 44 400 € <br><b>Mélenchon :<\/b> 9.7%","<b>Arrondissement :<\/b> 75108 <br><b>Revenu :<\/b> 43 230 € <br><b>Mélenchon :<\/b> 11.5%","<b>Arrondissement :<\/b> 75109 <br><b>Revenu :<\/b> 35 880 € <br><b>Mélenchon :<\/b> 23.5%","<b>Arrondissement :<\/b> 75110 <br><b>Revenu :<\/b> 27 810 € <br><b>Mélenchon :<\/b> 38.4%","<b>Arrondissement :<\/b> 75111 <br><b>Revenu :<\/b> 28 750 € <br><b>Mélenchon :<\/b> 36.3%","<b>Arrondissement :<\/b> 75112 <br><b>Revenu :<\/b> 29 040 € <br><b>Mélenchon :<\/b> 31.8%","<b>Arrondissement :<\/b> 75113 <br><b>Revenu :<\/b> 24 970 € <br><b>Mélenchon :<\/b> 36.1%","<b>Arrondissement :<\/b> 75114 <br><b>Revenu :<\/b> 28 480 € <br><b>Mélenchon :<\/b> 30.1%","<b>Arrondissement :<\/b> 75115 <br><b>Revenu :<\/b> 31 930 € <br><b>Mélenchon :<\/b> 20.6%","<b>Arrondissement :<\/b> 75116 <br><b>Revenu :<\/b> 40 300 € <br><b>Mélenchon :<\/b> 9.0%","<b>Arrondissement :<\/b> 75117 <br><b>Revenu :<\/b> 32 120 € <br><b>Mélenchon :<\/b> 20.5%","<b>Arrondissement :<\/b> 75118 <br><b>Revenu :<\/b> 23 650 € <br><b>Mélenchon :<\/b> 41.7%","<b>Arrondissement :<\/b> 75119 <br><b>Revenu :<\/b> 21 460 € <br><b>Mélenchon :<\/b> 46.5%","<b>Arrondissement :<\/b> 75120 <br><b>Revenu :<\/b> 22 510 € <br><b>Mélenchon :<\/b> 47.2%"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,186,56,1)"}},"hoveron":"points","name":"Mélenchon","legendgroup":"Mélenchon","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[21460,21750.379746835442,22040.759493670885,22331.139240506331,22621.518987341773,22911.898734177215,23202.278481012658,23492.6582278481,23783.037974683546,24073.417721518988,24363.797468354431,24654.177215189873,24944.556962025315,25234.936708860761,25525.316455696204,25815.696202531646,26106.075949367088,26396.455696202531,26686.835443037977,26977.215189873416,27267.594936708861,27557.974683544304,27848.354430379746,28138.734177215189,28429.113924050631,28719.493670886077,29009.873417721519,29300.253164556962,29590.632911392404,29881.012658227846,30171.392405063292,30461.772151898735,30752.151898734177,31042.531645569619,31332.911392405062,31623.291139240508,31913.67088607595,32204.050632911392,32494.430379746835,32784.810126582277,33075.189873417723,33365.569620253162,33655.949367088608,33946.329113924046,34236.708860759492,34527.088607594938,34817.468354430377,35107.848101265823,35398.227848101262,35688.607594936708,35978.987341772154,36269.367088607592,36559.746835443038,36850.126582278477,37140.506329113923,37430.886075949369,37721.265822784808,38011.645569620254,38302.025316455693,38592.405063291139,38882.784810126584,39173.164556962023,39463.544303797469,39753.924050632908,40044.303797468354,40334.6835443038,40625.063291139239,40915.443037974685,41205.822784810123,41496.202531645569,41786.582278481015,42076.962025316454,42367.3417721519,42657.721518987339,42948.101265822785,43238.481012658231,43528.860759493669,43819.240506329108,44109.620253164554,44400],"y":[0.44607934762595414,0.44127966962164283,0.43647999161733148,0.43168031361302012,0.42688063560870876,0.42208095760439746,0.4172812796000861,0.41248160159577479,0.40768192359146338,0.40288224558715208,0.39808256758284077,0.39328288957852942,0.38848321157421811,0.3836835335699067,0.3788838555655954,0.37408417756128404,0.36928449955697273,0.36448482155266138,0.35968514354835002,0.35488546554403877,0.35008578753972736,0.34528610953541605,0.34048643153110469,0.33568675352679339,0.33088707552248203,0.32608739751817067,0.32128771951385932,0.31648804150954801,0.31168836350523671,0.30688868550092535,0.30208900749661399,0.29728932949230269,0.29248965148799133,0.28768997348367997,0.28289029547936861,0.27809061747505726,0.2732909394707459,0.26849126146643465,0.26369158346212329,0.25889190545781193,0.25409222745350057,0.24929254944918933,0.24449287144487797,0.23969319344056661,0.23489351543625525,0.23009383743194389,0.22529415942763265,0.22049448142332129,0.21569480341900993,0.21089512541469857,0.20609544741038721,0.20129576940607596,0.19649609140176449,0.19169641339745325,0.18689673539314189,0.18209705738883053,0.17729737938451928,0.17249770138020781,0.16769802337589657,0.16289834537158521,0.15809866736727385,0.15329898936296249,0.14849931135865113,0.14369963335433988,0.13889995535002853,0.13410027734571706,0.12930059934140581,0.12450092133709445,0.1197012433327832,0.11490156532847184,0.11010188732416037,0.10530220931984913,0.10050253131553777,0.095702853311226521,0.090903175306915163,0.086103497302603693,0.081303819298292446,0.076504141293981198,0.07170446328966984,0.06690478528535837],"text":"","type":"scatter","mode":"lines","name":"Mélenchon","line":{"width":1.8897637795275593,"color":"rgba(0,186,56,1)","dash":"solid"},"hoveron":"points","legendgroup":"Mélenchon","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[34720,32650,33570,31840,34520,40490,44400,43230,35880,27810,28750,29040,24970,28480,31930,40300,32120,23650,21460,22510],"y":[0.092794254000000007,0.070146367000000001,0.059663147,0.084407568000000002,0.078619680999999997,0.10522903,0.13919564000000001,0.15315543000000001,0.072745711000000005,0.052212328000000002,0.049878280999999997,0.070898689000000001,0.062625341000000001,0.066702685999999997,0.097884893000000001,0.17480393,0.10886263,0.046812288000000001,0.068793960000000001,0.050620842999999999],"text":["<b>Arrondissement :<\/b> 75101 <br><b>Revenu :<\/b> 34 720 € <br><b>Zemmour :<\/b> 9.3%","<b>Arrondissement :<\/b> 75102 <br><b>Revenu :<\/b> 32 650 € <br><b>Zemmour :<\/b> 7.0%","<b>Arrondissement :<\/b> 75103 <br><b>Revenu :<\/b> 33 570 € <br><b>Zemmour :<\/b> 6.0%","<b>Arrondissement :<\/b> 75104 <br><b>Revenu :<\/b> 31 840 € <br><b>Zemmour :<\/b> 8.4%","<b>Arrondissement :<\/b> 75105 <br><b>Revenu :<\/b> 34 520 € <br><b>Zemmour :<\/b> 7.9%","<b>Arrondissement :<\/b> 75106 <br><b>Revenu :<\/b> 40 490 € <br><b>Zemmour :<\/b> 10.5%","<b>Arrondissement :<\/b> 75107 <br><b>Revenu :<\/b> 44 400 € <br><b>Zemmour :<\/b> 13.9%","<b>Arrondissement :<\/b> 75108 <br><b>Revenu :<\/b> 43 230 € <br><b>Zemmour :<\/b> 15.3%","<b>Arrondissement :<\/b> 75109 <br><b>Revenu :<\/b> 35 880 € <br><b>Zemmour :<\/b> 7.3%","<b>Arrondissement :<\/b> 75110 <br><b>Revenu :<\/b> 27 810 € <br><b>Zemmour :<\/b> 5.2%","<b>Arrondissement :<\/b> 75111 <br><b>Revenu :<\/b> 28 750 € <br><b>Zemmour :<\/b> 5.0%","<b>Arrondissement :<\/b> 75112 <br><b>Revenu :<\/b> 29 040 € <br><b>Zemmour :<\/b> 7.1%","<b>Arrondissement :<\/b> 75113 <br><b>Revenu :<\/b> 24 970 € <br><b>Zemmour :<\/b> 6.3%","<b>Arrondissement :<\/b> 75114 <br><b>Revenu :<\/b> 28 480 € <br><b>Zemmour :<\/b> 6.7%","<b>Arrondissement :<\/b> 75115 <br><b>Revenu :<\/b> 31 930 € <br><b>Zemmour :<\/b> 9.8%","<b>Arrondissement :<\/b> 75116 <br><b>Revenu :<\/b> 40 300 € <br><b>Zemmour :<\/b> 17.5%","<b>Arrondissement :<\/b> 75117 <br><b>Revenu :<\/b> 32 120 € <br><b>Zemmour :<\/b> 10.9%","<b>Arrondissement :<\/b> 75118 <br><b>Revenu :<\/b> 23 650 € <br><b>Zemmour :<\/b> 4.7%","<b>Arrondissement :<\/b> 75119 <br><b>Revenu :<\/b> 21 460 € <br><b>Zemmour :<\/b> 6.9%","<b>Arrondissement :<\/b> 75120 <br><b>Revenu :<\/b> 22 510 € <br><b>Zemmour :<\/b> 5.1%"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(97,156,255,1)"}},"hoveron":"points","name":"Zemmour","legendgroup":"Zemmour","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[21460,21750.379746835442,22040.759493670885,22331.139240506331,22621.518987341773,22911.898734177215,23202.278481012658,23492.6582278481,23783.037974683546,24073.417721518988,24363.797468354431,24654.177215189873,24944.556962025315,25234.936708860761,25525.316455696204,25815.696202531646,26106.075949367088,26396.455696202531,26686.835443037977,26977.215189873416,27267.594936708861,27557.974683544304,27848.354430379746,28138.734177215189,28429.113924050631,28719.493670886077,29009.873417721519,29300.253164556962,29590.632911392404,29881.012658227846,30171.392405063292,30461.772151898735,30752.151898734177,31042.531645569619,31332.911392405062,31623.291139240508,31913.67088607595,32204.050632911392,32494.430379746835,32784.810126582277,33075.189873417723,33365.569620253162,33655.949367088608,33946.329113924046,34236.708860759492,34527.088607594938,34817.468354430377,35107.848101265823,35398.227848101262,35688.607594936708,35978.987341772154,36269.367088607592,36559.746835443038,36850.126582278477,37140.506329113923,37430.886075949369,37721.265822784808,38011.645569620254,38302.025316455693,38592.405063291139,38882.784810126584,39173.164556962023,39463.544303797469,39753.924050632908,40044.303797468354,40334.6835443038,40625.063291139239,40915.443037974685,41205.822784810123,41496.202531645569,41786.582278481015,42076.962025316454,42367.3417721519,42657.721518987339,42948.101265822785,43238.481012658231,43528.860759493669,43819.240506329108,44109.620253164554,44400],"y":[0.038692691575055248,0.039962828918166431,0.041232966261277613,0.042503103604388824,0.043773240947500007,0.04504337829061119,0.046313515633722373,0.047583652976833556,0.048853790319944766,0.050123927663055949,0.051394065006167132,0.052664202349278315,0.053934339692389498,0.055204477035500694,0.056474614378611891,0.057744751721723074,0.059014889064834257,0.06028502640794544,0.061555163751056637,0.062825301094167812,0.064095438437279023,0.065365575780390206,0.066635713123501389,0.067905850466612572,0.069175987809723755,0.070446125152834937,0.07171626249594612,0.072986399839057303,0.074256537182168514,0.075526674525279697,0.07679681186839088,0.078066949211502062,0.079337086554613245,0.080607223897724428,0.081877361240835639,0.083147498583946822,0.084417635927058005,0.085687773270169187,0.08695791061328037,0.088228047956391581,0.089498185299502764,0.090768322642613947,0.09203845998572513,0.093308597328836312,0.094578734671947495,0.095848872015058706,0.097119009358169889,0.098389146701281072,0.099659284044392255,0.10092942138750344,0.10219955873061465,0.10346969607372583,0.10473983341683701,0.1060099707599482,0.10728010810305938,0.10855024544617059,0.10982038278928177,0.11109052013239296,0.11236065747550414,0.11363079481861532,0.11490093216172653,0.11617106950483769,0.1174412068479489,0.11871134419106008,0.11998148153417126,0.12125161887728247,0.12252175622039363,0.12379189356350484,0.12506203090661602,0.12633216824972721,0.12760230559283842,0.12887244293594957,0.13014258027906078,0.13141271762217197,0.13268285496528315,0.13395299230839436,0.13522312965150551,0.1364932669946167,0.13776340433772788,0.13903354168083909],"text":"","type":"scatter","mode":"lines","name":"Zemmour","line":{"width":1.8897637795275593,"color":"rgba(97,156,255,1)","dash":"solid"},"hoveron":"points","legendgroup":"Zemmour","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":40.840182648401829,"r":7.3059360730593621,"b":37.260273972602747,"l":43.105022831050235},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Vote selon le revenu à Paris","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20313,45547],"tickmode":"array","ticktext":["25 000","30 000","35 000","40 000","45 000"],"tickvals":[25000,30000,35000,40000,45000],"categoryorder":"array","categoryarray":["25 000","30 000","35 000","40 000","45 000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Revenu Médian (€)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.014657878785022432,0.54342376016574434],"tickmode":"array","ticktext":["10%","20%","30%","40%","50%"],"tickvals":[0.10000000000000001,0.20000000000000001,0.30000000000000004,0.40000000000000002,0.5],"categoryorder":"array","categoryarray":["10%","20%","30%","40%","50%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"% de voix","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Candidat","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"92ac7ae5976f":{"x":{},"y":{},"colour":{},"text":{},"type":"scatter"},"92ac3b750fdb":{"x":{},"y":{},"colour":{}},"92ac41206605":{"x":{},"y":{},"colour":{},"text":{}},"92ac2227f43f":{"x":{},"y":{},"colour":{}},"92ac46e4c8dd":{"x":{},"y":{},"colour":{},"text":{}},"92ac78d166b6":{"x":{},"y":{},"colour":{}}},"cur_data":"92ac7ae5976f","visdat":{"92ac7ae5976f":["function (y) ","x"],"92ac3b750fdb":["function (y) ","x"],"92ac41206605":["function (y) ","x"],"92ac2227f43f":["function (y) ","x"],"92ac46e4c8dd":["function (y) ","x"],"92ac78d166b6":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
 <section id="analyse-sociologique" class="title-slide slide level1 center">
-<h1>5. Analyse Sociologique</h1>
+<h1>6. Analyse Sociologique</h1>
 <p><em>Synthèse des résultats et infographies</em></p>
 </section>
 <section id="interprétation-des-résultats-données-images" class="slide level2 scrollable">
@@ -628,7 +731,7 @@ Marc O’Flaherty
 <ul>
 <li><strong>Macron / Zemmour :</strong> Forte corrélation positive avec le revenu. Ce sont des votes de classes aisées (Ouest Parisien).</li>
 <li><strong>Mélenchon :</strong> Forte corrélation négative. Vote des quartiers populaires (Nord-Est).</li>
-<li><strong>Le Pen :</strong> Faiblement représentée à Paris, corrélation moins nette (vote plus péri-urbain/rural que parisien intra-muros).</li>
+<li><strong>Le Pen :</strong> Qu’importe le niveau de revenu de l’arrondissement, le vote pour MLP est uniformément faible (autour de 5%) et stable à Paris intra-muros. La corrélation est quasi-nulle.</li>
 </ul>
 <h3 id="les-dynamiques-historiques-infographies">2. Les dynamiques historiques (Infographies)</h3>
 <ul>
@@ -664,47 +767,47 @@ Marc O’Flaherty
 <h2>Bonus : Cartographie des inégalités électorales sur R</h2>
 <p><a href="https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/arrondissements/exports/geojson">Cliquez ici pour télécharger le Geojson des arrondissements de Paris</a></p>
 <div class="panel-tabset">
-<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">🗺️ J.L. Mélenchon</a></li><li><a href="#tabset-5-2">🗺️ E. Macron</a></li><li><a href="#tabset-5-3">🗺️ É. Zemmour</a></li><li><a href="#tabset-5-4">🗺️ Revenu Médian</a></li></ul>
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">🗺️ J.L. Mélenchon</a></li><li><a href="#tabset-6-2">🗺️ E. Macron</a></li><li><a href="#tabset-6-3">🗺️ É. Zemmour</a></li><li><a href="#tabset-6-4">🗺️ Revenu Médian</a></li></ul>
 <div class="tab-content">
-<div id="tabset-5-1">
+<div id="tabset-6-1">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="slides_seq2_files/figure-revealjs/map-jlm-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="slides_seq2_files/figure-revealjs/map-jlm-1.png" width="960"></a></p>
+<p><a href="slides_seq2_files/figure-revealjs/map-jlm-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="slides_seq2_files/figure-revealjs/map-jlm-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-5-2">
+<div id="tabset-6-2">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="slides_seq2_files/figure-revealjs/map-em-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="slides_seq2_files/figure-revealjs/map-em-1.png" width="960"></a></p>
+<p><a href="slides_seq2_files/figure-revealjs/map-em-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="slides_seq2_files/figure-revealjs/map-em-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-5-3">
+<div id="tabset-6-3">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="slides_seq2_files/figure-revealjs/map-ez-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="slides_seq2_files/figure-revealjs/map-ez-1.png" width="960"></a></p>
+<p><a href="slides_seq2_files/figure-revealjs/map-ez-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="slides_seq2_files/figure-revealjs/map-ez-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-5-4">
+<div id="tabset-6-4">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="slides_seq2_files/figure-revealjs/map-rev-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="slides_seq2_files/figure-revealjs/map-rev-1.png" width="960"></a></p>
+<p><a href="slides_seq2_files/figure-revealjs/map-rev-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="slides_seq2_files/figure-revealjs/map-rev-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
