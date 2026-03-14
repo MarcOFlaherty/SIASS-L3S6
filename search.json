@@ -319,7 +319,7 @@
     "href": "slides_seq1.html#médiane-et-quantiles-q3",
     "title": "Séquence 1 : Prise en main & statistiques descriptives",
     "section": "Médiane et quantiles (Q3)",
-    "text": "Médiane et quantiles (Q3)\nOn découpe la distribution pour voir les inégalités.\n\n\n\n\n\n\n🟢 Sur Excel\n\n\n\nMédiane : =MEDIANE(Plage)\nQuartiles : =QUARTILE.EXC(Plage; 1) (Q1) et 3 (Q3).\nDéciles : =CENTILE(Plage; 0,1) (D1) et 0,9 (D9).\n\n\n\n\nRésultats R :\n\n# La fonction quantile fait tout d'un coup\nquantile(df$`Esp Vie Naiss 2017`, \n         probs = c(0.1, 0.25, 0.5, 0.75, 0.9), \n         na.rm = TRUE)\n\n  10%   25%   50%   75%   90% \n59.02 66.20 76.10 81.40 82.67 \n\n\n:::"
+    "text": "Médiane et quantiles (Q3)\nOn découpe la distribution pour voir les inégalités.\n\n\n\n\n\n\n🟢 Sur Excel\n\n\n\nMédiane : =MEDIANE(Plage)\nQuartiles : =QUARTILE.EXC(Plage; 1) (Q1) et 3 (Q3).\nDéciles : =CENTILE(Plage; 0,1) (D1) et 0,9 (D9).\n\n\n\n\nRésultats R :\n\n# La fonction quantile fait tout d'un coup\nquantile(df$`Esp Vie Naiss 2017`, \n         probs = c(0.1, 0.25, 0.5, 0.75, 0.9), \n         na.rm = TRUE)\n\n  10%   25%   50%   75%   90% \n59.02 66.20 76.10 81.40 82.67"
   },
   {
     "objectID": "slides_seq1.html#la-boîte-à-moustache-q4",
