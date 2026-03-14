@@ -403,7 +403,7 @@
     "href": "slides_seq4.html#létude-sociologique",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "L’étude sociologique",
-    "text": "L’étude sociologique\nNous travaillons sur l’article de Gaële Henri-Panabière (2010) : « Élèves en difficultés de parents fortement diplômés ».\n📝 Travail à faire (Questions de contexte) :\nÀ l’aide du document TexteTD4.pdf, répondez aux questions suivantes :\n\nQuel est le champ de l’étude ?\nQuelle est l’unité statistique ?\nQuelle est l’année de la collecte ?\nQui a collecté les données ?\nQuelle est la taille de l’échantillon ?\n\n\n\n🔓 Cliquez ici pour voir les réponses\n\n\nChamp : Élèves de 6ème/5ème de 4 collèges lyonnais (familles fortement diplômées).\nUnité : Le collégien (unité statistique de base).\nAnnée : 1999 (enquête de terrain).\nCollecteur : G. Henri-Panabière (recherche doctorale).\nTaille : 677 questionnaires exploitables."
+    "text": "L’étude sociologique\nNous travaillons sur l’article de Gaële Henri-Panabière (2010) : « Élèves en difficultés de parents fortement diplômés ».\n📝 Travail à faire (Questions de contexte) :\nÀ l’aide du document TexteTD4.pdf, répondez aux questions suivantes :\n\nQuel est le champ de l’étude ?\nQuelle est l’unité statistique ?\nQuelle est l’année de la collecte ?\nQui a collecté les données ?\nQuelle est la taille de l’échantillon ?\n\n\n\nCliquez ici pour voir les réponses\n\n\nChamp : Élèves de 6ème/5ème de 4 collèges lyonnais (familles fortement diplômées).\nUnité : Le collégien (unité statistique de base).\nAnnée : 1999 (enquête de terrain).\nCollecteur : G. Henri-Panabière (recherche doctorale).\nTaille : 677 questionnaires exploitables."
   },
   {
     "objectID": "slides_seq4.html#la-question-de-recherche",
@@ -417,7 +417,7 @@
     "href": "slides_seq4.html#le-dictionnaire-des-variables",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "Le dictionnaire des variables",
-    "text": "Le dictionnaire des variables\nOuvrez le fichier TD4- ghp_mesheritiers_dico.rtf.\n🔍 Focus sur la Question 1 :\n\nLibellé : « Comment se sent votre enfant au collège avec ses camarades ».\nModalités : 1. À l’aise / 2. Mal à l’aise / 3. Ça dépend / 4. Autre / 9. NR.\nType de variable : Qualitative nominale.\n\n📁 Les données brutes :\nOuvrez DonneesTD4.xlsx. * Structure : 1 ligne = 1 individu | 1 colonne = 1 variable. * Méthode : Les données sont codées. Pour les analyser, il faut toujours croiser le fichier Excel avec le dictionnaire RTF."
+    "text": "Le dictionnaire des variables\nOuvrez le fichier TD4- ghp_mesheritiers_dico.rtf.\n🔍 Focus sur la Question 1 :\n\nLibellé : « Comment se sent votre enfant au collège avec ses camarades ».\nModalités : 1. À l’aise / 2. Mal à l’aise / 3. Ça dépend / 4. Autre / 9. NR.\nType de variable : Qualitative nominale.\n\n📁 Les données brutes :\nOuvrez DonneesTD4.xlsx.\n* Structure : 1 ligne = 1 individu | 1 colonne = 1 variable.\n* Méthode : Les données sont codées. Pour les analyser, il faut toujours croiser le fichier Excel avec le dictionnaire RTF."
   },
   {
     "objectID": "slides_seq4.html#créer-le-tcd-sur-excel",
@@ -438,14 +438,14 @@
     "href": "slides_seq4.html#calcul-des-pourcentages-en-ligne",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "3. Calcul des pourcentages en ligne",
-    "text": "3. Calcul des pourcentages en ligne\nIl est nécessaire de ramener chaque groupe à 100 pour comparer les profils.\n\n🟢 Excel (Formule)🔵 R (Script)\n\n\nSi la case “Aînés en réussite” est en B10 et le total ligne en E10 : * Formule : =B10/$E10 * Note : Le symbole $ bloque la colonne E pour permettre d’étirer la formule.\n\n\n\n# Utilisation du package questionr\nlprop(tab)\n\n         \n          Réussite Moyens Difficultés Total\n  Aînés    22.6     33.0   44.3       100.0\n  Cadets   29.0     29.0   42.1       100.0\n  Uniques  16.7     42.4   40.9       100.0\n  All      24.6     32.5   42.9       100.0"
+    "text": "3. Calcul des pourcentages en ligne\nIl est nécessaire de passer en pourcentages pour comparer les profils.\n\n🟢 Excel (Formule)🔵 R (Script)\n\n\n\nNote : Le symbole $ bloque la colonne E pour permettre d’étirer la formule.\n\n\n\n\n# Utilisation du package questionr\nlprop(tab)\n\n         \n          Réussite Moyens Difficultés Total\n  Aînés    22.6     33.0   44.3       100.0\n  Cadets   29.0     29.0   42.1       100.0\n  Uniques  16.7     42.4   40.9       100.0\n  All      24.6     32.5   42.9       100.0"
   },
   {
     "objectID": "slides_seq4.html#test-du-khi-deux",
     "href": "slides_seq4.html#test-du-khi-deux",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "4. Test du Khi-deux",
-    "text": "4. Test du Khi-deux\nLe lien observé entre le rang et les difficultés est-il dû au hasard ?\n\n🟢 Excel (Méthode manuelle)🔵 R (Script)💡 Interprétation\n\n\n\nTableau Théorique : Calculez pour chaque case : (Total Ligne * Total Col) / Total Général.\nTest : =TEST.CHISQ(Plage_Réelle ; Plage_Théorique).\n\n\n\n\nchisq.test(tab)\n\n\n    Pearson's Chi-squared test\n\ndata:  tab\nX-squared = 6.7894, df = 4, p-value = 0.1474\n\n# Mesure de l'intensité (V de Cramer)\ncramer.v(tab)\n\n[1] 0.08248055\n\n\n\n\nAvec une p-value = 0.147, le résultat est supérieur au seuil de 0.05. Conclusion : On ne peut pas rejeter l’hypothèse d’indépendance. Le rang de naissance n’influence pas significativement les résultats ici."
+    "text": "4. Test du Khi-deux\nLe lien observé entre le rang et les difficultés est-il dû au hasard ?\n\n🟢 Excel (Méthode manuelle)🔵 R (Script)💡 Interprétation\n\n\n\nTableau Théorique : Calculez pour chaque case : (Total Ligne * Total Col) / Total Général.\nTest : =TEST.CHISQ(Plage_Réelle ; Plage_Théorique).\n\n\n\n\nchisq.test(tab)\n\n\n    Pearson's Chi-squared test\n\ndata:  tab\nX-squared = 6.7894, df = 4, p-value = 0.1474\n\n# Mesure de l'intensité (V de Cramer)\ncramer.v(tab)\n\n[1] 0.08248055\n\n\n\n\nAvec une p-value = 0.147, le résultat est supérieur au seuil de 0.05.\nConclusion : Il n’y a aucun lien statistique significatif. Dans notre échantillon, le rang de naissance n’a pas d’influence prouvée sur les résultats. Les légers écarts que l’on peut observer dans le tableau sont très probablement dus au simple hasard."
   },
   {
     "objectID": "slides_seq4.html#calculer-les-résidus-sur-excel",
@@ -473,7 +473,7 @@
     "href": "slides_seq4.html#synthèse-séquence-4",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "Synthèse Séquence 4",
-    "text": "Synthèse Séquence 4\n\nLe TCD est l’outil pivot pour croiser deux variables qualitatives.\nLa p-value est le juge de paix : si elle est &gt; 0.05, les variables sont considérées comme indépendantes.\nLes pourcentages en ligne permettent de comparer des comportements de groupes.\nLe script R permet d’automatiser et de fiabiliser ces étapes."
+    "text": "Synthèse Séquence 4\n\nLe TCD est l’outil pivot pour croiser deux variables qualitatives.\n\nLa p-value est le juge de paix : si elle est &gt; 0.05, les variables sont considérées comme indépendantes, il n’y a pas de lien statistique significatif.\n\nLes pourcentages en ligne permettent de comparer des comportements de groupes.\n\nLe script R permet d’automatiser et de fiabiliser ces étapes."
   },
   {
     "objectID": "slides_seq4.html#ressources",

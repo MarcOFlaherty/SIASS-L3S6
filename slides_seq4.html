@@ -211,6 +211,19 @@ Marc O’Flaherty
 
 </section>
 <section>
+<section id="lénoncé-votre-mission" class="title-slide slide level1 center">
+<h1>L’énoncé : Votre mission</h1>
+<p><em>Comprendre le paradoxe de l’échec scolaire</em></p>
+<p><strong>L’objectif :</strong> Explorer pourquoi certains enfants de familles très diplômées rencontrent des difficultés scolaires. Est-ce une question de “rang de naissance” ?</p>
+</section>
+<h3 id="le-parcours-de-lenquête">Le parcours de l’enquête :</h3>
+<ol type="1">
+<li><strong>Exploration (A &amp; B) :</strong> Comprendre qui a été interrogé et comment les données sont codées.</li>
+<li><strong>Croisement (C) :</strong> Construire un Tableau Croisé (TCD) pour comparer Aînés et Cadets.</li>
+<li><strong>Vérification (C) :</strong> Utiliser le test du <strong>Khi-deux</strong> pour savoir si nos résultats sont dus au hasard.</li>
+<li><strong>Visualisation (D) :</strong> Analyser les <strong>Résidus</strong> pour voir où la réalité s’écarte du modèle.</li>
+</ol></section>
+<section>
 <section id="a-mission-le-contexte" class="title-slide slide level1 center">
 <h1>[A] Mission : Le Contexte</h1>
 <p><em>Analyse des difficultés scolaires (G. Henri-Panabière)</em></p>
@@ -229,7 +242,7 @@ Marc O’Flaherty
 </ol>
 <details>
 <summary>
-🔓 <strong>Cliquez ici pour voir les réponses</strong>
+<strong>Cliquez ici pour voir les réponses</strong>
 </summary>
 <ol type="1">
 <li><strong>Champ :</strong> Élèves de 6ème/5ème de 4 collèges lyonnais (familles fortement diplômées).</li>
@@ -260,7 +273,9 @@ Marc O’Flaherty
 <li><strong>Type de variable :</strong> Qualitative nominale.</li>
 </ul>
 <h3 id="les-données-brutes">📁 Les données brutes :</h3>
-<p>Ouvrez <code>DonneesTD4.xlsx</code>. * <strong>Structure :</strong> 1 ligne = 1 individu | 1 colonne = 1 variable. * <strong>Méthode :</strong> Les données sont codées. Pour les analyser, il faut toujours croiser le fichier Excel avec le dictionnaire RTF.</p>
+<p>Ouvrez <code>DonneesTD4.xlsx</code>.<br>
+* <strong>Structure :</strong> 1 ligne = 1 individu | 1 colonne = 1 variable.<br>
+* <strong>Méthode :</strong> Les données sont codées. Pour les analyser, il faut toujours croiser le fichier Excel avec le dictionnaire RTF.</p>
 </section></section>
 <section>
 <section id="c-analyse-croisée" class="title-slide slide level1 center">
@@ -318,12 +333,14 @@ Marc O’Flaherty
 </section>
 <section id="calcul-des-pourcentages-en-ligne" class="slide level2">
 <h2>3. Calcul des pourcentages en ligne</h2>
-<p>Il est nécessaire de ramener chaque groupe à 100 pour comparer les profils.</p>
+<p>Il est nécessaire de passer en pourcentages pour comparer les profils.</p>
 <div class="panel-tabset">
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">🟢 Excel (Formule)</a></li><li><a href="#tabset-1-2">🔵 R (Script)</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<p>Si la case “Aînés en réussite” est en <strong>B10</strong> et le total ligne en <strong>E10</strong> : * <strong>Formule :</strong> <code>=B10/$E10</code> * <em>Note : Le symbole $ bloque la colonne E pour permettre d’étirer la formule.</em></p>
+<ul>
+<li><em>Note : Le symbole $ bloque la colonne E pour permettre d’étirer la formule.</em></li>
+</ul>
 </div>
 <div id="tabset-1-2">
 <div class="cell">
@@ -372,7 +389,8 @@ X-squared = 6.7894, df = 4, p-value = 0.1474</code></pre>
 </div>
 </div>
 <div id="tabset-2-3">
-<p>Avec une <strong>p-value = 0.147</strong>, le résultat est supérieur au seuil de 0.05. <strong>Conclusion :</strong> On ne peut pas rejeter l’hypothèse d’indépendance. Le rang de naissance n’influence pas significativement les résultats ici.</p>
+<p>Avec une <strong>p-value = 0.147</strong>, le résultat est supérieur au seuil de 0.05.<br>
+<strong>Conclusion :</strong> Il n’y a <strong>aucun lien statistique significatif</strong>. Dans notre échantillon, le rang de naissance n’a pas d’influence prouvée sur les résultats. Les légers écarts que l’on peut observer dans le tableau sont très probablement dus au simple hasard.</p>
 </div>
 </div>
 </div>
@@ -442,9 +460,12 @@ X-squared = 6.7894, df = 4, p-value = 0.1474</code></pre>
 <section id="synthèse-séquence-4" class="slide level2">
 <h2>Synthèse Séquence 4</h2>
 <ol type="1">
-<li><strong>Le TCD</strong> est l’outil pivot pour croiser deux variables qualitatives.</li>
-<li><strong>La p-value</strong> est le juge de paix : si elle est &gt; 0.05, les variables sont considérées comme indépendantes.</li>
-<li><strong>Les pourcentages en ligne</strong> permettent de comparer des comportements de groupes.</li>
+<li><strong>Le TCD</strong> est l’outil pivot pour croiser deux variables qualitatives.<br>
+</li>
+<li><strong>La p-value</strong> est le juge de paix : si elle est &gt; 0.05, les variables sont considérées comme indépendantes, il n’y a pas de lien statistique significatif.<br>
+</li>
+<li><strong>Les pourcentages en ligne</strong> permettent de comparer des comportements de groupes.<br>
+</li>
 <li><strong>Le script R</strong> permet d’automatiser et de fiabiliser ces étapes.</li>
 </ol>
 </section>
@@ -452,7 +473,7 @@ X-squared = 6.7894, df = 4, p-value = 0.1474</code></pre>
 <h2>🔗 Ressources</h2>
 <ul>
 <li><a href="http://journals.openedition.org/sociologie/652">Article Henri-Panabière (Cairn)</a></li>
-<li><a href="data/DonneesTD4.xlsx">Corrigé Excel TD4</a></li>
+<li><a href="https://y.yarn.co/6e13b700-cce4-47e6-a5db-5999fd581141_text.gif">Corrigé Excel TD4</a></li>
 </ul>
 
 
