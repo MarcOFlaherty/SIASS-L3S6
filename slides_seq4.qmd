@@ -13,7 +13,7 @@ format:
 ---
 
 # [A] Mission : Le Contexte
-*Pourquoi certains enfants de "bonnes familles" échouent-ils ?*
+*Analyse des difficultés scolaires (G. Henri-Panabière)*
 
 ## L'étude sociologique {.scrollable}
 
@@ -28,27 +28,22 @@ Nous travaillons sur l'article de **Gaële Henri-Panabière** (2010) : *« Élè
 4.  **Qui a collecté les données ?**
 5.  **Quelle est la taille de l’échantillon ?**
 
-::: {.callout-tip collapse="true"}
-## 🔓 Cliquez ici pour voir les réponses
+<details>
+<summary>🔓 **Cliquez ici pour voir les réponses**</summary>
 1.  **Champ :** Élèves de 6ème/5ème de 4 collèges lyonnais (familles fortement diplômées).
 2.  **Unité :** Le collégien (unité statistique de base).
 3.  **Année :** 1999 (enquête de terrain).
-4.  **Collecteur :** G. Henri-Panabière (pour sa recherche doctorale).
+4.  **Collecteur :** G. Henri-Panabière (recherche doctorale).
 5.  **Taille :** 677 questionnaires exploitables.
-:::
+</details>
 
 ---
 
 ## La question de recherche
 
-On cherche à identifier des facteurs de fragilité inhabituelle.
+L'objectif est d'identifier des facteurs de fragilité inhabituelle au sein de familles dotées d'un fort capital culturel.
 
-**Hypothèse :** Le **rang de naissance** influence-t-il les résultats ? 
-
-::: {.callout-important}
-### Pourquoi pas de "droite de régression" ?
-La régression linéaire demande des chiffres (ex: Revenu vs Âge). Ici, nos variables sont des **catégories** (Aîné/Cadet). On ne peut pas tracer de droite, on utilise donc le **Khi-deux** pour voir si les groupes se comportent différemment.
-:::
+**Hypothèse de travail :** Le **rang de naissance** (Aîné / Cadet / Unique) influence-t-il la probabilité de rencontrer des difficultés scolaires ?
 
 # [B] Prise en main
 *Exploration du dictionnaire et des données*
@@ -58,91 +53,138 @@ La régression linéaire demande des chiffres (ex: Revenu vs Âge). Ici, nos var
 Ouvrez le fichier `TD4- ghp_mesheritiers_dico.rtf`.
 
 ### 🔍 Focus sur la Question 1 :
-*   **Variable :** « Comment se sent votre enfant au collège avec ses camarades ».
-*   **Modalités :** 1. À l'aise / 2. Mal à l'aise / 3. Ça dépend / 4. Autre.
-*   **Type :** Qualitative nominale.
+*   **Libellé :** « Comment se sent votre enfant au collège avec ses camarades ».
+*   **Modalités :** 1. À l'aise / 2. Mal à l'aise / 3. Ça dépend / 4. Autre / 9. NR.
+*   **Type de variable :** Qualitative nominale.
+
+### 📁 Les données brutes :
+Ouvrez `DonneesTD4.xlsx`.
+*   **Structure :** 1 ligne = 1 individu | 1 colonne = 1 variable.
+*   **Méthode :** Les données sont codées. Pour les analyser, il faut toujours croiser le fichier Excel avec le dictionnaire RTF.
 
 # [C] Analyse Croisée
 *Tableau Croisé Dynamique (TCD)*
 
 ## 1. Créer le TCD sur Excel
 
-1. **Lignes :** `V0153` (Rang) | **Colonnes :** `V0008` (Difficultés).
-2. **Valeurs :** `V0008` (Nombre).
+Croisons le **Rang de naissance** (`V0153`) et les **Difficultés** (`V0008`).
 
-::: {.callout-tip}
-### ⚡ Astuce : Le mode % direct
-Pas besoin de faire des formules ! 
-*   Faites un clic droit dans le tableau > *Afficher les valeurs* > **% du total de la ligne**.
-*   Excel transforme tout instantanément.
+1. **Lignes :** `V0153`.
+2. **Colonnes :** `V0008`.
+3. **Valeurs :** `V0008` (choisir le paramètre "Nombre").
+
+::: {.callout-note}
+### Astuce TCD
+Pour obtenir les pourcentages directement : *Clic droit dans le tableau > Afficher les valeurs > % du total de la ligne*.
 :::
 
-## 2. Test du Khi-deux {.scrollable}
+## 2. Le script de base sous R {.scrollable}
 
-On cherche à savoir si le lien est statistiquement "significatif".
-
-::: {.panel-tabset}
-### 📊 Vos résultats
-```{r}
-#| label: result-chi2
-#| echo: false
-cat("X-squared = 6.7894, df = 4, p-value = 0.1474\nV de Cramer = 0.082")
-```
-
-### 💡 Interprétation
-*   **p-value (0.147) > 0.05 :** Le test échoue. On ne peut pas rejeter l'hypothèse de hasard.
-*   **Conclusion :** Le rang de naissance **n'a pas d'influence significative** sur les difficultés scolaires dans cet échantillon.
-*   **V de Cramer (0.08) :** Le lien est extrêmement faible (proche de 0).
-:::
-
-# [D] Écarts à l'indépendance
-*Visualiser le "Signal"*
-
-## Les Résidus (L'écart au modèle) {.scrollable}
-
-En régression, le résidu est l'écart à la droite. En TCD, c'est l'écart à la **moyenne générale**.
-
-### 🟢 Méthode Excel (Visuelle)
-1. Créez un graphique en barres de vos **% en ligne**.
-2. Ajoutez une série qui correspond au **Profil Moyen** (le total général).
-3. **Analyse :** Si les barres des "Aînés" sont identiques aux barres "Moyennes", il n'y a pas d'écart (Indépendance).
-
-## Visualisation R (Résidus)
-
-Même si le test n'est pas significatif, on regarde où sont les plus gros écarts (les barres les plus hautes).
+Voici le code pour importer les données et créer le tableau d'effectifs.
 
 ```{r}
-#| label: setup-data
-#| echo: false
+#| label: setup-r
+#| echo: true
 #| message: false
 library(tidyverse)
 library(readxl)
 library(questionr)
+
+# Importation
 df <- read_excel("data/DonneesTD4.xlsx")
+
+# Tableau d'effectifs (V0153 x V0008)
 tab <- table(df$V0153, df$V0008)
+
+# Labellisation pour la clarté
 rownames(tab) <- c("Aînés", "Cadets", "Uniques")
 colnames(tab) <- c("Réussite", "Moyens", "Difficultés")
+print(tab)
 ```
+
+## 3. Calcul des pourcentages en ligne
+
+Il est nécessaire de ramener chaque groupe à 100 pour comparer les profils.
+
+::: {.panel-tabset}
+### 🟢 Excel (Formule)
+Si la case "Aînés en réussite" est en **B10** et le total ligne en **E10** :
+*   **Formule :** `=B10/$E10`
+*   *Note : Le symbole $ bloque la colonne E pour permettre d'étirer la formule.*
+
+### 🔵 R (Script)
+```{r}
+#| label: lprop-r
+#| echo: true
+# Utilisation du package questionr
+lprop(tab)
+```
+:::
+
+## 4. Test du Khi-deux {.scrollable}
+
+Le lien observé entre le rang et les difficultés est-il dû au hasard ?
+
+::: {.panel-tabset}
+### 🟢 Excel (Méthode manuelle)
+1.  **Tableau Théorique :** Calculez pour chaque case : `(Total Ligne * Total Col) / Total Général`.
+2.  **Test :** `=TEST.CHISQ(Plage_Réelle ; Plage_Théorique)`.
+
+### 🔵 R (Script)
+```{r}
+#| label: chi2-r
+#| echo: true
+chisq.test(tab)
+
+# Mesure de l'intensité (V de Cramer)
+cramer.v(tab)
+```
+
+### 💡 Interprétation
+Avec une **p-value = 0.147**, le résultat est supérieur au seuil de 0.05. 
+**Conclusion :** On ne peut pas rejeter l'hypothèse d'indépendance. Le rang de naissance n'influence pas significativement les résultats ici.
+:::
+
+# [D] Analyse des écarts
+*Visualiser la structure des données*
+
+## Les Résidus (Écarts au modèle) {.scrollable}
+
+Même si le test n'est pas significatif, on peut observer quelles cases s'écartent le plus de la situation "théorique" (le hasard).
 
 ```{r}
 #| label: residus-plot
 #| echo: true
+# Extraction des résidus standardisés
 res <- as.data.frame(chisq.test(tab)$residuals)
 
 ggplot(res, aes(x = Var1, y = Freq, fill = Freq > 0)) +
   geom_bar(stat = "identity") +
   facet_wrap(~Var2) +
-  scale_fill_manual(values = c("firebrick", "dodgerblue4"), labels = c("Sous-représenté", "Sur-représenté")) +
-  theme_minimal() + labs(title = "Écarts à l'indépendance (Résidus)", x = "Rang", y = "Intensité de l'écart", fill = "Sens")
+  scale_fill_manual(values = c("firebrick", "dodgerblue4"), 
+                    labels = c("Sous-représenté", "Sur-représenté")) +
+  theme_minimal() +
+  labs(title = "Écarts à l'indépendance (Résidus)",
+       x = "Rang de naissance", y = "Intensité de l'écart", fill = "Sens")
 ```
+
+## Pourquoi pas une régression ?
+
+::: {.callout-note}
+### Théorie
+La **régression linéaire** (droite) nécessite des variables quantitatives (ex: Revenu en €). 
+Pour des variables **qualitatives** (catégories comme le Rang), on utilise le **Khi-deux**. 
+Les **résidus** que nous venons de tracer sont l'équivalent des résidus de régression : ils mesurent l'écart entre la réalité et la prédiction (ici, la prédiction d'indépendance).
+:::
 
 # Conclusion
 
-## Ce qu'il faut retenir
+## Synthèse Séquence 4
 
-1.  **Indépendance :** Si la p-value > 0.05, les variables n'ont pas de lien prouvé.
-2.  **Profils :** On compare les % de chaque groupe au % global pour voir qui s'écarte de la norme.
-3.  **Régression qualitative :** Le Khi-deux remplace la droite de régression quand on travaille sur des catégories et non des mesures.
+1.  **Le TCD** est l'outil pivot pour croiser deux variables qualitatives.
+2.  **La p-value** est le juge de paix : si elle est > 0.05, les variables sont considérées comme indépendantes.
+3.  **Les pourcentages en ligne** permettent de comparer des comportements de groupes.
+4.  **Le script R** permet d'automatiser et de fiabiliser ces étapes.
 
 ---
 
