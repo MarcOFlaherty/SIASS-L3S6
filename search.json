@@ -387,50 +387,71 @@
   {
     "objectID": "slides_seq4.html#létude-sociologique",
     "href": "slides_seq4.html#létude-sociologique",
-    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "L’étude sociologique",
-    "text": "L’étude sociologique\nNous analysons les données issues de l’article de Gaële Henri-Panabière (2010), paru dans la revue Sociologie.\n\nL’objectif : Comprendre les facteurs qui favorisent ou empêchent les difficultés scolaires, en particulier au sein des familles fortement diplômées.\nLe croisement de variables : La sociologie quantitative s’appuie beaucoup sur les tableaux croisés pour mesurer si deux variables qualitatives sont indépendantes ou si l’une influence l’autre.\nNos variables clés aujourd’hui :\n\nRang de naissance\nDifficultés scolaires (passées ou présentes)\n\n\n\n\n\n\n\n\nRappel de cours\n\n\nUn tableau croisé confronte deux variables catégorielles. On calcule souvent des pourcentages en ligne ou en colonne pour neutraliser les différences d’effectifs entre les groupes."
+    "text": "L’étude sociologique\nNous travaillons sur l’article de Gaële Henri-Panabière (2010) : « Élèves en difficultés de parents fortement diplômés ».\n📝 Travail à faire (Questions de contexte) :\nÀ l’aide du document TexteTD4.pdf, répondez aux questions suivantes :\n\nQuel est le champ de l’étude ?\nQuelle est l’unité statistique ?\nQuelle est l’année de la collecte ?\nQui a collecté les données ?\nQuelle est la taille de l’échantillon ?\n\n\n\n\n\n\n\n🔓 Voir les réponses (Spoiler)\n\n\n\nChamp : Élèves de 6ème/5ème de 4 collèges lyonnais (familles diplômées).\nUnité : Le collégien.\nAnnée : 1999.\nCollecteur : G. Henri-Panabière (recherche doctorale).\nTaille : 677 questionnaires."
   },
   {
-    "objectID": "slides_seq4.html#préparation-des-données",
-    "href": "slides_seq4.html#préparation-des-données",
-    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
-    "section": "Préparation des données",
-    "text": "Préparation des données\n\n🟢 Excel🔵 R (Importation)\n\n\n\nOuvrez DonneesTD4.xlsx (attention, fichier volumineux).\nFamiliarisez-vous avec les colonnes grâce au dictionnaire des codes.\n\n\n\n\n\n# On installe/charge le package questionr qui facilite l'analyse d'enquêtes\n# install.packages(\"questionr\") \nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(questionr)\n\n# --- IMPORTATION ---\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Petit nettoyage pour simplifier (Exemple factice, à adapter selon V0007 / V0065)\n# df_clean &lt;- df %&gt;%\n#   select(Rang_Naissance = V000X, Diff_Scolaire = V000Y) %&gt;%\n#   drop_na()"
+    "objectID": "slides_seq4.html#les-enjeux-du-croisement",
+    "href": "slides_seq4.html#les-enjeux-du-croisement",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Les enjeux du croisement",
+    "text": "Les enjeux du croisement\nDans les familles à fort capital culturel, la réussite est la norme. L’échec y est donc un paradoxe sociologique.\nLa question du jour : Le rang de naissance (être l’aîné, le cadet ou l’unique) influence-t-il les chances de rencontrer des difficultés scolaires ?"
   },
   {
-    "objectID": "slides_seq4.html#créer-un-tableau-croisé",
-    "href": "slides_seq4.html#créer-un-tableau-croisé",
-    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
-    "section": "Créer un tableau croisé",
-    "text": "Créer un tableau croisé\nCroisons le Rang de naissance et les Difficultés scolaires.\n\n🟢 Excel (TCD)🔵 Code R (Base)🔵 Code R (dplyr)\n\n\n\nInsertion &gt; Tableau croisé dynamique.\nGlissez le Rang de naissance en Lignes.\nGlissez les Difficultés scolaires en Colonnes.\nGlissez à nouveau les Difficultés scolaires dans Valeurs (en choisissant “Nombre” ou “Compte”, pas “Somme”).\nPour avoir les %, cliquez sur les paramètres du champ de valeur &gt; Afficher les valeurs en &gt; % du total de la ligne.\n\n\n\n\n# Fonction de base R pour les effectifs\ntab_brut &lt;- table(df$V0007, df$V0065)\nprint(tab_brut)\n\n# Pourcentages en LIGNE (avec le package questionr)\nlprop(tab_brut)\n\n# Pourcentages en COLONNE\ncprop(tab_brut)\n\n\n\n\n# Version tidyverse (plus lisible pour des rapports)\ndf %&gt;%\n  count(V0007, V0065) %&gt;%\n  pivot_wider(names_from = V0065, values_from = n)"
+    "objectID": "slides_seq4.html#le-dictionnaire-des-variables",
+    "href": "slides_seq4.html#le-dictionnaire-des-variables",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Le dictionnaire des variables",
+    "text": "Le dictionnaire des variables\nOuvrez le fichier TD4- ghp_mesheritiers_dico.rtf.\n🔍 Focus sur la Question 1 :\n\nVariable étudiée : Aisance relationnelle au collège (« Comment se sent votre enfant au collège avec ses camarades »).\nModalités : 1. À l’aise / 2. Mal à l’aise / 3. Ça dépend / 4. Autre.\nType de variable : Qualitative nominale.\n\n📁 Les données brutes :\nOuvrez DonneesTD4.xlsx. * Colonnes : Variables (V0001, V0002…). * Lignes : Individus (chaque élève). * Formule Excel utile : Pour voir les titres, figez la première ligne (Affichage &gt; Figer les volets)."
   },
   {
-    "objectID": "slides_seq4.html#interpréter-les-pourcentages",
-    "href": "slides_seq4.html#interpréter-les-pourcentages",
-    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
-    "section": "Interpréter les pourcentages",
-    "text": "Interpréter les pourcentages\n\n\n\n⚠️ Ligne ou Colonne ? La règle d’or !\n\n\nLe choix du sens des pourcentages détermine ce que vous démontrez : * Les % en ligne décrivent le comportement d’une sous-population (Ex: Parmi les aînés, X% ont des difficultés.) \\(\\rightarrow\\) Permet de comparer les groupes entre eux. * Les % en colonne décrivent la composition d’un phénomène (Ex: Parmi les élèves en difficulté, X% sont des aînés.) \\(\\rightarrow\\) Permet de voir de qui est composé le groupe “en difficulté”.\n\n\n\nDans notre cas : On veut savoir si le fait d’être aîné ou cadet influence la difficulté scolaire. Le rang de naissance est la variable indépendante (la cause présumée), on la met en ligne, et on calcule des pourcentages en ligne."
+    "objectID": "slides_seq4.html#vérification-des-variables",
+    "href": "slides_seq4.html#vérification-des-variables",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "1. Vérification des variables",
+    "text": "1. Vérification des variables\nL’énoncé signale deux variables de difficultés scolaires. Vérifions si elles sont identiques.\n\n🟢 Excel🔵 R\n\n\n\nCréez un TCD.\nMettez V0006 en ligne et V0008 en colonne.\nObservation : Les effectifs sont uniquement sur la diagonale. Les variables sont redondantes.\n\n\n\n\nlibrary(tidyverse)\nlibrary(readxl)\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Comparaison rapide\ntable(df$V0006, df$V0008)\n\n                       \n                        élèves en difficultés élèves en réussite élèves moyens\n  élèves en difficultés                   177                  0             0\n  élèves en réussite                        0                205             0\n  élèves moyens                             0                  0           295"
   },
   {
-    "objectID": "slides_seq4.html#le-test-du-khi-deux",
-    "href": "slides_seq4.html#le-test-du-khi-deux",
-    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
-    "section": "Le test du Khi-deux",
-    "text": "Le test du Khi-deux\nLe Khi-deux (\\(\\chi^2\\)) compare le tableau observé (la réalité) avec un tableau théorique (ce qu’on obtiendrait si le rang de naissance n’avait strictement aucune influence sur les résultats scolaires).\n\n🟢 Excel🔵 Code R\n\n\nExcel ne fait pas ce test automatiquement. Il faut : 1. Calculer les effectifs théoriques pour chaque case : (Total Ligne * Total Colonne) / Total Général. 2. Utiliser la fonction =TEST.KHIDEUX(Plage_observée; Plage_théorique) pour obtenir la p-value.\n\n\n\ntab_brut &lt;- table(df$V0007, df$V0065)\n\n# 1. Le test complet\nresultat_test &lt;- chisq.test(tab_brut)\nprint(resultat_test)\n\n# 2. Afficher les effectifs théoriques\n# resultat_test$expected\n\n# 3. Calculer la force du lien (V de Cramer) avec questionr\ncramer.v(tab_brut)"
+    "objectID": "slides_seq4.html#le-tri-croisé-effectifs",
+    "href": "slides_seq4.html#le-tri-croisé-effectifs",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "2. Le Tri Croisé (Effectifs)",
+    "text": "2. Le Tri Croisé (Effectifs)\nCroisons les Difficultés (V0008) et le Rang de naissance (V0153).\n\n🟢 Excel🔵 R\n\n\n\nLignes : V0153 (Rang) | Colonnes : V0008 (Difficultés).\nAction : Copiez les données (ex: plage A3:D6) et collez-les plus bas en “Valeurs”.\nFormule : Pour calculer le total ligne si besoin : =SOMME(B4:D4).\n\n\n\n\nlibrary(questionr)\n\n# Nettoyage pour les labels\ntab &lt;- table(df$V0153, df$V0008)\nrownames(tab) &lt;- c(\"Aînés\", \"Cadets\", \"Uniques\")\ncolnames(tab) &lt;- c(\"Réussite\", \"Moyens\", \"Difficultés\")\ntab\n\n         \n          Réussite Moyens Difficultés\n  Aînés         48     70          94\n  Cadets        64     64          93\n  Uniques       11     28          27"
   },
   {
-    "objectID": "slides_seq4.html#p-value-et-v-de-cramer",
-    "href": "slides_seq4.html#p-value-et-v-de-cramer",
-    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
-    "section": "P-value et V de Cramer",
-    "text": "P-value et V de Cramer\n\n\n\n💡 La P-value (Est-ce significatif ?)\n\n\nLa p-value (ou \\(p\\)) vous indique la probabilité que la différence observée soit due au simple hasard de l’échantillonnage. * Si \\(p &lt; 0.05\\) : Le lien est statistiquement significatif (moins de 5% de chances de se tromper). On rejette l’hypothèse d’indépendance. * Si \\(p &gt; 0.05\\) : On ne peut rien affirmer de solide, les variations relèvent peut-être du hasard.\n\n\n\n\n\n\n🎯 Le V de Cramer (Est-ce fort ?)\n\n\nAvoir une p-value très petite (\\(p &lt; 0.001\\)) prouve que le lien existe, mais ne dit pas s’il est fort. Le V de Cramer mesure l’intensité du lien entre 0 (nul) et 1 (parfait). * \\(&lt; 0.10\\) : Lien très faible. * Autour de \\(0.20\\) : Lien moyen/significatif en sciences sociales. * \\(&gt; 0.30\\) : Lien fort."
+    "objectID": "slides_seq4.html#pourcentages-en-ligne",
+    "href": "slides_seq4.html#pourcentages-en-ligne",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "3. Pourcentages en ligne",
+    "text": "3. Pourcentages en ligne\nPour comparer les profils, on ramène chaque ligne à 100%.\n\n🟢 Excel🔵 R\n\n\nDans votre tableau copié, si la case “Aînés en réussite” est en B10 et le total ligne en E10 : * Formule : =B10/$E10 (puis étirez vers la droite). * Note : Le $ bloque la colonne du total.\n\n\n\n# lprop = pourcentages en ligne\nlprop(tab)\n\n         \n          Réussite Moyens Difficultés Total\n  Aînés    22.6     33.0   44.3       100.0\n  Cadets   29.0     29.0   42.1       100.0\n  Uniques  16.7     42.4   40.9       100.0\n  All      24.6     32.5   42.9       100.0"
   },
   {
-    "objectID": "slides_seq4.html#les-écarts-à-lindépendance",
-    "href": "slides_seq4.html#les-écarts-à-lindépendance",
-    "title": "Séquence 4 : Tableaux Croisés & Indépendance",
-    "section": "Les écarts à l’indépendance",
-    "text": "Les écarts à l’indépendance\nLe mosaicplot est le graphique parfait pour visualiser un tableau croisé. L’aire de chaque rectangle est proportionnelle à l’effectif de la case.\n\n🔵 Code R\n\n\n\ntab_brut &lt;- table(df$V0007, df$V0065)\n\n# shade = TRUE ajoute des couleurs basées sur les résidus du test du Chi2\n# Bleu = Sur-représentation par rapport au hasard\n# Rouge = Sous-représentation par rapport au hasard\nmosaicplot(tab_brut, \n           las = 3, # Pivote le texte des axes\n           shade = TRUE, \n           main = \"Rang de naissance et Résultats scolaires\",\n           xlab = \"Rang de naissance\", \n           ylab = \"Résultats faibles\")\n\n\n\n\n\n\n\n\n\n\nCe qu’il faut regarder\n\n\nObservez les cases bleues et rouges. Elles vous indiquent exactement où l’indépendance est brisée. Par exemple, si la case (Aîné \\(\\times\\) Bon élève) est bleue, cela signifie que les aînés réussissent statistiquement mieux que si la répartition était liée au hasard."
+    "objectID": "slides_seq4.html#test-et-significativité",
+    "href": "slides_seq4.html#test-et-significativité",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "4. Test et Significativité",
+    "text": "4. Test et Significativité\n\n🟢 Excel🔵 R💡 Interprétation\n\n\n\nKhi-deux : Utilisez =TEST.CHISQ(Plage_Observée; Plage_Théorique).\nNote : Excel demande de calculer d’abord le tableau théorique (Total Ligne * Total Col / Total Général).\n\n\n\n\nchisq.test(tab)\n\n\n    Pearson's Chi-squared test\n\ndata:  tab\nX-squared = 6.7894, df = 4, p-value = 0.1474\n\ncramer.v(tab)\n\n[1] 0.08248055\n\n\n\n\n\np-value &lt; 0.05 : Lien significatif (pas dû au hasard).\nV de Cramer : Intensité du lien."
+  },
+  {
+    "objectID": "slides_seq4.html#le-graphique-des-écarts",
+    "href": "slides_seq4.html#le-graphique-des-écarts",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Le graphique des écarts",
+    "text": "Le graphique des écarts\nUn Mosaic Plot colore les cases selon les résidus standardisés : l’écart entre le réel et le théorique.\n\n🔵 R (Graphique)📊 Lecture des couleurs\n\n\n\n# On utilise la fonction association du package vcd pour de meilleures couleurs\nlibrary(vcd)\nassoc(tab, shade = TRUE, gp = shading_Friendly, \n      main = \"Écarts à l'indépendance (Rang vs Résultats)\")\n\n\n\n\n\n\n\n\n\n\n\nBleu : Sur-représentation (plus d’élèves que prévu).\nRouge : Sous-représentation (moins d’élèves que prévu).\nBlanc/Gris : Conforme à l’indépendance (hasard)."
+  },
+  {
+    "objectID": "slides_seq4.html#ce-quil-faut-retenir",
+    "href": "slides_seq4.html#ce-quil-faut-retenir",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Ce qu’il faut retenir",
+    "text": "Ce qu’il faut retenir\n\nLe TCD permet de passer des individus aux groupes.\nLes % en ligne sont les outils du sociologue pour comparer des trajectoires.\nLe \\(\\chi^2\\) sépare le signal du bruit (hasard).\nLe Mosaic Plot localise visuellement où se jouent les inégalités."
+  },
+  {
+    "objectID": "slides_seq4.html#ressources",
+    "href": "slides_seq4.html#ressources",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "🔗 Ressources",
+    "text": "🔗 Ressources\n\nArticle Henri-Panabière (Cairn)\nCorrigé Excel TD4"
   }
 ]

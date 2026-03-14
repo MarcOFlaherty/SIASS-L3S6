@@ -6,11 +6,14 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Marc O’Flaherty">
-  <title>SIASS - L3 Sciences Sociales – Séquence 4 : Tableaux Croisés &amp; Indépendance</title>
+  <title>SIASS - L3 Sciences Sociales – Séquence 4 : L’enquête sur les Héritiers</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -195,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Séquence 4 : Tableaux Croisés &amp; Indépendance</h1>
-  <p class="subtitle">Analyse des difficultés scolaires (G. Henri-Panabière)</p>
+  <h1 class="title">Séquence 4 : L’enquête sur les Héritiers</h1>
+  <p class="subtitle">Tableaux croisés sous Excel et RStudio</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -208,223 +211,254 @@ Marc O’Flaherty
 
 </section>
 <section>
-<section id="introduction-contexte" class="title-slide slide level1 center">
-<h1>Introduction &amp; Contexte</h1>
-<p><em>Élèves en difficultés de parents fortement diplômés</em></p>
+<section id="a-mission-le-contexte" class="title-slide slide level1 center">
+<h1>[A] Mission : Le Contexte</h1>
+<p><em>Pourquoi certains enfants de “bonnes familles” échouent-ils ?</em></p>
 </section>
 <section id="létude-sociologique" class="slide level2 scrollable">
 <h2>L’étude sociologique</h2>
-<p>Nous analysons les données issues de l’article de <strong>Gaële Henri-Panabière</strong> (2010), paru dans la revue <em>Sociologie</em>.</p>
-<ul>
-<li><strong>L’objectif :</strong> Comprendre les facteurs qui favorisent ou empêchent les difficultés scolaires, en particulier au sein des familles fortement diplômées.</li>
-<li><strong>Le croisement de variables :</strong> La sociologie quantitative s’appuie beaucoup sur les <strong>tableaux croisés</strong> pour mesurer si deux variables qualitatives sont indépendantes ou si l’une influence l’autre.</li>
-<li><strong>Nos variables clés aujourd’hui :</strong>
-<ul>
-<li>Rang de naissance</li>
-<li>Difficultés scolaires (passées ou présentes)</li>
-</ul></li>
-</ul>
-<div class="callout callout-note callout-titled callout-style-default">
+<p>Nous travaillons sur l’article de <strong>Gaële Henri-Panabière</strong> (2010) : <em>« Élèves en difficultés de parents fortement diplômés »</em>.</p>
+<h3 id="travail-à-faire-questions-de-contexte">📝 Travail à faire (Questions de contexte) :</h3>
+<p>À l’aide du document <code>TexteTD4.pdf</code>, répondez aux questions suivantes :</p>
+<ol type="1">
+<li><strong>Quel est le champ de l’étude ?</strong></li>
+<li><strong>Quelle est l’unité statistique ?</strong></li>
+<li><strong>Quelle est l’année de la collecte ?</strong></li>
+<li><strong>Qui a collecté les données ?</strong></li>
+<li><strong>Quelle est la taille de l’échantillon ?</strong></li>
+</ol>
+<div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Rappel de cours</strong></p>
+<p><strong>🔓 Voir les réponses (Spoiler)</strong></p>
 </div>
 <div class="callout-content">
-<p>Un tableau croisé confronte deux variables catégorielles. On calcule souvent des <strong>pourcentages en ligne</strong> ou <strong>en colonne</strong> pour neutraliser les différences d’effectifs entre les groupes.</p>
+<ol type="1">
+<li><strong>Champ :</strong> Élèves de 6ème/5ème de 4 collèges lyonnais (familles diplômées).</li>
+<li><strong>Unité :</strong> Le collégien.</li>
+<li><strong>Année :</strong> 1999.</li>
+<li><strong>Collecteur :</strong> G. Henri-Panabière (recherche doctorale).</li>
+<li><strong>Taille :</strong> 677 questionnaires.</li>
+</ol>
 </div>
 </div>
 </div>
 </section>
-<section id="préparation-des-données" class="slide level2">
-<h2>Préparation des données</h2>
+<section id="les-enjeux-du-croisement" class="slide level2">
+<h2>Les enjeux du croisement</h2>
+<p>Dans les familles à fort capital culturel, la réussite est la norme. L’échec y est donc un paradoxe sociologique.</p>
+<p><strong>La question du jour :</strong> Le <strong>rang de naissance</strong> (être l’aîné, le cadet ou l’unique) influence-t-il les chances de rencontrer des difficultés scolaires ?</p>
+</section></section>
+<section>
+<section id="b-prise-en-main" class="title-slide slide level1 center">
+<h1>[B] Prise en main</h1>
+<p><em>Exploration du dictionnaire et des données</em></p>
+</section>
+<section id="le-dictionnaire-des-variables" class="slide level2 scrollable">
+<h2>Le dictionnaire des variables</h2>
+<p>Ouvrez le fichier <code>TD4- ghp_mesheritiers_dico.rtf</code>.</p>
+<h3 id="focus-sur-la-question-1">🔍 Focus sur la Question 1 :</h3>
+<ul>
+<li><strong>Variable étudiée :</strong> Aisance relationnelle au collège (« Comment se sent votre enfant au collège avec ses camarades »).</li>
+<li><strong>Modalités :</strong> 1. À l’aise / 2. Mal à l’aise / 3. Ça dépend / 4. Autre.</li>
+<li><strong>Type de variable :</strong> Qualitative nominale.</li>
+</ul>
+<h3 id="les-données-brutes">📁 Les données brutes :</h3>
+<p>Ouvrez <code>DonneesTD4.xlsx</code>. * <strong>Colonnes :</strong> Variables (V0001, V0002…). * <strong>Lignes :</strong> Individus (chaque élève). * <strong>Formule Excel utile :</strong> Pour voir les titres, figez la première ligne (<em>Affichage &gt; Figer les volets</em>).</p>
+</section></section>
+<section>
+<section id="c-analyse-croisée" class="title-slide slide level1 center">
+<h1>[C] Analyse Croisée</h1>
+<p><em>Le rang de naissance pèse-t-il sur les résultats ?</em></p>
+</section>
+<section id="vérification-des-variables" class="slide level2">
+<h2>1. Vérification des variables</h2>
+<p>L’énoncé signale deux variables de difficultés scolaires. Vérifions si elles sont identiques.</p>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">🟢 Excel</a></li><li><a href="#tabset-1-2">🔵 R (Importation)</a></li></ul>
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">🟢 Excel</a></li><li><a href="#tabset-1-2">🔵 R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
 <ol type="1">
-<li>Ouvrez <code>DonneesTD4.xlsx</code> (attention, fichier volumineux).</li>
-<li>Familiarisez-vous avec les colonnes grâce au dictionnaire des codes.</li>
+<li>Créez un TCD.</li>
+<li>Mettez <code>V0006</code> en ligne et <code>V0008</code> en colonne.</li>
+<li><strong>Observation :</strong> Les effectifs sont uniquement sur la diagonale. Les variables sont redondantes.</li>
 </ol>
 </div>
 <div id="tabset-1-2">
-<div style="max-height: 400px; overflow-y: auto;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># On installe/charge le package questionr qui facilite l'analyse d'enquêtes</span></span>
-<span id="cb1-2"><a></a><span class="co"># install.packages("questionr") </span></span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(readxl)</span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(questionr)</span>
-<span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a><span class="co"># --- IMPORTATION ---</span></span>
-<span id="cb1-8"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/DonneesTD4.xlsx"</span>)</span>
-<span id="cb1-9"><a></a></span>
-<span id="cb1-10"><a></a><span class="co"># Petit nettoyage pour simplifier (Exemple factice, à adapter selon V0007 / V0065)</span></span>
-<span id="cb1-11"><a></a><span class="co"># df_clean &lt;- df %&gt;%</span></span>
-<span id="cb1-12"><a></a><span class="co">#   select(Rang_Naissance = V000X, Diff_Scolaire = V000Y) %&gt;%</span></span>
-<span id="cb1-13"><a></a><span class="co">#   drop_na()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-3"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/DonneesTD4.xlsx"</span>)</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a><span class="co"># Comparaison rapide</span></span>
+<span id="cb1-6"><a></a><span class="fu">table</span>(df<span class="sc">$</span>V0006, df<span class="sc">$</span>V0008)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       
+                        élèves en difficultés élèves en réussite élèves moyens
+  élèves en difficultés                   177                  0             0
+  élèves en réussite                        0                205             0
+  élèves moyens                             0                  0           295</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="le-tableau-croisé" class="title-slide slide level1 center">
-<h1>1. Le Tableau Croisé</h1>
-<p><em>Effectifs et Pourcentages</em></p>
 </section>
-<section id="créer-un-tableau-croisé" class="slide level2 scrollable">
-<h2>Créer un tableau croisé</h2>
-<p>Croisons le <strong>Rang de naissance</strong> et les <strong>Difficultés scolaires</strong>.</p>
+<section id="le-tri-croisé-effectifs" class="slide level2 scrollable">
+<h2>2. Le Tri Croisé (Effectifs)</h2>
+<p>Croisons les <strong>Difficultés</strong> (<code>V0008</code>) et le <strong>Rang de naissance</strong> (<code>V0153</code>).</p>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">🟢 Excel (TCD)</a></li><li><a href="#tabset-2-2">🔵 Code R (Base)</a></li><li><a href="#tabset-2-3">🔵 Code R (dplyr)</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">🟢 Excel</a></li><li><a href="#tabset-2-2">🔵 R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
 <ol type="1">
-<li><strong>Insertion &gt; Tableau croisé dynamique</strong>.</li>
-<li>Glissez le <em>Rang de naissance</em> en <strong>Lignes</strong>.</li>
-<li>Glissez les <em>Difficultés scolaires</em> en <strong>Colonnes</strong>.</li>
-<li>Glissez à nouveau les <em>Difficultés scolaires</em> dans <strong>Valeurs</strong> (en choisissant “Nombre” ou “Compte”, pas “Somme”).</li>
-<li>Pour avoir les %, cliquez sur les paramètres du champ de valeur &gt; Afficher les valeurs en &gt; <strong>% du total de la ligne</strong>.</li>
+<li><strong>Lignes :</strong> <code>V0153</code> (Rang) | <strong>Colonnes :</strong> <code>V0008</code> (Difficultés).</li>
+<li><strong>Action :</strong> Copiez les données (ex: plage A3:D6) et collez-les plus bas en “Valeurs”.</li>
+<li><strong>Formule :</strong> Pour calculer le total ligne si besoin : <code>=SOMME(B4:D4)</code>.</li>
 </ol>
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Fonction de base R pour les effectifs</span></span>
-<span id="cb2-2"><a></a>tab_brut <span class="ot">&lt;-</span> <span class="fu">table</span>(df<span class="sc">$</span>V0007, df<span class="sc">$</span>V0065)</span>
-<span id="cb2-3"><a></a><span class="fu">print</span>(tab_brut)</span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="co"># Pourcentages en LIGNE (avec le package questionr)</span></span>
-<span id="cb2-6"><a></a><span class="fu">lprop</span>(tab_brut)</span>
-<span id="cb2-7"><a></a></span>
-<span id="cb2-8"><a></a><span class="co"># Pourcentages en COLONNE</span></span>
-<span id="cb2-9"><a></a><span class="fu">cprop</span>(tab_brut)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(questionr)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="co"># Nettoyage pour les labels</span></span>
+<span id="cb3-4"><a></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(df<span class="sc">$</span>V0153, df<span class="sc">$</span>V0008)</span>
+<span id="cb3-5"><a></a><span class="fu">rownames</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Aînés"</span>, <span class="st">"Cadets"</span>, <span class="st">"Uniques"</span>)</span>
+<span id="cb3-6"><a></a><span class="fu">colnames</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Réussite"</span>, <span class="st">"Moyens"</span>, <span class="st">"Difficultés"</span>)</span>
+<span id="cb3-7"><a></a>tab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+          Réussite Moyens Difficultés
+  Aînés         48     70          94
+  Cadets        64     64          93
+  Uniques       11     28          27</code></pre>
 </div>
-</div>
-<div id="tabset-2-3">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Version tidyverse (plus lisible pour des rapports)</span></span>
-<span id="cb3-2"><a></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a></a>  <span class="fu">count</span>(V0007, V0065) <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> V0065, <span class="at">values_from =</span> n)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="interpréter-les-pourcentages" class="slide level2">
-<h2>Interpréter les pourcentages</h2>
-<div class="callout callout-warning no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>⚠️ Ligne ou Colonne ? La règle d’or !</strong></p>
-</div>
-<div class="callout-content">
-<p>Le choix du sens des pourcentages détermine ce que vous démontrez : * <strong>Les % en ligne</strong> décrivent le comportement d’une sous-population (Ex: <em>Parmi les aînés, X% ont des difficultés.</em>) <span class="math inline">\(\rightarrow\)</span> Permet de comparer les groupes entre eux. * <strong>Les % en colonne</strong> décrivent la composition d’un phénomène (Ex: <em>Parmi les élèves en difficulté, X% sont des aînés.</em>) <span class="math inline">\(\rightarrow\)</span> Permet de voir de qui est composé le groupe “en difficulté”.</p>
-</div>
-</div>
-</div>
-<p><strong>Dans notre cas :</strong> On veut savoir si le fait d’être aîné ou cadet <em>influence</em> la difficulté scolaire. Le rang de naissance est la variable indépendante (la cause présumée), on la met en <strong>ligne</strong>, et on calcule des pourcentages <strong>en ligne</strong>.</p>
-</section></section>
-<section>
-<section id="mesurer-lindépendance" class="title-slide slide level1 center">
-<h1>2. Mesurer l’indépendance</h1>
-<p><em>Test du <span class="math inline">\(\chi^2\)</span> (Khi-deux)</em></p>
-</section>
-<section id="le-test-du-khi-deux" class="slide level2 scrollable">
-<h2>Le test du Khi-deux</h2>
-<p>Le Khi-deux (<span class="math inline">\(\chi^2\)</span>) compare le tableau <strong>observé</strong> (la réalité) avec un tableau <strong>théorique</strong> (ce qu’on obtiendrait si le rang de naissance n’avait <em>strictement aucune influence</em> sur les résultats scolaires).</p>
+<section id="pourcentages-en-ligne" class="slide level2">
+<h2>3. Pourcentages en ligne</h2>
+<p>Pour comparer les profils, on ramène chaque ligne à 100%.</p>
 <div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">🟢 Excel</a></li><li><a href="#tabset-3-2">🔵 Code R</a></li></ul>
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">🟢 Excel</a></li><li><a href="#tabset-3-2">🔵 R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<p>Excel ne fait pas ce test automatiquement. Il faut : 1. Calculer les effectifs théoriques pour chaque case : <code>(Total Ligne * Total Colonne) / Total Général</code>. 2. Utiliser la fonction <code>=TEST.KHIDEUX(Plage_observée; Plage_théorique)</code> pour obtenir la <strong>p-value</strong>.</p>
+<p>Dans votre tableau copié, si la case “Aînés en réussite” est en <strong>B10</strong> et le total ligne en <strong>E10</strong> : * <strong>Formule :</strong> <code>=B10/$E10</code> (puis étirez vers la droite). * <em>Note : Le $ bloque la colonne du total.</em></p>
 </div>
 <div id="tabset-3-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>tab_brut <span class="ot">&lt;-</span> <span class="fu">table</span>(df<span class="sc">$</span>V0007, df<span class="sc">$</span>V0065)</span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a><span class="co"># 1. Le test complet</span></span>
-<span id="cb4-4"><a></a>resultat_test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tab_brut)</span>
-<span id="cb4-5"><a></a><span class="fu">print</span>(resultat_test)</span>
-<span id="cb4-6"><a></a></span>
-<span id="cb4-7"><a></a><span class="co"># 2. Afficher les effectifs théoriques</span></span>
-<span id="cb4-8"><a></a><span class="co"># resultat_test$expected</span></span>
-<span id="cb4-9"><a></a></span>
-<span id="cb4-10"><a></a><span class="co"># 3. Calculer la force du lien (V de Cramer) avec questionr</span></span>
-<span id="cb4-11"><a></a><span class="fu">cramer.v</span>(tab_brut)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># lprop = pourcentages en ligne</span></span>
+<span id="cb5-2"><a></a><span class="fu">lprop</span>(tab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+          Réussite Moyens Difficultés Total
+  Aînés    22.6     33.0   44.3       100.0
+  Cadets   29.0     29.0   42.1       100.0
+  Uniques  16.7     42.4   40.9       100.0
+  All      24.6     32.5   42.9       100.0</code></pre>
+</div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="p-value-et-v-de-cramer" class="slide level2">
-<h2>P-value et V de Cramer</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>💡 La P-value (Est-ce significatif ?)</strong></p>
+<section id="test-et-significativité" class="slide level2 scrollable">
+<h2>4. Test et Significativité</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">🟢 Excel</a></li><li><a href="#tabset-4-2">🔵 R</a></li><li><a href="#tabset-4-3">💡 Interprétation</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<ol type="1">
+<li><strong>Khi-deux :</strong> Utilisez <code>=TEST.CHISQ(Plage_Observée; Plage_Théorique)</code>.</li>
+<li><em>Note :</em> Excel demande de calculer d’abord le tableau théorique (Total Ligne * Total Col / Total Général).</li>
+</ol>
 </div>
-<div class="callout-content">
-<p>La <em>p-value</em> (ou <span class="math inline">\(p\)</span>) vous indique la probabilité que la différence observée soit due au simple hasard de l’échantillonnage. * Si <strong><span class="math inline">\(p &lt; 0.05\)</span></strong> : Le lien est <strong>statistiquement significatif</strong> (moins de 5% de chances de se tromper). On rejette l’hypothèse d’indépendance. * Si <strong><span class="math inline">\(p &gt; 0.05\)</span></strong> : On ne peut rien affirmer de solide, les variations relèvent peut-être du hasard.</p>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">chisq.test</span>(tab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  tab
+X-squared = 6.7894, df = 4, p-value = 0.1474</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">cramer.v</span>(tab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.08248055</code></pre>
 </div>
 </div>
 </div>
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>🎯 Le V de Cramer (Est-ce fort ?)</strong></p>
-</div>
-<div class="callout-content">
-<p>Avoir une <em>p-value</em> très petite (<span class="math inline">\(p &lt; 0.001\)</span>) prouve que le lien existe, mais <strong>ne dit pas s’il est fort</strong>. Le <strong>V de Cramer</strong> mesure l’intensité du lien entre 0 (nul) et 1 (parfait). * <span class="math inline">\(&lt; 0.10\)</span> : Lien très faible. * Autour de <span class="math inline">\(0.20\)</span> : Lien moyen/significatif en sciences sociales. * <span class="math inline">\(&gt; 0.30\)</span> : Lien fort.</p>
+<div id="tabset-4-3">
+<ul>
+<li><strong>p-value &lt; 0.05 :</strong> Lien significatif (pas dû au hasard).</li>
+<li><strong>V de Cramer :</strong> Intensité du lien.</li>
+</ul>
 </div>
 </div>
 </div>
 </section></section>
 <section>
-<section id="visualisation" class="title-slide slide level1 center">
-<h1>3. Visualisation</h1>
-<p><em>Le Mosaic Plot</em></p>
+<section id="d-écarts-à-lindépendance" class="title-slide slide level1 center">
+<h1>[D] Écarts à l’indépendance</h1>
+<p><em>Visualiser ce qui “cloche”</em></p>
 </section>
-<section id="les-écarts-à-lindépendance" class="slide level2 scrollable">
-<h2>Les écarts à l’indépendance</h2>
-<p>Le <code>mosaicplot</code> est le graphique parfait pour visualiser un tableau croisé. L’aire de chaque rectangle est proportionnelle à l’effectif de la case.</p>
+<section id="le-graphique-des-écarts" class="slide level2 scrollable">
+<h2>Le graphique des écarts</h2>
+<p>Un Mosaic Plot colore les cases selon les <strong>résidus standardisés</strong> : l’écart entre le réel et le théorique.</p>
 <div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">🔵 Code R</a></li></ul>
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">🔵 R (Graphique)</a></li><li><a href="#tabset-5-2">📊 Lecture des couleurs</a></li></ul>
 <div class="tab-content">
-<div id="tabset-4-1">
+<div id="tabset-5-1">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>tab_brut <span class="ot">&lt;-</span> <span class="fu">table</span>(df<span class="sc">$</span>V0007, df<span class="sc">$</span>V0065)</span>
-<span id="cb5-2"><a></a></span>
-<span id="cb5-3"><a></a><span class="co"># shade = TRUE ajoute des couleurs basées sur les résidus du test du Chi2</span></span>
-<span id="cb5-4"><a></a><span class="co"># Bleu = Sur-représentation par rapport au hasard</span></span>
-<span id="cb5-5"><a></a><span class="co"># Rouge = Sous-représentation par rapport au hasard</span></span>
-<span id="cb5-6"><a></a><span class="fu">mosaicplot</span>(tab_brut, </span>
-<span id="cb5-7"><a></a>           <span class="at">las =</span> <span class="dv">3</span>, <span class="co"># Pivote le texte des axes</span></span>
-<span id="cb5-8"><a></a>           <span class="at">shade =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb5-9"><a></a>           <span class="at">main =</span> <span class="st">"Rang de naissance et Résultats scolaires"</span>,</span>
-<span id="cb5-10"><a></a>           <span class="at">xlab =</span> <span class="st">"Rang de naissance"</span>, </span>
-<span id="cb5-11"><a></a>           <span class="at">ylab =</span> <span class="st">"Résultats faibles"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># On utilise la fonction association du package vcd pour de meilleures couleurs</span></span>
+<span id="cb11-2"><a></a><span class="fu">library</span>(vcd)</span>
+<span id="cb11-3"><a></a><span class="fu">assoc</span>(tab, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">gp =</span> shading_Friendly, </span>
+<span id="cb11-4"><a></a>      <span class="at">main =</span> <span class="st">"Écarts à l'indépendance (Rang vs Résultats)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="slides_seq4_files/figure-revealjs/mosaic-plot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="slides_seq4_files/figure-revealjs/mosaic-plot-1.png" width="960"></a></p>
+</figure>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Ce qu’il faut regarder</strong></p>
-</div>
-<div class="callout-content">
-<p>Observez les cases <strong>bleues</strong> et <strong>rouges</strong>. Elles vous indiquent exactement <em>où</em> l’indépendance est brisée. Par exemple, si la case (Aîné <span class="math inline">\(\times\)</span> Bon élève) est bleue, cela signifie que les aînés réussissent statistiquement mieux que si la répartition était liée au hasard.</p>
+<div id="tabset-5-2">
+<ol type="1">
+<li><strong>Bleu :</strong> Sur-représentation (plus d’élèves que prévu).</li>
+<li><strong>Rouge :</strong> Sous-représentation (moins d’élèves que prévu).</li>
+<li><strong>Blanc/Gris :</strong> Conforme à l’indépendance (hasard).</li>
+</ol>
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="conclusion" class="title-slide slide level1 center">
+<h1>Conclusion</h1>
+
+</section>
+<section id="ce-quil-faut-retenir" class="slide level2">
+<h2>Ce qu’il faut retenir</h2>
+<ol type="1">
+<li><strong>Le TCD</strong> permet de passer des individus aux groupes.</li>
+<li><strong>Les % en ligne</strong> sont les outils du sociologue pour comparer des trajectoires.</li>
+<li><strong>Le <span class="math inline">\(\chi^2\)</span></strong> sépare le signal du bruit (hasard).</li>
+<li><strong>Le Mosaic Plot</strong> localise visuellement où se jouent les inégalités.</li>
+</ol>
+</section>
+<section id="ressources" class="slide level2">
+<h2>🔗 Ressources</h2>
+<ul>
+<li><a href="http://journals.openedition.org/sociologie/652">Article Henri-Panabière (Cairn)</a></li>
+<li><a href="data/DonneesTD4.xlsx">Corrigé Excel TD4</a></li>
+</ul>
 
 
 </section></section>
@@ -851,6 +885,38 @@ Marc O’Flaherty
         }
       });
       </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>
