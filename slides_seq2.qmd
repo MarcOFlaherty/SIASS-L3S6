@@ -45,7 +45,6 @@ Existe-t-il une corrélation linéaire entre la richesse d'un arrondissement et 
 #| message: false
 
 library(tidyverse)
-library(ggplot2)
 library(readxl) # Nécessaire pour lire le Excel
 
 # --- ÉTAPE 1 : DÉFINIR LE CHEMIN ---
@@ -99,9 +98,6 @@ Calculez les indicateurs suivants pour toutes les variables (Revenus et Candidat
 #| echo: true
 #| message: false
 
-library(dplyr)
-library(tidyr)
-
 # Calcul groupé pour TOUTES les variables (Logique SQL : GROUP BY)
 tableau_stats <- df %>%
   select(Revenu, JLM, EZ, MLP, EM) %>%
@@ -143,7 +139,7 @@ L'observation des indicateurs bruts nous montre la réalité géographique des v
 
 C'est ici que le **Coefficient de Variation (CV)** et l'**EIQ Relatif** révèlent la vraie sociologie des votes. En divisant la dispersion par le score moyen/médian, on neutralise la taille du candidat :
 
-* **Le miroir Zemmour / Mélenchon :** Zemmour a un tout petit EIQ brut (4 points) contre 16 pour Mélenchon. Pourtant, leurs indicateurs relatifs sont quasi identiques : **CV à 42%** et **EIQ Relatif autour de 60%**. Cela prouve sociologiquement que ces deux votes fonctionnent exactement de la même manière : ce sont des votes de "niche" extrêmement concentrés dans certains arrondissements spécifiques. Passer d'un quartier à un autre fait doubler ou diviser par deux leur score (Rapport Inter-Q > 170%).
+* **Le miroir Zemmour / Mélenchon :** Zemmour a un tout petit EIQ brut (4 points) contre 16 pour Mélenchon. Pourtant, leurs indicateurs relatifs sont quasi identiques : **CV à 42%** et **EIQ Relatif autour de 60%**. Cela prouve sociologiquement que ces deux votes fonctionnent exactement de la même manière : ce sont des votes de "niche" très concentrés. Passer des arrondissements qui leur sont défavorables (Q1) à ceux qui leur sont très favorables (Q3) fait bondir leur score moyen de plus de 70% (Rapport Inter-Q > 170%). Et la dynamique est encore plus violente aux extrêmes : d'un bout à l'autre de Paris, le score de Zemmour triple (de 5% à 17%) et celui de Mélenchon quintuple (de 9% à 47%) !
 * **L'alignement Macron / Revenus :** Le vote Macron affiche un CV de **20%** et un EIQ relatif de **29%**, ce qui est remarquablement proche de la dispersion des revenus parisiens (CV **20%**, EIQ Relatif **24%**). Cela illustre une ségrégation modérée et spatialement très étalée.
 :::
 
@@ -153,7 +149,7 @@ C'est ici que le **Coefficient de Variation (CV)** et l'**EIQ Relatif** révèle
 
 ## Corrélation et Régression ($r$ et $R^2$) {.scrollable}
 
-On cherche à analyser la relation entre le vote de chaque candidat ($Y$) et le revenu médian ($X$).
+On cherche à analyser la relation entre le vote de chaque candidat (EZ, EM, JLM) ($Y$) et le revenu médian ($X$).
 
 ::: {.panel-tabset}
 ### 🟢 Formules Excel
@@ -164,8 +160,10 @@ Pour un candidat donné (ex: colonne EM) en fonction du Revenu :
 | **Covariance** | `=COVARIANCE.PEARSON(Col_Vote; Col_Revenu)` |
 | **Corrélation ($r$)** | `=COEFFICIENT.CORRELATION(Col_Vote; Col_Revenu)` |
 | **R² (Détermination)** | `=COEFFICIENT.DETERMINATION(Col_Vote; Col_Revenu)` |
+| **Pente ($a$)** | `=PENTE(Col_Vote; Col_Revenu)` |
+| **Ordonnée à l'origine ($b$)** | `=ORDONNEE.ORIGINE(Col_Vote; Col_Revenu)` |
 
-*Note : Le R² peut aussi s'obtenir simplement en mettant le $r$ au carré (`= Cellule_r ^ 2`).*
+*Note : Le R² peut aussi s'obtenir simplement en mettant le $r$ au carré (`= Cellule_r ^ 2`). L'équation de la droite est $Y = aX + b$.*
 
 ### 🔵 Code R
 ```{r}
@@ -173,24 +171,28 @@ Pour un candidat donné (ex: colonne EM) en fonction du Revenu :
 #| echo: true
 #| message: false
 
-library(dplyr)
-library(tidyr)
-
 # Calcul des indicateurs bivariés pour chaque candidat par rapport au Revenu
 tableau_bivarie <- df %>%
-  # 1. On garde le Revenu (notre X) et on rassemble les candidats (nos Y)
-  select(Revenu, JLM, EZ, MLP, EM) %>%
+  # 1. On garde le Revenu (notre X) et on rassemble les candidats demandés (nos Y)
+  select(Revenu, JLM, EZ, EM) %>%
   pivot_longer(cols = -Revenu, names_to = "Candidat", values_to = "Score_Vote") %>%
   # 2. On groupe par candidat (équivalent d'un GROUP BY)
   group_by(Candidat) %>%
-  # 3. On calcule les trois indicateurs demandés
+  # 3. On calcule les indicateurs, y compris la pente et l'ordonnée à l'origine
   summarise(
     Covariance = cov(Score_Vote, Revenu),
     r = cor(Score_Vote, Revenu),
-    R2 = cor(Score_Vote, Revenu)^2
+    R2 = cor(Score_Vote, Revenu)^2,
+    a_Pente = coef(lm(Score_Vote ~ Revenu))[2],
+    b_Ordonnee = coef(lm(Score_Vote ~ Revenu))[1]
   ) %>%
   # 4. On arrondit pour la lisibilité
-  mutate(across(where(is.numeric), ~round(., 3)))
+  mutate(
+    across(c(Covariance, r, R2), ~round(., 3)),
+    # On arrondit moins la pente car ce sont de très petits nombres
+    a_Pente = round(a_Pente, 6),
+    b_Ordonnee = round(b_Ordonnee, 3)
+  )
 
 print(tableau_bivarie)
 ```
@@ -206,47 +208,63 @@ print(tableau_bivarie)
     * EM et EZ ($r > 0$) : Corrélation **positive** (plus le revenu monte, plus le vote monte).
     * JLM ($r < 0$) : Corrélation **négative** (plus le revenu monte, plus le vote baisse).
 * **Le $R^2$ (Pouvoir explicatif) :** C'est le pourcentage de la variance du vote qui est "expliqué" par le revenu. Par exemple, si le $R^2$ de Macron est de $0.85$, cela signifie que **85% des écarts de vote pour Macron d'un arrondissement à l'autre s'expliquent uniquement par la différence de revenu**.
+* **La Pente ($a$) :** Elle est très faible (proche de 0) car l'unité en abscisse est l'Euro, tandis que l'ordonnée est un pourcentage (entre 0 et 1). Pour chaque euro supplémentaire, le vote n'augmente que d'une fraction infime de pourcentage. Pour la rendre plus lisible, il faudrait multiplier le revenu par 1000 (ex: augmentation du vote pour 1000€ de revenu en plus).
 :::
 
 
-# 3. Visualisation
-*Nuage de points*
+# 3. Régressions Linéaires
+*Modèles par candidat*
 
-## Graphique comparatif {.scrollable}
+## Droites de régression individuelles {.scrollable}
 
-Représentez les votes EZ, EM et JLM en fonction du revenu sur un même graphique.
+Effectuez une régression linéaire pour les proportions de votes pour EZ, EM, JLM en fonction du revenu médian.
 
 ::: {.panel-tabset}
-### 🟢 Excel
-1. Sélectionnez la colonne `Revenu` (X) et les colonnes `JLM`, `EZ`, `EM` (Y).
-2. Insertion > Nuage de points.
-3. Le revenu doit être en axe horizontal (Abscisses).
-
-### 🔵 R (ggplot)
+### 🔵 R (E. Macron)
 ```{r}
-#| label: plot-votes
+#| label: reg-em
 #| echo: true
 #| fig-height: 4
 
-ggplot(df, aes(x = Revenu)) +
-  geom_point(aes(y = EM, color = "Macron"), size=3) +
-  geom_smooth(aes(y = EM, color = "Macron"), method="lm", se=FALSE) +
-  
-  geom_point(aes(y = JLM, color = "Mélenchon"), size=3) +
-  geom_smooth(aes(y = JLM, color = "Mélenchon"), method="lm", se=FALSE) +
-  
-  geom_point(aes(y = EZ, color = "Zemmour"), size=3) +
-  geom_smooth(aes(y = EZ, color = "Zemmour"), method="lm", se=FALSE) +
-  
-  # Axe X : Espace pour les milliers
+ggplot(df, aes(x = Revenu, y = EM)) +
+  geom_point(color = "#0044cc", size = 3) +
+  geom_smooth(method = "lm", color = "black") +
+  geom_text(aes(label = stringr::str_sub(Arrondissement, -2)), size = 2.5, vjust = -1, check_overlap = TRUE) +
   scale_x_continuous(labels = scales::label_number(big.mark = " ")) +
-  
-  # Axe Y : Conversion automatique 0.3 -> 30%
-  # accuracy = 1 permet d'arrondir à l'entier (30% et pas 30.0%)
   scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
-  # ----------------------
-  
-  labs(title = "Vote selon le revenu à Paris", y = "% de voix", x = "Revenu Médian (€)") +
+  labs(title = "Régression : Vote E. Macron selon le Revenu", x = "Revenu Médian (€)", y = "Vote Macron") +
+  theme_minimal()
+```
+
+### 🔵 R (J.L. Mélenchon)
+```{r}
+#| label: reg-jlm
+#| echo: true
+#| fig-height: 4
+
+ggplot(df, aes(x = Revenu, y = JLM)) +
+  geom_point(color = "#cc0000", size = 3) +
+  geom_smooth(method = "lm", color = "black") +
+  geom_text(aes(label = stringr::str_sub(Arrondissement, -2)), size = 2.5, vjust = -1, check_overlap = TRUE) +
+  scale_x_continuous(labels = scales::label_number(big.mark = " ")) +
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
+  labs(title = "Régression : Vote J.L. Mélenchon selon le Revenu", x = "Revenu Médian (€)", y = "Vote Mélenchon") +
+  theme_minimal()
+```
+
+### 🔵 R (É. Zemmour)
+```{r}
+#| label: reg-ez
+#| echo: true
+#| fig-height: 4
+
+ggplot(df, aes(x = Revenu, y = EZ)) +
+  geom_point(color = "#333333", size = 3) +
+  geom_smooth(method = "lm", color = "black") +
+  geom_text(aes(label = stringr::str_sub(Arrondissement, -2)), size = 2.5, vjust = -1, check_overlap = TRUE) +
+  scale_x_continuous(labels = scales::label_number(big.mark = " ")) +
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
+  labs(title = "Régression : Vote É. Zemmour selon le Revenu", x = "Revenu Médian (€)", y = "Vote Zemmour") +
   theme_minimal()
 ```
 :::
@@ -270,7 +288,69 @@ Réalisez 4 cartes distinctes (JLM, EZ, EM, Revenu) pour comparer les géographi
 Observez l'opposition **Est / Ouest** parisienne. Le vote Mélenchon se superpose-t-il aux zones à bas revenus ? Le vote Zemmour suit-il la même géographie que le vote Macron ?
 :::
 
-# 5. Analyse Sociologique
+# 5. Visualisation
+*Nuage de points*
+
+## Graphique comparatif {.scrollable}
+
+Représentez les votes EZ, EM et JLM en fonction du revenu sur un même graphique.
+
+::: {.panel-tabset}
+### 🟢 Excel
+1. Sélectionnez la colonne `Revenu` (X) et les colonnes `JLM`, `EZ`, `EM` (Y).
+2. Insertion > Nuage de points.
+3. Le revenu doit être en axe horizontal (Abscisses).
+
+### 🔵 R (ggplot + plotly)
+```{r}
+#| label: plot-votes
+#| echo: true
+#| fig-height: 5
+#| message: false
+#| warning: false
+
+library(plotly)
+
+p <- ggplot(df, aes(x = Revenu)) +
+  # E. Macron
+  geom_point(aes(y = EM, color = "Macron", 
+                 text = paste("<b>Arrondissement :</b>", Arrondissement, 
+                              "<br><b>Revenu :</b>", format(Revenu, big.mark = " "), "€",
+                              "<br><b>Macron :</b>", scales::percent(EM, accuracy = 0.1))), 
+             size=2) +
+  geom_smooth(aes(y = EM, color = "Macron"), method="lm", se=FALSE, linewidth=0.5) +
+  
+  # J.L. Mélenchon
+  geom_point(aes(y = JLM, color = "Mélenchon", 
+                 text = paste("<b>Arrondissement :</b>", Arrondissement, 
+                              "<br><b>Revenu :</b>", format(Revenu, big.mark = " "), "€",
+                              "<br><b>Mélenchon :</b>", scales::percent(JLM, accuracy = 0.1))), 
+             size=2) +
+  geom_smooth(aes(y = JLM, color = "Mélenchon"), method="lm", se=FALSE, linewidth=0.5) +
+  
+  # É. Zemmour
+  geom_point(aes(y = EZ, color = "Zemmour", 
+                 text = paste("<b>Arrondissement :</b>", Arrondissement, 
+                              "<br><b>Revenu :</b>", format(Revenu, big.mark = " "), "€",
+                              "<br><b>Zemmour :</b>", scales::percent(EZ, accuracy = 0.1))), 
+             size=2) +
+  geom_smooth(aes(y = EZ, color = "Zemmour"), method="lm", se=FALSE, linewidth=0.5) +
+  
+  # Axe X : Espace pour les milliers
+  scale_x_continuous(labels = scales::label_number(big.mark = " ")) +
+  
+  # Axe Y : Conversion automatique 0.3 -> 30%
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
+  
+  labs(title = "Vote selon le revenu à Paris", y = "% de voix", x = "Revenu Médian (€)", color = "Candidat") +
+  theme_minimal()
+
+# On rend le graphique interactif en affichant uniquement l'infobulle personnalisée ("text")
+ggplotly(p, tooltip = "text")
+```
+:::
+
+# 6. Analyse Sociologique
 *Synthèse des résultats et infographies*
 
 ## Interprétation des résultats (Données + Images) {.scrollable}
@@ -280,7 +360,7 @@ En vous appuyant sur vos calculs et les graphiques fournis :
 ### 1. La polarisation économique (Vos calculs)
 * **Macron / Zemmour :** Forte corrélation positive avec le revenu. Ce sont des votes de classes aisées (Ouest Parisien).
 * **Mélenchon :** Forte corrélation négative. Vote des quartiers populaires (Nord-Est).
-* **Le Pen :** Faiblement représentée à Paris, corrélation moins nette (vote plus péri-urbain/rural que parisien intra-muros).
+* **Le Pen :** Qu'importe le niveau de revenu de l'arrondissement, le vote pour MLP est uniformément faible (autour de 5%) et stable à Paris intra-muros. La corrélation est quasi-nulle.
 
 ### 2. Les dynamiques historiques (Infographies)
 * **Le basculement ouvrier :** Historiquement à gauche (Mitterrand 81), le vote ouvrier s'est effondré vers l'abstention et l'extrême droite.
