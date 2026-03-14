@@ -117,7 +117,6 @@ quantile(df$`Esp Vie Naiss 2017`,
          probs = c(0.1, 0.25, 0.5, 0.75, 0.9), 
          na.rm = TRUE)
 ```
-:::
 
 # Q4, Q5 & Q6. Visualisation
 *Boxplot, graphique cumulé et Histogramme*

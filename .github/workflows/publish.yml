@@ -1,8 +1,11 @@
+name: Render and Publish
+
 on:
   push:
     branches: main
 
-name: Render and Publish
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-deploy:
