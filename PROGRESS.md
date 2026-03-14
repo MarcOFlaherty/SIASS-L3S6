@@ -5,12 +5,15 @@
 
 ### Séquences terminées
 - **Séquence 1 :** Indicateurs de position et de dispersion (EIQ, CV, etc.).
+- **Séquence 2 :** Analyse bivariée et spatiale (Élection 2022 vs Revenu Médian, Paris).
+  - Statut : **Terminée**.
+  - Points forts : Intégration de Plotly pour les graphiques de régression interactifs (tooltips avec formatage conditionnel) et audit complet des questions de TD.
 - **Séquence 3 :** Cartographie choroplèthe (sf, ggplot2).
 
 ### Séquence en cours
-- **Séquence 2 :** Analyse bivariée et spatiale (Élection 2022 vs Revenu Médian, Paris).
-  - Statut : Bientôt terminée.
-  - Focus actuel : Analyse de la dispersion relative et intégration des corrections analytiques.
+- **Séquence 4 :** Tableaux Croisés & Indépendance (Analyse G. Henri-Panabière).
+  - Statut : En cours de création (Fichier `slides_seq4.qmd` initialisé).
+  - Focus actuel : Calculs des pourcentages en ligne/colonne, test du Khi-deux et Mosaic plot.
 
 ---
 
@@ -21,6 +24,6 @@
 ---
 
 ## Configuration Technique
-- **Stack :** R, Quarto, dplyr, ggplot2, sf.
+- **Stack :** R, Quarto, dplyr, ggplot2, sf, **plotly**.
 - **Déploiement :** GitHub Actions -> gh-pages.
 - **Spécificité :** Cache R activé.
