@@ -29,7 +29,7 @@ Nous travaillons sur l'article de **Gaële Henri-Panabière** (2010) : *« Élè
 5.  **Quelle est la taille de l’échantillon ?**
 
 ::: {.callout-tip collapse="true"}
-### 🔓 Voir les réponses (Spoiler)
+## 🔓 Cliquez ici pour voir les réponses
 1.  **Champ :** Élèves de 6ème/5ème de 4 collèges lyonnais (familles fortement diplômées).
 2.  **Unité :** Le collégien (unité statistique de base).
 3.  **Année :** 1999 (enquête de terrain).
@@ -41,9 +41,14 @@ Nous travaillons sur l'article de **Gaële Henri-Panabière** (2010) : *« Élè
 
 ## La question de recherche
 
-Dans ces familles, la réussite est la "norme". On cherche donc à identifier des facteurs de fragilité inhabituelle.
+On cherche à identifier des facteurs de fragilité inhabituelle.
 
-**Hypothèse :** Le **rang de naissance** influence-t-il les résultats ? Les "cadets" sont-ils plus fragiles que les "aînés" ?
+**Hypothèse :** Le **rang de naissance** influence-t-il les résultats ? 
+
+::: {.callout-important}
+### Pourquoi pas de "droite de régression" ?
+La régression linéaire demande des chiffres (ex: Revenu vs Âge). Ici, nos variables sont des **catégories** (Aîné/Cadet). On ne peut pas tracer de droite, on utilise donc le **Khi-deux** pour voir si les groupes se comportent différemment.
+:::
 
 # [B] Prise en main
 *Exploration du dictionnaire et des données*
@@ -57,135 +62,87 @@ Ouvrez le fichier `TD4- ghp_mesheritiers_dico.rtf`.
 *   **Modalités :** 1. À l'aise / 2. Mal à l'aise / 3. Ça dépend / 4. Autre.
 *   **Type :** Qualitative nominale.
 
-### 📁 Les données brutes :
-Ouvrez `DonneesTD4.xlsx`.
-*   **Lignes :** Chaque ligne est un élève différent.
-*   **Colonnes :** Chaque colonne est une réponse (V0001...).
-*   **Astuce Excel :** Sélectionnez la ligne 1, puis *Affichage > Figer les volets* pour garder les titres visibles.
-
 # [C] Analyse Croisée
 *Tableau Croisé Dynamique (TCD)*
 
-## 1. Vérification des variables
+## 1. Créer le TCD sur Excel
 
-L'énoncé signale deux variables de difficultés scolaires (`V0006` et `V0008`).
+1. **Lignes :** `V0153` (Rang) | **Colonnes :** `V0008` (Difficultés).
+2. **Valeurs :** `V0008` (Nombre).
+
+::: {.callout-tip}
+### ⚡ Astuce : Le mode % direct
+Pas besoin de faire des formules ! 
+*   Faites un clic droit dans le tableau > *Afficher les valeurs* > **% du total de la ligne**.
+*   Excel transforme tout instantanément.
+:::
+
+## 2. Test du Khi-deux {.scrollable}
+
+On cherche à savoir si le lien est statistiquement "significatif".
 
 ::: {.panel-tabset}
-### 🟢 Excel
-1. Créez un TCD.
-2. Mettez `V0006` en lignes et `V0008` en colonnes.
-3. Si les chiffres ne sont que sur la "diagonale", c'est que les deux variables disent exactement la même chose.
-
-### 🔵 R
+### 📊 Vos résultats
 ```{r}
-#| label: setup
+#| label: result-chi2
+#| echo: false
+cat("X-squared = 6.7894, df = 4, p-value = 0.1474\nV de Cramer = 0.082")
+```
+
+### 💡 Interprétation
+*   **p-value (0.147) > 0.05 :** Le test échoue. On ne peut pas rejeter l'hypothèse de hasard.
+*   **Conclusion :** Le rang de naissance **n'a pas d'influence significative** sur les difficultés scolaires dans cet échantillon.
+*   **V de Cramer (0.08) :** Le lien est extrêmement faible (proche de 0).
+:::
+
+# [D] Écarts à l'indépendance
+*Visualiser le "Signal"*
+
+## Les Résidus (L'écart au modèle) {.scrollable}
+
+En régression, le résidu est l'écart à la droite. En TCD, c'est l'écart à la **moyenne générale**.
+
+### 🟢 Méthode Excel (Visuelle)
+1. Créez un graphique en barres de vos **% en ligne**.
+2. Ajoutez une série qui correspond au **Profil Moyen** (le total général).
+3. **Analyse :** Si les barres des "Aînés" sont identiques aux barres "Moyennes", il n'y a pas d'écart (Indépendance).
+
+## Visualisation R (Résidus)
+
+Même si le test n'est pas significatif, on regarde où sont les plus gros écarts (les barres les plus hautes).
+
+```{r}
+#| label: setup-data
+#| echo: false
 #| message: false
 library(tidyverse)
 library(readxl)
 library(questionr)
 df <- read_excel("data/DonneesTD4.xlsx")
-
-# Comparaison
-table(df$V0006, df$V0008)
-```
-:::
-
-## 2. Le Tri Croisé (Effectifs) {.scrollable}
-
-On croise le **Rang de naissance** (`V0153`) et les **Difficultés** (`V0008`).
-
-::: {.panel-tabset}
-### 🟢 Excel
-1. **Lignes :** `V0153` | **Colonnes :** `V0008` | **Valeurs :** `V0008` (Nombre).
-2. **Action :** Copiez ce tableau et collez-le plus bas en "Valeurs" pour faire vos calculs.
-3. **Total Ligne :** Utilisez `=SOMME(B4:D4)` pour vérifier vos totaux.
-
-### 🔵 R
-```{r}
-#| label: tab-brut
-# Création du tableau de base
 tab <- table(df$V0153, df$V0008)
 rownames(tab) <- c("Aînés", "Cadets", "Uniques")
 colnames(tab) <- c("Réussite", "Moyens", "Difficultés")
-tab
 ```
-:::
 
-## 3. Pourcentages en ligne
-
-Pour comparer les profils, on veut savoir : "Sur 100 Aînés, combien réussissent ?"
-
-::: {.panel-tabset}
-### 🟢 Excel
-Si votre case "Aînés en réussite" est en **B20** et son total ligne en **E20** :
-*   **Formule :** `=B20/$E20`
-*   Le signe `$` permet de "bloquer" la colonne E quand vous étirez la formule vers la droite.
-
-### 🔵 R
-```{r}
-#| label: tab-prop
-lprop(tab)
-```
-:::
-
-## 4. Test du Khi-deux {.scrollable}
-
-Comme en régression, on cherche à savoir si le lien est statistiquement "significatif".
-
-::: {.panel-tabset}
-### 🟢 Excel
-1. Calculez le tableau théorique (Total Ligne * Total Col / Total Général).
-2. Utilisez la formule : `=TEST.CHISQ(Plage_Réelle ; Plage_Théorique)`.
-3. Si le résultat est **< 0,05**, le lien est significatif.
-
-### 🔵 R
-```{r}
-#| label: chi2
-chisq.test(tab)
-# Force du lien (0 à 1)
-cramer.v(tab)
-```
-:::
-
-# [D] Écarts à l'indépendance
-*L'approche par les Résidus*
-
-## Comprendre les écarts {.scrollable}
-
-En régression, le **résidu** est l'écart entre le point réel et la droite. En tableau croisé, c'est la même chose !
-
-*   **Résidu positif :** Sur-représentation (la case est plus remplie que prévu).
-*   **Résidu négatif :** Sous-représentation.
-
-::: {.panel-tabset}
-### 🔵 R (Graphique des résidus)
 ```{r}
 #| label: residus-plot
-# On extrait les résidus du test du Khi-deux
+#| echo: true
 res <- as.data.frame(chisq.test(tab)$residuals)
 
 ggplot(res, aes(x = Var1, y = Freq, fill = Freq > 0)) +
   geom_bar(stat = "identity") +
   facet_wrap(~Var2) +
-  scale_fill_manual(values = c("firebrick", "dodgerblue4"), 
-                    labels = c("Sous-représenté", "Sur-représenté")) +
-  theme_minimal() +
-  labs(title = "Écarts à l'indépendance (Résidus)",
-       x = "Rang de naissance", y = "Intensité de l'écart", fill = "Sens")
+  scale_fill_manual(values = c("firebrick", "dodgerblue4"), labels = c("Sous-représenté", "Sur-représenté")) +
+  theme_minimal() + labs(title = "Écarts à l'indépendance (Résidus)", x = "Rang", y = "Intensité de l'écart", fill = "Sens")
 ```
-
-### 📊 Interprétation
-Si la barre des "Cadets" dans le graphique "Difficultés" monte vers le haut (bleu), cela signifie que les cadets sont **plus souvent en difficulté** que ce que le hasard seul prévoirait. C'est le "signal" sociologique.
-:::
 
 # Conclusion
 
 ## Ce qu'il faut retenir
 
-1.  **Le TCD** transforme des données individuelles en statistiques de groupe.
-2.  **Les % en ligne** permettent de comparer des groupes d'inégales tailles (Aînés vs Cadets).
-3.  **Les Résidus** (comme en régression) montrent où la réalité s'écarte du hasard (l'indépendance).
-4.  **Le Khi-deux** valide que cet écart n'est pas un coup de chance.
+1.  **Indépendance :** Si la p-value > 0.05, les variables n'ont pas de lien prouvé.
+2.  **Profils :** On compare les % de chaque groupe au % global pour voir qui s'écarte de la norme.
+3.  **Régression qualitative :** Le Khi-deux remplace la droite de régression quand on travaille sur des catégories et non des mesures.
 
 ---
 
