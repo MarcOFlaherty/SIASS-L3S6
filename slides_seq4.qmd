@@ -148,9 +148,23 @@ Avec une **p-value = 0.147**, le résultat est supérieur au seuil de 0.05.
 # [D] Analyse des écarts
 *Visualiser la structure des données*
 
-## Les Résidus (Écarts au modèle) {.scrollable}
+## Calculer les Résidus sur Excel {.scrollable}
 
-Même si le test n'est pas significatif, on peut observer quelles cases s'écartent le plus de la situation "théorique" (le hasard).
+Le **résidu** mesure l'intensité de l'écart. Un résidu > 2 ou < -2 indique une sur/sous-représentation forte.
+
+### La méthode pas-à-pas :
+1.  Calculez votre **Tableau Théorique** (voir slide précédente).
+2.  Créez un nouveau tableau pour les **Résidus**.
+3.  Dans la première case (ex: Aînés/Réussite), tapez la formule :
+    `=(Observé - Théorique) / RACINE(Théorique)`
+4.  Étirez la formule. 
+5.  **Analyse :** Si la valeur est positive, le groupe est sur-représenté. Si elle est négative, il est sous-représenté.
+
+---
+
+## Visualisation R (Résidus) {.scrollable}
+
+On observe graphiquement ce que nous venons de calculer.
 
 ```{r}
 #| label: residus-plot
