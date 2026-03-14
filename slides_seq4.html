@@ -382,9 +382,21 @@ X-squared = 6.7894, df = 4, p-value = 0.1474</code></pre>
 <h1>[D] Analyse des écarts</h1>
 <p><em>Visualiser la structure des données</em></p>
 </section>
-<section id="les-résidus-écarts-au-modèle" class="slide level2 scrollable">
-<h2>Les Résidus (Écarts au modèle)</h2>
-<p>Même si le test n’est pas significatif, on peut observer quelles cases s’écartent le plus de la situation “théorique” (le hasard).</p>
+<section id="calculer-les-résidus-sur-excel" class="slide level2 scrollable">
+<h2>Calculer les Résidus sur Excel</h2>
+<p>Le <strong>résidu</strong> mesure l’intensité de l’écart. Un résidu &gt; 2 ou &lt; -2 indique une sur/sous-représentation forte.</p>
+<h3 id="la-méthode-pas-à-pas">La méthode pas-à-pas :</h3>
+<ol type="1">
+<li>Calculez votre <strong>Tableau Théorique</strong> (voir slide précédente).</li>
+<li>Créez un nouveau tableau pour les <strong>Résidus</strong>.</li>
+<li>Dans la première case (ex: Aînés/Réussite), tapez la formule : <code>=(Observé - Théorique) / RACINE(Théorique)</code></li>
+<li>Étirez la formule.</li>
+<li><strong>Analyse :</strong> Si la valeur est positive, le groupe est sur-représenté. Si elle est négative, il est sous-représenté.</li>
+</ol>
+</section>
+<section id="visualisation-r-résidus" class="slide level2 scrollable">
+<h2>Visualisation R (Résidus)</h2>
+<p>On observe graphiquement ce que nous venons de calculer.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Extraction des résidus standardisés</span></span>
 <span id="cb9-2"><a></a>res <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">chisq.test</span>(tab)<span class="sc">$</span>residuals)</span>
