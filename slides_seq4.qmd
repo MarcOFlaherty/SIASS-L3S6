@@ -1,6 +1,6 @@
 ---
 title: "Séquence 4 : L'enquête sur les Héritiers"
-subtitle: "Tableaux croisés sous Excel et RStudio"
+subtitle: "Tableaux croisés & Analyse des écarts"
 author: "Marc O'Flaherty"
 format: 
   revealjs:
@@ -30,20 +30,20 @@ Nous travaillons sur l'article de **Gaële Henri-Panabière** (2010) : *« Élè
 
 ::: {.callout-tip collapse="true"}
 ### 🔓 Voir les réponses (Spoiler)
-1.  **Champ :** Élèves de 6ème/5ème de 4 collèges lyonnais (familles diplômées).
-2.  **Unité :** Le collégien.
-3.  **Année :** 1999.
-4.  **Collecteur :** G. Henri-Panabière (recherche doctorale).
-5.  **Taille :** 677 questionnaires.
+1.  **Champ :** Élèves de 6ème/5ème de 4 collèges lyonnais (familles fortement diplômées).
+2.  **Unité :** Le collégien (unité statistique de base).
+3.  **Année :** 1999 (enquête de terrain).
+4.  **Collecteur :** G. Henri-Panabière (pour sa recherche doctorale).
+5.  **Taille :** 677 questionnaires exploitables.
 :::
 
 ---
 
-## Les enjeux du croisement
+## La question de recherche
 
-Dans les familles à fort capital culturel, la réussite est la norme. L'échec y est donc un paradoxe sociologique. 
+Dans ces familles, la réussite est la "norme". On cherche donc à identifier des facteurs de fragilité inhabituelle.
 
-**La question du jour :** Le **rang de naissance** (être l'aîné, le cadet ou l'unique) influence-t-il les chances de rencontrer des difficultés scolaires ?
+**Hypothèse :** Le **rang de naissance** influence-t-il les résultats ? Les "cadets" sont-ils plus fragiles que les "aînés" ?
 
 # [B] Prise en main
 *Exploration du dictionnaire et des données*
@@ -53,60 +53,57 @@ Dans les familles à fort capital culturel, la réussite est la norme. L'échec 
 Ouvrez le fichier `TD4- ghp_mesheritiers_dico.rtf`.
 
 ### 🔍 Focus sur la Question 1 :
-*   **Variable étudiée :** Aisance relationnelle au collège (« Comment se sent votre enfant au collège avec ses camarades »).
+*   **Variable :** « Comment se sent votre enfant au collège avec ses camarades ».
 *   **Modalités :** 1. À l'aise / 2. Mal à l'aise / 3. Ça dépend / 4. Autre.
-*   **Type de variable :** Qualitative nominale.
+*   **Type :** Qualitative nominale.
 
 ### 📁 Les données brutes :
 Ouvrez `DonneesTD4.xlsx`.
-*   **Colonnes :** Variables (V0001, V0002...).
-*   **Lignes :** Individus (chaque élève).
-*   **Formule Excel utile :** Pour voir les titres, figez la première ligne (*Affichage > Figer les volets*).
+*   **Lignes :** Chaque ligne est un élève différent.
+*   **Colonnes :** Chaque colonne est une réponse (V0001...).
+*   **Astuce Excel :** Sélectionnez la ligne 1, puis *Affichage > Figer les volets* pour garder les titres visibles.
 
 # [C] Analyse Croisée
-*Le rang de naissance pèse-t-il sur les résultats ?*
+*Tableau Croisé Dynamique (TCD)*
 
 ## 1. Vérification des variables
 
-L'énoncé signale deux variables de difficultés scolaires. Vérifions si elles sont identiques.
+L'énoncé signale deux variables de difficultés scolaires (`V0006` et `V0008`).
 
 ::: {.panel-tabset}
 ### 🟢 Excel
 1. Créez un TCD.
-2. Mettez `V0006` en ligne et `V0008` en colonne.
-3. **Observation :** Les effectifs sont uniquement sur la diagonale. Les variables sont redondantes.
+2. Mettez `V0006` en lignes et `V0008` en colonnes.
+3. Si les chiffres ne sont que sur la "diagonale", c'est que les deux variables disent exactement la même chose.
 
 ### 🔵 R
 ```{r}
-#| label: check-vars
-#| echo: true
+#| label: setup
 #| message: false
 library(tidyverse)
 library(readxl)
+library(questionr)
 df <- read_excel("data/DonneesTD4.xlsx")
 
-# Comparaison rapide
+# Comparaison
 table(df$V0006, df$V0008)
 ```
 :::
 
 ## 2. Le Tri Croisé (Effectifs) {.scrollable}
 
-Croisons les **Difficultés** (`V0008`) et le **Rang de naissance** (`V0153`).
+On croise le **Rang de naissance** (`V0153`) et les **Difficultés** (`V0008`).
 
 ::: {.panel-tabset}
 ### 🟢 Excel
-1. **Lignes :** `V0153` (Rang) | **Colonnes :** `V0008` (Difficultés).
-2. **Action :** Copiez les données (ex: plage A3:D6) et collez-les plus bas en "Valeurs".
-3. **Formule :** Pour calculer le total ligne si besoin : `=SOMME(B4:D4)`.
+1. **Lignes :** `V0153` | **Colonnes :** `V0008` | **Valeurs :** `V0008` (Nombre).
+2. **Action :** Copiez ce tableau et collez-le plus bas en "Valeurs" pour faire vos calculs.
+3. **Total Ligne :** Utilisez `=SOMME(B4:D4)` pour vérifier vos totaux.
 
 ### 🔵 R
 ```{r}
-#| label: tri-croise
-#| echo: true
-library(questionr)
-
-# Nettoyage pour les labels
+#| label: tab-brut
+# Création du tableau de base
 tab <- table(df$V0153, df$V0008)
 rownames(tab) <- c("Aînés", "Cadets", "Uniques")
 colnames(tab) <- c("Réussite", "Moyens", "Difficultés")
@@ -116,75 +113,79 @@ tab
 
 ## 3. Pourcentages en ligne
 
-Pour comparer les profils, on ramène chaque ligne à 100%.
+Pour comparer les profils, on veut savoir : "Sur 100 Aînés, combien réussissent ?"
 
 ::: {.panel-tabset}
 ### 🟢 Excel
-Dans votre tableau copié, si la case "Aînés en réussite" est en **B10** et le total ligne en **E10** :
-*   **Formule :** `=B10/$E10` (puis étirez vers la droite).
-*   *Note : Le $ bloque la colonne du total.*
+Si votre case "Aînés en réussite" est en **B20** et son total ligne en **E20** :
+*   **Formule :** `=B20/$E20`
+*   Le signe `$` permet de "bloquer" la colonne E quand vous étirez la formule vers la droite.
 
 ### 🔵 R
 ```{r}
-#| label: prop-ligne
-#| echo: true
-# lprop = pourcentages en ligne
+#| label: tab-prop
 lprop(tab)
 ```
 :::
 
-## 4. Test et Significativité {.scrollable}
+## 4. Test du Khi-deux {.scrollable}
+
+Comme en régression, on cherche à savoir si le lien est statistiquement "significatif".
 
 ::: {.panel-tabset}
 ### 🟢 Excel
-1.  **Khi-deux :** Utilisez `=TEST.CHISQ(Plage_Observée; Plage_Théorique)`.
-2.  *Note :* Excel demande de calculer d'abord le tableau théorique (Total Ligne * Total Col / Total Général).
+1. Calculez le tableau théorique (Total Ligne * Total Col / Total Général).
+2. Utilisez la formule : `=TEST.CHISQ(Plage_Réelle ; Plage_Théorique)`.
+3. Si le résultat est **< 0,05**, le lien est significatif.
 
 ### 🔵 R
 ```{r}
-#| label: test-complet
-#| echo: true
+#| label: chi2
 chisq.test(tab)
+# Force du lien (0 à 1)
 cramer.v(tab)
 ```
-
-### 💡 Interprétation
-*   **p-value < 0.05 :** Lien significatif (pas dû au hasard).
-*   **V de Cramer :** Intensité du lien.
 :::
 
 # [D] Écarts à l'indépendance
-*Visualiser ce qui "cloche"*
+*L'approche par les Résidus*
 
-## Le graphique des écarts {.scrollable}
+## Comprendre les écarts {.scrollable}
 
-Un Mosaic Plot colore les cases selon les **résidus standardisés** : l'écart entre le réel et le théorique.
+En régression, le **résidu** est l'écart entre le point réel et la droite. En tableau croisé, c'est la même chose !
+
+*   **Résidu positif :** Sur-représentation (la case est plus remplie que prévu).
+*   **Résidu négatif :** Sous-représentation.
 
 ::: {.panel-tabset}
-### 🔵 R (Graphique)
+### 🔵 R (Graphique des résidus)
 ```{r}
-#| label: mosaic-plot
-#| fig-height: 5
-# On utilise la fonction association du package vcd pour de meilleures couleurs
-library(vcd)
-assoc(tab, shade = TRUE, gp = shading_Friendly, 
-      main = "Écarts à l'indépendance (Rang vs Résultats)")
+#| label: residus-plot
+# On extrait les résidus du test du Khi-deux
+res <- as.data.frame(chisq.test(tab)$residuals)
+
+ggplot(res, aes(x = Var1, y = Freq, fill = Freq > 0)) +
+  geom_bar(stat = "identity") +
+  facet_wrap(~Var2) +
+  scale_fill_manual(values = c("firebrick", "dodgerblue4"), 
+                    labels = c("Sous-représenté", "Sur-représenté")) +
+  theme_minimal() +
+  labs(title = "Écarts à l'indépendance (Résidus)",
+       x = "Rang de naissance", y = "Intensité de l'écart", fill = "Sens")
 ```
 
-### 📊 Lecture des couleurs
-1.  **Bleu :** Sur-représentation (plus d'élèves que prévu).
-2.  **Rouge :** Sous-représentation (moins d'élèves que prévu).
-3.  **Blanc/Gris :** Conforme à l'indépendance (hasard).
+### 📊 Interprétation
+Si la barre des "Cadets" dans le graphique "Difficultés" monte vers le haut (bleu), cela signifie que les cadets sont **plus souvent en difficulté** que ce que le hasard seul prévoirait. C'est le "signal" sociologique.
 :::
 
 # Conclusion
 
 ## Ce qu'il faut retenir
 
-1.  **Le TCD** permet de passer des individus aux groupes.
-2.  **Les % en ligne** sont les outils du sociologue pour comparer des trajectoires.
-3.  **Le $\chi^2$** sépare le signal du bruit (hasard).
-4.  **Le Mosaic Plot** localise visuellement où se jouent les inégalités.
+1.  **Le TCD** transforme des données individuelles en statistiques de groupe.
+2.  **Les % en ligne** permettent de comparer des groupes d'inégales tailles (Aînés vs Cadets).
+3.  **Les Résidus** (comme en régression) montrent où la réalité s'écarte du hasard (l'indépendance).
+4.  **Le Khi-deux** valide que cet écart n'est pas un coup de chance.
 
 ---
 
