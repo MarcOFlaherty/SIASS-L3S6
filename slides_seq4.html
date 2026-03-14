@@ -213,7 +213,7 @@ Marc O’Flaherty
 <section>
 <section id="a-mission-le-contexte" class="title-slide slide level1 center">
 <h1>[A] Mission : Le Contexte</h1>
-<p><em>Pourquoi certains enfants de “bonnes familles” échouent-ils ?</em></p>
+<p><em>Analyse des difficultés scolaires (G. Henri-Panabière)</em></p>
 </section>
 <section id="létude-sociologique" class="slide level2 scrollable">
 <h2>L’étude sociologique</h2>
@@ -227,43 +227,23 @@ Marc O’Flaherty
 <li><strong>Qui a collecté les données ?</strong></li>
 <li><strong>Quelle est la taille de l’échantillon ?</strong></li>
 </ol>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>🔓 Cliquez ici pour voir les réponses</strong></p>
-</div>
-<div class="callout-content">
+<details>
+<summary>
+🔓 <strong>Cliquez ici pour voir les réponses</strong>
+</summary>
 <ol type="1">
 <li><strong>Champ :</strong> Élèves de 6ème/5ème de 4 collèges lyonnais (familles fortement diplômées).</li>
 <li><strong>Unité :</strong> Le collégien (unité statistique de base).</li>
 <li><strong>Année :</strong> 1999 (enquête de terrain).</li>
-<li><strong>Collecteur :</strong> G. Henri-Panabière (pour sa recherche doctorale).</li>
+<li><strong>Collecteur :</strong> G. Henri-Panabière (recherche doctorale).</li>
 <li><strong>Taille :</strong> 677 questionnaires exploitables.</li>
 </ol>
-</div>
-</div>
-</div>
+</details>
 </section>
 <section id="la-question-de-recherche" class="slide level2">
 <h2>La question de recherche</h2>
-<p>On cherche à identifier des facteurs de fragilité inhabituelle.</p>
-<p><strong>Hypothèse :</strong> Le <strong>rang de naissance</strong> influence-t-il les résultats ?</p>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Pourquoi pas de “droite de régression” ?</strong></p>
-</div>
-<div class="callout-content">
-<p>La régression linéaire demande des chiffres (ex: Revenu vs Âge). Ici, nos variables sont des <strong>catégories</strong> (Aîné/Cadet). On ne peut pas tracer de droite, on utilise donc le <strong>Khi-deux</strong> pour voir si les groupes se comportent différemment.</p>
-</div>
-</div>
-</div>
+<p>L’objectif est d’identifier des facteurs de fragilité inhabituelle au sein de familles dotées d’un fort capital culturel.</p>
+<p><strong>Hypothèse de travail :</strong> Le <strong>rang de naissance</strong> (Aîné / Cadet / Unique) influence-t-il la probabilité de rencontrer des difficultés scolaires ?</p>
 </section></section>
 <section>
 <section id="b-prise-en-main" class="title-slide slide level1 center">
@@ -275,10 +255,12 @@ Marc O’Flaherty
 <p>Ouvrez le fichier <code>TD4- ghp_mesheritiers_dico.rtf</code>.</p>
 <h3 id="focus-sur-la-question-1">🔍 Focus sur la Question 1 :</h3>
 <ul>
-<li><strong>Variable :</strong> « Comment se sent votre enfant au collège avec ses camarades ».</li>
-<li><strong>Modalités :</strong> 1. À l’aise / 2. Mal à l’aise / 3. Ça dépend / 4. Autre.</li>
-<li><strong>Type :</strong> Qualitative nominale.</li>
+<li><strong>Libellé :</strong> « Comment se sent votre enfant au collège avec ses camarades ».</li>
+<li><strong>Modalités :</strong> 1. À l’aise / 2. Mal à l’aise / 3. Ça dépend / 4. Autre / 9. NR.</li>
+<li><strong>Type de variable :</strong> Qualitative nominale.</li>
 </ul>
+<h3 id="les-données-brutes">📁 Les données brutes :</h3>
+<p>Ouvrez <code>DonneesTD4.xlsx</code>. * <strong>Structure :</strong> 1 ligne = 1 individu | 1 colonne = 1 variable. * <strong>Méthode :</strong> Les données sont codées. Pour les analyser, il faut toujours croiser le fichier Excel avec le dictionnaire RTF.</p>
 </section></section>
 <section>
 <section id="c-analyse-croisée" class="title-slide slide level1 center">
@@ -287,79 +269,155 @@ Marc O’Flaherty
 </section>
 <section id="créer-le-tcd-sur-excel" class="slide level2">
 <h2>1. Créer le TCD sur Excel</h2>
+<p>Croisons le <strong>Rang de naissance</strong> (<code>V0153</code>) et les <strong>Difficultés</strong> (<code>V0008</code>).</p>
 <ol type="1">
-<li><strong>Lignes :</strong> <code>V0153</code> (Rang) | <strong>Colonnes :</strong> <code>V0008</code> (Difficultés).</li>
-<li><strong>Valeurs :</strong> <code>V0008</code> (Nombre).</li>
+<li><strong>Lignes :</strong> <code>V0153</code>.</li>
+<li><strong>Colonnes :</strong> <code>V0008</code>.</li>
+<li><strong>Valeurs :</strong> <code>V0008</code> (choisir le paramètre “Nombre”).</li>
 </ol>
-<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>⚡ Astuce : Le mode % direct</strong></p>
+<p><strong>Astuce TCD</strong></p>
 </div>
 <div class="callout-content">
-<p>Pas besoin de faire des formules ! * Faites un clic droit dans le tableau &gt; <em>Afficher les valeurs</em> &gt; <strong>% du total de la ligne</strong>. * Excel transforme tout instantanément.</p>
+<p>Pour obtenir les pourcentages directement : <em>Clic droit dans le tableau &gt; Afficher les valeurs &gt; % du total de la ligne</em>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="le-script-de-base-sous-r" class="slide level2 scrollable">
+<h2>2. Le script de base sous R</h2>
+<p>Voici le code pour importer les données et créer le tableau d’effectifs.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(questionr)</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a><span class="co"># Importation</span></span>
+<span id="cb1-6"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/DonneesTD4.xlsx"</span>)</span>
+<span id="cb1-7"><a></a></span>
+<span id="cb1-8"><a></a><span class="co"># Tableau d'effectifs (V0153 x V0008)</span></span>
+<span id="cb1-9"><a></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(df<span class="sc">$</span>V0153, df<span class="sc">$</span>V0008)</span>
+<span id="cb1-10"><a></a></span>
+<span id="cb1-11"><a></a><span class="co"># Labellisation pour la clarté</span></span>
+<span id="cb1-12"><a></a><span class="fu">rownames</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Aînés"</span>, <span class="st">"Cadets"</span>, <span class="st">"Uniques"</span>)</span>
+<span id="cb1-13"><a></a><span class="fu">colnames</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Réussite"</span>, <span class="st">"Moyens"</span>, <span class="st">"Difficultés"</span>)</span>
+<span id="cb1-14"><a></a><span class="fu">print</span>(tab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+          Réussite Moyens Difficultés
+  Aînés         48     70          94
+  Cadets        64     64          93
+  Uniques       11     28          27</code></pre>
+</div>
+</div>
+</section>
+<section id="calcul-des-pourcentages-en-ligne" class="slide level2">
+<h2>3. Calcul des pourcentages en ligne</h2>
+<p>Il est nécessaire de ramener chaque groupe à 100 pour comparer les profils.</p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">🟢 Excel (Formule)</a></li><li><a href="#tabset-1-2">🔵 R (Script)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p>Si la case “Aînés en réussite” est en <strong>B10</strong> et le total ligne en <strong>E10</strong> : * <strong>Formule :</strong> <code>=B10/$E10</code> * <em>Note : Le symbole $ bloque la colonne E pour permettre d’étirer la formule.</em></p>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Utilisation du package questionr</span></span>
+<span id="cb3-2"><a></a><span class="fu">lprop</span>(tab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+          Réussite Moyens Difficultés Total
+  Aînés    22.6     33.0   44.3       100.0
+  Cadets   29.0     29.0   42.1       100.0
+  Uniques  16.7     42.4   40.9       100.0
+  All      24.6     32.5   42.9       100.0</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
 <section id="test-du-khi-deux" class="slide level2 scrollable">
-<h2>2. Test du Khi-deux</h2>
-<p>On cherche à savoir si le lien est statistiquement “significatif”.</p>
+<h2>4. Test du Khi-deux</h2>
+<p>Le lien observé entre le rang et les difficultés est-il dû au hasard ?</p>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">📊 Vos résultats</a></li><li><a href="#tabset-1-2">💡 Interprétation</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">🟢 Excel (Méthode manuelle)</a></li><li><a href="#tabset-2-2">🔵 R (Script)</a></li><li><a href="#tabset-2-3">💡 Interprétation</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1">
+<div id="tabset-2-1">
+<ol type="1">
+<li><strong>Tableau Théorique :</strong> Calculez pour chaque case : <code>(Total Ligne * Total Col) / Total Général</code>.</li>
+<li><strong>Test :</strong> <code>=TEST.CHISQ(Plage_Réelle ; Plage_Théorique)</code>.</li>
+</ol>
+</div>
+<div id="tabset-2-2">
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">chisq.test</span>(tab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>X-squared = 6.7894, df = 4, p-value = 0.1474
-V de Cramer = 0.082</code></pre>
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  tab
+X-squared = 6.7894, df = 4, p-value = 0.1474</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Mesure de l'intensité (V de Cramer)</span></span>
+<span id="cb7-2"><a></a><span class="fu">cramer.v</span>(tab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.08248055</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-1-2">
-<ul>
-<li><strong>p-value (0.147) &gt; 0.05 :</strong> Le test échoue. On ne peut pas rejeter l’hypothèse de hasard.</li>
-<li><strong>Conclusion :</strong> Le rang de naissance <strong>n’a pas d’influence significative</strong> sur les difficultés scolaires dans cet échantillon.</li>
-<li><strong>V de Cramer (0.08) :</strong> Le lien est extrêmement faible (proche de 0).</li>
-</ul>
+<div id="tabset-2-3">
+<p>Avec une <strong>p-value = 0.147</strong>, le résultat est supérieur au seuil de 0.05. <strong>Conclusion :</strong> On ne peut pas rejeter l’hypothèse d’indépendance. Le rang de naissance n’influence pas significativement les résultats ici.</p>
 </div>
 </div>
 </div>
 </section></section>
 <section>
-<section id="d-écarts-à-lindépendance" class="title-slide slide level1 center">
-<h1>[D] Écarts à l’indépendance</h1>
-<p><em>Visualiser le “Signal”</em></p>
+<section id="d-analyse-des-écarts" class="title-slide slide level1 center">
+<h1>[D] Analyse des écarts</h1>
+<p><em>Visualiser la structure des données</em></p>
 </section>
-<section id="les-résidus-lécart-au-modèle" class="slide level2 scrollable">
-<h2>Les Résidus (L’écart au modèle)</h2>
-<p>En régression, le résidu est l’écart à la droite. En TCD, c’est l’écart à la <strong>moyenne générale</strong>.</p>
-<h3 id="méthode-excel-visuelle">🟢 Méthode Excel (Visuelle)</h3>
-<ol type="1">
-<li>Créez un graphique en barres de vos <strong>% en ligne</strong>.</li>
-<li>Ajoutez une série qui correspond au <strong>Profil Moyen</strong> (le total général).</li>
-<li><strong>Analyse :</strong> Si les barres des “Aînés” sont identiques aux barres “Moyennes”, il n’y a pas d’écart (Indépendance).</li>
-</ol>
-</section>
-<section id="visualisation-r-résidus" class="slide level2">
-<h2>Visualisation R (Résidus)</h2>
-<p>Même si le test n’est pas significatif, on regarde où sont les plus gros écarts (les barres les plus hautes).</p>
+<section id="les-résidus-écarts-au-modèle" class="slide level2 scrollable">
+<h2>Les Résidus (Écarts au modèle)</h2>
+<p>Même si le test n’est pas significatif, on peut observer quelles cases s’écartent le plus de la situation “théorique” (le hasard).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>res <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">chisq.test</span>(tab)<span class="sc">$</span>residuals)</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> Var1, <span class="at">y =</span> Freq, <span class="at">fill =</span> Freq <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb2-4"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb2-5"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Var2) <span class="sc">+</span></span>
-<span id="cb2-6"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"firebrick"</span>, <span class="st">"dodgerblue4"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Sous-représenté"</span>, <span class="st">"Sur-représenté"</span>)) <span class="sc">+</span></span>
-<span id="cb2-7"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Écarts à l'indépendance (Résidus)"</span>, <span class="at">x =</span> <span class="st">"Rang"</span>, <span class="at">y =</span> <span class="st">"Intensité de l'écart"</span>, <span class="at">fill =</span> <span class="st">"Sens"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Extraction des résidus standardisés</span></span>
+<span id="cb9-2"><a></a>res <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">chisq.test</span>(tab)<span class="sc">$</span>residuals)</span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> Var1, <span class="at">y =</span> Freq, <span class="at">fill =</span> Freq <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb9-5"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Var2) <span class="sc">+</span></span>
+<span id="cb9-7"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"firebrick"</span>, <span class="st">"dodgerblue4"</span>), </span>
+<span id="cb9-8"><a></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Sous-représenté"</span>, <span class="st">"Sur-représenté"</span>)) <span class="sc">+</span></span>
+<span id="cb9-9"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb9-10"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Écarts à l'indépendance (Résidus)"</span>,</span>
+<span id="cb9-11"><a></a>       <span class="at">x =</span> <span class="st">"Rang de naissance"</span>, <span class="at">y =</span> <span class="st">"Intensité de l'écart"</span>, <span class="at">fill =</span> <span class="st">"Sens"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
 <p><a href="slides_seq4_files/figure-revealjs/residus-plot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="slides_seq4_files/figure-revealjs/residus-plot-1.png" width="960"></a></p>
 </figure>
+</div>
+</div>
+</div>
+</section>
+<section id="pourquoi-pas-une-régression" class="slide level2">
+<h2>Pourquoi pas une régression ?</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Théorie</strong></p>
+</div>
+<div class="callout-content">
+<p>La <strong>régression linéaire</strong> (droite) nécessite des variables quantitatives (ex: Revenu en €). Pour des variables <strong>qualitatives</strong> (catégories comme le Rang), on utilise le <strong>Khi-deux</strong>. Les <strong>résidus</strong> que nous venons de tracer sont l’équivalent des résidus de régression : ils mesurent l’écart entre la réalité et la prédiction (ici, la prédiction d’indépendance).</p>
 </div>
 </div>
 </div>
@@ -369,12 +427,13 @@ V de Cramer = 0.082</code></pre>
 <h1>Conclusion</h1>
 
 </section>
-<section id="ce-quil-faut-retenir" class="slide level2">
-<h2>Ce qu’il faut retenir</h2>
+<section id="synthèse-séquence-4" class="slide level2">
+<h2>Synthèse Séquence 4</h2>
 <ol type="1">
-<li><strong>Indépendance :</strong> Si la p-value &gt; 0.05, les variables n’ont pas de lien prouvé.</li>
-<li><strong>Profils :</strong> On compare les % de chaque groupe au % global pour voir qui s’écarte de la norme.</li>
-<li><strong>Régression qualitative :</strong> Le Khi-deux remplace la droite de régression quand on travaille sur des catégories et non des mesures.</li>
+<li><strong>Le TCD</strong> est l’outil pivot pour croiser deux variables qualitatives.</li>
+<li><strong>La p-value</strong> est le juge de paix : si elle est &gt; 0.05, les variables sont considérées comme indépendantes.</li>
+<li><strong>Les pourcentages en ligne</strong> permettent de comparer des comportements de groupes.</li>
+<li><strong>Le script R</strong> permet d’automatiser et de fiabiliser ces étapes.</li>
 </ol>
 </section>
 <section id="ressources" class="slide level2">

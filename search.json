@@ -389,56 +389,70 @@
     "href": "slides_seq4.html#létude-sociologique",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "L’étude sociologique",
-    "text": "L’étude sociologique\nNous travaillons sur l’article de Gaële Henri-Panabière (2010) : « Élèves en difficultés de parents fortement diplômés ».\n📝 Travail à faire (Questions de contexte) :\nÀ l’aide du document TexteTD4.pdf, répondez aux questions suivantes :\n\nQuel est le champ de l’étude ?\nQuelle est l’unité statistique ?\nQuelle est l’année de la collecte ?\nQui a collecté les données ?\nQuelle est la taille de l’échantillon ?\n\n\n\n\n\n\n\n🔓 Cliquez ici pour voir les réponses\n\n\n\nChamp : Élèves de 6ème/5ème de 4 collèges lyonnais (familles fortement diplômées).\nUnité : Le collégien (unité statistique de base).\nAnnée : 1999 (enquête de terrain).\nCollecteur : G. Henri-Panabière (pour sa recherche doctorale).\nTaille : 677 questionnaires exploitables."
+    "text": "L’étude sociologique\nNous travaillons sur l’article de Gaële Henri-Panabière (2010) : « Élèves en difficultés de parents fortement diplômés ».\n📝 Travail à faire (Questions de contexte) :\nÀ l’aide du document TexteTD4.pdf, répondez aux questions suivantes :\n\nQuel est le champ de l’étude ?\nQuelle est l’unité statistique ?\nQuelle est l’année de la collecte ?\nQui a collecté les données ?\nQuelle est la taille de l’échantillon ?\n\n\n\n🔓 Cliquez ici pour voir les réponses\n\n\nChamp : Élèves de 6ème/5ème de 4 collèges lyonnais (familles fortement diplômées).\nUnité : Le collégien (unité statistique de base).\nAnnée : 1999 (enquête de terrain).\nCollecteur : G. Henri-Panabière (recherche doctorale).\nTaille : 677 questionnaires exploitables."
   },
   {
     "objectID": "slides_seq4.html#la-question-de-recherche",
     "href": "slides_seq4.html#la-question-de-recherche",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "La question de recherche",
-    "text": "La question de recherche\nOn cherche à identifier des facteurs de fragilité inhabituelle.\nHypothèse : Le rang de naissance influence-t-il les résultats ?\n\n\n\n\n\n\nPourquoi pas de “droite de régression” ?\n\n\nLa régression linéaire demande des chiffres (ex: Revenu vs Âge). Ici, nos variables sont des catégories (Aîné/Cadet). On ne peut pas tracer de droite, on utilise donc le Khi-deux pour voir si les groupes se comportent différemment."
+    "text": "La question de recherche\nL’objectif est d’identifier des facteurs de fragilité inhabituelle au sein de familles dotées d’un fort capital culturel.\nHypothèse de travail : Le rang de naissance (Aîné / Cadet / Unique) influence-t-il la probabilité de rencontrer des difficultés scolaires ?"
   },
   {
     "objectID": "slides_seq4.html#le-dictionnaire-des-variables",
     "href": "slides_seq4.html#le-dictionnaire-des-variables",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "Le dictionnaire des variables",
-    "text": "Le dictionnaire des variables\nOuvrez le fichier TD4- ghp_mesheritiers_dico.rtf.\n🔍 Focus sur la Question 1 :\n\nVariable : « Comment se sent votre enfant au collège avec ses camarades ».\nModalités : 1. À l’aise / 2. Mal à l’aise / 3. Ça dépend / 4. Autre.\nType : Qualitative nominale."
+    "text": "Le dictionnaire des variables\nOuvrez le fichier TD4- ghp_mesheritiers_dico.rtf.\n🔍 Focus sur la Question 1 :\n\nLibellé : « Comment se sent votre enfant au collège avec ses camarades ».\nModalités : 1. À l’aise / 2. Mal à l’aise / 3. Ça dépend / 4. Autre / 9. NR.\nType de variable : Qualitative nominale.\n\n📁 Les données brutes :\nOuvrez DonneesTD4.xlsx. * Structure : 1 ligne = 1 individu | 1 colonne = 1 variable. * Méthode : Les données sont codées. Pour les analyser, il faut toujours croiser le fichier Excel avec le dictionnaire RTF."
   },
   {
     "objectID": "slides_seq4.html#créer-le-tcd-sur-excel",
     "href": "slides_seq4.html#créer-le-tcd-sur-excel",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "1. Créer le TCD sur Excel",
-    "text": "1. Créer le TCD sur Excel\n\nLignes : V0153 (Rang) | Colonnes : V0008 (Difficultés).\nValeurs : V0008 (Nombre).\n\n\n\n\n\n\n\n⚡ Astuce : Le mode % direct\n\n\nPas besoin de faire des formules ! * Faites un clic droit dans le tableau &gt; Afficher les valeurs &gt; % du total de la ligne. * Excel transforme tout instantanément."
+    "text": "1. Créer le TCD sur Excel\nCroisons le Rang de naissance (V0153) et les Difficultés (V0008).\n\nLignes : V0153.\nColonnes : V0008.\nValeurs : V0008 (choisir le paramètre “Nombre”).\n\n\n\n\n\n\n\nAstuce TCD\n\n\nPour obtenir les pourcentages directement : Clic droit dans le tableau &gt; Afficher les valeurs &gt; % du total de la ligne."
+  },
+  {
+    "objectID": "slides_seq4.html#le-script-de-base-sous-r",
+    "href": "slides_seq4.html#le-script-de-base-sous-r",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "2. Le script de base sous R",
+    "text": "2. Le script de base sous R\nVoici le code pour importer les données et créer le tableau d’effectifs.\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(questionr)\n\n# Importation\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Tableau d'effectifs (V0153 x V0008)\ntab &lt;- table(df$V0153, df$V0008)\n\n# Labellisation pour la clarté\nrownames(tab) &lt;- c(\"Aînés\", \"Cadets\", \"Uniques\")\ncolnames(tab) &lt;- c(\"Réussite\", \"Moyens\", \"Difficultés\")\nprint(tab)\n\n         \n          Réussite Moyens Difficultés\n  Aînés         48     70          94\n  Cadets        64     64          93\n  Uniques       11     28          27"
+  },
+  {
+    "objectID": "slides_seq4.html#calcul-des-pourcentages-en-ligne",
+    "href": "slides_seq4.html#calcul-des-pourcentages-en-ligne",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "3. Calcul des pourcentages en ligne",
+    "text": "3. Calcul des pourcentages en ligne\nIl est nécessaire de ramener chaque groupe à 100 pour comparer les profils.\n\n🟢 Excel (Formule)🔵 R (Script)\n\n\nSi la case “Aînés en réussite” est en B10 et le total ligne en E10 : * Formule : =B10/$E10 * Note : Le symbole $ bloque la colonne E pour permettre d’étirer la formule.\n\n\n\n# Utilisation du package questionr\nlprop(tab)\n\n         \n          Réussite Moyens Difficultés Total\n  Aînés    22.6     33.0   44.3       100.0\n  Cadets   29.0     29.0   42.1       100.0\n  Uniques  16.7     42.4   40.9       100.0\n  All      24.6     32.5   42.9       100.0"
   },
   {
     "objectID": "slides_seq4.html#test-du-khi-deux",
     "href": "slides_seq4.html#test-du-khi-deux",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
-    "section": "2. Test du Khi-deux",
-    "text": "2. Test du Khi-deux\nOn cherche à savoir si le lien est statistiquement “significatif”.\n\n📊 Vos résultats💡 Interprétation\n\n\n\n\nX-squared = 6.7894, df = 4, p-value = 0.1474\nV de Cramer = 0.082\n\n\n\n\n\np-value (0.147) &gt; 0.05 : Le test échoue. On ne peut pas rejeter l’hypothèse de hasard.\nConclusion : Le rang de naissance n’a pas d’influence significative sur les difficultés scolaires dans cet échantillon.\nV de Cramer (0.08) : Le lien est extrêmement faible (proche de 0)."
+    "section": "4. Test du Khi-deux",
+    "text": "4. Test du Khi-deux\nLe lien observé entre le rang et les difficultés est-il dû au hasard ?\n\n🟢 Excel (Méthode manuelle)🔵 R (Script)💡 Interprétation\n\n\n\nTableau Théorique : Calculez pour chaque case : (Total Ligne * Total Col) / Total Général.\nTest : =TEST.CHISQ(Plage_Réelle ; Plage_Théorique).\n\n\n\n\nchisq.test(tab)\n\n\n    Pearson's Chi-squared test\n\ndata:  tab\nX-squared = 6.7894, df = 4, p-value = 0.1474\n\n# Mesure de l'intensité (V de Cramer)\ncramer.v(tab)\n\n[1] 0.08248055\n\n\n\n\nAvec une p-value = 0.147, le résultat est supérieur au seuil de 0.05. Conclusion : On ne peut pas rejeter l’hypothèse d’indépendance. Le rang de naissance n’influence pas significativement les résultats ici."
   },
   {
-    "objectID": "slides_seq4.html#les-résidus-lécart-au-modèle",
-    "href": "slides_seq4.html#les-résidus-lécart-au-modèle",
+    "objectID": "slides_seq4.html#les-résidus-écarts-au-modèle",
+    "href": "slides_seq4.html#les-résidus-écarts-au-modèle",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
-    "section": "Les Résidus (L’écart au modèle)",
-    "text": "Les Résidus (L’écart au modèle)\nEn régression, le résidu est l’écart à la droite. En TCD, c’est l’écart à la moyenne générale.\n🟢 Méthode Excel (Visuelle)\n\nCréez un graphique en barres de vos % en ligne.\nAjoutez une série qui correspond au Profil Moyen (le total général).\nAnalyse : Si les barres des “Aînés” sont identiques aux barres “Moyennes”, il n’y a pas d’écart (Indépendance)."
+    "section": "Les Résidus (Écarts au modèle)",
+    "text": "Les Résidus (Écarts au modèle)\nMême si le test n’est pas significatif, on peut observer quelles cases s’écartent le plus de la situation “théorique” (le hasard).\n\n# Extraction des résidus standardisés\nres &lt;- as.data.frame(chisq.test(tab)$residuals)\n\nggplot(res, aes(x = Var1, y = Freq, fill = Freq &gt; 0)) +\n  geom_bar(stat = \"identity\") +\n  facet_wrap(~Var2) +\n  scale_fill_manual(values = c(\"firebrick\", \"dodgerblue4\"), \n                    labels = c(\"Sous-représenté\", \"Sur-représenté\")) +\n  theme_minimal() +\n  labs(title = \"Écarts à l'indépendance (Résidus)\",\n       x = \"Rang de naissance\", y = \"Intensité de l'écart\", fill = \"Sens\")"
   },
   {
-    "objectID": "slides_seq4.html#visualisation-r-résidus",
-    "href": "slides_seq4.html#visualisation-r-résidus",
+    "objectID": "slides_seq4.html#pourquoi-pas-une-régression",
+    "href": "slides_seq4.html#pourquoi-pas-une-régression",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
-    "section": "Visualisation R (Résidus)",
-    "text": "Visualisation R (Résidus)\nMême si le test n’est pas significatif, on regarde où sont les plus gros écarts (les barres les plus hautes).\n\nres &lt;- as.data.frame(chisq.test(tab)$residuals)\n\nggplot(res, aes(x = Var1, y = Freq, fill = Freq &gt; 0)) +\n  geom_bar(stat = \"identity\") +\n  facet_wrap(~Var2) +\n  scale_fill_manual(values = c(\"firebrick\", \"dodgerblue4\"), labels = c(\"Sous-représenté\", \"Sur-représenté\")) +\n  theme_minimal() + labs(title = \"Écarts à l'indépendance (Résidus)\", x = \"Rang\", y = \"Intensité de l'écart\", fill = \"Sens\")"
+    "section": "Pourquoi pas une régression ?",
+    "text": "Pourquoi pas une régression ?\n\n\n\n\n\n\nThéorie\n\n\nLa régression linéaire (droite) nécessite des variables quantitatives (ex: Revenu en €). Pour des variables qualitatives (catégories comme le Rang), on utilise le Khi-deux. Les résidus que nous venons de tracer sont l’équivalent des résidus de régression : ils mesurent l’écart entre la réalité et la prédiction (ici, la prédiction d’indépendance)."
   },
   {
-    "objectID": "slides_seq4.html#ce-quil-faut-retenir",
-    "href": "slides_seq4.html#ce-quil-faut-retenir",
+    "objectID": "slides_seq4.html#synthèse-séquence-4",
+    "href": "slides_seq4.html#synthèse-séquence-4",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
-    "section": "Ce qu’il faut retenir",
-    "text": "Ce qu’il faut retenir\n\nIndépendance : Si la p-value &gt; 0.05, les variables n’ont pas de lien prouvé.\nProfils : On compare les % de chaque groupe au % global pour voir qui s’écarte de la norme.\nRégression qualitative : Le Khi-deux remplace la droite de régression quand on travaille sur des catégories et non des mesures."
+    "section": "Synthèse Séquence 4",
+    "text": "Synthèse Séquence 4\n\nLe TCD est l’outil pivot pour croiser deux variables qualitatives.\nLa p-value est le juge de paix : si elle est &gt; 0.05, les variables sont considérées comme indépendantes.\nLes pourcentages en ligne permettent de comparer des comportements de groupes.\nLe script R permet d’automatiser et de fiabiliser ces étapes."
   },
   {
     "objectID": "slides_seq4.html#ressources",
