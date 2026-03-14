@@ -1,6 +1,6 @@
 ---
-title: "Séquence 4 : Tableaux Croisés & Indépendance"
-subtitle: "Analyse des difficultés scolaires (G. Henri-Panabière)"
+title: "Séquence 4 : L'enquête sur les Héritiers"
+subtitle: "Tableaux croisés sous Excel et RStudio"
 author: "Marc O'Flaherty"
 format: 
   revealjs:
@@ -12,194 +12,182 @@ format:
     echo: true
 ---
 
-# Introduction & Contexte
-*Élèves en difficultés de parents fortement diplômés*
+# [A] Mission : Le Contexte
+*Pourquoi certains enfants de "bonnes familles" échouent-ils ?*
 
 ## L'étude sociologique {.scrollable}
 
-Nous analysons les données issues de l'article de **Gaële Henri-Panabière** (2010), paru dans la revue *Sociologie*.
+Nous travaillons sur l'article de **Gaële Henri-Panabière** (2010) : *« Élèves en difficultés de parents fortement diplômés »*.
 
-* **L'objectif :** Comprendre les facteurs qui favorisent ou empêchent les difficultés scolaires, en particulier au sein des familles fortement diplômées.
-* **Le croisement de variables :** La sociologie quantitative s'appuie beaucoup sur les **tableaux croisés** pour mesurer si deux variables qualitatives sont indépendantes ou si l'une influence l'autre.
-* **Nos variables clés aujourd'hui :**
-  * Rang de naissance
-  * Difficultés scolaires (passées ou présentes)
+### 📝 Travail à faire (Questions de contexte) :
+À l'aide du document `TexteTD4.pdf`, répondez aux questions suivantes :
 
-::: {.callout-note}
-### Rappel de cours
-Un tableau croisé confronte deux variables catégorielles. On calcule souvent des **pourcentages en ligne** ou **en colonne** pour neutraliser les différences d'effectifs entre les groupes.
+1.  **Quel est le champ de l’étude ?**
+2.  **Quelle est l'unité statistique ?**
+3.  **Quelle est l’année de la collecte ?**
+4.  **Qui a collecté les données ?**
+5.  **Quelle est la taille de l’échantillon ?**
+
+::: {.callout-tip collapse="true"}
+### 🔓 Voir les réponses (Spoiler)
+1.  **Champ :** Élèves de 6ème/5ème de 4 collèges lyonnais (familles diplômées).
+2.  **Unité :** Le collégien.
+3.  **Année :** 1999.
+4.  **Collecteur :** G. Henri-Panabière (recherche doctorale).
+5.  **Taille :** 677 questionnaires.
 :::
 
-## Préparation des données
+---
+
+## Les enjeux du croisement
+
+Dans les familles à fort capital culturel, la réussite est la norme. L'échec y est donc un paradoxe sociologique. 
+
+**La question du jour :** Le **rang de naissance** (être l'aîné, le cadet ou l'unique) influence-t-il les chances de rencontrer des difficultés scolaires ?
+
+# [B] Prise en main
+*Exploration du dictionnaire et des données*
+
+## Le dictionnaire des variables {.scrollable}
+
+Ouvrez le fichier `TD4- ghp_mesheritiers_dico.rtf`.
+
+### 🔍 Focus sur la Question 1 :
+*   **Variable étudiée :** Aisance relationnelle au collège (« Comment se sent votre enfant au collège avec ses camarades »).
+*   **Modalités :** 1. À l'aise / 2. Mal à l'aise / 3. Ça dépend / 4. Autre.
+*   **Type de variable :** Qualitative nominale.
+
+### 📁 Les données brutes :
+Ouvrez `DonneesTD4.xlsx`.
+*   **Colonnes :** Variables (V0001, V0002...).
+*   **Lignes :** Individus (chaque élève).
+*   **Formule Excel utile :** Pour voir les titres, figez la première ligne (*Affichage > Figer les volets*).
+
+# [C] Analyse Croisée
+*Le rang de naissance pèse-t-il sur les résultats ?*
+
+## 1. Vérification des variables
+
+L'énoncé signale deux variables de difficultés scolaires. Vérifions si elles sont identiques.
 
 ::: {.panel-tabset}
 ### 🟢 Excel
-1. Ouvrez `DonneesTD4.xlsx` (attention, fichier volumineux).
-2. Familiarisez-vous avec les colonnes grâce au dictionnaire des codes.
+1. Créez un TCD.
+2. Mettez `V0006` en ligne et `V0008` en colonne.
+3. **Observation :** Les effectifs sont uniquement sur la diagonale. Les variables sont redondantes.
 
-### 🔵 R (Importation)
-::: {style="max-height: 400px; overflow-y: auto;"}
+### 🔵 R
 ```{r}
-#| label: setup-data
+#| label: check-vars
 #| echo: true
 #| message: false
-#| warning: false
-
-# On installe/charge le package questionr qui facilite l'analyse d'enquêtes
-# install.packages("questionr") 
 library(tidyverse)
 library(readxl)
-library(questionr)
-
-# --- IMPORTATION ---
 df <- read_excel("data/DonneesTD4.xlsx")
 
-# Petit nettoyage pour simplifier (Exemple factice, à adapter selon V0007 / V0065)
-# df_clean <- df %>%
-#   select(Rang_Naissance = V000X, Diff_Scolaire = V000Y) %>%
-#   drop_na()
-```
-:::
-:::
-
-# 1. Le Tableau Croisé
-*Effectifs et Pourcentages*
-
-## Créer un tableau croisé {.scrollable}
-
-Croisons le **Rang de naissance** et les **Difficultés scolaires**.
-
-::: {.panel-tabset}
-### 🟢 Excel (TCD)
-1. **Insertion > Tableau croisé dynamique**.
-2. Glissez le *Rang de naissance* en **Lignes**.
-3. Glissez les *Difficultés scolaires* en **Colonnes**.
-4. Glissez à nouveau les *Difficultés scolaires* dans **Valeurs** (en choisissant "Nombre" ou "Compte", pas "Somme").
-5. Pour avoir les %, cliquez sur les paramètres du champ de valeur > Afficher les valeurs en > **% du total de la ligne**.
-
-### 🔵 Code R (Base)
-```{r}
-#| label: tab-croise-base
-#| echo: true
-#| eval: false
-
-# Fonction de base R pour les effectifs
-tab_brut <- table(df$V0007, df$V0065)
-print(tab_brut)
-
-# Pourcentages en LIGNE (avec le package questionr)
-lprop(tab_brut)
-
-# Pourcentages en COLONNE
-cprop(tab_brut)
-```
-
-### 🔵 Code R (dplyr)
-```{r}
-#| label: tab-croise-dplyr
-#| echo: true
-#| eval: false
-
-# Version tidyverse (plus lisible pour des rapports)
-df %>%
-  count(V0007, V0065) %>%
-  pivot_wider(names_from = V0065, values_from = n)
+# Comparaison rapide
+table(df$V0006, df$V0008)
 ```
 :::
 
-## Interpréter les pourcentages
+## 2. Le Tri Croisé (Effectifs) {.scrollable}
 
-::: {.callout-warning icon=false}
-### ⚠️ Ligne ou Colonne ? La règle d'or !
-Le choix du sens des pourcentages détermine ce que vous démontrez :
-* **Les % en ligne** décrivent le comportement d'une sous-population (Ex: *Parmi les aînés, X% ont des difficultés.*) $\rightarrow$ Permet de comparer les groupes entre eux.
-* **Les % en colonne** décrivent la composition d'un phénomène (Ex: *Parmi les élèves en difficulté, X% sont des aînés.*) $\rightarrow$ Permet de voir de qui est composé le groupe "en difficulté".
-:::
-
-**Dans notre cas :** On veut savoir si le fait d'être aîné ou cadet *influence* la difficulté scolaire. Le rang de naissance est la variable indépendante (la cause présumée), on la met en **ligne**, et on calcule des pourcentages **en ligne**.
-
-
-# 2. Mesurer l'indépendance
-*Test du $\chi^2$ (Khi-deux)*
-
-## Le test du Khi-deux {.scrollable}
-
-Le Khi-deux ($\chi^2$) compare le tableau **observé** (la réalité) avec un tableau **théorique** (ce qu'on obtiendrait si le rang de naissance n'avait *strictement aucune influence* sur les résultats scolaires).
+Croisons les **Difficultés** (`V0008`) et le **Rang de naissance** (`V0153`).
 
 ::: {.panel-tabset}
 ### 🟢 Excel
-Excel ne fait pas ce test automatiquement. Il faut :
-1. Calculer les effectifs théoriques pour chaque case : `(Total Ligne * Total Colonne) / Total Général`.
-2. Utiliser la fonction `=TEST.KHIDEUX(Plage_observée; Plage_théorique)` pour obtenir la **p-value**.
+1. **Lignes :** `V0153` (Rang) | **Colonnes :** `V0008` (Difficultés).
+2. **Action :** Copiez les données (ex: plage A3:D6) et collez-les plus bas en "Valeurs".
+3. **Formule :** Pour calculer le total ligne si besoin : `=SOMME(B4:D4)`.
 
-### 🔵 Code R
+### 🔵 R
 ```{r}
-#| label: chi2
+#| label: tri-croise
 #| echo: true
-#| eval: false
+library(questionr)
 
-tab_brut <- table(df$V0007, df$V0065)
-
-# 1. Le test complet
-resultat_test <- chisq.test(tab_brut)
-print(resultat_test)
-
-# 2. Afficher les effectifs théoriques
-# resultat_test$expected
-
-# 3. Calculer la force du lien (V de Cramer) avec questionr
-cramer.v(tab_brut)
+# Nettoyage pour les labels
+tab <- table(df$V0153, df$V0008)
+rownames(tab) <- c("Aînés", "Cadets", "Uniques")
+colnames(tab) <- c("Réussite", "Moyens", "Difficultés")
+tab
 ```
 :::
 
-## P-value et V de Cramer
+## 3. Pourcentages en ligne
 
-::: {.callout-note icon=false}
-### 💡 La P-value (Est-ce significatif ?)
-La *p-value* (ou $p$) vous indique la probabilité que la différence observée soit due au simple hasard de l'échantillonnage.
-* Si **$p < 0.05$** : Le lien est **statistiquement significatif** (moins de 5% de chances de se tromper). On rejette l'hypothèse d'indépendance.
-* Si **$p > 0.05$** : On ne peut rien affirmer de solide, les variations relèvent peut-être du hasard.
-:::
-
-::: {.callout-tip icon=false}
-### 🎯 Le V de Cramer (Est-ce fort ?)
-Avoir une *p-value* très petite ($p < 0.001$) prouve que le lien existe, mais **ne dit pas s'il est fort**. 
-Le **V de Cramer** mesure l'intensité du lien entre 0 (nul) et 1 (parfait).
-* $< 0.10$ : Lien très faible.
-* Autour de $0.20$ : Lien moyen/significatif en sciences sociales.
-* $> 0.30$ : Lien fort.
-:::
-
-# 3. Visualisation
-*Le Mosaic Plot*
-
-## Les écarts à l'indépendance {.scrollable}
-
-Le `mosaicplot` est le graphique parfait pour visualiser un tableau croisé. L'aire de chaque rectangle est proportionnelle à l'effectif de la case.
+Pour comparer les profils, on ramène chaque ligne à 100%.
 
 ::: {.panel-tabset}
-### 🔵 Code R
+### 🟢 Excel
+Dans votre tableau copié, si la case "Aînés en réussite" est en **B10** et le total ligne en **E10** :
+*   **Formule :** `=B10/$E10` (puis étirez vers la droite).
+*   *Note : Le $ bloque la colonne du total.*
+
+### 🔵 R
 ```{r}
-#| label: mosaic
+#| label: prop-ligne
 #| echo: true
-#| eval: false
-#| fig-height: 5
-
-tab_brut <- table(df$V0007, df$V0065)
-
-# shade = TRUE ajoute des couleurs basées sur les résidus du test du Chi2
-# Bleu = Sur-représentation par rapport au hasard
-# Rouge = Sous-représentation par rapport au hasard
-mosaicplot(tab_brut, 
-           las = 3, # Pivote le texte des axes
-           shade = TRUE, 
-           main = "Rang de naissance et Résultats scolaires",
-           xlab = "Rang de naissance", 
-           ylab = "Résultats faibles")
+# lprop = pourcentages en ligne
+lprop(tab)
 ```
 :::
 
-::: {.callout-important}
-### Ce qu'il faut regarder
-Observez les cases **bleues** et **rouges**. Elles vous indiquent exactement *où* l'indépendance est brisée. Par exemple, si la case (Aîné $\times$ Bon élève) est bleue, cela signifie que les aînés réussissent statistiquement mieux que si la répartition était liée au hasard.
+## 4. Test et Significativité {.scrollable}
+
+::: {.panel-tabset}
+### 🟢 Excel
+1.  **Khi-deux :** Utilisez `=TEST.CHISQ(Plage_Observée; Plage_Théorique)`.
+2.  *Note :* Excel demande de calculer d'abord le tableau théorique (Total Ligne * Total Col / Total Général).
+
+### 🔵 R
+```{r}
+#| label: test-complet
+#| echo: true
+chisq.test(tab)
+cramer.v(tab)
+```
+
+### 💡 Interprétation
+*   **p-value < 0.05 :** Lien significatif (pas dû au hasard).
+*   **V de Cramer :** Intensité du lien.
 :::
+
+# [D] Écarts à l'indépendance
+*Visualiser ce qui "cloche"*
+
+## Le graphique des écarts {.scrollable}
+
+Un Mosaic Plot colore les cases selon les **résidus standardisés** : l'écart entre le réel et le théorique.
+
+::: {.panel-tabset}
+### 🔵 R (Graphique)
+```{r}
+#| label: mosaic-plot
+#| fig-height: 5
+# On utilise la fonction association du package vcd pour de meilleures couleurs
+library(vcd)
+assoc(tab, shade = TRUE, gp = shading_Friendly, 
+      main = "Écarts à l'indépendance (Rang vs Résultats)")
+```
+
+### 📊 Lecture des couleurs
+1.  **Bleu :** Sur-représentation (plus d'élèves que prévu).
+2.  **Rouge :** Sous-représentation (moins d'élèves que prévu).
+3.  **Blanc/Gris :** Conforme à l'indépendance (hasard).
+:::
+
+# Conclusion
+
+## Ce qu'il faut retenir
+
+1.  **Le TCD** permet de passer des individus aux groupes.
+2.  **Les % en ligne** sont les outils du sociologue pour comparer des trajectoires.
+3.  **Le $\chi^2$** sépare le signal du bruit (hasard).
+4.  **Le Mosaic Plot** localise visuellement où se jouent les inégalités.
+
+---
+
+## 🔗 Ressources
+* [Article Henri-Panabière (Cairn)](http://journals.openedition.org/sociologie/652)
+* [Corrigé Excel TD4](data/DonneesTD4.xlsx)
