@@ -111,7 +111,7 @@ tab <- table(df$V0153, df$V0008)
 
 # Labellisation pour la clarté
 rownames(tab) <- c("Aînés", "Cadets", "Uniques")
-colnames(tab) <- c("Difficultés", "Moyen", "Réussite")
+colnames(tab) <- c("Difficultés", "Réussite", "Moyen")
 print(tab)
 ```
 
