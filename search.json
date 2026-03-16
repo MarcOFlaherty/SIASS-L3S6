@@ -445,14 +445,14 @@
     "href": "slides_seq4.html#le-script-de-base-sous-r",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "2. Le script de base sous R",
-    "text": "2. Le script de base sous R\nVoici le code pour importer les données et créer le tableau d’effectifs.\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(questionr)\n\n# Importation\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Tableau d'effectifs (V0153 x V0008)\ntab &lt;- table(df$V0153, df$V0008)\n\n# Labellisation pour la clarté\nrownames(tab) &lt;- c(\"Aînés\", \"Cadets\", \"Uniques\")\ncolnames(tab) &lt;- c(\"Difficultés\", \"Moyen\", \"Réussite\")\nprint(tab)\n\n         \n          Difficultés Moyen Réussite\n  Aînés            48    70       94\n  Cadets           64    64       93\n  Uniques          11    28       27"
+    "text": "2. Le script de base sous R\nVoici le code pour importer les données et créer le tableau d’effectifs.\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(questionr)\n\n# Importation\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Tableau d'effectifs (V0153 x V0008)\ntab &lt;- table(df$V0153, df$V0008)\n\n# Labellisation pour la clarté\nrownames(tab) &lt;- c(\"Aînés\", \"Cadets\", \"Uniques\")\ncolnames(tab) &lt;- c(\"Difficultés\", \"Réussite\", \"Moyen\")\nprint(tab)\n\n         \n          Difficultés Réussite Moyen\n  Aînés            48       70    94\n  Cadets           64       64    93\n  Uniques          11       28    27"
   },
   {
     "objectID": "slides_seq4.html#calcul-des-pourcentages-en-ligne",
     "href": "slides_seq4.html#calcul-des-pourcentages-en-ligne",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "3. Calcul des pourcentages en ligne",
-    "text": "3. Calcul des pourcentages en ligne\nIl est nécessaire de passer en pourcentages pour comparer les profils.\n\n🟢 Excel (Formule)🔵 R (Script)\n\n\n\nNote : Le symbole $ bloque la colonne E pour permettre d’étirer la formule.\n\n\n\n\n# Utilisation du package questionr\nlprop(tab)\n\n         \n          Difficultés Moyen Réussite Total\n  Aînés    22.6        33.0  44.3    100.0\n  Cadets   29.0        29.0  42.1    100.0\n  Uniques  16.7        42.4  40.9    100.0\n  All      24.6        32.5  42.9    100.0"
+    "text": "3. Calcul des pourcentages en ligne\nIl est nécessaire de passer en pourcentages pour comparer les profils.\n\n🟢 Excel (Formule)🔵 R (Script)\n\n\n\nNote : Le symbole $ bloque la colonne E pour permettre d’étirer la formule.\n\n\n\n\n# Utilisation du package questionr\nlprop(tab)\n\n         \n          Difficultés Réussite Moyen Total\n  Aînés    22.6        33.0     44.3 100.0\n  Cadets   29.0        29.0     42.1 100.0\n  Uniques  16.7        42.4     40.9 100.0\n  All      24.6        32.5     42.9 100.0"
   },
   {
     "objectID": "slides_seq4.html#test-du-khi-deux",
