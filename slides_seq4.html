@@ -323,14 +323,14 @@ Marc O’Flaherty
 <span id="cb1-10"><a></a></span>
 <span id="cb1-11"><a></a><span class="co"># Labellisation pour la clarté</span></span>
 <span id="cb1-12"><a></a><span class="fu">rownames</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Aînés"</span>, <span class="st">"Cadets"</span>, <span class="st">"Uniques"</span>)</span>
-<span id="cb1-13"><a></a><span class="fu">colnames</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Difficultés"</span>, <span class="st">"Réussite"</span>, <span class="st">"Moyen"</span>)</span>
+<span id="cb1-13"><a></a><span class="fu">colnames</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Réussite"</span>, <span class="st">"Moyen"</span>, <span class="st">"Difficultés"</span>)</span>
 <span id="cb1-14"><a></a><span class="fu">print</span>(tab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         
-          Difficultés Réussite Moyen
-  Aînés            48       70    94
-  Cadets           64       64    93
-  Uniques          11       28    27</code></pre>
+          Réussite Moyen Difficultés
+  Aînés         48    70          94
+  Cadets        64    64          93
+  Uniques       11    28          27</code></pre>
 </div>
 </div>
 </section>
@@ -351,11 +351,11 @@ Marc O’Flaherty
 <span id="cb3-2"><a></a><span class="fu">lprop</span>(tab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         
-          Difficultés Réussite Moyen Total
-  Aînés    22.6        33.0     44.3 100.0
-  Cadets   29.0        29.0     42.1 100.0
-  Uniques  16.7        42.4     40.9 100.0
-  All      24.6        32.5     42.9 100.0</code></pre>
+          Réussite Moyen Difficultés Total
+  Aînés    22.6     33.0  44.3       100.0
+  Cadets   29.0     29.0  42.1       100.0
+  Uniques  16.7     42.4  40.9       100.0
+  All      24.6     32.5  42.9       100.0</code></pre>
 </div>
 </div>
 </div>
@@ -422,14 +422,14 @@ X-squared = 6.7894, df = 4, p-value = 0.1474</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Extraction des résidus standardisés</span></span>
 <span id="cb9-2"><a></a>res <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">chisq.test</span>(tab)<span class="sc">$</span>residuals)</span>
 <span id="cb9-3"><a></a></span>
-<span id="cb9-4"><a></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> Var1, <span class="at">y =</span> Freq, <span class="at">fill =</span> Freq <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb9-4"><a></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> Var2, <span class="at">y =</span> Freq, <span class="at">fill =</span> Freq <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
 <span id="cb9-5"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb9-6"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Var2) <span class="sc">+</span></span>
-<span id="cb9-7"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"firebrick"</span>, <span class="st">"dodgerblue4"</span>), </span>
-<span id="cb9-8"><a></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Sous-représenté"</span>, <span class="st">"Sur-représenté"</span>)) <span class="sc">+</span></span>
+<span id="cb9-6"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Var1) <span class="sc">+</span></span>
+<span id="cb9-7"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"firebrick"</span>, <span class="st">"dodgerblue4"</span>),</span>
+<span id="cb9-8"><a></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Sous-reprÃ©sentÃ©"</span>, <span class="st">"Sur-reprÃ©sentÃ©"</span>)) <span class="sc">+</span></span>
 <span id="cb9-9"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb9-10"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Écarts à l'indépendance (Résidus)"</span>,</span>
-<span id="cb9-11"><a></a>       <span class="at">x =</span> <span class="st">"Rang de naissance"</span>, <span class="at">y =</span> <span class="st">"Intensité de l'écart"</span>, <span class="at">fill =</span> <span class="st">"Sens"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-10"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Ã‰carts Ã&nbsp; l'indÃ©pendance (RÃ©sidus)"</span>,</span>
+<span id="cb9-11"><a></a>       <span class="at">x =</span> <span class="st">"DifficultÃ© scolaire"</span>, <span class="at">y =</span> <span class="st">"IntensitÃ© de l'Ã©cart"</span>, <span class="at">fill =</span> <span class="st">"Sens"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>

@@ -755,6 +755,91 @@ La pente est douce. Pour gagner <strong>1 an</strong> d’espérance de vie supp
 </ul></li>
 </ul>
 </details>
+</section></section>
+<section>
+<section id="analyse-des-données-qualitatives" class="title-slide slide level1 center">
+<h1>4. Analyse des données qualitatives</h1>
+<p><em>Croiser des catégories (Tableaux croisés)</em></p>
+</section>
+<section id="le-test-du-khi-deux-chi2" class="slide level2 scrollable">
+<h2>Le Test du Khi-deux (<span class="math inline">\(\chi^2\)</span>)</h2>
+<p>Le juge de paix des tableaux croisés. Il permet de savoir si le lien observé entre deux variables qualitatives est “réel” ou dû au hasard.</p>
+<ul>
+<li><strong>Le principe :</strong> On compare le <strong>Tableau Observé</strong> (la réalité) au <strong>Tableau Théorique</strong> (ce qui se passerait s’il n’y avait aucun lien).</li>
+<li><strong>L’indicateur :</strong> Plus l’écart est grand, plus le <span class="math inline">\(\chi^2\)</span> est élevé.</li>
+</ul>
+<h3 id="la-p-value-le-verdict">La p-value (Le verdict)</h3>
+<p>C’est la probabilité de se tromper en affirmant qu’il existe un lien.</p>
+<ul>
+<li><strong>Si p-value &lt; 0,05 (5%) :</strong> Le lien est <strong>significatif</strong>. On rejette l’hypothèse de l’indépendance. Il se passe quelque chose !</li>
+<li><strong>Si p-value &gt; 0,05 :</strong> Le lien n’est <strong>pas significatif</strong>. Les écarts observés sont probablement dus au hasard de l’échantillonnage.</li>
+</ul>
+<details>
+<summary>
+Un exemple simple
+</summary>
+<p>Imaginons que l’on teste le lien entre “Réussite au permis” et “Sexe”.</p>
+<ul>
+<li>On observe 60% de réussite chez les hommes et 58% chez les femmes.
+<ul>
+<li>Le Khi-deux calcule si ces 2% d’écart sont assez “solides” pour conclure à une différence ou si c’est juste un coup de chance sur nos 100 candidats testés.</li>
+</ul></li>
+</ul>
+</details>
+</section>
+<section id="le-v-de-cramer" class="slide level2 scrollable">
+<h2>Le V de Cramer</h2>
+<p>Une fois qu’on sait que le lien est “vrai” (via le Khi-deux), on veut savoir s’il est <strong>fort</strong>.</p>
+<ul>
+<li><strong>Le problème du Khi-deux :</strong> Son chiffre dépend de la taille de l’échantillon. Sur 10 000 personnes, le Khi-deux est toujours énorme.</li>
+<li><strong>La solution (V de Cramer) :</strong> Un indicateur standardisé entre <strong>0 et 1</strong>.</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Valeur du V</th>
+<th style="text-align: left;">Intensité du lien</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>0</strong></td>
+<td style="text-align: left;">Indépendance totale</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>&lt; 0,10</strong></td>
+<td style="text-align: left;">Lien très faible</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>0,10 à 0,30</strong></td>
+<td style="text-align: left;">Lien moyen</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>&gt; 0,30</strong></td>
+<td style="text-align: left;">Lien fort</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>1</strong></td>
+<td style="text-align: left;">Relation parfaite</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>À retenir</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Le <strong>Khi-deux</strong> (et sa p-value) dit <strong>SI</strong> il y a un lien.</li>
+<li>Le <strong>V de Cramer</strong> dit <strong>COMBIEN</strong> ce lien est intense.</li>
+</ol>
+</div>
+</div>
+</div>
 </section>
 <section id="fin-du-retour-sur-les-notions" class="slide level2">
 <h2>Fin du retour sur les notions</h2>
