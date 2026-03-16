@@ -111,7 +111,7 @@ tab <- table(df$V0153, df$V0008)
 
 # Labellisation pour la clarté
 rownames(tab) <- c("Aînés", "Cadets", "Uniques")
-colnames(tab) <- c("Réussite", "Moyen", "Difficultés")
+colnames(tab) <- c("Difficultés", "Moyen", "Réussite")
 print(tab)
 ```
 
@@ -188,10 +188,10 @@ ggplot(res, aes(x = Var2, y = Freq, fill = Freq > 0)) +
   geom_bar(stat = "identity") +
   facet_wrap(~Var1) +
   scale_fill_manual(values = c("firebrick", "dodgerblue4"),
-                    labels = c("Sous-reprÃ©sentÃ©", "Sur-reprÃ©sentÃ©")) +
+                    labels = c("Sous-représenté", "Sur-représenté")) +
   theme_minimal() +
-  labs(title = "Ã‰carts Ã  l'indÃ©pendance (RÃ©sidus)",
-       x = "DifficultÃ© scolaire", y = "IntensitÃ© de l'Ã©cart", fill = "Sens")
+  labs(title = "Écarts à  l'indépendance (Résidus)",
+       x = "Difficulté scolaire", y = "Intensité de l'écart", fill = "Sens")
 ```
 
 ## Pourquoi pas une régression ?
