@@ -494,4 +494,47 @@ ggplot(df_demo, aes(x = PIB, y = Esp_Vie)) +
   * **Le Vietnam et la Chine** sont **au-dessus** ou sur la ligne : ils transforment très efficacement leur richesse en santé.  
 </details>
 
+# 4. Analyse des données qualitatives
+*Croiser des catégories (Tableaux croisés)*
+
+## Le Test du Khi-deux ($\chi^2$) {.scrollable}
+Le juge de paix des tableaux croisés. Il permet de savoir si le lien observé entre deux variables qualitatives est "réel" ou dû au hasard.
+
+* **Le principe :** On compare le **Tableau Observé** (la réalité) au **Tableau Théorique** (ce qui se passerait s'il n'y avait aucun lien).
+* **L'indicateur :** Plus l'écart est grand, plus le $\chi^2$ est élevé.
+
+### La p-value (Le verdict)
+C'est la probabilité de se tromper en affirmant qu'il existe un lien.
+
+* **Si p-value < 0,05 (5%) :** Le lien est **significatif**. On rejette l'hypothèse de l'indépendance. Il se passe quelque chose !
+* **Si p-value > 0,05 :** Le lien n'est **pas significatif**. Les écarts observés sont probablement dus au hasard de l'échantillonnage.
+
+<details>
+  <summary>Un exemple simple</summary>
+  Imaginons que l'on teste le lien entre "Réussite au permis" et "Sexe".
+  
+  * On observe 60% de réussite chez les hommes et 58% chez les femmes.
+  * Le Khi-deux calcule si ces 2% d'écart sont assez "solides" pour conclure à une différence ou si c'est juste un coup de chance sur nos 100 candidats testés.
+</details>
+
+## Le V de Cramer {.scrollable}
+Une fois qu'on sait que le lien est "vrai" (via le Khi-deux), on veut savoir s'il est **fort**.
+
+* **Le problème du Khi-deux :** Son chiffre dépend de la taille de l'échantillon. Sur 10 000 personnes, le Khi-deux est toujours énorme.
+* **La solution (V de Cramer) :** Un indicateur standardisé entre **0 et 1**.
+
+| Valeur du V | Intensité du lien |
+| :--- | :--- |
+| **0** | Indépendance totale |
+| **< 0,10** | Lien très faible |
+| **0,10 à 0,30** | Lien moyen |
+| **> 0,30** | Lien fort |
+| **1** | Relation parfaite |
+
+::: {.callout-tip}
+### À retenir
+1. Le **Khi-deux** (et sa p-value) dit **SI** il y a un lien.
+2. Le **V de Cramer** dit **COMBIEN** ce lien est intense.
+:::
+
 ## Fin du retour sur les notions
