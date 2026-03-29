@@ -2,9 +2,6 @@ project:
   type: website
   output-dir: docs
 
-execute:
-  freeze: true
-
 website:
   title: "SIASS - L3 Sciences Sociales"
   navbar:
