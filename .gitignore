@@ -4,5 +4,6 @@
 .Ruserdata
 
 /.quarto/
+!/.quarto/_freeze/
 
 **/*.quarto_ipynb
