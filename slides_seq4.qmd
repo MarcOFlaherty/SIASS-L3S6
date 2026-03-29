@@ -22,8 +22,8 @@ format:
 ### Le parcours de l'enquête :
 1.  **Exploration (A & B) :** Comprendre qui a été interrogé et comment les données sont codées.
 2.  **Croisement (C) :** Construire un Tableau Croisé (TCD) pour comparer Aînés et Cadets.
-3.  **Vérification (C) :** Utiliser le test du **Khi-deux** pour savoir si nos résultats sont dus au hasard.
-4.  **Visualisation (D) :** Analyser les **Résidus** pour voir où la réalité s'écarte du modèle.
+3.  **Vérification (C) :** Utiliser le test du **Khi-deux** pour savoir si nos résultats sont probants.
+4.  **Visualisation (D) :** Analyser les **Résidus** pour voir où la réalité s'écarte du modèle, et déjouer les pièges de notre cerveau !
 
 # [A] Mission : Le Contexte
 *Analyse des difficultés scolaires (G. Henri-Panabière)*
@@ -65,7 +65,7 @@ L'objectif est d'identifier des facteurs de fragilité inhabituelle au sein de f
 
 Ouvrez le fichier `TD4- ghp_mesheritiers_dico.rtf`.
 
-### 🔍 Focus sur la Question 1 :
+### 🔍 Focus sur la question 1 :
 *   **Libellé :** « Comment se sent votre enfant au collège avec ses camarades ».
 *   **Modalités :** 1. À l'aise / 2. Mal à l'aise / 3. Ça dépend / 4. Autre / 9. NR.
 *   **Type de variable :** Qualitative nominale.
@@ -117,7 +117,7 @@ print(tab)
 
 ## 3. Calcul des pourcentages en ligne
 
-Il est nécessaire de passer en pourcentages pour comparer les profils.
+Il est nécessaire de passer en pourcentages (profils lignes) pour comparer le comportement de chaque groupe, indépendamment de sa taille initiale.
 
 ::: {.panel-tabset}
 ### 🟢 Excel (Formule)
@@ -135,53 +135,64 @@ lprop(tab)
 
 ## 4. Test du Khi-deux {.scrollable}
 
-Le lien observé entre le rang et les difficultés est-il dû au hasard ?
+Le lien observé entre le rang et les difficultés est-il dû au hasard ? Le test du $\chi^2$ (Khi-deux) répond à cette question par "oui" ou "non".
 
 ::: {.panel-tabset}
 ### 🟢 Excel (Méthode manuelle)
-1.  **Tableau Théorique :** Calculez pour chaque case : `(Total Ligne * Total Col) / Total Général`.
+1.  **Tableau Théorique :** Ce qu'on devrait observer si le hasard régnait. Calculez pour chaque case : `(Total Ligne * Total Col) / Total Général`.
 2.  **Test :** `=TEST.CHISQ(Plage_Réelle ; Plage_Théorique)`.
 
 ### 🔵 R (Script)
 ```{r}
 #| label: chi2-r
 #| echo: true
+
+# Est-ce qu'un lien existe ? (Khi-deux)
 chisq.test(tab)
 
-# Mesure de l'intensité (V de Cramer)
+# Est-ce que ce lien est fort ? (V de Cramer)
 cramer.v(tab)
 ```
 
-### 💡 Interprétation
-Avec une **p-value = 0.147**, le résultat est supérieur au seuil de 0.05.   
-**Conclusion :** Il n'y a **aucun lien statistique significatif**. Dans notre échantillon, le rang de naissance n'a pas d'influence prouvée sur les résultats. Les légers écarts que l'on peut observer dans le tableau sont très probablement dus au simple hasard.
+### 💡 Interprétation : hasard ou réalité sociologique ?
+
+Pour analyser ce croisement, il ne faut pas confondre l'existence d'un lien (P-value) et son importance réelle (V de Cramer).  
+
+**1. Le verdict : Le lien existe-t-il vraiment ? (P-value)**  
+Avec une **p-value = 0.147**, nous sommes au-dessus du seuil de tolérance de 0.05.  
+* **Ce que ça veut dire :** Nous n'avons pas assez de preuves statistiques pour affirmer que le rang de naissance influence la réussite scolaire. Les petites différences observées dans le tableau sont très probablement de simples fluctuations dues au hasard.   
+
+**2. La gravité : Si le lien existait, serait-il fort ? (V de Cramer)**  
+Notre test affiche un V de Cramer de **0.082**.  
+* **Ce que ça veut dire :** En sciences sociales, un score inférieur à 0.10 caractérise de toute façon un effet "nul ou très faible".   
+* **Conclusion finale :** Mathématiquement, le lien n'est pas prouvé. Et sociologiquement, même si l'échantillon était plus grand et que le test devenait "significatif", l'impact réel du rang de naissance sur la scolarité resterait ici dérisoire.   
 :::
 
-# [D] Analyse des écarts
-*Visualiser la structure des données*
+# [D] Analyse des écarts : Les Résidus
+*Où la réalité s'écarte-t-elle de la théorie ?*
 
-## Calculer les Résidus sur Excel {.scrollable}
+## Le concept de Résidu : Le détecteur d'anomalies {.scrollable}
 
-Le **résidu** mesure l'intensité de l'écart. Un résidu > 2 ou < -2 indique une sur/sous-représentation forte.
+Le test du Khi-deux nous donne une réponse globale (ici : Pas de lien global significatif).
+Mais il ne nous dit pas *où* se trouve le lien potentiel. C'est là que les **résidus** entrent en jeu. 
 
-### La méthode pas-à-pas :
-1.  Calculez votre **Tableau Théorique** (voir slide précédente).
-2.  Créez un nouveau tableau pour les **Résidus**.
-3.  Dans la première case (ex: Aînés/Réussite), tapez la formule :
-    `=(Observé - Théorique) / RACINE(Théorique)`
-4.  Étirez la formule. 
-5.  **Analyse :** Si la valeur est positive, le groupe est sur-représenté. Si elle est négative, il est sous-représenté.
+Un résidu, c'est l'écart entre la réalité et la théorie :  
+*   **La théorie (Effectif Théorique) :** Ce qu'on devrait observer dans chaque case si le monde était parfait et que le rang de naissance n'avait strictement aucune influence sur l'école.  
+*   **La réalité (Effectif Observé) :** Ce que vous avez vraiment compté dans votre tableau de contingence.  
+
+**Formule du résidu standardisé :**
+$$ Résidu = \frac{Observé - Théorique}{\sqrt{Théorique}} $$
 
 ---
 
 ## Visualisation R (Résidus) {.scrollable}
 
-On observe graphiquement ce que nous venons de calculer.
+Voici comment R calcule ces résidus et comment ggplot2 les colorise :
 
 ```{r}
 #| label: residus-plot
 #| echo: true
-# Extraction des résidus standardisés
+# En rajoutant $residuals, R donne le tableau exact des écarts case par case.
 res <- as.data.frame(chisq.test(tab)$residuals)
 
 ggplot(res, aes(x = Var1, y = Freq, fill = Freq > 0)) +
@@ -193,6 +204,43 @@ ggplot(res, aes(x = Var1, y = Freq, fill = Freq > 0)) +
   labs(title = "Écarts à l'indépendance (Résidus)",
        x = "Rang de naissance", y = "Intensité de l'écart", fill = "Sens")
 ```
+
+---
+
+## Comment lire ce graphique ? (1/2) {.scrollable}
+
+Ce graphique est la traduction visuelle directe des résidus calculés précédemment. L'axe central (le 0) représente l'indépendance totale (la théorie parfaite).
+
+*   🔵 **Les barres bleues (Résidus positifs) = La Sur-représentation :** Il y a plus d'étudiants dans cette case que ce que le hasard prédirait. 
+    *   *Exemple :* Les Cadets ont une barre bleue sur "Difficulté". Ils sont sur-représentés parmi les élèves en difficulté.
+*   🔴 **Les barres rouges (Résidus négatifs) = La Sous-représentation :** Il y a moins d'étudiants dans cette case que ce qu'on attendrait par hasard.
+    *   *Exemple :* Les enfants Uniques ont une barre rouge sur "Difficulté". Ils y sont sous-représentés.
+
+---
+
+## Comment lire ce graphique ? (2/2) : La Règle du +/- 2 {.scrollable}
+
+**Attention, quelle est l'unité de ce graphique ?** 
+L'unité (le fameux -0,5 ou +1,5) n'est **pas** un nombre d'étudiants ou un pourcentage. C'est une unité statistique standardisée. Son intérêt est de fournir une échelle universelle pour repérer les anomalies.
+
+**La Règle d'or du +/- 2 :**  
+*   **Autour de 0 :** C'est exactement l'effectif théorique attendu.  
+*   **Entre -2 et +2 :** C'est la zone du "bruit statistique". Les différences que l'on voit sont très probablement dues au simple hasard de l'échantillonnage.  
+*   **Au-delà de +2 (ou sous -2) :** L'anomalie devient "significative". La case est tellement remplie ou vide que le hasard ne suffit plus à l'expliquer.   
+
+---
+
+## L'exemple concret : Le piège pédagogique {.scrollable}
+
+**Cas pratique :** Lisons le résidu de **-0,5 pour les Aînés en difficulté**.  
+*   *Analyse sociologique spontanée :* "La barre est rouge et pointe vers le bas, les aînés ont donc moins de difficultés scolaires !"  
+*   *Analyse statistique rigoureuse :* Le graphique montre bien un déficit (-0,5), mais il n'atteint absolument pas le seuil critique de -2. L'écart humain derrière ce -0,5 est minime (quelques étudiants à peine).   Sociologiquement, on ne peut tirer **aucune conclusion** de cette fluctuation.  
+
+**⚠️ Le point de recadrage fondamental :**   
+Souvenez-vous de la p-value globale (0.147) ! Elle nous avait prévenus qu'il n'y avait pas de lien.   
+Sur ce graphique, **aucune barre ne franchit la ligne des +/- 2**. Notre cerveau humain a envie de trouver une explication ("les cadets galèrent plus !"), mais la statistique nous rappelle à l'ordre : ce tableau ne contient que du bruit statistique. Les statistiques servent justement à nous empêcher de sur-interpréter le hasard.  
+
+---
 
 ## Pourquoi pas une régression ?
 
@@ -209,11 +257,10 @@ Les **résidus** que nous venons de tracer sont l'équivalent des résidus de r�
 
 1.  **Le TCD** est l'outil pivot pour croiser deux variables qualitatives.  
 2.  **La p-value** est le juge de paix : si elle est > 0.05, les variables sont considérées comme indépendantes, il n'y a pas de lien statistique significatif.  
-3.  **Les pourcentages en ligne** permettent de comparer des comportements de groupes.  
+3.  **Les résidus** agissent comme des détecteurs d'anomalies (seuil à +/- 2) pour pointer les sur/sous-représentations spécifiques, mais **attention à ne pas sur-interpréter le bruit statistique !**
 4.  **Le script R** permet d'automatiser et de fiabiliser ces étapes.  
 
 ---
 
 ## 🔗 Ressources
 * [Article Henri-Panabière (Cairn)](http://journals.openedition.org/sociologie/652)
-* [Corrigé Excel TD4](https://y.yarn.co/6e13b700-cce4-47e6-a5db-5999fd581141_text.gif)
