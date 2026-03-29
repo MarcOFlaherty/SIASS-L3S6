@@ -195,14 +195,14 @@ Voici comment R calcule ces résidus et comment ggplot2 les colorise :
 # En rajoutant $residuals, R donne le tableau exact des écarts case par case.
 res <- as.data.frame(chisq.test(tab)$residuals)
 
-ggplot(res, aes(x = Var1, y = Freq, fill = Freq > 0)) +
+ggplot(res, aes(x = Var2, y = Freq, fill = Freq > 0)) +
   geom_bar(stat = "identity") +
-  facet_wrap(~Var2) +
-  scale_fill_manual(values = c("firebrick", "dodgerblue4"), 
+  facet_wrap(~Var1) +
+  scale_fill_manual(values = c("firebrick", "dodgerblue4"),
                     labels = c("Sous-représenté", "Sur-représenté")) +
   theme_minimal() +
-  labs(title = "Écarts à l'indépendance (Résidus)",
-       x = "Rang de naissance", y = "Intensité de l'écart", fill = "Sens")
+  labs(title = "Écarts à  l'indépendance (Résidus)",
+       x = "Difficulté scolaire", y = "Intensité de l'écart", fill = "Sens")
 ```
 
 ---
