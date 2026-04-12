@@ -92,7 +92,7 @@ library(knitr)
 library(scales)
 
 # --- Importation des données ---
-df <- read_excel("data/Donnees CC 1 (1).xlsx") %>%
+df <- read_excel("data/DonneesCC1.xlsx") %>%
   rename(
     Arrondissement = IDCOM,
     EM = Macron,

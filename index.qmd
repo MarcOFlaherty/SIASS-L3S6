@@ -1,16 +1,17 @@
 ---
-title: "Année universitaire 2025-26"
+title: "Statistique et informatique appliquées aux sciences sociales"
+subtitle: "L3 Sciences Sociales — Année universitaire 2025-26"
 ---
 
-# Statistique et informatique appliquées aux sciences sociales
+Bienvenue sur le site du cours de SIASS. Vous trouverez ici l'ensemble des supports de cours.
 
-Bienvenue sur le site du cours de SIASS.
-Vous trouverez ici les supports de cours.
+## Séances
 
-## Accès rapide
-* [Introduction](slides_intro.html)
-* [Retour sur les notions](slides_retours.html)
-* [Séquence 1](slides_seq1.html)
-* [Séquence 2](slides_seq2.html)
-* [Séquence 3](slides_seq3.html)  
-* [Séquence 4](slides_seq4.html)
+| Séance | Thème | Lien |
+|--------|-------|------|
+| Introduction | Présentation du cours | [Accéder](slides_intro.html) |
+| Retours sur les notions | Rappels méthodologiques | [Accéder](slides_retours.html) |
+| Séquence 1 | Prise en main & statistiques descriptives (données PNUD) | [Accéder](slides_seq1.html) |
+| Séquence 2 | Sociologie électorale & inégalités (vote parisien 2022) | [Accéder](slides_seq2.html) |
+| Séquence 3 | Statistique & cartographie (énergie éolienne en Europe) | [Accéder](slides_seq3.html) |
+| Séquence 4 | L'enquête sur les Héritiers (tableaux croisés & écarts) | [Accéder](slides_seq4.html) |
