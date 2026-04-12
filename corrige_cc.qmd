@@ -1,0 +1,677 @@
+---
+title: "Corrigé — Contrôle Continu SIASS"
+subtitle: "Analyse électorale et socio-économique des arrondissements parisiens (Présidentielle 2017)"
+author: "Marc O'Flaherty"
+date: "23 mars 2026"
+format:
+  html:
+    embed-resources: true
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-title: "Sommaire"
+    number-sections: true
+    code-fold: true
+    code-summary: "Voir le code R"
+    code-tools: true
+    lightbox: true
+    fig-width: 9
+    fig-height: 5
+    df-print: kable
+    lang: fr
+---
+
+```{css, echo=FALSE}
+/* --- Palette Panthéon-Sorbonne --- */
+:root {
+  --sorbonne-bleu: #1a2744;
+  --sorbonne-or: #c8a415;
+  --sorbonne-gris: #f5f5f5;
+  --couleur-macron: #0044cc;
+  --couleur-fillon: #333333;
+  --couleur-melenchon: #cc0000;
+  --couleur-lepen: #1a1a1a;
+}
+
+h1, h2, h3 {
+  color: var(--sorbonne-bleu);
+}
+
+/* Tableaux soignés */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+
+thead th {
+  background-color: var(--sorbonne-bleu);
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+tbody td {
+  padding: 6px 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--sorbonne-gris);
+}
+
+/* Callouts personnalisés */
+.callout-note {
+  border-left-color: var(--sorbonne-bleu) !important;
+}
+
+.callout-tip {
+  border-left-color: var(--sorbonne-or) !important;
+}
+
+/* Impression propre */
+@media print {
+  .code-fold-btn, .code-tools-right, nav#TOC { display: none; }
+  body { font-size: 11pt; }
+  h1 { page-break-before: always; }
+}
+```
+
+<!-- ===== SETUP : CHARGEMENT DES DONNÉES ===== -->
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(readxl)
+library(knitr)
+library(scales)
+
+# --- Importation des données ---
+df <- read_excel("data/Donnees CC 1 (1).xlsx") %>%
+  rename(
+    Arrondissement = IDCOM,
+    EM = Macron,
+    FF = Fillon,
+    JLM = Melenchon,
+    MLP = `Le Pen`,
+    Revenu = `Médiane du revenu disponible par unité de consommation en 2019, en euros`
+  )
+```
+
+
+# Partie 1 : Correction des calculs
+
+## Q1 — Statistiques descriptives {.scrollable}
+
+Calculons les indicateurs de position et de dispersion pour toutes les variables.
+
+::: {.callout-note icon=false}
+### Formules Excel correspondantes
+| Indicateur | Formule Excel |
+| :--- | :--- |
+| **Min** | `=MIN(Plage)` |
+| **Max** | `=MAX(Plage)` |
+| **Quartile 1 (Q1)** | `=QUARTILE.EXC(Plage; 1)` |
+| **Médiane (Q2)** | `=MEDIANE(Plage)` |
+| **Quartile 3 (Q3)** | `=QUARTILE.EXC(Plage; 3)` |
+| **EIQ** | `= Q3 - Q1` (calcul manuel) |
+| **Variance** | `=VAR.S(Plage)` |
+| **Écart-type** | `=ECARTYPE.STANDARD(Plage)` |
+:::
+
+```{r}
+#| label: q1-stats-descriptives
+#| echo: true
+#| message: false
+
+# Calcul des indicateurs pour toutes les variables
+stats_par_variable <- function(x) {
+  tibble(
+    Min        = min(x),
+    Q1         = quantile(x, 0.25, names = FALSE),
+    Mediane    = median(x),
+    Q3         = quantile(x, 0.75, names = FALSE),
+    Max        = max(x),
+    EIQ        = Q3 - Q1,
+    Variance   = var(x),
+    Ecart_Type = sd(x)
+  )
+}
+
+# On calcule pour chaque variable
+tab <- bind_rows(
+  stats_par_variable(df$EM)     %>% mutate(Variable = "Macron (%)", .before = 1),
+  stats_par_variable(df$FF)     %>% mutate(Variable = "Fillon (%)", .before = 1),
+  stats_par_variable(df$JLM)    %>% mutate(Variable = "Mélenchon (%)", .before = 1),
+  stats_par_variable(df$MLP)    %>% mutate(Variable = "Le Pen (%)", .before = 1),
+  stats_par_variable(df$Revenu) %>% mutate(Variable = "Revenu (€)", .before = 1)
+)
+
+# Transposer : indicateurs en lignes, candidats en colonnes
+indicateurs <- c("Min", "Q1", "Mediane", "Q3", "Max", "EIQ", "Variance", "Ecart_Type")
+noms_indicateurs <- c("Min", "Q1", "Médiane", "Q3", "Max", "EIQ", "Variance", "Écart-type")
+
+tableau_transpose <- tibble(Indicateur = noms_indicateurs)
+for (i in seq_len(nrow(tab))) {
+  vals <- as.numeric(tab[i, indicateurs])
+  # Pas de décimale pour le Revenu
+  if (tab$Variable[i] == "Revenu (€)") {
+    vals <- format(round(vals, 0), big.mark = " ", nsmall = 0)
+  } else {
+    vals <- round(vals, 2)
+  }
+  tableau_transpose[[tab$Variable[i]]] <- vals
+}
+
+kable(
+  tableau_transpose,
+  align = c("l", rep("r", 5))
+)
+```
+
+::: {.callout-important icon=false}
+### Rappel méthodologique : Variance vs Écart-type
+La **variance** est la moyenne des carrés des écarts à la moyenne. Son unité est le carré de l'unité d'origine (des "%²" pour les votes, des "€²" pour le revenu), ce qui la rend **difficile à interpréter directement**.
+
+L'**écart-type** ($\sigma$), racine carrée de la variance, revient à l'unité d'origine et représente l'écart "moyen" ou "typique" entre les individus. C'est l'indicateur à privilégier pour commenter la dispersion dans un rapport.
+:::
+
+::: {.callout-note icon=false}
+### Rappel méthodologique : l'Écart Inter-Quartile (EIQ)
+L'**EIQ** ($= Q3 - Q1$) mesure la dispersion de la moitié centrale de la distribution. Contrairement à l'étendue ($Max - Min$), il est **robuste** aux valeurs extrêmes. Un EIQ faible signifie que les 50 % d'arrondissements centraux sont homogènes ; un EIQ élevé traduit une forte hétérogénéité interne.
+
+L'**EIQ relatif** ($= EIQ / Médiane$) permet de comparer la dispersion entre des variables d'échelles différentes (%, €).
+:::
+
+---
+
+## Q2 — Covariance, corrélation et détermination {.scrollable}
+
+Calculons la covariance, le coefficient de corrélation ($r$) et le coefficient de détermination ($R^2$) pour les proportions de votes des quatre candidats en fonction du revenu médian.
+
+::: {.callout-note icon=false}
+### Formules Excel correspondantes
+| Indicateur | Formule Excel |
+| :--- | :--- |
+| **Covariance** | `=COVARIANCE.PEARSON(Col_Vote; Col_Revenu)` |
+| **Corrélation ($r$)** | `=COEFFICIENT.CORRELATION(Col_Vote; Col_Revenu)` |
+| **R² (Détermination)** | `=COEFFICIENT.DETERMINATION(Col_Vote; Col_Revenu)` |
+
+*Note : Le $R^2$ peut aussi s'obtenir en mettant le $r$ au carré : `= Cellule_r ^ 2`.*
+:::
+
+```{r}
+#| label: q2-correlation
+#| echo: true
+#| message: false
+
+# Calcul des indicateurs bivariés pour chaque candidat par rapport au Revenu
+tableau_q2 <- df %>%
+  select(Revenu, EM, FF, JLM, MLP) %>%
+  pivot_longer(cols = -Revenu, names_to = "Candidat", values_to = "Vote") %>%
+  group_by(Candidat) %>%
+  summarise(
+    Covariance = cov(Vote, Revenu),
+    r = cor(Vote, Revenu),
+    R2 = cor(Vote, Revenu)^2
+  ) %>%
+  mutate(Candidat = factor(Candidat, levels = c("EM", "FF", "JLM", "MLP"))) %>%
+  arrange(Candidat) %>%
+  mutate(
+    Covariance = round(Covariance, 1),
+    r = round(r, 3),
+    R2 = round(R2, 3)
+  )
+
+kable(
+  tableau_q2,
+  col.names = c("Candidat", "Covariance", "r (Corrélation)", "R² (Détermination)"),
+  align = "lrrr"
+)
+```
+
+::: {.callout-important icon=false}
+### Rappel : ne pas confondre $r$ et $R^2$
+Le **coefficient de corrélation** ($r$) mesure l'intensité et le sens du lien linéaire (entre -1 et +1). Le **coefficient de détermination** ($R^2 = r^2$) mesure le **pouvoir explicatif** du modèle (entre 0 et 1). Un $R^2$ de 0,85 signifie que 85 % de la variance du vote est expliquée par le revenu. Cette distinction est essentielle : dire "la corrélation est de 0,85" et "le revenu explique 85 % du vote" sont deux affirmations différentes.
+:::
+
+---
+
+## Q3 — Régression linéaire {.scrollable}
+
+Effectuons une régression linéaire ($Y = aX + b$) pour les proportions de votes de FF, EM et JLM en fonction du revenu médian.
+
+::: {.callout-note icon=false}
+### Formules Excel correspondantes
+| Indicateur | Formule Excel |
+| :--- | :--- |
+| **Pente ($a$)** | `=PENTE(Col_Vote; Col_Revenu)` |
+| **Ordonnée à l'origine ($b$)** | `=ORDONNEE.ORIGINE(Col_Vote; Col_Revenu)` |
+
+L'équation de la droite de régression est $Y = a \cdot X + b$.
+:::
+
+```{r}
+#| label: q3-regression-calculs
+#| echo: true
+#| message: false
+
+# Calcul des coefficients de régression pour chaque candidat
+candidats <- c("EM", "FF", "JLM")
+
+tableau_q3 <- map_dfr(candidats, function(cand) {
+  modele <- lm(df[[cand]] ~ df$Revenu)
+  coeffs <- coef(modele)
+  tibble(
+    Candidat = cand,
+    Pente_a = coeffs[2],
+    Ordonnee_b = coeffs[1]
+  )
+}) %>%
+  mutate(
+    Pente_a = round(Pente_a, 6),
+    Ordonnee_b = round(Ordonnee_b, 2),
+    Equation = paste0("Vote = ", Pente_a, " x Revenu + ", Ordonnee_b)
+  )
+
+kable(
+  tableau_q3,
+  col.names = c("Candidat", "Pente (a)", "Ordonnée (b)", "Equation"),
+  align = "lrrl"
+)
+```
+
+### Graphiques de régression
+
+::: {.panel-tabset}
+
+#### E. Macron
+```{r}
+#| label: q3-reg-em
+#| echo: true
+#| fig-height: 4.5
+#| message: false
+#| warning: false
+
+ggplot(df, aes(x = Revenu, y = EM)) +
+  geom_point(color = "#0044cc", size = 3) +
+  geom_smooth(method = "lm", formula = y ~ x, color = "black", se = TRUE, alpha = 0.15) +
+  geom_text(aes(label = str_sub(as.character(Arrondissement), -2)),
+            size = 2.5, vjust = -1, check_overlap = TRUE) +
+  scale_x_continuous(labels = label_number(big.mark = " ", suffix = " €")) +
+  labs(
+    title = "Régression : Vote E. Macron selon le Revenu médian",
+    x = "Revenu médian (€)",
+    y = "Vote Macron (%)"
+  ) +
+  theme_minimal()
+```
+
+#### F. Fillon
+```{r}
+#| label: q3-reg-ff
+#| echo: true
+#| fig-height: 4.5
+#| message: false
+#| warning: false
+
+ggplot(df, aes(x = Revenu, y = FF)) +
+  geom_point(color = "#333333", size = 3) +
+  geom_smooth(method = "lm", formula = y ~ x, color = "black", se = TRUE, alpha = 0.15) +
+  geom_text(aes(label = str_sub(as.character(Arrondissement), -2)),
+            size = 2.5, vjust = -1, check_overlap = TRUE) +
+  scale_x_continuous(labels = label_number(big.mark = " ", suffix = " €")) +
+  labs(
+    title = "Régression : Vote F. Fillon selon le Revenu médian",
+    x = "Revenu médian (€)",
+    y = "Vote Fillon (%)"
+  ) +
+  theme_minimal()
+```
+
+#### J.L. Mélenchon
+```{r}
+#| label: q3-reg-jlm
+#| echo: true
+#| fig-height: 4.5
+#| message: false
+#| warning: false
+
+ggplot(df, aes(x = Revenu, y = JLM)) +
+  geom_point(color = "#cc0000", size = 3) +
+  geom_smooth(method = "lm", formula = y ~ x, color = "black", se = TRUE, alpha = 0.15) +
+  geom_text(aes(label = str_sub(as.character(Arrondissement), -2)),
+            size = 2.5, vjust = -1, check_overlap = TRUE) +
+  scale_x_continuous(labels = label_number(big.mark = " ", suffix = " €")) +
+  labs(
+    title = "Régression : Vote J.L. Mélenchon selon le Revenu médian",
+    x = "Revenu médian (€)",
+    y = "Vote Mélenchon (%)"
+  ) +
+  theme_minimal()
+```
+
+:::
+
+---
+
+## Q4 — Cartographie {.scrollable}
+
+Représentons sur quatre cartes les résultats pour JLM, FF, EM ainsi que le revenu médian.
+
+```{r}
+#| label: q4-setup-carto
+#| echo: true
+#| message: false
+#| warning: false
+
+library(sf)
+
+# Chargement du GeoJSON des arrondissements de Paris
+# Source : opendata.paris.fr
+carte_paris <- st_read("data/arrondissements.geojson", quiet = TRUE) %>%
+  mutate(cle_geo = as.numeric(c_ar))
+
+# Jointure via le numéro d'arrondissement (1 à 20)
+df_carto <- df %>%
+  mutate(cle_arr = as.numeric(Arrondissement) %% 100)
+
+paris_data <- carte_paris %>%
+  left_join(df_carto, by = c("cle_geo" = "cle_arr"))
+
+# Calcul des centroïdes pour les étiquettes d'arrondissement
+centroids <- st_centroid(paris_data)
+centroids_coords <- st_coordinates(centroids)
+paris_data$label_x <- centroids_coords[, 1]
+paris_data$label_y <- centroids_coords[, 2]
+paris_data$label_arr <- paste0(paris_data$cle_geo, "e")
+
+# Recentrer le 12e (décalé à cause du bois de Vincennes)
+paris_data$label_x[paris_data$cle_geo == 12] <- 2.39
+paris_data$label_y[paris_data$cle_geo == 12] <- 48.84
+```
+
+::: {.panel-tabset}
+
+#### J.L. Mélenchon
+```{r}
+#| label: q4-carte-jlm
+#| echo: true
+#| fig-height: 5
+
+ggplot(data = paris_data) +
+  geom_sf(aes(fill = JLM), color = "white", linewidth = 0.3) +
+  geom_label(aes(x = label_x, y = label_y, label = label_arr),
+             size = 2.3, fontface = "bold", color = "black",
+             fill = "white", alpha = 0.7, label.size = 0.1,
+             label.padding = unit(1.5, "pt")) +
+  scale_fill_viridis_c(option = "magma", direction = -1) +
+  labs(
+    title = "Vote J.L. Mélenchon par arrondissement",
+    subtitle = "Forte concentration dans le Nord-Est parisien",
+    fill = "Vote (%)"
+  ) +
+  theme_void()
+```
+
+#### F. Fillon
+```{r}
+#| label: q4-carte-ff
+#| echo: true
+#| fig-height: 5
+
+ggplot(data = paris_data) +
+  geom_sf(aes(fill = FF), color = "white", linewidth = 0.3) +
+  geom_label(aes(x = label_x, y = label_y, label = label_arr),
+             size = 2.3, fontface = "bold", color = "black",
+             fill = "white", alpha = 0.7, label.size = 0.1,
+             label.padding = unit(1.5, "pt")) +
+  scale_fill_viridis_c(option = "viridis", direction = -1) +
+  labs(
+    title = "Vote F. Fillon par arrondissement",
+    subtitle = "Ancrage dans les arrondissements de l'Ouest (7e, 8e)",
+    fill = "Vote (%)"
+  ) +
+  theme_void()
+```
+
+#### E. Macron
+```{r}
+#| label: q4-carte-em
+#| echo: true
+#| fig-height: 5
+
+ggplot(data = paris_data) +
+  geom_sf(aes(fill = EM), color = "white", linewidth = 0.3) +
+  geom_label(aes(x = label_x, y = label_y, label = label_arr),
+             size = 2.3, fontface = "bold", color = "black",
+             fill = "white", alpha = 0.7, label.size = 0.1,
+             label.padding = unit(1.5, "pt")) +
+  scale_fill_viridis_c(option = "cividis", direction = -1) +
+  labs(
+    title = "Vote E. Macron par arrondissement",
+    subtitle = "Vote étendu avec un socle au Centre et à l'Ouest",
+    fill = "Vote (%)"
+  ) +
+  theme_void()
+```
+
+#### Revenu médian
+```{r}
+#| label: q4-carte-revenu
+#| echo: true
+#| fig-height: 5
+
+ggplot(data = paris_data) +
+  geom_sf(aes(fill = Revenu), color = "white", linewidth = 0.3) +
+  geom_label(aes(x = label_x, y = label_y, label = label_arr),
+             size = 2.3, fontface = "bold", color = "black",
+             fill = "white", alpha = 0.7, label.size = 0.1,
+             label.padding = unit(1.5, "pt")) +
+  scale_fill_viridis_c(option = "mako", direction = -1,
+                       labels = label_number(big.mark = " ", suffix = " €")) +
+  labs(
+    title = "Revenu médian par arrondissement",
+    subtitle = "La fracture classique Est / Ouest",
+    fill = "Revenu (€)"
+  ) +
+  theme_void()
+```
+
+:::
+
+---
+
+## Q5 — Nuage de points combiné {.scrollable}
+
+Représentons les proportions de vote pour FF, EM et JLM en fonction du revenu médian sur un même graphique, avec leurs droites de régression.
+
+```{r}
+#| label: q5-nuage-combine
+#| echo: true
+#| fig-height: 6
+#| fig-width: 10
+#| message: false
+#| warning: false
+
+# Calcul des équations pour les annotations
+make_eq <- function(var) {
+  m <- lm(df[[var]] ~ df$Revenu)
+  a <- coef(m)[2]
+  b <- coef(m)[1]
+  signe <- ifelse(b >= 0, "+ ", "- ")
+  paste0("Y = ", format(round(a, 6), scientific = FALSE), "X ", signe, abs(round(b, 1)))
+}
+eq_em  <- make_eq("EM")
+eq_ff  <- make_eq("FF")
+eq_jlm <- make_eq("JLM")
+
+ggplot(df, aes(x = Revenu)) +
+  # E. Macron
+  geom_point(aes(y = EM, color = "Macron"), size = 3) +
+  geom_smooth(aes(y = EM, color = "Macron"), method = "lm", formula = y ~ x,
+              se = FALSE, linewidth = 0.8) +
+
+  # F. Fillon
+  geom_point(aes(y = FF, color = "Fillon"), size = 3) +
+  geom_smooth(aes(y = FF, color = "Fillon"), method = "lm", formula = y ~ x,
+              se = FALSE, linewidth = 0.8) +
+
+  # J.L. Mélenchon
+  geom_point(aes(y = JLM, color = "Mélenchon"), size = 3) +
+  geom_smooth(aes(y = JLM, color = "Mélenchon"), method = "lm", formula = y ~ x,
+              se = FALSE, linewidth = 0.8) +
+
+  # Équations des droites de régression
+  annotate("label", x = 22000, y = 42, label = eq_em,
+           color = "#0044cc", size = 2.8, hjust = 0, fill = "white", alpha = 0.8,
+           label.size = 0) +
+  annotate("label", x = 22000, y = 50, label = eq_ff,
+           color = "#333333", size = 2.8, hjust = 0, fill = "white", alpha = 0.8,
+           label.size = 0) +
+  annotate("label", x = 33000, y = 20, label = eq_jlm,
+           color = "#cc0000", size = 2.8, hjust = 0, fill = "white", alpha = 0.8,
+           label.size = 0) +
+
+  # Couleurs et légende
+  scale_color_manual(values = c(
+    "Macron" = "#0044cc",
+    "Fillon" = "#333333",
+    "Mélenchon" = "#cc0000"
+  )) +
+  scale_x_continuous(labels = label_number(big.mark = " ", suffix = " €")) +
+
+  labs(
+    title = "Vote selon le revenu médian à Paris (1er tour 2017)",
+    subtitle = "Nuages de points et droites de régression pour trois candidats",
+    x = "Revenu médian (€)",
+    y = "Part des voix (%)",
+    color = "Candidat"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+---
+
+# Partie 2 : Analyse et restitution
+
+## Introduction
+
+Le 23 avril 2017, le premier tour de l'élection présidentielle française se tient dans un contexte politique inédit : quatre candidats se disputent l'accès au second tour, incarnant chacun une offre politique distincte. **Emmanuel Macron** (En Marche, centre-droit), **François Fillon** (LR, droite), **Jean-Luc Mélenchon** (LFI, gauche) et **Marine Le Pen** (RN, extrême droite) rassemblent à eux quatre plus de 80 % des suffrages exprimés au niveau national.
+
+Paris constitue un des terrains d'analyse privilégiés pour les sciences sociales : ses 20 arrondissements présentent des profils socio-économiques extrêmement contrastés, allant des quartiers populaires du Nord-Est (18^e^, 19^e^, 20^e^) aux arrondissements les plus aisés de l'Ouest (7^e^, 8^e^, 16^e^). Notre jeu de données comprend les résultats électoraux de ces 20 arrondissements, ainsi que le revenu médian des ménages par unité de consommation (source INSEE, 2019).
+
+## Problématique
+
+**Le revenu médian des ménages est-il un prédicteur fiable du vote dans les arrondissements parisiens ?** En d'autres termes, peut-on établir une relation statistique entre le niveau de vie d'un arrondissement et l'orientation politique de ses habitants ?
+
+## Paris, une ville économiquement polarisée
+
+Avant d'examiner les votes, il convient de caractériser le paysage socio-économique parisien.
+
+```{r}
+#| label: p2-revenu-panorama
+#| echo: true
+#| message: false
+
+# Indicateurs clés sur le revenu
+rev_stats <- tibble(
+  Indicateur = c("Minimum", "Q1", "Médiane", "Q3", "Maximum", "EIQ", "Écart-type"),
+  Valeur = c(
+    min(df$Revenu), quantile(df$Revenu, 0.25),
+    median(df$Revenu), quantile(df$Revenu, 0.75),
+    max(df$Revenu),
+    quantile(df$Revenu, 0.75) - quantile(df$Revenu, 0.25),
+    sd(df$Revenu)
+  )
+) %>%
+  mutate(Valeur = paste0(format(round(Valeur, 0), big.mark = " "), " €"))
+
+kable(rev_stats, align = "lr")
+```
+
+Le revenu médian varie de **21 460 €** (19^e^ arr.) à **44 400 €** (7^e^ arr.), soit un rapport de 1 à 2. L'écart inter-quartile (EIQ) de **6 698 €** indique que la moitié centrale des arrondissements est concentrée dans une fourchette relativement étroite, tandis que les extrêmes (les arrondissements très aisés de l'Ouest et les quartiers populaires du Nord-Est) tirent la distribution vers ses bornes. Paris est une ville à deux visages économiques, séparée par une fracture Est/Ouest bien documentée en sociologie urbaine.
+
+## De la richesse au vote : des dynamiques contrastées
+
+L'analyse bivariée (corrélation et régression) confirme que le revenu médian est un **prédicteur puissant** du comportement électoral, mais avec des intensités très variables selon les candidats.
+
+### J.L. Mélenchon : le vote des quartiers populaires
+
+Mélenchon affiche la corrélation la plus forte de notre analyse : $r = -0{,}955$, soit un $R^2 = 0{,}912$. Cela signifie que **91 % des écarts de vote pour Mélenchon d'un arrondissement à l'autre s'expliquent par la seule différence de revenu**. La relation est négative : plus l'arrondissement est modeste, plus le vote Mélenchon est élevé.
+
+Son score varie de 5,40 % dans le 6^e^ arrondissement (revenu médian : 40 490 €) à 31,83 % dans le 20^e^ (revenu : 22 510 €). L'EIQ du vote JLM est de **10,87 points**, signe d'une très forte polarisation géographique : ce vote se concentre massivement dans le Nord-Est parisien et s'effondre dès que l'on passe dans les arrondissements intermédiaires.
+
+La droite de régression ($Y = -0{,}001159 \times Revenu + 54{,}72$) indique qu'une augmentation de 1 000 € du revenu médian est associée à une baisse d'environ 1,2 point du vote Mélenchon.
+
+### F. Fillon : le candidat des arrondissements aisés
+
+Fillon est le symétrique de Mélenchon : $r = +0{,}871$, $R^2 = 0{,}759$. Le revenu explique **76 % de la variation** de son vote. La pente de sa droite de régression est la plus forte des trois candidats ($a = 0{,}001490$), ce qui signifie qu'il est le plus sensible au niveau de richesse.
+
+Son score culmine dans le 7^e^ arrondissement (52,70 %, revenu : 44 400 €) et le 8^e^ (50,48 %, revenu : 43 230 €). En dehors de ces bastions historiques de la droite traditionnelle, le vote Fillon chute rapidement. Son EIQ de **14,94 points** confirme une dispersion élevée : le candidat de la droite ne touche pas les mêmes arrondissements que les autres.
+
+### E. Macron : un centriste atypiquement stable
+
+Macron présente un profil singulier. Sa corrélation avec le revenu est positive mais modérée ($r = +0{,}366$, $R^2 = 0{,}134$). Le revenu n'explique que **13 % de la variation** de son vote, ce qui en fait le candidat le moins "prévisible" par le seul critère économique.
+
+Cette stabilité se lit dans ses indicateurs de dispersion : un écart-type de **6,44 points** (le plus faible après Le Pen) et un EIQ de **5,57 points** seulement. Macron oscille entre 29,60 % (19^e^ arr.) et 58,45 % (16^e^ arr.), mais sa médiane est haute (**37,71 %**) et sa base électorale est **présente dans quasiment tous les arrondissements**, des plus modestes aux plus riches.
+
+Le score exceptionnel du 16^e^ arrondissement (58,45 %) est un point atypique qui mérite attention : il suggère que des facteurs autres que le revenu (profil sociologique, CSP, trajectoire résidentielle) interviennent dans la structuration du vote Macron.
+
+### M. Le Pen : la grande absente de la géographie parisienne
+
+Le Pen est la variable la plus homogène de notre jeu de données : son vote oscille entre **3,22 %** (6^e^ arr.) et **6,48 %** (13^e^ arr.), soit un EIQ dérisoire de **1,45 point** et un écart-type de seulement **0,98 point**. La corrélation avec le revenu est négative ($r = -0{,}681$), mais le vote reste uniformément faible quel que soit l'arrondissement.
+
+Paris intra-muros n'est pas le terrain du vote Le Pen, qui s'exprime davantage dans les zones périurbaines et rurales. L'électorat RN est sociologiquement absent de la capitale.
+
+## Conclusion
+
+L'analyse des résultats du premier tour 2017 dans les 20 arrondissements parisiens met en lumière une **structure socio-électorale fortement corrélée au revenu**. La fracture géographique Est/Ouest de Paris, qui oppose les quartiers populaires du Nord-Est aux arrondissements aisés du Centre-Ouest, se superpose quasi parfaitement à la fracture électorale.
+
+Mélenchon et Fillon représentent les deux pôles extrêmes de cette relation : leurs votes se substituent l'un à l'autre le long de l'axe des revenus, avec des $R^2$ supérieurs à 0,75. Macron, en revanche, traverse les catégories de revenu avec une stabilité remarquable, confirmant son positionnement centriste. Le Pen reste uniformément marginale à Paris.
+
+**Limites de l'analyse :**
+
+1. **Corrélation n'est pas causalité** : le revenu ne "cause" pas directement le vote. Il est lui-même corrélé à d'autres variables (niveau d'éducation, CSP, origine sociale) qui influencent les préférences politiques.
+2. **Effet écologique** : nous raisonnons à l'échelle de l'arrondissement (n = 20), pas de l'individu. Ce sont des moyennes territoriales. Un arrondissement à revenu élevé contient aussi des habitants modestes, et inversement.
+3. **Taille de l'échantillon** : avec seulement 20 observations, les résultats statistiques sont à interpréter avec prudence. La significativité des coefficients est limitée par ce petit effectif.
+
+::: {.callout-tip icon=false}
+### Bonne pratique : conclure avec les limites
+Un rapport d'analyse rigoureux ne se contente pas de présenter des résultats ; il en discute les **limites**. Mentionner que corrélation n'est pas causalité, et que le raisonnement écologique a ses biais, est un signe de maturité analytique.
+:::
+
+---
+
+# Annexe : Erreurs fréquentes observées dans les copies
+
+::: {.callout-important icon=false}
+### 1. Présenter la variance sans l'écart-type
+La variance est une étape de calcul, pas un indicateur d'interprétation. Toujours calculer l'écart-type ($\sigma = \sqrt{V}$), qui est dans la même unité que les données et permet une lecture directe : "en moyenne, les arrondissements s'écartent de X points de la moyenne".
+:::
+
+::: {.callout-important icon=false}
+### 2. Confondre $r$ et $R^2$
+Le coefficient de corrélation ($r$) mesure l'intensité du lien linéaire (entre -1 et 1). Le coefficient de détermination ($R^2$) mesure la part de variance expliquée (entre 0 et 1). Dire "la corrélation est de 0,92" est correct ; dire "le revenu explique 92 % du vote" n'est correct que si l'on parle du $R^2$ (qui vaut ici $0,92^2 = 0,85$).
+:::
+
+::: {.callout-important icon=false}
+### 3. Analyse sociologique sans appui statistique
+Affirmer que "le vote Mélenchon est corrélé aux quartiers populaires" sans mentionner le coefficient de corrélation ni le $R^2$ prive le propos de sa rigueur. Inversement, aligner des chiffres sans les interpréter ne constitue pas une analyse. Les deux dimensions (chiffres et interprétation) doivent coexister.
+:::
+
+::: {.callout-important icon=false}
+### 4. Graphiques sans titres, sans unités
+Chaque graphique doit comporter un **titre explicite**, des **axes légendés** avec leurs unités (%, €), et des **séparateurs de milliers** pour les montants. Un graphique non légendé est inutilisable pour un lecteur extérieur.
+:::
+
+::: {.callout-important icon=false}
+### 5. Absence de structure (intro, problématique, conclusion)
+Un rapport professionnel suit une structure : introduction avec contexte et problématique, corps d'analyse du général vers le particulier, et conclusion avec synthèse et limites. Sans ce cadre, le lecteur est perdu.
+:::
