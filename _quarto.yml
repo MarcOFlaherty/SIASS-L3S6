@@ -10,8 +10,17 @@ website:
         text: Accueil
       - text: "Introduction"
         href: slides_intro.qmd
-      - href: slides_seq1.qmd
-        text: "Séquence 1"
+      - text: "Retours sur les notions"
+        href: slides_retours.qmd
+      - text: "Séquence 1"
+        href: slides_seq1.qmd
+      - text: "Séquence 2"
+        href: slides_seq2.qmd
+      - text: "Séquence 3"
+        href: slides_seq3.qmd
+      - text: "Séquence 4"
+        href: slides_seq4.qmd
+      - text: "Corrigé CC"
 
 format:
   html:
