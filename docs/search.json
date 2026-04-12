@@ -46,14 +46,14 @@
     "href": "slides_seq4.html#synthèse-séquence-4",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "Synthèse Séquence 4",
-    "text": "Synthèse Séquence 4\n\nLe TCD est l’outil pivot pour croiser deux variables qualitatives.\n\nLa p-value est le juge de paix : si elle est &gt; 0.05, les variables sont considérées comme indépendantes, il n’y a pas de lien statistique significatif.\n\nLes pourcentages en ligne permettent de comparer des comportements de groupes.\n\nLe script R permet d’automatiser et de fiabiliser ces étapes."
+    "text": "Synthèse Séquence 4\n\nLe TCD est l’outil pivot pour croiser deux variables qualitatives.\n\nLa p-value est le juge de paix : si elle est &gt; 0.05, les variables sont considérées comme indépendantes, il n’y a pas de lien statistique significatif.\n\nLes résidus agissent comme des détecteurs d’anomalies (seuil à +/- 2) pour pointer les sur/sous-représentations spécifiques, mais attention à ne pas sur-interpréter le bruit statistique !\nLe script R permet d’automatiser et de fiabiliser ces étapes."
   },
   {
     "objectID": "slides_seq4.html#ressources",
     "href": "slides_seq4.html#ressources",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "🔗 Ressources",
-    "text": "🔗 Ressources\n\nArticle Henri-Panabière (Cairn)\nCorrigé Excel TD4"
+    "text": "🔗 Ressources\n\nArticle Henri-Panabière (Cairn)"
   },
   {
     "objectID": "slides_seq4.html#les-enjeux-du-croisement",
@@ -123,7 +123,7 @@
     "href": "slides_seq4.html#test-du-khi-deux",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "4. Test du Khi-deux",
-    "text": "4. Test du Khi-deux\nLe lien observé entre le rang et les difficultés est-il dû au hasard ?\n\n🟢 Excel (Méthode manuelle)🔵 R (Script)💡 Interprétation\n\n\n\nTableau Théorique : Calculez pour chaque case : (Total Ligne * Total Col) / Total Général.\nTest : =TEST.CHISQ(Plage_Réelle ; Plage_Théorique).\n\n\n\n\nchisq.test(tab)\n\n\n    Pearson's Chi-squared test\n\ndata:  tab\nX-squared = 6.7894, df = 4, p-value = 0.1474\n\n# Mesure de l'intensité (V de Cramer)\ncramer.v(tab)\n\n[1] 0.08248055\n\n\n\n\nAvec une p-value = 0.147, le résultat est supérieur au seuil de 0.05.\nConclusion : Il n’y a aucun lien statistique significatif. Dans notre échantillon, le rang de naissance n’a pas d’influence prouvée sur les résultats. Les légers écarts que l’on peut observer dans le tableau sont très probablement dus au simple hasard."
+    "text": "4. Test du Khi-deux\nLe lien observé entre le rang et les difficultés est-il dû au hasard ? Le test du \\(\\chi^2\\) (Khi-deux) répond à cette question par “oui” ou “non”.\n\n🟢 Excel (Méthode manuelle)🔵 R (Script)💡 Interprétation : Le couperet de la p-value\n\n\n\nTableau Théorique : Ce qu’on devrait observer si le hasard régnait. Calculez pour chaque case : (Total Ligne * Total Col) / Total Général.\nTest : =TEST.CHISQ(Plage_Réelle ; Plage_Théorique).\n\n\n\n\nchisq.test(tab)\n\n\n    Pearson's Chi-squared test\n\ndata:  tab\nX-squared = 6.7894, df = 4, p-value = 0.1474\n\n# Mesure de l'intensité (V de Cramer)\ncramer.v(tab)\n\n[1] 0.08248055\n\n\n\n\nAvec une p-value = 0.147, le résultat est supérieur au seuil de 0.05 (5%).\nConclusion stricte : Il n’y a aucun lien statistique significatif. Dans notre échantillon, le rang de naissance n’a pas d’influence prouvée sur les résultats scolaires. Les légers écarts que l’on peut observer dans le tableau sont très probablement dus au simple hasard (bruit statistique)."
   },
   {
     "objectID": "slides_seq4.html#comprendre-les-écarts",
@@ -151,21 +151,21 @@
     "href": "slides_seq4.html#visualisation-r-résidus",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "Visualisation R (Résidus)",
-    "text": "Visualisation R (Résidus)\nOn observe graphiquement ce que nous venons de calculer.\n\n# Extraction des résidus standardisés\nres &lt;- as.data.frame(chisq.test(tab)$residuals)\n\nggplot(res, aes(x = Var1, y = Freq, fill = Freq &gt; 0)) +\n  geom_bar(stat = \"identity\") +\n  facet_wrap(~Var2) +\n  scale_fill_manual(values = c(\"firebrick\", \"dodgerblue4\"), \n                    labels = c(\"Sous-représenté\", \"Sur-représenté\")) +\n  theme_minimal() +\n  labs(title = \"Écarts à l'indépendance (Résidus)\",\n       x = \"Rang de naissance\", y = \"Intensité de l'écart\", fill = \"Sens\")"
+    "text": "Visualisation R (Résidus)\nVoici comment R calcule ces résidus et comment ggplot2 les colorise :\n\n# En rajoutant $residuals, R donne le tableau exact des écarts case par case.\nres &lt;- as.data.frame(chisq.test(tab)$residuals)\n\nggplot(res, aes(x = Var1, y = Freq, fill = Freq &gt; 0)) +\n  geom_bar(stat = \"identity\") +\n  facet_wrap(~Var2) +\n  scale_fill_manual(values = c(\"firebrick\", \"dodgerblue4\"), \n                    labels = c(\"Sous-représenté\", \"Sur-représenté\")) +\n  theme_minimal() +\n  labs(title = \"Écarts à l'indépendance (Résidus)\",\n       x = \"Rang de naissance\", y = \"Intensité de l'écart\", fill = \"Sens\")"
   },
   {
     "objectID": "slides_seq4.html#le-script-de-base-sous-r",
     "href": "slides_seq4.html#le-script-de-base-sous-r",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "2. Le script de base sous R",
-    "text": "2. Le script de base sous R\nVoici le code pour importer les données et créer le tableau d’effectifs.\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(questionr)\n\n# Importation\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Tableau d'effectifs (V0153 x V0008)\ntab &lt;- table(df$V0153, df$V0008)\n\n# Labellisation pour la clarté\nrownames(tab) &lt;- c(\"Aînés\", \"Cadets\", \"Uniques\")\ncolnames(tab) &lt;- c(\"Réussite\", \"Moyens\", \"Difficultés\")\nprint(tab)\n\n         \n          Réussite Moyens Difficultés\n  Aînés         48     70          94\n  Cadets        64     64          93\n  Uniques       11     28          27"
+    "text": "2. Le script de base sous R\nVoici le code pour importer les données et créer le tableau d’effectifs.\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(questionr)\n\n# Importation\ndf &lt;- read_excel(\"data/DonneesTD4.xlsx\")\n\n# Tableau d'effectifs (V0153 x V0008)\ntab &lt;- table(df$V0153, df$V0008)\n\n# Labellisation pour la clarté\nrownames(tab) &lt;- c(\"Aînés\", \"Cadets\", \"Uniques\")\ncolnames(tab) &lt;- c(\"Difficultés\", \"Réussite\", \"Moyen\")\nprint(tab)\n\n         \n          Difficultés Réussite Moyen\n  Aînés            48       70    94\n  Cadets           64       64    93\n  Uniques          11       28    27"
   },
   {
     "objectID": "slides_seq4.html#calcul-des-pourcentages-en-ligne",
     "href": "slides_seq4.html#calcul-des-pourcentages-en-ligne",
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "3. Calcul des pourcentages en ligne",
-    "text": "3. Calcul des pourcentages en ligne\nIl est nécessaire de passer en pourcentages pour comparer les profils.\n\n🟢 Excel (Formule)🔵 R (Script)\n\n\n\nNote : Le symbole $ bloque la colonne E pour permettre d’étirer la formule.\n\n\n\n\n# Utilisation du package questionr\nlprop(tab)\n\n         \n          Réussite Moyens Difficultés Total\n  Aînés    22.6     33.0   44.3       100.0\n  Cadets   29.0     29.0   42.1       100.0\n  Uniques  16.7     42.4   40.9       100.0\n  All      24.6     32.5   42.9       100.0"
+    "text": "3. Calcul des pourcentages en ligne\nIl est nécessaire de passer en pourcentages (profils lignes) pour comparer le comportement de chaque groupe, indépendamment de sa taille initiale.\n\n🟢 Excel (Formule)🔵 R (Script)\n\n\n\nNote : Le symbole $ bloque la colonne E pour permettre d’étirer la formule.\n\n\n\n\n# Utilisation du package questionr\nlprop(tab)\n\n         \n          Difficultés Réussite Moyen Total\n  Aînés    22.6        33.0     44.3 100.0\n  Cadets   29.0        29.0     42.1 100.0\n  Uniques  16.7        42.4     40.9 100.0\n  All      24.6        32.5     42.9 100.0"
   },
   {
     "objectID": "slides_seq4.html#les-résidus-écarts-au-modèle",
@@ -187,5 +187,33 @@
     "title": "Séquence 4 : L’enquête sur les Héritiers",
     "section": "Calculer les Résidus sur Excel",
     "text": "Calculer les Résidus sur Excel\nLe résidu mesure l’intensité de l’écart. Un résidu &gt; 2 ou &lt; -2 indique une sur/sous-représentation forte.\nLa méthode pas-à-pas :\n\nCalculez votre Tableau Théorique (voir slide précédente).\nCréez un nouveau tableau pour les Résidus.\nDans la première case (ex: Aînés/Réussite), tapez la formule : =(Observé - Théorique) / RACINE(Théorique)\nÉtirez la formule.\nAnalyse : Si la valeur est positive, le groupe est sur-représenté. Si elle est négative, il est sous-représenté."
+  },
+  {
+    "objectID": "slides_seq4.html#le-concept-de-résidu-le-détecteur-danomalies",
+    "href": "slides_seq4.html#le-concept-de-résidu-le-détecteur-danomalies",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Le concept de Résidu : Le détecteur d’anomalies",
+    "text": "Le concept de Résidu : Le détecteur d’anomalies\nLe test du Khi-deux nous donne une réponse globale (ici : Pas de lien global significatif). Mais il ne nous dit pas où se trouve le lien potentiel. C’est là que les résidus entrent en jeu.\nUn résidu, c’est l’écart entre la réalité et la théorie : * La théorie (Effectif Théorique) : Ce qu’on devrait observer dans chaque case si le monde était parfait et que le rang de naissance n’avait strictement aucune influence sur l’école. * La réalité (Effectif Observé) : Ce que vous avez vraiment compté dans votre tableau de contingence.\nFormule du résidu standardisé : \\[ Résidu = \\frac{Observé - Théorique}{\\sqrt{Théorique}} \\]"
+  },
+  {
+    "objectID": "slides_seq4.html#comment-lire-ce-graphique-12",
+    "href": "slides_seq4.html#comment-lire-ce-graphique-12",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Comment lire ce graphique ? (1/2)",
+    "text": "Comment lire ce graphique ? (1/2)\nCe graphique est la traduction visuelle directe des résidus calculés précédemment. L’axe central (le 0) représente l’indépendance totale (la théorie parfaite).\n\n🔵 Les barres bleues (Résidus positifs) = La Sur-représentation : Il y a plus d’étudiants dans cette case que ce que le hasard prédirait.\n\nExemple : Les Cadets ont une barre bleue sur “Difficulté”. Ils sont sur-représentés parmi les élèves en difficulté.\n\n🔴 Les barres rouges (Résidus négatifs) = La Sous-représentation : Il y a moins d’étudiants dans cette case que ce qu’on attendrait par hasard.\n\nExemple : Les enfants Uniques ont une barre rouge sur “Difficulté”. Ils y sont sous-représentés."
+  },
+  {
+    "objectID": "slides_seq4.html#comment-lire-ce-graphique-22-la-règle-du---2",
+    "href": "slides_seq4.html#comment-lire-ce-graphique-22-la-règle-du---2",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "Comment lire ce graphique ? (2/2) : La Règle du +/- 2",
+    "text": "Comment lire ce graphique ? (2/2) : La Règle du +/- 2\nAttention, quelle est l’unité de ce graphique ? L’unité (le fameux -0,5 ou +1,5) n’est pas un nombre d’étudiants ou un pourcentage. C’est une unité statistique standardisée. Son intérêt est de fournir une échelle universelle pour repérer les anomalies.\nLa Règle d’or du +/- 2 : * Autour de 0 : C’est exactement l’effectif théorique attendu. * Entre -2 et +2 : C’est la zone du “bruit statistique”. Les différences que l’on voit sont très probablement dues au simple hasard de l’échantillonnage. * Au-delà de +2 (ou sous -2) : L’anomalie devient “significative”. La case est tellement remplie ou vide que le hasard ne suffit plus à l’expliquer."
+  },
+  {
+    "objectID": "slides_seq4.html#lexemple-concret-le-piège-pédagogique",
+    "href": "slides_seq4.html#lexemple-concret-le-piège-pédagogique",
+    "title": "Séquence 4 : L’enquête sur les Héritiers",
+    "section": "L’exemple concret : Le piège pédagogique",
+    "text": "L’exemple concret : Le piège pédagogique\nCas pratique : Lisons le résidu de -0,5 pour les Aînés en difficulté. * Analyse sociologique spontanée : “La barre est rouge et pointe vers le bas, les aînés ont donc moins de difficultés scolaires !” * Analyse statistique rigoureuse : Le graphique montre bien un déficit (-0,5), mais il n’atteint absolument pas le seuil critique de -2. L’écart humain derrière ce -0,5 est minime (quelques étudiants à peine). Sociologiquement, on ne peut tirer aucune conclusion de cette fluctuation.\n⚠️ Le point de recadrage fondamental : Souvenez-vous de la p-value globale (0.147) ! Elle nous avait prévenus qu’il n’y avait pas de lien. Sur ce graphique, aucune barre ne franchit la ligne des +/- 2. Notre cerveau humain a envie de trouver une explication (“les cadets galèrent plus !”), mais la statistique nous rappelle à l’ordre : ce tableau ne contient que du bruit statistique. Les statistiques servent justement à nous empêcher de sur-interpréter le hasard."
   }
 ]

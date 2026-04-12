@@ -225,8 +225,8 @@ Marc O’Flaherty
 <ol type="1">
 <li><strong>Exploration (A &amp; B) :</strong> Comprendre qui a été interrogé et comment les données sont codées.</li>
 <li><strong>Croisement (C) :</strong> Construire un Tableau Croisé (TCD) pour comparer Aînés et Cadets.</li>
-<li><strong>Vérification (C) :</strong> Utiliser le test du <strong>Khi-deux</strong> pour savoir si nos résultats sont dus au hasard.</li>
-<li><strong>Visualisation (D) :</strong> Analyser les <strong>Résidus</strong> pour voir où la réalité s’écarte du modèle.</li>
+<li><strong>Vérification (C) :</strong> Utiliser le test du <strong>Khi-deux</strong> pour savoir si nos résultats sont probants.</li>
+<li><strong>Visualisation (D) :</strong> Analyser les <strong>Résidus</strong> pour voir où la réalité s’écarte du modèle, et déjouer les pièges de notre cerveau !</li>
 </ol>
 </section></section>
 <section>
@@ -326,20 +326,20 @@ Marc O’Flaherty
 <span id="cb1-10"><a></a></span>
 <span id="cb1-11"><a></a><span class="co"># Labellisation pour la clarté</span></span>
 <span id="cb1-12"><a></a><span class="fu">rownames</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Aînés"</span>, <span class="st">"Cadets"</span>, <span class="st">"Uniques"</span>)</span>
-<span id="cb1-13"><a></a><span class="fu">colnames</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Réussite"</span>, <span class="st">"Moyens"</span>, <span class="st">"Difficultés"</span>)</span>
+<span id="cb1-13"><a></a><span class="fu">colnames</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Difficultés"</span>, <span class="st">"Réussite"</span>, <span class="st">"Moyen"</span>)</span>
 <span id="cb1-14"><a></a><span class="fu">print</span>(tab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         
-          Réussite Moyens Difficultés
-  Aînés         48     70          94
-  Cadets        64     64          93
-  Uniques       11     28          27</code></pre>
+          Difficultés Réussite Moyen
+  Aînés            48       70    94
+  Cadets           64       64    93
+  Uniques          11       28    27</code></pre>
 </div>
 </div>
 </section>
 <section id="calcul-des-pourcentages-en-ligne" class="slide level2">
 <h2>3. Calcul des pourcentages en ligne</h2>
-<p>Il est nécessaire de passer en pourcentages pour comparer les profils.</p>
+<p>Il est nécessaire de passer en pourcentages (profils lignes) pour comparer le comportement de chaque groupe, indépendamment de sa taille initiale.</p>
 <div class="panel-tabset">
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">🟢 Excel (Formule)</a></li><li><a href="#tabset-1-2">🔵 R (Script)</a></li></ul>
 <div class="tab-content">
@@ -354,11 +354,11 @@ Marc O’Flaherty
 <span id="cb3-2"><a></a><span class="fu">lprop</span>(tab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         
-          Réussite Moyens Difficultés Total
-  Aînés    22.6     33.0   44.3       100.0
-  Cadets   29.0     29.0   42.1       100.0
-  Uniques  16.7     42.4   40.9       100.0
-  All      24.6     32.5   42.9       100.0</code></pre>
+          Difficultés Réussite Moyen Total
+  Aînés    22.6        33.0     44.3 100.0
+  Cadets   29.0        29.0     42.1 100.0
+  Uniques  16.7        42.4     40.9 100.0
+  All      24.6        32.5     42.9 100.0</code></pre>
 </div>
 </div>
 </div>
@@ -367,13 +367,13 @@ Marc O’Flaherty
 </section>
 <section id="test-du-khi-deux" class="slide level2 scrollable">
 <h2>4. Test du Khi-deux</h2>
-<p>Le lien observé entre le rang et les difficultés est-il dû au hasard ?</p>
+<p>Le lien observé entre le rang et les difficultés est-il dû au hasard ? Le test du <span class="math inline">\(\chi^2\)</span> (Khi-deux) répond à cette question par “oui” ou “non”.</p>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">🟢 Excel (Méthode manuelle)</a></li><li><a href="#tabset-2-2">🔵 R (Script)</a></li><li><a href="#tabset-2-3">💡 Interprétation</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">🟢 Excel (Méthode manuelle)</a></li><li><a href="#tabset-2-2">🔵 R (Script)</a></li><li><a href="#tabset-2-3">💡 Interprétation : Le couperet de la p-value</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
 <ol type="1">
-<li><strong>Tableau Théorique :</strong> Calculez pour chaque case : <code>(Total Ligne * Total Col) / Total Général</code>.</li>
+<li><strong>Tableau Théorique :</strong> Ce qu’on devrait observer si le hasard régnait. Calculez pour chaque case : <code>(Total Ligne * Total Col) / Total Général</code>.</li>
 <li><strong>Test :</strong> <code>=TEST.CHISQ(Plage_Réelle ; Plage_Théorique)</code>.</li>
 </ol>
 </div>
@@ -395,34 +395,28 @@ X-squared = 6.7894, df = 4, p-value = 0.1474</code></pre>
 </div>
 </div>
 <div id="tabset-2-3">
-<p>Avec une <strong>p-value = 0.147</strong>, le résultat est supérieur au seuil de 0.05.<br>
-<strong>Conclusion :</strong> Il n’y a <strong>aucun lien statistique significatif</strong>. Dans notre échantillon, le rang de naissance n’a pas d’influence prouvée sur les résultats. Les légers écarts que l’on peut observer dans le tableau sont très probablement dus au simple hasard.</p>
+<p>Avec une <strong>p-value = 0.147</strong>, le résultat est supérieur au seuil de 0.05 (5%).<br>
+<strong>Conclusion stricte :</strong> Il n’y a <strong>aucun lien statistique significatif</strong>. Dans notre échantillon, le rang de naissance n’a pas d’influence prouvée sur les résultats scolaires. Les légers écarts que l’on peut observer dans le tableau sont très probablement dus au simple hasard (bruit statistique).</p>
 </div>
 </div>
 </div>
 </section></section>
 <section>
-<section id="d-analyse-des-écarts" class="title-slide slide level1 center">
-<h1>[D] Analyse des écarts</h1>
-<p><em>Visualiser la structure des données</em></p>
+<section id="d-analyse-des-écarts-les-résidus" class="title-slide slide level1 center">
+<h1>[D] Analyse des écarts : Les Résidus</h1>
+<p><em>Où la réalité s’écarte-t-elle de la théorie ?</em></p>
 </section>
-<section id="calculer-les-résidus-sur-excel" class="slide level2 scrollable">
-<h2>Calculer les Résidus sur Excel</h2>
-<p>Le <strong>résidu</strong> mesure l’intensité de l’écart. Un résidu &gt; 2 ou &lt; -2 indique une sur/sous-représentation forte.</p>
-<h3 id="la-méthode-pas-à-pas">La méthode pas-à-pas :</h3>
-<ol type="1">
-<li>Calculez votre <strong>Tableau Théorique</strong> (voir slide précédente).</li>
-<li>Créez un nouveau tableau pour les <strong>Résidus</strong>.</li>
-<li>Dans la première case (ex: Aînés/Réussite), tapez la formule : <code>=(Observé - Théorique) / RACINE(Théorique)</code></li>
-<li>Étirez la formule.</li>
-<li><strong>Analyse :</strong> Si la valeur est positive, le groupe est sur-représenté. Si elle est négative, il est sous-représenté.</li>
-</ol>
+<section id="le-concept-de-résidu-le-détecteur-danomalies" class="slide level2 scrollable">
+<h2>Le concept de Résidu : Le détecteur d’anomalies</h2>
+<p>Le test du Khi-deux nous donne une réponse globale (ici : Pas de lien global significatif). Mais il ne nous dit pas <em>où</em> se trouve le lien potentiel. C’est là que les <strong>résidus</strong> entrent en jeu.</p>
+<p>Un résidu, c’est l’écart entre la réalité et la théorie : * <strong>La théorie (Effectif Théorique) :</strong> Ce qu’on devrait observer dans chaque case si le monde était parfait et que le rang de naissance n’avait strictement aucune influence sur l’école. * <strong>La réalité (Effectif Observé) :</strong> Ce que vous avez vraiment compté dans votre tableau de contingence.</p>
+<p><strong>Formule du résidu standardisé :</strong> <span class="math display">\[ Résidu = \frac{Observé - Théorique}{\sqrt{Théorique}} \]</span></p>
 </section>
 <section id="visualisation-r-résidus" class="slide level2 scrollable">
 <h2>Visualisation R (Résidus)</h2>
-<p>On observe graphiquement ce que nous venons de calculer.</p>
+<p>Voici comment R calcule ces résidus et comment ggplot2 les colorise :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Extraction des résidus standardisés</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># En rajoutant $residuals, R donne le tableau exact des écarts case par case.</span></span>
 <span id="cb9-2"><a></a>res <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">chisq.test</span>(tab)<span class="sc">$</span>residuals)</span>
 <span id="cb9-3"><a></a></span>
 <span id="cb9-4"><a></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> Var1, <span class="at">y =</span> Freq, <span class="at">fill =</span> Freq <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
@@ -441,6 +435,30 @@ X-squared = 6.7894, df = 4, p-value = 0.1474</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="comment-lire-ce-graphique-12" class="slide level2 scrollable">
+<h2>Comment lire ce graphique ? (1/2)</h2>
+<p>Ce graphique est la traduction visuelle directe des résidus calculés précédemment. L’axe central (le 0) représente l’indépendance totale (la théorie parfaite).</p>
+<ul>
+<li>🔵 <strong>Les barres bleues (Résidus positifs) = La Sur-représentation :</strong> Il y a plus d’étudiants dans cette case que ce que le hasard prédirait.
+<ul>
+<li><em>Exemple :</em> Les Cadets ont une barre bleue sur “Difficulté”. Ils sont sur-représentés parmi les élèves en difficulté.</li>
+</ul></li>
+<li>🔴 <strong>Les barres rouges (Résidus négatifs) = La Sous-représentation :</strong> Il y a moins d’étudiants dans cette case que ce qu’on attendrait par hasard.
+<ul>
+<li><em>Exemple :</em> Les enfants Uniques ont une barre rouge sur “Difficulté”. Ils y sont sous-représentés.</li>
+</ul></li>
+</ul>
+</section>
+<section id="comment-lire-ce-graphique-22-la-règle-du---2" class="slide level2 scrollable">
+<h2>Comment lire ce graphique ? (2/2) : La Règle du +/- 2</h2>
+<p><strong>Attention, quelle est l’unité de ce graphique ?</strong> L’unité (le fameux -0,5 ou +1,5) n’est <strong>pas</strong> un nombre d’étudiants ou un pourcentage. C’est une unité statistique standardisée. Son intérêt est de fournir une échelle universelle pour repérer les anomalies.</p>
+<p><strong>La Règle d’or du +/- 2 :</strong> * <strong>Autour de 0 :</strong> C’est exactement l’effectif théorique attendu. * <strong>Entre -2 et +2 :</strong> C’est la zone du “bruit statistique”. Les différences que l’on voit sont très probablement dues au simple hasard de l’échantillonnage. * <strong>Au-delà de +2 (ou sous -2) :</strong> L’anomalie devient “significative”. La case est tellement remplie ou vide que le hasard ne suffit plus à l’expliquer.</p>
+</section>
+<section id="lexemple-concret-le-piège-pédagogique" class="slide level2 scrollable">
+<h2>L’exemple concret : Le piège pédagogique</h2>
+<p><strong>Cas pratique :</strong> Lisons le résidu de <strong>-0,5 pour les Aînés en difficulté</strong>. * <em>Analyse sociologique spontanée :</em> “La barre est rouge et pointe vers le bas, les aînés ont donc moins de difficultés scolaires !” * <em>Analyse statistique rigoureuse :</em> Le graphique montre bien un déficit (-0,5), mais il n’atteint absolument pas le seuil critique de -2. L’écart humain derrière ce -0,5 est minime (quelques étudiants à peine). Sociologiquement, on ne peut tirer <strong>aucune conclusion</strong> de cette fluctuation.</p>
+<p><strong>⚠️ Le point de recadrage fondamental :</strong> Souvenez-vous de la p-value globale (0.147) ! Elle nous avait prévenus qu’il n’y avait pas de lien. Sur ce graphique, <strong>aucune barre ne franchit la ligne des +/- 2</strong>. Notre cerveau humain a envie de trouver une explication (“les cadets galèrent plus !”), mais la statistique nous rappelle à l’ordre : ce tableau ne contient que du bruit statistique. Les statistiques servent justement à nous empêcher de sur-interpréter le hasard.</p>
 </section>
 <section id="pourquoi-pas-une-régression" class="slide level2">
 <h2>Pourquoi pas une régression ?</h2>
@@ -470,8 +488,7 @@ X-squared = 6.7894, df = 4, p-value = 0.1474</code></pre>
 </li>
 <li><strong>La p-value</strong> est le juge de paix : si elle est &gt; 0.05, les variables sont considérées comme indépendantes, il n’y a pas de lien statistique significatif.<br>
 </li>
-<li><strong>Les pourcentages en ligne</strong> permettent de comparer des comportements de groupes.<br>
-</li>
+<li><strong>Les résidus</strong> agissent comme des détecteurs d’anomalies (seuil à +/- 2) pour pointer les sur/sous-représentations spécifiques, mais <strong>attention à ne pas sur-interpréter le bruit statistique !</strong></li>
 <li><strong>Le script R</strong> permet d’automatiser et de fiabiliser ces étapes.</li>
 </ol>
 </section>
@@ -479,7 +496,6 @@ X-squared = 6.7894, df = 4, p-value = 0.1474</code></pre>
 <h2>🔗 Ressources</h2>
 <ul>
 <li><a href="http://journals.openedition.org/sociologie/652">Article Henri-Panabière (Cairn)</a></li>
-<li><a href="https://y.yarn.co/6e13b700-cce4-47e6-a5db-5999fd581141_text.gif">Corrigé Excel TD4</a></li>
 </ul>
 
 
