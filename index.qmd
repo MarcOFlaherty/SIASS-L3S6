@@ -15,4 +15,4 @@ Bienvenue sur le site du cours de SIASS. Vous trouverez ici l'ensemble des suppo
 | Séquence 2 | Sociologie électorale & inégalités (vote parisien 2022) | [Accéder](slides_seq2.html) |
 | Séquence 3 | Statistique & cartographie (énergie éolienne en Europe) | [Accéder](slides_seq3.html) |
 | Séquence 4 | L'enquête sur les Héritiers (tableaux croisés & écarts) | [Accéder](slides_seq4.html) |
-| Corrigé CC | Analyse électorale des arrondissements parisiens (2017) | *Disponible prochainement* |
+| Corrigé CC | Analyse électorale des arrondissements parisiens (2017) | [Accéder](corriger_cc.html) |
