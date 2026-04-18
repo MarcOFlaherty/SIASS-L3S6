@@ -1,0 +1,626 @@
+---
+title: "Corrigé — Entraînement au Contrôle Terminal SIASS"
+subtitle: "Enquête MesHéritiers (G. Henri-Panabière, 1999) — Talent scolaire et sentiment d'aisance avec les camarades"
+author: "Marc O'Flaherty"
+date: "21 avril 2026"
+format:
+  html:
+    embed-resources: true
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-title: "Sommaire"
+    number-sections: true
+    code-fold: true
+    code-summary: "Voir le code R"
+    code-tools: true
+    lightbox: true
+    fig-width: 9
+    fig-height: 5
+    df-print: kable
+    lang: fr
+---
+
+```{css, echo=FALSE}
+:root {
+  --sorbonne-bleu: #1a2744;
+  --sorbonne-or: #c8a415;
+  --sorbonne-gris: #f5f5f5;
+}
+h1, h2, h3 { color: var(--sorbonne-bleu); }
+table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+thead th { background-color: var(--sorbonne-bleu); color: white; padding: 8px 12px; text-align: center; }
+tbody td { padding: 6px 12px; text-align: center; border-bottom: 1px solid #ddd; }
+tbody tr:nth-child(even) { background-color: var(--sorbonne-gris); }
+.callout-note   { border-left-color: var(--sorbonne-bleu) !important; }
+.callout-tip    { border-left-color: var(--sorbonne-or)   !important; }
+@media print {
+  .code-fold-btn, .code-tools-right, nav#TOC { display: none; }
+  body { font-size: 11pt; }
+  h1   { page-break-before: always; }
+}
+```
+
+::: {.callout-tip icon=false}
+### Note pédagogique
+Ce corrigé est le **modèle de référence** de ce qui est attendu pour le Contrôle Terminal. Le CT officiel mobilise la **même démarche** avec des variables légèrement différentes : maîtriser ce corrigé, c'est maîtriser le CT.
+:::
+
+<!-- ================= SETUP ================= -->
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(readxl)
+library(knitr)
+library(questionr)
+library(scales)
+
+df <- read_excel("Donnees_CT.xlsx")
+
+df_ct <- df %>%
+  rename(
+    moy_bio    = V0082,
+    moy_techno = V0087,
+    sentiment  = V0001,   # sentiment avec les camarades
+    difficult  = V0008
+  )
+```
+
+# Partie 1 : Calculs et indicateurs
+
+## Q1 — Statistiques descriptives sur V0082 et V0087 {.scrollable}
+
+::: {.callout-note icon=false}
+### Formules Excel
+| Indicateur | Formule |
+| :--- | :--- |
+| Min | `=MIN(Plage)` |
+| Max | `=MAX(Plage)` |
+| Q1 | `=QUARTILE.EXC(Plage; 1)` |
+| Médiane | `=MEDIANE(Plage)` |
+| Q3 | `=QUARTILE.EXC(Plage; 3)` |
+| EIQ | `= Q3 − Q1` |
+| Variance | `=VAR.S(Plage)` |
+| Écart-type | `=ECARTYPE.STANDARD(Plage)` |
+:::
+
+```{r}
+#| label: q1-stats
+#| echo: true
+
+stats_indic <- function(x) {
+  x <- x[!is.na(x)]
+  tibble(
+    Min        = min(x),
+    Q1         = quantile(x, 0.25, names = FALSE),
+    Mediane    = median(x),
+    Q3         = quantile(x, 0.75, names = FALSE),
+    Max        = max(x),
+    EIQ        = Q3 - Q1,
+    Variance   = var(x),
+    Ecart_Type = sd(x),
+    n          = length(x)
+  )
+}
+
+tab_q1 <- bind_rows(
+  stats_indic(df_ct$moy_bio)    %>% mutate(Variable = "Biologie (V0082)",    .before = 1),
+  stats_indic(df_ct$moy_techno) %>% mutate(Variable = "Technologie (V0087)", .before = 1)
+) %>%
+  mutate(across(c(Min, Q1, Mediane, Q3, Max, EIQ, Variance, Ecart_Type),
+                ~ round(.x, 2)))
+
+kable(tab_q1 %>% select(-n), align = c("l", rep("r", 8)))
+```
+
+### Commentaire indicateur par indicateur
+
+::: {.callout-note icon=false}
+### Lecture détaillée des 8 indicateurs
+
+**1. Minimum** — Bio = 0,5 ; Techno = 1,0. Les valeurs extrêmes basses signalent l'existence d'élèves en grande difficulté disciplinaire. Le minimum en biologie est plus sévère qu'en technologie, ce qui peut refléter un barème ou une évaluation plus discriminante.
+
+**2. Premier quartile (Q1)** — Bio = 11,5 ; Techno = 12,0. Le quart le plus faible commence autour de 11-12/20 dans les deux matières, c'est-à-dire au-dessus de la moyenne attendue.
+
+**3. Médiane** — Bio = 14,0 ; Techno = 13,5. La moitié des élèves est au-dessus de cette valeur. La médiane est robuste aux extrêmes : elle donne la valeur « typique » d'un élève du panel.
+
+**4. Troisième quartile (Q3)** — Bio = 15,8 ; Techno = 15,2. Le quart supérieur commence autour de 15/20 : les très bons élèves sont nombreux dans cet échantillon d'héritiers.
+
+**5. Maximum** — Bio = 20,0 ; Techno = 20,0. Les deux matières permettent l'excellence absolue (cas rares, mais présents).
+
+**6. Écart inter-quartile (EIQ = Q3 − Q1)** — Bio = 4,3 ; Techno = 3,2. La biologie présente une moitié centrale plus dispersée que la technologie : les écarts entre les 25 % les plus faibles et les 25 % les meilleurs y sont plus marqués. La technologie est plus homogène.
+
+**7. Variance** — Bio = 10,8 ; Techno = 8,5. Indicateur de dispersion, peu lisible directement (unité : « points² »), utile comme étape de calcul de l'écart-type.
+
+**8. Écart-type (σ = √Variance)** — Bio = 3,3 ; Techno = 2,9. Les élèves s'écartent en moyenne de 3,3 points de la moyenne en biologie contre 2,9 en technologie. **L'écart-type confirme l'EIQ** : la biologie est globalement plus polarisée que la technologie.
+:::
+
+::: {.callout-important icon=false}
+### Rappel méthodologique
+La **variance** s'exprime en « points² » et n'est pas directement interprétable. L'**écart-type** (σ = √Variance), dans l'unité d'origine, s'interprète comme l'écart typique d'un élève à la moyenne.
+:::
+
+---
+
+## Q2 — Covariance, corrélation, détermination
+
+::: {.callout-note icon=false}
+### Formules Excel
+| Indicateur | Formule |
+| :--- | :--- |
+| Covariance | `=COVARIANCE.PEARSON(V0082; V0087)` |
+| $r$ | `=COEFFICIENT.CORRELATION(V0082; V0087)` |
+| $R^2$ | `=COEFFICIENT.DETERMINATION(V0082; V0087)` ou $r^2$ |
+:::
+
+```{r}
+#| label: q2-bivarie
+#| echo: true
+
+paires <- df_ct %>% filter(!is.na(moy_bio), !is.na(moy_techno))
+
+q2 <- tibble(
+  Indicateur = c("Covariance", "r (corrélation)", "R² (détermination)"),
+  Valeur = c(
+    round(cov(paires$moy_bio, paires$moy_techno), 3),
+    round(cor(paires$moy_bio, paires$moy_techno), 4),
+    round(cor(paires$moy_bio, paires$moy_techno)^2, 4)
+  )
+)
+kable(q2, align = "lr")
+```
+
+**Lecture.** Sur les `r nrow(paires)` élèves ayant renseigné les deux moyennes :
+
+- **Covariance** = +4,10 (positive) : les deux variables varient dans le même sens — les élèves forts en biologie tendent à l'être en technologie.
+- **Corrélation** $r$ = 0,435 : lien **modéré**. La relation linéaire existe mais reste partielle.
+- **Coefficient de détermination** $R^2$ = 0,189 : la moyenne en technologie explique **18,9 %** de la variance de la moyenne en biologie. Les **81,1 % restants** dépendent d'autres facteurs (talent disciplinaire spécifique, goûts, pédagogie).
+
+::: {.callout-important icon=false}
+### Interprétation sociologique
+Un $R^2$ de 19 % indique que **le talent scolaire est faiblement transversal** entre biologie et technologie. Ces deux disciplines, pourtant toutes deux « scientifiques », mesurent des compétences largement indépendantes. L'idée d'un « bon élève scientifique » homogène ne résiste pas à l'analyse.
+:::
+
+---
+
+## Q3 — Régression linéaire V0082 ~ V0087 {.scrollable}
+
+On modélise la moyenne en biologie comme fonction linéaire de la moyenne en technologie : $Y = aX + b$.
+
+::: {.callout-note icon=false}
+### Formules Excel
+| Coefficient | Formule |
+| :--- | :--- |
+| Pente $a$ | `=PENTE(V0082; V0087)` |
+| Ordonnée $b$ | `=ORDONNEE.ORIGINE(V0082; V0087)` |
+:::
+
+```{r}
+#| label: q3-regression
+#| echo: true
+
+modele <- lm(moy_bio ~ moy_techno, data = paires)
+a <- coef(modele)[2]
+b <- coef(modele)[1]
+
+tibble(
+  Coefficient = c("Pente (a)", "Ordonnée à l'origine (b)", "R²"),
+  Valeur = c(round(a, 4), round(b, 4), round(summary(modele)$r.squared, 4))
+) %>% kable(align = "lr")
+```
+
+**Équation de la droite de régression :**
+$$
+\widehat{Y} = 0{,}394 \times X + 8{,}19
+$$
+
+### Que représente chacun des termes ?
+
+| Terme | Signification |
+| :--- | :--- |
+| **Y** | Variable à expliquer (dépendante) : ici la moyenne estimée en biologie. Le chapeau $\widehat{Y}$ rappelle qu'il s'agit d'une valeur **prédite** par le modèle, pas de la valeur réellement observée. |
+| **X** | Variable explicative (indépendante) : ici la moyenne observée en technologie. L'information connue à partir de laquelle on estime Y. |
+| **a** | **Pente** de la droite : variation estimée de Y pour une augmentation d'1 point de X. Ici $a \approx 0{,}39$ : à chaque point gagné en technologie on estime 0,39 point gagné en biologie. Elle traduit l'intensité et le sens du lien. |
+| **b** | **Ordonnée à l'origine** : valeur prédite de Y quand X = 0. Ici $b \approx 8{,}19$. Valeur mathématique du modèle, souvent peu interprétable concrètement (aucun élève n'a réellement 0 en technologie dans l'échantillon). |
+
+### Nuage de points avec droite de régression
+
+```{r}
+#| label: q3-graph
+#| echo: true
+#| fig-height: 5
+#| message: false
+#| warning: false
+
+ggplot(paires, aes(x = moy_techno, y = moy_bio)) +
+  geom_point(color = "#1a2744", alpha = 0.4, size = 2) +
+  geom_smooth(method = "lm", formula = y ~ x, color = "#c8a415",
+              se = TRUE, alpha = 0.2, linewidth = 1.2) +
+  annotate("label", x = 3, y = 18,
+           label = "Y = 0,394 × X + 8,19   |   R² = 0,189",
+           color = "#1a2744", fill = "white", size = 3.5, hjust = 0) +
+  labs(
+    title = "Régression linéaire : Moyenne en biologie ~ Moyenne en technologie",
+    subtitle = paste0("Enquête MesHéritiers, ", nrow(paires), " collégiens"),
+    x = "Moyenne en technologie (/20)",
+    y = "Moyenne en biologie (/20)"
+  ) +
+  theme_minimal()
+```
+
+La dispersion du nuage autour de la droite reflète visuellement le $R^2$ faible de 0,189.
+
+---
+
+## Q4 — Tableau croisé V0001 × V0008 {.scrollable}
+
+On croise le **sentiment de l'enfant face à ses camarades** (V0001) et le **classement en difficulté scolaire** (V0008).
+
+::: {.callout-note icon=false}
+### Astuce TCD Excel
+*Insertion > Tableau croisé dynamique* ; Lignes = V0001, Colonnes = V0008. Valeurs = V0008 (Nombre). Puis *Clic droit > Afficher les valeurs > % du total de la ligne*.
+:::
+
+```{r}
+#| label: q4-tcd
+#| echo: true
+
+df_cross <- df_ct %>%
+  filter(!is.na(sentiment), !is.na(difficult)) %>%
+  mutate(
+    sentiment = factor(sentiment,
+                       levels = c("à l'aise", "ça dépend", "mal à l'aise"),
+                       labels = c("À l'aise", "Ça dépend", "Mal à l'aise")),
+    difficult = factor(difficult,
+                       levels = c("élèves en réussite", "élèves moyens", "élèves en difficultés"),
+                       labels = c("Réussite", "Moyens", "Difficultés"))
+  )
+
+tab_eff <- table(df_cross$sentiment, df_cross$difficult)
+tab_eff_totaux <- addmargins(tab_eff)
+
+# Renommer "Sum" en "Total" pour les marges
+dimnames(tab_eff_totaux) <- lapply(
+  dimnames(tab_eff_totaux),
+  function(x) gsub("^Sum$", "Total", x)
+)
+
+kable(tab_eff_totaux, caption = "Tableau 1 — Effectifs observés (avec totaux marginaux)")
+```
+
+```{r}
+#| label: q4-lprop
+#| echo: true
+
+tab_pct <- lprop(tab_eff, digits = 1)
+
+# Renommer "All" / "Ensemble" en "total" pour les marges
+dn <- dimnames(tab_pct)
+dn[[1]] <- gsub("^(All|Ensemble)$", "total", dn[[1]])
+dn[[2]] <- gsub("^(All|Ensemble)$", "total", dn[[2]])
+dimnames(tab_pct) <- dn
+
+kable(tab_pct, caption = "Tableau 2 — Pourcentages en ligne")
+```
+
+**Lecture.** Parmi les élèves qui se disent « à l'aise » avec leurs camarades, 34,5 % sont en réussite et 25,0 % en difficulté. À l'inverse, chez ceux qui répondent « ça dépend », seuls 15,5 % sont en réussite et 31,0 % en difficulté. Il y a donc bien un contraste, mais qu'il faut quantifier par le Khi-deux.
+
+---
+
+## Q5 — Test du Khi-deux {.scrollable}
+
+::: {.callout-note icon=false}
+### Méthode
+
+On cherche à savoir si les deux variables sont **dépendantes** ou **indépendantes**.
+
+- **Sur Excel** : `=TEST.CHISQ(Plage_Observée; Plage_Théorique)` renvoie directement la p-value du test.
+- **Sur R** : la fonction `chisq.test()` renvoie la p-value (et accessoirement la valeur du Khi²).
+
+**Règle de décision** : on compare la p-value au seuil standard de 0,05.
+
+- Si p-value **< 0,05** : on rejette l'hypothèse d'indépendance → les variables sont **dépendantes**.
+- Si p-value **≥ 0,05** : on ne rejette pas l'indépendance → les variables sont **indépendantes**.
+:::
+
+```{r}
+#| label: q5-khi2
+#| echo: true
+
+test <- chisq.test(tab_eff)
+test$p.value
+```
+
+::: {.callout-important icon=false}
+### Conclusion
+
+La p-value est **nettement inférieure au seuil de 0,05** (p < 0,001).
+
+On **rejette l'hypothèse d'indépendance** : le sentiment d'aisance avec les camarades et le classement en difficulté scolaire **sont dépendants**. Il existe un lien statistique entre les deux variables.
+
+Attention : ce test nous dit **qu'un** lien existe, mais il ne dit rien sur sa **force** ni sur **l'endroit** où il se concentre. C'est à ces questions que répondent le V de Cramer (bonus B1) et l'analyse des résidus (Q6). Ici, comme on va le voir, l'effet est en réalité **faible**.
+:::
+
+---
+
+## Q6 — Résidus standardisés et visualisation {.scrollable}
+
+Le Khi-deux nous dit qu'**un** lien existe ; les **résidus** nous disent **où** il se concentre.
+
+::: {.callout-note icon=false}
+### Formule du résidu standardisé
+$$
+r_{ij} = \frac{O_{ij} - T_{ij}}{\sqrt{T_{ij}}}
+$$
+
+**Règle du ±2** : $|r| < 2$ = bruit statistique ; $r > +2$ = sur-représentation ; $r < -2$ = sous-représentation.
+:::
+
+```{r}
+#| label: q6-residus-tableau
+#| echo: true
+
+# Reconstruction des effectifs théoriques à partir du tableau observé
+totaux_lignes <- rowSums(tab_eff)
+totaux_cols   <- colSums(tab_eff)
+n_total       <- sum(tab_eff)
+tab_theo      <- outer(totaux_lignes, totaux_cols) / n_total
+
+residus <- (tab_eff - tab_theo) / sqrt(tab_theo)
+kable(round(residus, 2), caption = "Tableau 5 — Résidus standardisés")
+```
+
+```{r}
+#| label: q6-residus-plot
+#| echo: true
+#| fig-height: 5
+
+df_res <- as.data.frame(as.table(residus)) %>%
+  rename(Sentiment = Var1, Classement = Var2, Residu = Freq) %>%
+  mutate(Sens = case_when(
+    Residu >  2 ~ "Sur-représentation significative",
+    Residu < -2 ~ "Sous-représentation significative",
+    TRUE        ~ "Bruit statistique (|r| < 2)"
+  ))
+
+ggplot(df_res, aes(x = Classement, y = Residu, fill = Sens)) +
+  geom_bar(stat = "identity") +
+  geom_hline(yintercept =  2, linetype = "dashed", color = "#2ca02c") +
+  geom_hline(yintercept = -2, linetype = "dashed", color = "#cc0000") +
+  geom_hline(yintercept =  0, color = "black", linewidth = 0.3) +
+  facet_wrap(~ Sentiment) +
+  scale_fill_manual(values = c(
+    "Sur-représentation significative"   = "#2ca02c",
+    "Sous-représentation significative"  = "#cc0000",
+    "Bruit statistique (|r| < 2)"        = "#888888"
+  )) +
+  labs(
+    title = "Résidus standardisés — Sentiment avec les camarades × Difficultés scolaires",
+    subtitle = "Seuils de significativité : ±2 (lignes pointillées)",
+    x = "Classement en difficulté",
+    y = "Résidu standardisé",
+    fill = ""
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 20, hjust = 1))
+```
+
+### Lecture des résidus
+
+Une **seule** case dépasse le seuil de ±2 :
+
+| Case | Résidu | Interprétation |
+|---|---|---|
+| **Ça dépend × Réussite** | **−3,22** | Forte sous-représentation : les élèves au sentiment ambivalent (« ça dépend ») sont très significativement moins nombreux que prévu en réussite scolaire. |
+
+Toutes les autres cases restent dans la zone du **bruit statistique** (|r| < 2). Autrement dit :
+
+- Les élèves « à l'aise » avec leurs camarades ne sont pas significativement sur-représentés en réussite (r = +1,71, juste en-dessous du seuil).
+- Les élèves « mal à l'aise » ne sont pas significativement concentrés dans les difficultés (r = +0,56).
+
+**Synthèse.** Le signal statistique est **limité** : si le lien global est significatif (Khi² significatif, p < 0,001), il tient essentiellement à **un** décalage — l'ambivalence relationnelle s'accompagne d'une moindre réussite. Cette configuration invite à rappeler une règle d'or de la méthode : **significativité ≠ force d'effet**.
+
+---
+
+# Partie 2 : Analyse rédigée
+
+## Introduction
+
+L'enquête *MesHéritiers*, conduite par la sociologue **Gaële Henri-Panabière** (2010) auprès de 677 collégiens scolarisés en 6ème et 5ème dans quatre établissements lyonnais, porte sur des familles **fortement diplômées**. Malgré un capital culturel élevé, certains enfants rencontrent des difficultés scolaires — c'est le paradoxe des « héritiers en difficulté » que l'enquête cherche à éclairer.
+
+Les données mobilisent à la fois des variables quantitatives (notamment les moyennes par matière) et qualitatives (relation à l'école, rapports aux camarades et aux enseignants, parcours scolaire antérieur). Nous les mobilisons ici pour interroger deux dimensions complémentaires : le **talent scolaire transversal** (à travers les moyennes en biologie et technologie) et le **sentiment d'aisance avec les camarades** (comme marqueur possible de difficulté).
+
+## Problématique
+
+**Au sein de familles fortement diplômées, le talent scolaire est-il transversal entre disciplines et le sentiment d'aisance avec les camarades prédit-il les difficultés scolaires ?**
+
+Deux hypothèses structurent l'analyse :
+
+1. **Hypothèse quantitative (Q1–Q3)** : le talent scolaire est un trait global ; un élève fort en biologie le serait aussi en technologie. Une forte corrélation entre ces deux moyennes le confirmerait.
+2. **Hypothèse qualitative (Q4–Q6)** : les difficultés scolaires ne sont pas seulement cognitives mais aussi **sociales**. Les élèves mal à l'aise avec leurs camarades seraient sur-représentés dans les difficultés scolaires.
+
+## Le talent scolaire : faiblement transversal
+
+L'analyse bivariée biologie × technologie ne conforte pas l'idée d'un talent scolaire global. Le coefficient de corrélation ($r = 0{,}435$) signale un lien positif **modéré**, et le coefficient de détermination ($R^2 = 0{,}189$) précise que **la technologie n'explique que 19 %** de la variance des notes en biologie. Les **81 % restants** dépendent d'autres facteurs — caractéristiques personnelles, rapport à la discipline, pédagogie.
+
+La régression ($\widehat{Y} = 0{,}394 \times X + 8{,}19$) confirme cette tendance modeste : chaque point gagné en technologie s'accompagne en moyenne de 0,39 point gagné en biologie. La dispersion importante autour de la droite de régression traduit l'hétérogénéité réelle des profils.
+
+Ces résultats invitent à **abandonner la notion de « bon élève scientifique » comme catégorie homogène**. Même dans un échantillon d'héritiers où l'on pourrait attendre une certaine homogénéité culturelle, les compétences disciplinaires restent largement **autonomes**. Un élève peut parfaitement briller en biologie sans performer en technologie, et inversement.
+
+On note par ailleurs que la biologie présente une dispersion plus marquée que la technologie (écart-type 3,3 contre 2,9 ; EIQ 4,3 contre 3,2). Cette polarisation plus forte de la biologie peut refléter une évaluation plus discriminante ou une sensibilité particulière de cette matière aux inégalités de capital culturel (vocabulaire scientifique, familiarité avec les démarches expérimentales).
+
+## Le sentiment d'aisance avec les camarades : un lien significatif mais faible
+
+La seconde hypothèse trouve une **validation partielle** dans l'analyse qualitative. Le test du Khi-deux ($\chi^2 \approx 19{,}7$, $p < 0{,}001$) rejette l'hypothèse d'indépendance entre sentiment avec les camarades et classement scolaire. Un lien statistique existe donc, au-delà du hasard d'échantillonnage.
+
+Cependant, l'examen des résidus standardisés **nuance fortement** cette première conclusion. Sur les neuf cases du tableau, **une seule** dépasse le seuil de significativité de ±2 : la case « Ça dépend × Réussite » affiche un résidu de **−3,22**, signe d'une sous-représentation forte. Les élèves dont le sentiment est ambivalent avec leurs camarades sont beaucoup moins nombreux que prévu parmi les élèves en réussite.
+
+Les autres cases restent dans la zone du **bruit statistique**. Notamment, contrairement à ce qu'on pourrait attendre, les élèves « mal à l'aise » ne sont pas significativement sur-représentés parmi ceux en difficulté (r = +0,56) — mais il faut noter que leur effectif est très faible (n = 5), ce qui limite la puissance statistique pour cette modalité.
+
+Le signal principal est donc **asymétrique** : c'est essentiellement du côté de la **non-réussite** que le sentiment d'ambivalence se concentre. Être ambivalent avec ses camarades n'accentue pas nécessairement les difficultés scolaires, mais **semble bloquer l'accès à la réussite**.
+
+Ce résultat, à manier avec prudence compte tenu de la faiblesse globale de l'effet (voir V de Cramer en bonus), suggère que l'intégration sociale au collège — plus précisément le sentiment d'**appartenir au groupe** — pourrait être une condition facilitante (mais non suffisante) de la réussite scolaire. Inversement, un sentiment d'extériorité, même mesuré, pourrait constituer un frein discret à l'accès à la réussite.
+
+## Conclusion
+
+Cette analyse croise deux registres — quantitatif (moyennes par matière) et qualitatif (sentiment relationnel) — pour interroger la réussite scolaire dans les familles fortement diplômées.
+
+**D'une part**, le talent scolaire n'est pas un trait global : la corrélation entre la biologie et la technologie reste modérée ($r = 0{,}44$, $R^2 = 0{,}19$). Les disciplines mesurent des compétences largement indépendantes, y compris au sein d'un même « pôle scientifique ».
+
+**D'autre part**, le sentiment d'aisance avec les camarades est significativement associé au classement en difficulté scolaire, mais l'effet reste faible ($\chi^2$ significatif, $p < 0{,}001$ ; mais un seul résidu dépasse le seuil ±2). Le signal principal concerne les élèves **ambivalents** dans leur rapport aux camarades, qui sont significativement sous-représentés parmi ceux en réussite.
+
+### Limites
+
+1. **Corrélation n'est pas causalité.** Le sentiment d'ambivalence peut être une **conséquence** autant qu'une cause de la non-réussite scolaire (les élèves qui réussissent moins peuvent développer un rapport complexe à leurs camarades).
+2. **Effet de taille d'échantillon.** La modalité « mal à l'aise » ne compte que 5 individus : toute interprétation de cette ligne est fragile.
+3. **Sentiment auto-rapporté.** Les réponses peuvent être biaisées par la désirabilité sociale.
+4. **Non-réponses sur les moyennes.** Environ 35 % de l'échantillon n'a pas renseigné les moyennes en biologie ou technologie, ce qui peut introduire un biais de sélection.
+
+::: {.callout-tip icon=false}
+### Bonne pratique
+Discuter les limites fait partie d'une analyse rigoureuse. Un résultat statistiquement significatif peut rester **pratiquement faible**, et c'est à l'analyste de faire cette distinction pour le lecteur.
+:::
+
+---
+
+# Bonus
+
+## B1 — V de Cramer
+
+::: {.callout-note icon=false}
+### Formule
+$$
+V = \sqrt{\frac{\chi^2}{n \times \min(k - 1,\ l - 1)}}
+$$
+:::
+
+```{r}
+#| label: b1-cramer
+#| echo: true
+#| warning: false
+#| message: false
+
+cramer_v <- cramer.v(tab_eff)
+tibble(
+  Indicateur = c("Khi²", "n", "min(k-1, l-1)", "V de Cramer"),
+  Valeur = c(round(test$statistic, 2),
+             sum(tab_eff),
+             min(nrow(tab_eff) - 1, ncol(tab_eff) - 1),
+             round(cramer_v, 3))
+) %>% kable(align = "lr")
+```
+
+::: {.callout-important icon=false}
+### Interprétation
+**V ≈ 0,121** : effet **faible**.
+
+| V de Cramer | Intensité |
+|---|---|
+| < 0,10 | effet nul ou très faible |
+| 0,10 – 0,20 | **effet faible** ← nous sommes ici |
+| 0,20 – 0,30 | effet modéré |
+| > 0,30 | effet fort |
+
+Ce résultat est **cohérent** avec l'analyse des résidus : une seule case dépassait ±2, les autres restaient dans le bruit. La significativité statistique (p < 0,001) tient essentiellement à la taille de l'échantillon (n = 675), qui permet de détecter des effets même ténus. **Significativité ≠ force d'effet.**
+:::
+
+## B2 — PEM (Pourcentage de l'Écart Maximum)
+
+::: {.callout-note icon=false}
+### Formule de Cibois
+1. Écart à l'indépendance : $E = O - T$
+2. Effectif maximum compatible : $M = \min(\text{Total ligne},\ \text{Total colonne})$
+3. Écart maximum : $E_{\max} = M - T$
+4. PEM (%) = $\dfrac{E}{E_{\max}} \times 100$
+:::
+
+On identifie la case avec le **résidu positif maximal** :
+
+```{r}
+#| label: b2-identif-case
+#| echo: true
+
+df_res_pos <- df_res %>% filter(Residu > 0) %>% arrange(desc(Residu))
+kable(df_res_pos,
+      caption = "Classement des cases en attraction (résidu > 0)")
+```
+
+La case la plus saillante (résidu positif maximal) est **« Ça dépend × Moyens »** ($r = +1{,}83$, juste sous le seuil de significativité).
+
+```{r}
+#| label: b2-pem
+#| echo: true
+
+i <- which(rownames(tab_eff) == "Ça dépend")
+j <- which(colnames(tab_eff) == "Moyens")
+
+O    <- tab_eff[i, j]
+T    <- totaux_lignes[i] * totaux_cols[j] / n_total
+E    <- O - T
+M    <- min(totaux_lignes[i], totaux_cols[j])
+Emax <- M - T
+PEM  <- E / Emax * 100
+
+tibble(
+  Étape = c(
+    "Observé O",
+    "Théorique T",
+    "Écart E = O − T",
+    "Effectif max compatible M = min(L, C)",
+    "Écart maximum Emax = M − T",
+    "PEM = E / Emax × 100"
+  ),
+  Valeur = c(
+    O,
+    round(T, 2),
+    round(E, 2),
+    M,
+    round(Emax, 2),
+    paste0(round(PEM, 1), " %")
+  )
+) %>% kable(align = "lr")
+```
+
+::: {.callout-important icon=false}
+### Interprétation
+**PEM ≈ 18 %** : la case « Ça dépend × Moyens » atteint environ 18 % de son attraction maximale possible compte tenu des marges.
+
+C'est un résultat **modeste**, en ligne avec le V de Cramer global (0,12) : l'échantillon ne permet pas de mettre en évidence d'attraction locale très forte dans ce tableau. La plus forte structure du tableau reste la **sous-représentation** (résidu −3,22) détectée en Q6 — qui, pour être mesurée par un PEM, nécessiterait l'extension de l'indice aux cas de répulsion (voir annexe de Cibois, 1993).
+
+Cette configuration est **pédagogiquement précieuse** : elle illustre qu'un tableau peut être globalement **significatif** tout en étant localement **faiblement structuré**. Le PEM permet alors de confirmer que le lien observé reste d'une intensité limitée.
+:::
+
+---
+
+# Annexe : Erreurs fréquentes à éviter
+
+::: {.callout-important icon=false}
+### 1. Ne pas commenter chaque indicateur (Q1)
+Chaque indicateur devait être accompagné d'un commentaire explicatif. Aligner les chiffres sans interpréter ne valide que la moitié de la question.
+:::
+
+::: {.callout-important icon=false}
+### 2. Confondre p-value et force du lien
+Un $p < 0{,}001$ ne signifie **pas** que le lien est fort. Il signifie que le lien n'est très probablement pas dû au hasard. La force se mesure avec le V de Cramer — ici 0,12, soit un effet **faible**.
+:::
+
+::: {.callout-important icon=false}
+### 3. Confondre Y, $\widehat{Y}$ et X dans la régression
+Y = variable à expliquer ; $\widehat{Y}$ = valeur prédite par le modèle ; X = variable explicative. Un élève peut avoir un $\widehat{Y}$ de 13 en biologie alors que sa vraie note est 17 : c'est la définition d'un résidu de régression.
+:::
+
+::: {.callout-important icon=false}
+### 4. Sur-interpréter les résidus qui ne dépassent pas ±2
+Toute barre comprise entre −2 et +2 est du **bruit statistique**. Ici, seule « Ça dépend × Réussite » dépasse ce seuil. Commenter la sur-représentation de « Mal à l'aise × Difficultés » (résidu +0,56) serait une erreur méthodologique.
+:::
+
+::: {.callout-important icon=false}
+### 5. Conclure sans discuter les limites
+Corrélation n'est pas causalité. Un échantillon spécifique n'est pas généralisable. Les modalités à faible effectif (ici « Mal à l'aise », n=5) sont fragiles. Une analyse professionnelle se reconnaît à la lucidité de ses limites.
+:::

@@ -1,0 +1,658 @@
+---
+title: "Corrigé — Contrôle Terminal SIASS"
+subtitle: "Enquête MesHéritiers (G. Henri-Panabière, 1999) — Talent scolaire et sentiment d'aisance au collège"
+author: "Marc O'Flaherty"
+date: "18 avril 2026"
+format:
+  html:
+    embed-resources: true
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-title: "Sommaire"
+    number-sections: true
+    code-fold: true
+    code-summary: "Voir le code R"
+    code-tools: true
+    lightbox: true
+    fig-width: 9
+    fig-height: 5
+    df-print: kable
+    lang: fr
+---
+
+```{css, echo=FALSE}
+/* --- Palette Panthéon-Sorbonne --- */
+:root {
+  --sorbonne-bleu: #1a2744;
+  --sorbonne-or: #c8a415;
+  --sorbonne-gris: #f5f5f5;
+  --vert-sur: #2ca02c;
+  --rouge-sous: #cc0000;
+}
+
+h1, h2, h3 {
+  color: var(--sorbonne-bleu);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+
+thead th {
+  background-color: var(--sorbonne-bleu);
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+tbody td {
+  padding: 6px 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--sorbonne-gris);
+}
+
+.callout-note   { border-left-color: var(--sorbonne-bleu) !important; }
+.callout-tip    { border-left-color: var(--sorbonne-or)   !important; }
+
+@media print {
+  .code-fold-btn, .code-tools-right, nav#TOC { display: none; }
+  body { font-size: 11pt; }
+  h1   { page-break-before: always; }
+}
+```
+
+<!-- ================= SETUP ================= -->
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(readxl)
+library(knitr)
+library(questionr)
+library(scales)
+
+# --- Importation des données ---
+df <- read_excel("Donnees_CT.xlsx")
+
+# Renommage des variables utiles pour plus de lisibilité
+df_ct <- df %>%
+  rename(
+    moy_fr    = V0078,
+    moy_math  = V0084,
+    sentiment = V0002,   # sentiment avec les enseignants
+    difficult = V0008    # recodage difficultés scolaires
+  )
+```
+
+# Partie 1 : Calculs et indicateurs
+
+## Q1 — Statistiques descriptives sur V0078 et V0084 {.scrollable}
+
+On calcule les 8 indicateurs pour les moyennes en français (V0078) et en mathématiques (V0084), en excluant les non-réponses.
+
+::: {.callout-note icon=false}
+### Formules Excel correspondantes
+| Indicateur | Formule Excel |
+| :--- | :--- |
+| **Min** | `=MIN(Plage)` |
+| **Max** | `=MAX(Plage)` |
+| **Quartile 1 (Q1)** | `=QUARTILE.EXC(Plage; 1)` |
+| **Médiane (Q2)** | `=MEDIANE(Plage)` |
+| **Quartile 3 (Q3)** | `=QUARTILE.EXC(Plage; 3)` |
+| **EIQ** | `= Q3 − Q1` |
+| **Variance** | `=VAR.S(Plage)` |
+| **Écart-type** | `=ECARTYPE.STANDARD(Plage)` |
+:::
+
+```{r}
+#| label: q1-stats
+#| echo: true
+
+stats_indic <- function(x) {
+  x <- x[!is.na(x)]
+  tibble(
+    Min        = min(x),
+    Q1         = quantile(x, 0.25, names = FALSE),
+    Mediane    = median(x),
+    Q3         = quantile(x, 0.75, names = FALSE),
+    Max        = max(x),
+    EIQ        = Q3 - Q1,
+    Variance   = var(x),
+    Ecart_Type = sd(x),
+    n          = length(x)
+  )
+}
+
+tab_q1 <- bind_rows(
+  stats_indic(df_ct$moy_fr)   %>% mutate(Variable = "Français (V0078)",    .before = 1),
+  stats_indic(df_ct$moy_math) %>% mutate(Variable = "Mathématiques (V0084)", .before = 1)
+) %>%
+  mutate(across(c(Min, Q1, Mediane, Q3, Max, EIQ, Variance, Ecart_Type),
+                ~ round(.x, 2)))
+
+kable(tab_q1 %>% select(-n),
+      align = c("l", rep("r", 8)))
+```
+
+### Commentaire indicateur par indicateur
+
+::: {.callout-note icon=false}
+### Lecture détaillée des 8 indicateurs
+
+**1. Minimum** — plus petite valeur observée. Français = 3,2 ; Maths = 1,0. Cela indique qu'il existe dans l'échantillon quelques élèves en très grande difficulté disciplinaire, plus marquée encore en mathématiques (un minimum à 1/20 signale probablement une situation d'échec scolaire avancée).
+
+**2. Premier quartile (Q1)** — valeur en deçà de laquelle se trouvent 25 % des élèves. Français = 11,0 ; Maths = 11,0. Le quart inférieur de la classe est identique dans les deux matières : la frontière « quart le plus faible » commence autour de 11/20, ce qui reste au-dessus de la moyenne attendue.
+
+**3. Médiane (Q2)** — valeur qui partage la distribution en deux moitiés égales. Français = 12,9 ; Maths = 13,4. La moitié des élèves obtient **plus** de cette valeur, l'autre moitié moins. La médiane est plus robuste aux valeurs extrêmes que la moyenne : elle donne la valeur « typique » d'un élève.
+
+**4. Troisième quartile (Q3)** — 75 % des élèves sont en-deçà de cette valeur. Français = 14,5 ; Maths = 16,0. Le quart supérieur commence plus haut en mathématiques : la distribution des notes en maths est « étirée » vers le haut.
+
+**5. Maximum** — plus grande valeur. Français = 19,5 ; Maths = 19,5. Les deux matières permettent d'atteindre l'excellence (sans 20/20 ici, sans doute par rigueur des correcteurs).
+
+**6. Écart inter-quartile (EIQ = Q3 − Q1)** — dispersion de la moitié centrale de la distribution, robuste aux valeurs extrêmes. Français = 3,5 ; Maths = 5,0. **Les maths sont plus hétérogènes** : entre les 25 % les plus faibles et les 25 % les meilleurs, l'écart est de 5 points en mathématiques contre 3,5 en français. Les élèves sont donc plus polarisés en maths.
+
+**7. Variance** — moyenne des carrés des écarts à la moyenne. Français = 7,0 ; Maths = 11,1. Valeur peu lisible directement (elle s'exprime en « points² ») mais indispensable comme étape de calcul de l'écart-type.
+
+**8. Écart-type (σ = √Variance)** — dispersion « moyenne » autour de la moyenne, dans la même unité que les données. Français = 2,6 ; Maths = 3,3. **L'écart-type confirme l'EIQ** : les maths présentent une plus forte dispersion que le français. En moyenne, les élèves s'écartent de 3,3 points de la moyenne en maths contre 2,6 en français.
+:::
+
+::: {.callout-important icon=false}
+### Rappel méthodologique : variance vs écart-type
+La **variance** est une étape de calcul : son unité (« points² ») la rend peu lisible. L'**écart-type** (σ = √Variance), dans l'unité d'origine, s'interprète directement comme l'écart « typique » entre un élève et la moyenne de la classe.
+:::
+
+---
+
+## Q2 — Covariance, coefficient de corrélation, coefficient de détermination
+
+::: {.callout-note icon=false}
+### Formules Excel
+| Indicateur | Formule |
+| :--- | :--- |
+| Covariance | `=COVARIANCE.PEARSON(V0078; V0084)` |
+| Corrélation $r$ | `=COEFFICIENT.CORRELATION(V0078; V0084)` |
+| Détermination $R^2$ | `=COEFFICIENT.DETERMINATION(V0078; V0084)` ou $r^2$ |
+:::
+
+```{r}
+#| label: q2-bivarie
+#| echo: true
+
+paires <- df_ct %>% filter(!is.na(moy_fr), !is.na(moy_math))
+
+q2 <- tibble(
+  Indicateur = c("Covariance", "r (corrélation)", "R² (détermination)"),
+  Valeur = c(
+    round(cov(paires$moy_fr, paires$moy_math), 3),
+    round(cor(paires$moy_fr, paires$moy_math), 4),
+    round(cor(paires$moy_fr, paires$moy_math)^2, 4)
+  )
+)
+kable(q2, align = "lr")
+```
+
+**Lecture.** On dispose de `r nrow(paires)` élèves ayant renseigné les deux moyennes.
+
+- La **covariance** est positive (+4,28) : les deux variables varient dans le même sens (les élèves forts en français tendent à l'être aussi en maths, et inversement). Son intensité n'est cependant pas directement lisible car elle dépend des unités.
+- Le **coefficient de corrélation** $r$ = 0,485 est **modéré** : la relation linéaire existe mais n'est pas très forte. On ne peut pas prédire avec précision la note en français à partir de celle en maths.
+- Le **coefficient de détermination** $R^2$ = 0,236 : la moyenne en maths n'explique que **23,6 %** de la variance de la moyenne en français. Les **76,4 % restants** tiennent à d'autres facteurs (talent spécifique à chaque discipline, goûts, pédagogie, etc.).
+
+::: {.callout-important icon=false}
+### Interprétation sociologique clé
+Un $R^2$ de 23,6 % signifie que **le talent scolaire n'est que partiellement transversal** : être bon en maths augmente la probabilité d'être bon en français, mais loin de la garantir. Les matières scolaires mesurent des compétences **partiellement indépendantes**, ce qui nuance l'idée d'un « don global » pour l'école.
+:::
+
+---
+
+## Q3 — Régression linéaire V0078 ~ V0084 {.scrollable}
+
+On cherche à exprimer la moyenne en français comme une fonction linéaire de la moyenne en mathématiques : $Y = aX + b$.
+
+::: {.callout-note icon=false}
+### Formules Excel
+| Coefficient | Formule |
+| :--- | :--- |
+| Pente $a$ | `=PENTE(V0078; V0084)` |
+| Ordonnée à l'origine $b$ | `=ORDONNEE.ORIGINE(V0078; V0084)` |
+:::
+
+```{r}
+#| label: q3-regression
+#| echo: true
+
+modele <- lm(moy_fr ~ moy_math, data = paires)
+a <- coef(modele)[2]
+b <- coef(modele)[1]
+
+tibble(
+  Coefficient = c("Pente (a)", "Ordonnée à l'origine (b)", "R²"),
+  Valeur = c(round(a, 4), round(b, 4), round(summary(modele)$r.squared, 4))
+) %>% kable(align = "lr")
+```
+
+**Équation de la droite de régression :**
+$$
+\widehat{Y} = 0{,}614 \times X + 5{,}50
+$$
+
+### Que représente chacun des termes ?
+
+| Terme | Signification |
+| :--- | :--- |
+| **Y** | La variable **à expliquer** (ou variable dépendante). Ici, la moyenne estimée en français. Le chapeau $\widehat{Y}$ rappelle qu'il s'agit d'une valeur **prédite** par le modèle, pas de la valeur réellement observée chez un élève. |
+| **X** | La variable **explicative** (ou variable indépendante). Ici, la moyenne observée en mathématiques. C'est l'information connue à partir de laquelle on estime Y. |
+| **a** | La **pente** de la droite : elle indique de combien varie Y lorsque X augmente de 1 point. Ici, $a \approx 0{,}61$ signifie qu'à chaque point gagné en maths, on estime 0,61 point gagné en français. Elle traduit l'intensité et le sens (ici positif) du lien. |
+| **b** | L'**ordonnée à l'origine** : la valeur prédite de Y lorsque X = 0. Ici, $b \approx 5{,}50$. C'est une valeur mathématique du modèle (souvent peu interprétable dans la réalité, car aucun élève n'a exactement 0 en maths dans les données). |
+
+### Graphique du nuage de points avec la droite de régression
+
+```{r}
+#| label: q3-graph
+#| echo: true
+#| fig-height: 5
+#| message: false
+#| warning: false
+
+ggplot(paires, aes(x = moy_math, y = moy_fr)) +
+  geom_point(color = "#1a2744", alpha = 0.4, size = 2) +
+  geom_smooth(method = "lm", formula = y ~ x, color = "#c8a415",
+              se = TRUE, alpha = 0.2, linewidth = 1.2) +
+  annotate("label", x = 4, y = 17,
+           label = "Y = 0,614 × X + 5,50   |   R² = 0,236",
+           color = "#1a2744", fill = "white", size = 3.5, hjust = 0) +
+  labs(
+    title = "Régression linéaire : Moyenne en français ~ Moyenne en mathématiques",
+    subtitle = paste0("Enquête MesHéritiers, ", nrow(paires), " collégiens"),
+    x = "Moyenne en mathématiques (/20)",
+    y = "Moyenne en français (/20)"
+  ) +
+  theme_minimal()
+```
+
+La dispersion du nuage autour de la droite reflète visuellement le $R^2$ modéré de 0,236.
+
+---
+
+## Q4 — Tableau croisé V0002 × V0008 {.scrollable}
+
+On croise le **sentiment de l'enfant face à ses enseignants** (V0002) et le **classement en difficulté scolaire** (V0008, recodage en 3 groupes : réussite, moyens, difficultés).
+
+::: {.callout-note icon=false}
+### Astuce TCD Excel
+*Insertion > Tableau croisé dynamique* ; Lignes = V0002, Colonnes = V0008, Valeurs = V0008 (Nombre). Puis *Clic droit > Afficher les valeurs > % du total de la ligne* pour obtenir le second tableau.
+:::
+
+```{r}
+#| label: q4-tcd
+#| echo: true
+
+# On supprime les NA et la modalité marginale "autre" (n=1)
+df_cross <- df_ct %>%
+  filter(!is.na(sentiment), !is.na(difficult), sentiment != "autre") %>%
+  mutate(
+    sentiment = factor(sentiment,
+                       levels = c("à l'aise", "ça dépend", "mal à l'aise"),
+                       labels = c("À l'aise", "Ça dépend", "Mal à l'aise")),
+    difficult = factor(difficult,
+                       levels = c("élèves en réussite", "élèves moyens", "élèves en difficultés"),
+                       labels = c("Réussite", "Moyens", "Difficultés"))
+  )
+
+# --- Tableau d'effectifs ---
+tab_eff <- table(df_cross$sentiment, df_cross$difficult)
+tab_eff_totaux <- addmargins(tab_eff)
+
+# Renommer "Sum" en "Total" pour les marges
+dimnames(tab_eff_totaux) <- lapply(
+  dimnames(tab_eff_totaux),
+  function(x) gsub("^Sum$", "Total", x)
+)
+
+kable(tab_eff_totaux, caption = "Tableau 1 — Effectifs observés (avec totaux marginaux)")
+```
+
+```{r}
+#| label: q4-lprop
+#| echo: true
+
+# --- Tableau en % ligne (pourcentages par profil ligne) ---
+tab_pct <- lprop(tab_eff, digits = 1)
+
+# Renommer "All" / "Ensemble" en "total" pour les marges
+dn <- dimnames(tab_pct)
+dn[[1]] <- gsub("^(All|Ensemble)$", "total", dn[[1]])
+dn[[2]] <- gsub("^(All|Ensemble)$", "total", dn[[2]])
+dimnames(tab_pct) <- dn
+
+kable(tab_pct, caption = "Tableau 2 — Pourcentages en ligne")
+```
+
+**Lecture.** Parmi les élèves qui se sentent « mal à l'aise » avec leurs enseignants, 60 % sont classés en difficulté scolaire. À l'inverse, parmi ceux qui se sentent « à l'aise », seuls 23 % sont en difficulté et 38 % sont en réussite. On observe donc une tendance : plus le sentiment est favorable, plus la réussite scolaire est probable — mais la force de ce lien reste à tester.
+
+---
+
+## Q5 — Test du Khi-deux {.scrollable}
+
+::: {.callout-note icon=false}
+### Méthode
+
+On cherche à savoir si les deux variables sont **dépendantes** ou **indépendantes**.
+
+- **Sur Excel** : `=TEST.CHISQ(Plage_Observée; Plage_Théorique)` renvoie directement la p-value du test.
+- **Sur R** : la fonction `chisq.test()` renvoie la p-value (et accessoirement la valeur du Khi²).
+
+**Règle de décision** : on compare la p-value au seuil standard de 0,05.
+
+- Si p-value **< 0,05** : on rejette l'hypothèse d'indépendance → les variables sont **dépendantes**.
+- Si p-value **≥ 0,05** : on ne rejette pas l'indépendance → les variables sont **indépendantes**.
+:::
+
+```{r}
+#| label: q5-khi2
+#| echo: true
+
+test <- chisq.test(tab_eff)
+test$p.value
+```
+
+::: {.callout-important icon=false}
+### Conclusion
+
+La p-value est **très nettement inférieure au seuil de 0,05** (p < 0,001).
+
+On **rejette l'hypothèse d'indépendance** : le sentiment d'aisance face aux enseignants et le classement en difficulté scolaire **sont dépendants**. Il existe un lien statistique entre les deux variables.
+
+Attention : ce test nous dit **qu'un** lien existe, mais il ne dit rien sur sa **force** ni sur **l'endroit** où il se concentre. C'est à ces questions que répondent le V de Cramer (bonus B1) et l'analyse des résidus (Q6).
+:::
+
+---
+
+## Q6 — Résidus standardisés et visualisation {.scrollable}
+
+Le test du Khi-deux nous dit qu'**un** lien existe ; les **résidus** nous disent **où** il se concentre.
+
+::: {.callout-note icon=false}
+### Formule du résidu standardisé (Pearson)
+$$
+r_{ij} = \frac{O_{ij} - T_{ij}}{\sqrt{T_{ij}}}
+$$
+
+**Règle du ±2** :
+
+- $|r_{ij}| < 2$ : écart compatible avec le hasard (bruit statistique).
+- $r_{ij} > +2$ : **sur-représentation** significative.
+- $r_{ij} < -2$ : **sous-représentation** significative.
+:::
+
+```{r}
+#| label: q6-residus-tableau
+#| echo: true
+
+# Reconstruction des effectifs théoriques à partir du tableau observé
+totaux_lignes <- rowSums(tab_eff)
+totaux_cols   <- colSums(tab_eff)
+n_total       <- sum(tab_eff)
+tab_theo      <- outer(totaux_lignes, totaux_cols) / n_total
+
+residus <- (tab_eff - tab_theo) / sqrt(tab_theo)
+kable(round(residus, 2),
+      caption = "Tableau 5 — Résidus standardisés")
+```
+
+```{r}
+#| label: q6-residus-plot
+#| echo: true
+#| fig-height: 5
+
+df_res <- as.data.frame(as.table(residus)) %>%
+  rename(Sentiment = Var1, Classement = Var2, Residu = Freq) %>%
+  mutate(Sens = case_when(
+    Residu >  2 ~ "Sur-représentation significative",
+    Residu < -2 ~ "Sous-représentation significative",
+    TRUE        ~ "Bruit statistique (|r| < 2)"
+  ))
+
+ggplot(df_res, aes(x = Classement, y = Residu, fill = Sens)) +
+  geom_bar(stat = "identity") +
+  geom_hline(yintercept =  2, linetype = "dashed", color = "#2ca02c") +
+  geom_hline(yintercept = -2, linetype = "dashed", color = "#cc0000") +
+  geom_hline(yintercept =  0, color = "black", linewidth = 0.3) +
+  facet_wrap(~ Sentiment) +
+  scale_fill_manual(values = c(
+    "Sur-représentation significative"   = "#2ca02c",
+    "Sous-représentation significative"  = "#cc0000",
+    "Bruit statistique (|r| < 2)"        = "#888888"
+  )) +
+  labs(
+    title = "Résidus standardisés — Sentiment face aux enseignants × Difficultés scolaires",
+    subtitle = "Seuils de significativité : ±2 (lignes pointillées)",
+    x = "Classement en difficulté",
+    y = "Résidu standardisé",
+    fill = ""
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 20, hjust = 1))
+```
+
+### Lecture des résidus saillants
+
+Quatre cases dépassent le seuil de ±2 :
+
+| Case | Résidu | Interprétation |
+|---|---|---|
+| **Mal à l'aise × Difficultés** | **+2,88** | Sur-représentation forte : les élèves mal à l'aise avec leurs enseignants sont significativement **plus nombreux que prévu** parmi ceux en difficulté scolaire. |
+| **Mal à l'aise × Réussite** | **−2,08** | Sous-représentation significative : presque **aucun** élève mal à l'aise n'accède à la réussite. |
+| **À l'aise × Réussite** | **+2,41** | Sur-représentation forte : les élèves à l'aise sont plus nombreux que prévu parmi les élèves en réussite. |
+| **Ça dépend × Réussite** | **−2,46** | Sous-représentation : les élèves au sentiment ambivalent sont moins présents en réussite. |
+
+**Synthèse.** Le sentiment d'aisance relationnelle avec les enseignants est **polarisant** aux deux extrémités de la réussite : il accompagne la réussite quand il est favorable, il accompagne la difficulté quand il est défavorable.
+
+---
+
+# Partie 2 : Analyse rédigée
+
+## Introduction
+
+L'enquête *MesHéritiers*, conduite par la sociologue **Gaële Henri-Panabière** (2010) auprès de 677 collégiens scolarisés en 6ème et 5ème dans quatre établissements lyonnais, a pour particularité de porter sur des familles **fortement diplômées**. Dans ce contexte où le capital culturel familial est théoriquement un atout, certains enfants rencontrent néanmoins des difficultés scolaires : c'est le « paradoxe des héritiers en difficulté » que l'article propose d'éclairer.
+
+Les données sont majoritairement qualitatives et couvrent le parcours scolaire, les relations à l'école, l'environnement familial et les pratiques éducatives. Nous disposons également de quelques variables quantitatives — notamment les moyennes par matière — qui permettent d'interroger le rapport entre différents registres de talent scolaire.
+
+## Problématique
+
+**Au sein de familles fortement diplômées, le talent scolaire est-il transversal entre disciplines, et le sentiment d'aisance face aux enseignants prédit-il les difficultés scolaires des collégiens ?**
+
+Deux hypothèses sous-tendent cette problématique :
+
+1. **Hypothèse quantitative** (Q1–Q3) : le talent scolaire est un trait global ; un élève fort en mathématiques devrait également l'être en français. Si cela se vérifie, on devrait observer une corrélation forte entre les deux moyennes.
+2. **Hypothèse qualitative** (Q4–Q6) : les difficultés scolaires ne sont pas seulement cognitives mais aussi **relationnelles**. Un sentiment de malaise face aux enseignants serait associé à une plus grande probabilité d'être classé en difficulté.
+
+## Le talent scolaire : transversalité partielle
+
+L'analyse bivariée français × maths apporte une **réponse nuancée** à la première hypothèse. Le coefficient de corrélation ($r = 0{,}485$) indique un lien positif et modéré : les élèves performants dans une matière le sont statistiquement plus dans l'autre, mais sans rapport systématique. Le coefficient de détermination ($R^2 = 0{,}236$) précise que **23,6 % seulement** de la variance des notes en français est expliquée par les notes en mathématiques.
+
+La régression linéaire ($\widehat{Y} = 0{,}614 \times X + 5{,}50$) confirme l'existence d'une tendance : chaque point gagné en mathématiques s'accompagne en moyenne de 0,61 point gagné en français. Mais la dispersion du nuage de points autour de la droite est importante, ce qui traduit une hétérogénéité réelle des profils disciplinaires.
+
+Ces résultats vont à rebours d'une vision monolithique du « bon élève ». Dans ce public d'héritiers, **les compétences scolaires restent en grande partie disciplinaires**. Un élève peut parfaitement être excellent en mathématiques et faible en français, ou l'inverse. La notion de « don général pour l'école » ne résiste pas à l'analyse : elle s'apparente davantage à une construction sociale qu'à une réalité statistique.
+
+À cela s'ajoute un constat de dispersion plus forte en mathématiques qu'en français (écart-type de 3,33 vs 2,64 ; EIQ de 5,0 vs 3,5). Les mathématiques apparaissent comme un **discriminant plus puissant** : les écarts y sont plus marqués que dans les disciplines littéraires. Cela rejoint une sociologie classique qui fait des mathématiques un domaine où les inégalités sociales se cristallisent avec une force particulière.
+
+## Le sentiment d'aisance au collège : un marqueur significatif des difficultés
+
+Le second volet apporte une réponse **plus nette** à la seconde hypothèse. Le test du Khi-deux ($\chi^2 = 32{,}58$, $p < 0{,}001$) conclut sans ambiguïté au rejet de l'hypothèse d'indépendance : le sentiment d'aisance face aux enseignants et le classement en difficulté scolaire **ne sont pas indépendants**.
+
+L'analyse des résidus standardisés permet de localiser précisément ce lien. Quatre cases dépassent le seuil de ±2, toutes dans un sens cohérent :
+
+- Les élèves qui se sentent **mal à l'aise** face aux enseignants sont **sur-représentés dans les difficultés** (résidu +2,88) et **sous-représentés dans la réussite** (−2,08).
+- Les élèves qui se sentent **à l'aise** sont **sur-représentés dans la réussite** (+2,41).
+- Les élèves au sentiment ambivalent (« ça dépend ») sont **sous-représentés dans la réussite** (−2,46).
+
+Autrement dit, la relation pédagogique fonctionne comme un **amplificateur** : un sentiment positif accompagne la réussite ; un sentiment négatif accompagne la difficulté. Les cases intermédiaires, quant à elles, sont essentiellement neutres.
+
+Cette polarisation invite à relire le phénomène des « héritiers en difficulté » sous un angle **relationnel** plutôt que strictement cognitif. Le capital culturel familial ne suffit pas à garantir une bonne intégration scolaire : la qualité de la relation enseignant-élève apparaît comme une **variable d'ajustement** capable d'activer ou d'inhiber les ressources héritées.
+
+## Conclusion
+
+L'analyse mobilise deux registres complémentaires — quantitatif (moyennes disciplinaires) et qualitatif (sentiment relationnel) — pour éclairer la réussite scolaire dans les familles fortement diplômées. Deux résultats principaux se dégagent.
+
+**D'une part**, le talent scolaire n'est pas un bloc homogène : la corrélation entre les moyennes en français et en mathématiques est réelle mais modérée ($r = 0{,}49$, $R^2 = 0{,}24$). Les disciplines mesurent des compétences partiellement indépendantes, et les mathématiques en particulier sont un discriminant plus puissant que le français.
+
+**D'autre part**, le sentiment d'aisance face aux enseignants est significativement associé au classement en difficulté scolaire. Les résidus standardisés montrent une polarisation claire : le confort relationnel accompagne la réussite ; le malaise accompagne la difficulté. Si le lien est statistiquement significatif, son intensité reste cependant à qualifier (ce que permet le V de Cramer — voir bonus B1).
+
+### Limites
+
+1. **Corrélation n'est pas causalité.** Le sentiment d'aisance peut être une **conséquence** de la réussite autant qu'une cause : les élèves en réussite sont probablement mieux traités par leurs enseignants, ce qui renforce leur aisance. On ne peut pas trancher le sens de la causalité à partir de ce seul tableau.
+2. **Le sentiment déclaré est auto-rapporté.** Les collégiens (ou leurs parents) peuvent surestimer ou sous-estimer leur aisance, en fonction de biais de désirabilité.
+3. **L'échantillon est spécifique** (familles fortement diplômées lyonnaises en 1999) : les résultats ne sont pas directement généralisables à l'ensemble des collégiens français.
+4. **Les non-réponses** sur les moyennes scolaires (environ 30 % d'absences pour V0078 et V0084) peuvent introduire un biais de sélection si les élèves qui ne répondent pas diffèrent systématiquement des autres.
+
+::: {.callout-tip icon=false}
+### Bonne pratique
+Un rapport rigoureux conclut par **les limites** de son analyse. Rappeler que corrélation n'est pas causalité, que l'échantillon a ses biais, et que les non-réponses peuvent fausser les résultats, est un signe de maturité analytique.
+:::
+
+---
+
+# Bonus
+
+## B1 — V de Cramer
+
+Le V de Cramer mesure l'**intensité** de la liaison (ce que la p-value ne dit pas).
+
+::: {.callout-note icon=false}
+### Formule
+$$
+V = \sqrt{\frac{\chi^2}{n \times \min(k - 1,\ l - 1)}}
+$$
+où $k$ et $l$ sont les nombres de modalités des deux variables.
+:::
+
+```{r}
+#| label: b1-cramer
+#| echo: true
+#| warning: false
+#| message: false
+
+cramer_v <- cramer.v(tab_eff)
+tibble(
+  Indicateur = c("Khi²", "n", "min(k-1, l-1)", "V de Cramer"),
+  Valeur = c(round(test$statistic, 2),
+             sum(tab_eff),
+             min(nrow(tab_eff) - 1, ncol(tab_eff) - 1),
+             round(cramer_v, 3))
+) %>% kable(align = "lr")
+```
+
+::: {.callout-important icon=false}
+### Interprétation (seuils usuels en sciences sociales)
+
+| V de Cramer | Intensité |
+|---|---|
+| < 0,10 | effet nul ou très faible |
+| 0,10 – 0,20 | **effet faible** |
+| 0,20 – 0,30 | effet modéré |
+| > 0,30 | effet fort |
+
+**Ici V = 0,157** : effet **faible** mais réel. Le lien entre sentiment et difficulté, bien que statistiquement significatif (p < 0,001 grâce à l'effectif n = 662), reste **modeste en pratique**. Il représente un facteur parmi d'autres de la réussite scolaire, pas un déterminant exclusif.
+:::
+
+## B2 — PEM (Pourcentage de l'Écart Maximum)
+
+Le PEM (Philippe Cibois) mesure, pour **une case**, la force de l'attraction par rapport à sa valeur maximale théoriquement possible compte tenu des marges.
+
+::: {.callout-note icon=false}
+### Formule de Cibois
+
+Pour une case $(i, j)$ en attraction (écart positif) :
+
+1. Écart à l'indépendance : $E = O_{ij} - T_{ij}$
+2. Effectif maximum compatible avec les marges : $M = \min(\text{Total ligne}_i,\ \text{Total colonne}_j)$
+3. Écart maximum : $E_{\max} = M - T_{ij}$
+4. PEM (en %) : $\mathrm{PEM} = \dfrac{E}{E_{\max}} \times 100$
+
+**Lecture :** 0 % = indépendance ; 100 % = attraction maximale compte tenu des marges.
+:::
+
+On identifie la case la plus attractive : **"Mal à l'aise × Difficultés"**, qui présente le résidu positif le plus fort (+2,88).
+
+```{r}
+#| label: b2-pem
+#| echo: true
+
+# Coordonnées de la case la plus saillante
+i <- which(rownames(tab_eff) == "Mal à l'aise")
+j <- which(colnames(tab_eff) == "Difficultés")
+
+O <- tab_eff[i, j]                             # observé
+T <- totaux_lignes[i] * totaux_cols[j] / n_total   # théorique
+E <- O - T                                     # écart à l'indépendance
+M <- min(totaux_lignes[i], totaux_cols[j])     # effectif max possible
+Emax <- M - T                                  # écart maximum
+PEM <- E / Emax * 100
+
+tibble(
+  Étape = c(
+    "Observé O",
+    "Théorique T",
+    "Écart E = O − T",
+    "Effectif max compatible avec marges M = min(L, C)",
+    "Écart maximum Emax = M − T",
+    "PEM = E / Emax × 100"
+  ),
+  Valeur = c(
+    O,
+    round(T, 2),
+    round(E, 2),
+    M,
+    round(Emax, 2),
+    paste0(round(PEM, 1), " %")
+  )
+) %>% kable(align = "lr")
+```
+
+::: {.callout-important icon=false}
+### Interprétation
+**PEM ≈ 45 %** : la case "Mal à l'aise × Difficultés" atteint environ **45 % de son attraction maximale possible** compte tenu des marges. C'est un lien **non trivial** : on est à mi-chemin entre l'indépendance (0 %) et l'attraction maximale (100 %).
+
+Là où le V de Cramer (0,157) signale un effet **globalement faible** sur l'ensemble du tableau, le PEM révèle qu'**une case particulière** concentre un effet beaucoup plus marqué. C'est toute la valeur ajoutée de l'indice de Cibois : il permet de nuancer le verdict global et de mettre en lumière les **structures locales** fortes dans un tableau par ailleurs faiblement structuré.
+:::
+
+---
+
+# Annexe : Erreurs fréquentes observées dans les copies
+
+::: {.callout-important icon=false}
+### 1. Ne pas commenter chaque indicateur
+La demande était explicite : chaque indicateur de Q1 devait être accompagné d'un court commentaire. Aligner huit valeurs sans les interpréter ne valide que la moitié de la question.
+:::
+
+::: {.callout-important icon=false}
+### 2. Confondre p-value et force du lien
+Un test avec $p < 0{,}001$ ne signifie **pas** que le lien est « très fort » : cela signifie seulement qu'il n'est très probablement pas dû au hasard. La force du lien se mesure avec le V de Cramer (ou le PEM pour une case particulière).
+:::
+
+::: {.callout-important icon=false}
+### 3. Confondre Y, $\widehat{Y}$ et X dans la régression
+Y désigne la variable à expliquer ; $\widehat{Y}$ (Y chapeau) désigne la valeur **prédite** par le modèle ; X la variable explicative. Un élève peut avoir un $\widehat{Y}$ de 13 en français alors que sa vraie note est 17 : le modèle se trompe, c'est ce qu'on appelle un résidu.
+:::
+
+::: {.callout-important icon=false}
+### 4. Oublier la règle du ±2 sur les résidus
+Toute barre qui reste entre −2 et +2 est du **bruit statistique**. Seules les cases dépassant ce seuil permettent une interprétation sociologique. Sur-interpréter une barre à −0,5 est l'erreur classique.
+:::
+
+::: {.callout-important icon=false}
+### 5. Conclure sans discuter les limites
+Corrélation n'est pas causalité. Un sentiment auto-rapporté est biaisé. Un échantillon spécifique n'est pas généralisable. Une analyse professionnelle se reconnaît à la lucidité de ses limites.
+:::

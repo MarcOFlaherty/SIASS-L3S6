@@ -9,3 +9,5 @@
 **/*.quarto_ipynb
 
 .claude/
+
+/.quarto/

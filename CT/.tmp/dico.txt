@@ -1,0 +1,5524 @@
+
+MESHERITIERS : dictionnaire des variables
+1. comment se sent votre enfant au collège avec ses camarades
+1	à l'aise
+2	mal à l'aise
+3	ça dépend
+4	autre
+2. comment se sent votre enfant avec ses enseignants
+1	à l'aise
+2	mal à l'aise
+3	ça dépend
+4	autre
+3. est-il content d'aller au collège?
+1	oui
+2	non
+3	ça dépend
+4	autre
+4. comment s'est déroulé sa scolarité les années précédentes?
+1	bien
+2	moyennement
+3	assez mal
+4	autre (non prévu)
+5. a-t-il redoublé?
+1	1 redoublement
+2	2 redoublements
+3	3 redoublements
+4	plus de 3 redoublements
+5	0 redoublements
+6. Rec. de Classes sur difficultés scolaires (eff. + - =)
+1	élèves en réussite
+2	élèves moyens
+3	élèves en difficultés
+7. redoublement(s) de l'enfant (Recodage)
+1	1 redoublement ou plus
+2	0 redoublements
+8. Rec. de Classes sur difficultés scolaires (eff. + - =) (Recodage)
+1	élèves en réussite
+2	élèves moyens
+3	élèves en difficultés
+9. classes redoublées par l'enfant : NRlogique
+1	Oui
+2	Non
+10. classes redoublées par l'enfant : 5ème
+1	Oui
+2	Non
+11. classes redoublées par l'enfant : 6ème
+1	Oui
+2	Non
+12. classes redoublées par l'enfant : CM2
+1	Oui
+2	Non
+13. classes redoublées par l'enfant : CM1
+1	Oui
+2	Non
+14. classes redoublées par l'enfant : CE2
+1	Oui
+2	Non
+15. classes redoublées par l'enfant : CE1
+1	Oui
+2	Non
+16. classes redoublées par l'enfant : CP
+1	Oui
+2	Non
+17. classes redoublées par l'enfant : grande section maternelle
+1	Oui
+2	Non
+18. classes redoublées par l'enfant : autre classe de maternelle
+1	Oui
+2	Non
+19. classes redoublées par l'enfant (groupées2) : NRlogique
+1	Oui
+2	Non
+20. classes redoublées par l'enfant (groupées2) : 5ème /6ème
+1	Oui
+2	Non
+21. classes redoublées par l'enfant (groupées2) :  en primaire
+1	Oui
+2	Non
+22. difficultés rencontrées par l'enfant : matière
+1	Oui
+2	Non
+23. difficultés rencontrées par l'enfant : méthodes
+1	Oui
+2	Non
+24. difficultés rencontrées par l'enfant : personnalité
+1	Oui
+2	Non
+25. difficultés rencontrées par l'enfant : camarades
+1	Oui
+2	Non
+26. difficultés rencontrées par l'enfant : non
+1	Oui
+2	Non
+27. difficultés rencontrées par l'enfant : autre (non prévu)
+1	Oui
+2	Non
+28. difficultés rencontrées par l'enfant (Re : matière /camarades /autre (non prévu)
+1	Oui
+2	Non
+29. difficultés rencontrées par l'enfant (Recodage) : avec un enseignant 
+1	Oui
+2	Non
+30. difficultés rencontrées par l'enfant (Recodage) : non
+1	Oui
+2	Non
+31. précision matière où difficultés : NRlogique
+1	Oui
+2	Non
+32. précision matière où difficultés : français
+1	Oui
+2	Non
+33. précision matière où difficultés : mathématiques
+1	Oui
+2	Non
+34. précision matière où difficultés : lecture
+1	Oui
+2	Non
+35. précision matière où difficultés : dissertation
+1	Oui
+2	Non
+36. précision matière où difficultés : orthographe
+1	Oui
+2	Non
+37. précision matière où difficultés : histoire
+1	Oui
+2	Non
+38. précision matière où difficultés : géographie
+1	Oui
+2	Non
+39. précision matière où difficultés : anglais
+1	Oui
+2	Non
+40. précision matière où difficultés : allemand
+1	Oui
+2	Non
+41. précision matière où difficultés : autre langue vivante
+1	Oui
+2	Non
+42. précision matière où difficultés : biologie
+1	Oui
+2	Non
+43. précision matière où difficultés : physique
+1	Oui
+2	Non
+44. précision matière où difficultés : latin
+1	Oui
+2	Non
+45. précision matière où difficultés : sport
+1	Oui
+2	Non
+46. précision matière où difficultés : dessin
+1	Oui
+2	Non
+47. précision matière où difficultés : musique
+1	Oui
+2	Non
+48. précision matière où difficultés : autre
+1	Oui
+2	Non
+49. précision matière où difficultés (groupées 2) (Recodage) : NRlogique
+1	Oui
+2	Non
+50. précision matière où difficultés (grou : français /lecture /dissertation /ortho
+1	Oui
+2	Non
+51. précision matière où difficultés (groupées 2) (Recodage) : mathématiques
+1	Oui
+2	Non
+52. précision matière où difficultés (grou : histoire /géographie /biologie /physiq
+1	Oui
+2	Non
+53. à quel âge est-il entré en maternelle?
+Entrer la valeur :   |_|_|
+54. Classes sur âge d'entrée en maternelle
+1	de &gt;=1 à 3
+2	de &gt;=3 à 5
+3	de &gt;=5 à 7
+4	de &gt;=7 à 9
+5	de &gt;=9 à 11
+6	de &gt;=11 à 11
+55. votre enfant restait-il à l'étude lorsqu'il était en primaire?
+1	non
+2	une année
+3	plusieurs années
+4	toutes les années
+56. classe où étude : NRlogique
+1	Oui
+2	Non
+57. classe où étude : maternelle
+1	Oui
+2	Non
+58. classe où étude : CP
+1	Oui
+2	Non
+59. classe où étude : CE1
+1	Oui
+2	Non
+60. classe où étude : CE2
+1	Oui
+2	Non
+61. classe où étude : CM1
+1	Oui
+2	Non
+62. classe où étude : CM2
+1	Oui
+2	Non
+63. si oui, à quelle fréquence?
+1	NRlogique
+2	un soir par semaine
+3	plusieurs soirs par semaine
+4	tous les jours
+64. s'il restait à l'étude, réussissait-il à y travailler?
+1	NRlogique
+2	la plupart du temps
+3	parfois
+4	non
+5	autre
+65. résultats actuels : plutôt faibles
+1	Oui
+2	Non
+66. résultats actuels : moyens
+1	Oui
+2	Non
+67. résultats actuels : bons
+1	Oui
+2	Non
+68. résultats actuels : très bons
+1	Oui
+2	Non
+69. résultats actuels : autre
+1	Oui
+2	Non
+70. ses résultats sont-ils irréguliers?
+1	oui
+2	non
+3	autre
+71. facteur(s) d'irrégularité des résultats : NRlogique
+1	Oui
+2	Non
+72. facteur(s) d'irrégularité des résultats : matières
+1	Oui
+2	Non
+73. facteur(s) d'irrégularité des résultats : travail
+1	Oui
+2	Non
+74. facteur(s) d'irrégularité des résultats : autre
+1	Oui
+2	Non
+75. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+76. moyenne générale
+Entrer la valeur :   |_|_|,|_|_|
+77. moyenne générale (Num -&gt; Unique)
+1	9,5
+2	10,2
+3	10,5
+4	12
+5	12,2
+6	12,7
+7	12,84
+8	12,9
+9	13
+10	13,5
+11	13,8
+12	14
+13	14,2
+14	14,3
+15	14,5
+16	17
+78. quelle a été sa dernière moyenne..  en français?
+Entrer la valeur :   |_|_|,|_|_|
+79. Rec. de moyenne en français (Num -&gt; Unique) (Recodage)
+1	inférieure à 10
+2	entre 10 et 14
+3	supérieure ou égale à 14
+80. .. en enseignement artistique
+Entrer la valeur :   |_|_|,|_|_|
+81. moyenne en enseignement artistique (Num -&gt; Unique)
+1	5
+2	6
+3	6,66
+4	7
+5	7,5
+6	8
+7	8,5
+8	9
+9	9,5
+10	10
+11	10,5
+12	11
+13	11,25
+14	11,5
+15	11,6
+16	11,7
+17	12
+18	12,3
+19	12,5
+20	12,8
+21	13
+22	13,1
+23	13,3
+24	13,33
+25	13,5
+26	13,66
+27	13,67
+28	13,7
+29	13,75
+30	13,83
+31	14
+32	14,1
+33	14,25
+34	14,3
+35	14,33
+36	14,5
+37	15
+38	15,15
+39	15,3
+40	15,4
+41	15,5
+42	15,66
+43	16
+44	16,2
+45	16,3
+46	16,5
+47	17
+48	17,1
+49	17,5
+50	18
+51	18,4
+52	18,5
+53	19
+54	20
+82. .. en biologie
+Entrer la valeur :   |_|_|,|_|_|
+83. moyenne en biologie (Num -&gt; Unique)
+1	0,5
+2	1
+3	3
+4	3,5
+5	3,6
+6	4
+7	5
+8	5,5
+9	6
+10	6,5
+11	7
+12	7,5
+13	8
+14	8,3
+15	8,5
+16	8,66
+17	9
+18	9,5
+19	9,75
+20	10
+21	10,3
+22	10,33
+23	10,5
+24	11
+25	11,14
+26	11,3
+27	11,5
+28	11,75
+29	11,8
+30	11,9
+31	12
+32	12,16
+33	12,2
+34	12,4
+35	12,5
+36	12,6
+37	12,75
+38	12,9
+39	13
+40	13,1
+41	13,16
+42	13,2
+43	13,3
+44	13,5
+45	13,6
+46	13,7
+47	13,75
+48	13,8
+49	13,83
+50	14
+51	14,17
+52	14,2
+53	14,3
+54	14,5
+55	14,6
+56	14,75
+57	14,8
+58	15
+59	15,2
+60	15,3
+61	15,4
+62	15,5
+63	15,6
+64	15,7
+65	15,75
+66	15,8
+67	15,95
+68	16
+69	16,16
+70	16,25
+71	16,3
+72	16,4
+73	16,5
+74	16,8
+75	17
+76	17,11
+77	17,2
+78	17,25
+79	17,3
+80	17,5
+81	17,8
+82	17,83
+83	18
+84	18,4
+85	18,5
+86	18,8
+87	19
+88	20
+84. .. en mathématiques
+Entrer la valeur :   |_|_|,|_|_|
+85. Rec. de moyenne en mathématiques (Num -&gt; Unique)
+1	&lt;6
+2	de 6 à 8 (ni)
+3	de 8 à 10 (ni)
+4	de 10 à 12 (ni)
+5	de 12 à 14 (ni)
+6	de 14 à 16 (ni)
+7	supérieur ou égal à 16
+86. Rec. de moyenne en mathématiques (Num -&gt; Unique) (Recodage)
+1	&lt;6 /de 6 à 8 (ni) /de 8 à 10 (ni)
+2	de 10 à 12 (ni) /de 12 à 14 (ni)
+3	de 14 à 16 (ni) /supérieur ou égal à 16
+87. .. en technologie
+Entrer la valeur :   |_|_|,|_|_|
+88. moyenne en technologie (Num -&gt; Unique)
+1	1
+2	3
+3	4
+4	6
+5	6,5
+6	7
+7	7,5
+8	8
+9	8,5
+10	9
+11	9,5
+12	10
+13	10,17
+14	10,25
+15	10,5
+16	10,67
+17	11
+18	11,3
+19	11,5
+20	11,9
+21	12
+22	12,3
+23	12,5
+24	13
+25	13,25
+26	13,4
+27	13,5
+28	13,7
+29	13,8
+30	14
+31	14,25
+32	14,3
+33	14,4
+34	14,5
+35	14,7
+36	14,83
+37	15
+38	15,15
+39	15,3
+40	15,33
+41	15,5
+42	15,6
+43	15,75
+44	15,8
+45	16
+46	16,25
+47	16,3
+48	16,5
+49	16,9
+50	17
+51	17,3
+52	17,5
+53	17,75
+54	18
+55	18,25
+56	18,5
+57	18,67
+58	19
+59	19,5
+60	19,83
+61	20
+89. modalité(s) connaissance des résultats : en signant ses bulletins
+1	Oui
+2	Non
+90. modalité(s) connaissance des résultats : parce qu'il vous informe régulièrement
+1	Oui
+2	Non
+91. modalité(s) connaissance des résultats : parce que vous le questionnez régulièr
+1	Oui
+2	Non
+92. modalité(s) connaissance des résultats : il vous en informe de temps en temps
+1	Oui
+2	Non
+93. modalité(s) connaissance des résultats : vous le questionnez de temps en temps
+1	Oui
+2	Non
+94. modalité(s) connaissance des résultats : cela dépend des résultats
+1	Oui
+2	Non
+95. modalité(s) connaissance des résultats : autre
+1	Oui
+2	Non
+96. (veuillez préciser) :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+97. langue étudiée au collège : anglais
+1	Oui
+2	Non
+98. langue étudiée au collège : allemand
+1	Oui
+2	Non
+99. langue étudiée au collège : autre
+1	Oui
+2	Non
+100. (veuillez précisez)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+101. modalité(s) choix de la langue : la mère a choisi
+1	Oui
+2	Non
+102. modalité(s) choix de la langue : le père a choisi
+1	Oui
+2	Non
+103. modalité(s) choix de la langue : les parents ont choisi après en avoir discuté e
+1	Oui
+2	Non
+104. modalité(s) choix de la langue : l'enfant a choisi après en avoir discuté avec s
+1	Oui
+2	Non
+105. modalité(s) choix de la langue : les parents ont choisi après en avoir discuté a
+1	Oui
+2	Non
+106. modalité(s) choix de la langue : les parents ont choisi puis en ont discuté avec
+1	Oui
+2	Non
+107. modalité(s) choix de la langue : autre (non prévu)
+1	Oui
+2	Non
+108. autre modalité choix de la langue
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+109. parler de l'école : jamais
+1	Oui
+2	Non
+110. parler de l'école : de temps en temps
+1	Oui
+2	Non
+111. parler de l'école : souvent
+1	Oui
+2	Non
+112. parler de l'école : tous les jours
+1	Oui
+2	Non
+113. modalité discussion sur l'école : NRlogique
+1	Oui
+2	Non
+114. modalité discussion sur l'école : vous l'interrogez
+1	Oui
+2	Non
+115. modalité discussion sur l'école : il en parle de lui-même
+1	Oui
+2	Non
+116. modalité discussion sur l'école : cela dépend
+1	Oui
+2	Non
+117. qualificatifs scolaires : NRimposée
+1	Oui
+2	Non
+118. qualificatifs scolaires : étourdi(e)
+1	Oui
+2	Non
+119. qualificatifs scolaires : attentif(ve)
+1	Oui
+2	Non
+120. qualificatifs scolaires : lent(e)
+1	Oui
+2	Non
+121. qualificatifs scolaires : travailleur(se)
+1	Oui
+2	Non
+122. qualificatifs scolaires : paresseux(se)
+1	Oui
+2	Non
+123. qualificatifs scolaires : intéressé(e)
+1	Oui
+2	Non
+124. qualificatifs scolaires : discipliné(e)
+1	Oui
+2	Non
+125. qualificatifs scolaires : indiscipliné(e)
+1	Oui
+2	Non
+126. qualificatifs scolaires : bavard(e)
+1	Oui
+2	Non
+127. qualificatifs scolaires : ayant des facilités
+1	Oui
+2	Non
+128. qualificatifs scolaires : ayant des difficultés
+1	Oui
+2	Non
+129. qualificatifs scolaires : brillant(e)
+1	Oui
+2	Non
+130. qualificatifs scolaires : moyen(ne)
+1	Oui
+2	Non
+131. qualificatifs scolaires : ayant besoin d'être encadré(e)
+1	Oui
+2	Non
+132. qualificatifs scolaires : autonome
+1	Oui
+2	Non
+133. qualificatifs scolaires : ayant de blocages
+1	Oui
+2	Non
+134. qualificatifs scolaires : intelligent(e)
+1	Oui
+2	Non
+135. qualificatifs scolaires : scolaire
+1	Oui
+2	Non
+136. qualificatifs scolaires : autre (non prévu)
+1	Oui
+2	Non
+137. qualificatifs scolaires (Recodage) : étourdi(e)
+1	Oui
+2	Non
+138. qualificatifs scolaires (Recodage) : paresseux(se)
+1	Oui
+2	Non
+139. qualificatifs scolaires (Recodage) : lent(e) /ayant des difficultés /ayant de bl
+1	Oui
+2	Non
+140. qualificatifs scolaires (Recodage) : bavard(e)
+1	Oui
+2	Non
+141. qualificatifs scolaires (Recodage) : moyen(ne)
+1	Oui
+2	Non
+142. qualificatifs scolaires (Recodage) : indiscipliné(e)
+1	Oui
+2	Non
+143. qualificatifs scolaires (Recodage) : discipliné(e)
+1	Oui
+2	Non
+144. qualificatifs scolaires (Recodage) : travailleur(se)
+1	Oui
+2	Non
+145. qualificatifs scolaires (Recodage) : ayant des facilités /brillant(e) /intellige
+1	Oui
+2	Non
+146. qualificatifs scolaires (Recodage) : attentif(ve) /intéressé(e)
+1	Oui
+2	Non
+147. autre qualificatif scolaire
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+148. êtes-vous d'accord avec ces jugements?
+1	NRimposée
+2	oui
+3	non, pas pour tous
+4	non, pour aucun
+149. combien votre enfant a-t-il de frères?
+Entrer la valeur :   |_|_|
+150. nombre de frères (Num -&gt; Unique)
+1	0
+2	1
+3	2
+4	3
+5	4
+6	5
+151. nombre de frères et soeurs
+Entrer la valeur :   |_|_|
+152. rang de naissance
+1	aînés de frères
+2	aînés de frères et de soeur
+3	aînés de soeurs
+4	cadets de frères
+5	cadets de frères et de soeurs
+6	cadets de soeurs
+7	enfants uniques
+153. rang de naissance (Recodage)
+1	aînés 
+2	cadets  
+3	enfants uniques
+154. rang de naissance complet
+1	aînés de frères
+2	aînés de frères et de soeur
+3	aînés de frères, cadets de soeurs
+4	aînés de soeurs
+5	aînés de soeurs, cadets de frères
+6	cadets de frères
+7	cadets de frères et de soeurs
+8	cadets de soeurs
+9	enfants uniques
+10	milieu de fratrie1
+11	milieu de fratrie2b
+12	milieu de fratrie4b
+13	milieu de fratrie5
+14	milieu de fratrie6
+15	milieu de fratrie7
+16	milieu de fratrie8
+17	milieu de fratrie9
+155. rang de naissance complet (Recodage)
+1	aînés
+2	enfants en milieu de fratrie
+3	cadets
+4	enfants uniques
+156. Classes sur nombre de frères et soeurs
+1	de &gt;=0 à 1
+2	de &gt;=1 à 2
+3	de &gt;=2 à 3
+4	de &gt;=3 à 22
+157. âges des frères : NRimposée
+1	Oui
+2	Non
+158. âges des frères : NRlogique
+1	Oui
+2	Non
+159. âges des frères : moins d'un an
+1	Oui
+2	Non
+160. âges des frères : 1 an
+1	Oui
+2	Non
+161. âges des frères : 2 ans
+1	Oui
+2	Non
+162. âges des frères : 3 ans
+1	Oui
+2	Non
+163. âges des frères : 4 ans
+1	Oui
+2	Non
+164. âges des frères : 5 ans
+1	Oui
+2	Non
+165. âges des frères : 6 ans
+1	Oui
+2	Non
+166. âges des frères : 7 ans
+1	Oui
+2	Non
+167. âges des frères : 8 ans
+1	Oui
+2	Non
+168. âges des frères : 9 ans
+1	Oui
+2	Non
+169. âges des frères : 10 ans
+1	Oui
+2	Non
+170. âges des frères : 11 ans
+1	Oui
+2	Non
+171. âges des frères : 12 ans
+1	Oui
+2	Non
+172. âges des frères : 13 ans
+1	Oui
+2	Non
+173. âges des frères : 14 ans
+1	Oui
+2	Non
+174. âges des frères : 15 ans
+1	Oui
+2	Non
+175. âges des frères : 16 ans
+1	Oui
+2	Non
+176. âges des frères : 17 ans
+1	Oui
+2	Non
+177. âges des frères : 18 ans
+1	Oui
+2	Non
+178. âges des frères : 19 ans
+1	Oui
+2	Non
+179. âges des frères : 20 ans
+1	Oui
+2	Non
+180. âges des frères : 21 ans
+1	Oui
+2	Non
+181. âges des frères : 22 ans
+1	Oui
+2	Non
+182. âges des frères : 23 ans
+1	Oui
+2	Non
+183. âges des frères : 24 ans
+1	Oui
+2	Non
+184. âges des frères : 25 ans
+1	Oui
+2	Non
+185. âges des frères : 26 ans
+1	Oui
+2	Non
+186. âges des frères : 27 ans
+1	Oui
+2	Non
+187. âges des frères : 28 nas
+1	Oui
+2	Non
+188. âges des frères : 29 ans
+1	Oui
+2	Non
+189. âges des frères : 30 ans et plus
+1	Oui
+2	Non
+190. combien votre enfant a-t-il de soeurs?
+Entrer la valeur :   |_|_|
+191. nombre de soeurs (Num -&gt; Unique)
+1	0
+2	1
+3	2
+4	3
+5	4
+6	5
+7	10
+192. âges des soeurs : NRimposée
+1	Oui
+2	Non
+193. âges des soeurs : NRlogique
+1	Oui
+2	Non
+194. âges des soeurs : moins d'un an
+1	Oui
+2	Non
+195. âges des soeurs : 1 an
+1	Oui
+2	Non
+196. âges des soeurs : 2 ans
+1	Oui
+2	Non
+197. âges des soeurs : 3 ans
+1	Oui
+2	Non
+198. âges des soeurs : 4 ans
+1	Oui
+2	Non
+199. âges des soeurs : 5 ans
+1	Oui
+2	Non
+200. âges des soeurs : 6 ans
+1	Oui
+2	Non
+201. âges des soeurs : 7 ans
+1	Oui
+2	Non
+202. âges des soeurs : 8 ans
+1	Oui
+2	Non
+203. âges des soeurs : 9 ans
+1	Oui
+2	Non
+204. âges des soeurs : 10 ans
+1	Oui
+2	Non
+205. âges des soeurs : 11 ans
+1	Oui
+2	Non
+206. âges des soeurs : 12 ans
+1	Oui
+2	Non
+207. âges des soeurs : 13 ans
+1	Oui
+2	Non
+208. âges des soeurs : 14 ans
+1	Oui
+2	Non
+209. âges des soeurs : 15 ans
+1	Oui
+2	Non
+210. âges des soeurs : 16 ans
+1	Oui
+2	Non
+211. âges des soeurs : 17 ans
+1	Oui
+2	Non
+212. âges des soeurs : 18 ans
+1	Oui
+2	Non
+213. âges des soeurs : 19 ans
+1	Oui
+2	Non
+214. âges des soeurs : 20 ans
+1	Oui
+2	Non
+215. âges des soeurs : 21 ans
+1	Oui
+2	Non
+216. âges des soeurs : 22 ans
+1	Oui
+2	Non
+217. âges des soeurs : 23 ans
+1	Oui
+2	Non
+218. âges des soeurs : 24 ans
+1	Oui
+2	Non
+219. âges des soeurs : 25 ans
+1	Oui
+2	Non
+220. âges des soeurs : 26 ans
+1	Oui
+2	Non
+221. âges des soeurs : 27 ans
+1	Oui
+2	Non
+222. âges des soeurs : 28 nas
+1	Oui
+2	Non
+223. âges des soeurs : 29 ans
+1	Oui
+2	Non
+224. âges des soeurs : 30 ans et plus
+1	Oui
+2	Non
+225. votre enfant est..?
+1	NRimposée
+2	un garçon
+3	une fille
+226. sexe de l'enfant (Recodage)
+1	un garçon
+2	une fille
+227. moments des devoirs : NRimposée
+1	Oui
+2	Non
+228. moments des devoirs : dès qu'il rentre du collège
+1	Oui
+2	Non
+229. moments des devoirs : après le repas du soir
+1	Oui
+2	Non
+230. moments des devoirs : le soir, après avoir joué un petit moment
+1	Oui
+2	Non
+231. moments des devoirs : après avoir joué un long moment
+1	Oui
+2	Non
+232. moments des devoirs : au collège, pendant les permanences prévues à cet effet
+1	Oui
+2	Non
+233. moments des devoirs : autre:
+1	Oui
+2	Non
+234. moments des devoirs : ce n'est pas régulier
+1	Oui
+2	Non
+235. moments des devoirs : vous ne savez pas
+1	Oui
+2	Non
+236. :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+237. mise en route des devoirs : NRimposée
+1	Oui
+2	Non
+238. mise en route des devoirs : de lui-même
+1	Oui
+2	Non
+239. mise en route des devoirs : quand vous lui demandez
+1	Oui
+2	Non
+240. mise en route des devoirs : quand vous l'obligez
+1	Oui
+2	Non
+241. mise en route des devoirs : cela dépend, parfois de lui-même
+1	Oui
+2	Non
+242. mise en route des devoirs : autre (non prévu)
+1	Oui
+2	Non
+243. mise en route des devoirs (Recodage) : de lui-même
+1	Oui
+2	Non
+244. mise en route des devoirs (Recodage) : quand vous lui demandez /quand vous l'obl
+1	Oui
+2	Non
+245. mise en route des devoirs (Recodage) : cela dépend, parfois de lui-même
+1	Oui
+2	Non
+246. pouvez-vous évaluer le temps (en minutes et en heures) que votre enfant consacre à ses devoirs chaque jour? 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+247. le lundi :
+Entrer la valeur :   |_|_|_|
+248. le mardi :
+Entrer la valeur :   |_|_|_|
+249. le mercredi :
+Entrer la valeur :   |_|_|_|
+250. le jeudi :
+Entrer la valeur :   |_|_|_|
+251. le vendredi :
+Entrer la valeur :   |_|_|_|
+252. le samedi :
+Entrer la valeur :   |_|_|_|
+253. le dimanche :
+Entrer la valeur :   |_|_|_|
+254. totalité du temps de travail par semaine (en minutes)
+Entrer la valeur :   |_|_|_|_|
+255. Classes sur totalité du temps de travail par semaine (en minutes)
+1	de &gt;=30 à 245,2
+2	de &gt;=245,2 à 460,3
+3	de &gt;=460,3 à 675,5
+4	de &gt;=675,5 à 890,7
+5	de &gt;=890,7 à 1105,8
+6	de &gt;=1105,8 à 1321
+256. Classes sur totalité du temps de travail par semaine (en minutes)
+1	de &gt;=30 à 360
+2	de &gt;=360 à 515
+3	de &gt;=515 à 1321
+257. fréquence du travail de dernière minute : NRimposée
+1	Oui
+2	Non
+258. fréquence du travail de dernière minute : souvent
+1	Oui
+2	Non
+259. fréquence du travail de dernière minute : parfois
+1	Oui
+2	Non
+260. fréquence du travail de dernière minute : jamais
+1	Oui
+2	Non
+261. fréquence du travail de dernière minute : NSP
+1	Oui
+2	Non
+262. fréquence travail "à l'avance" : NRimposée
+1	Oui
+2	Non
+263. fréquence travail "à l'avance" : oui, toujours
+1	Oui
+2	Non
+264. fréquence travail "à l'avance" : oui, souvent
+1	Oui
+2	Non
+265. fréquence travail "à l'avance" : oui, parfois
+1	Oui
+2	Non
+266. fréquence travail "à l'avance" : non, jamais
+1	Oui
+2	Non
+267. fréquence travail "à l'avance" : NSP
+1	Oui
+2	Non
+268. planification du travail de la semaine : NRimposée
+1	Oui
+2	Non
+269. planification du travail de la semaine : non
+1	Oui
+2	Non
+270. planification du travail de la semaine : oui, de temps en temps
+1	Oui
+2	Non
+271. planification du travail de la semaine : oui, la plupart du temps
+1	Oui
+2	Non
+272. planification du travail de la semaine : NSP
+1	Oui
+2	Non
+273. exemple ou conseil pour la planification : NRimposée
+1	Oui
+2	Non
+274. exemple ou conseil pour la planification : NRlogique
+1	Oui
+2	Non
+275. exemple ou conseil pour la planification : oui, de son père
+1	Oui
+2	Non
+276. exemple ou conseil pour la planification : oui, de sa mère
+1	Oui
+2	Non
+277. exemple ou conseil pour la planification : oui, d'un de ses frères et soeurs
+1	Oui
+2	Non
+278. exemple ou conseil pour la planification : oui, d'un enseignant
+1	Oui
+2	Non
+279. exemple ou conseil pour la planification : oui, d'un camarade de classe
+1	Oui
+2	Non
+280. exemple ou conseil pour la planification : oui, d'une autre personne
+1	Oui
+2	Non
+281. exemple ou conseil pour la planification : non, il l'a fait de lui-même
+1	Oui
+2	Non
+282. (précisez):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+283. prépare-t-il son cartable seul?
+1	NRimposée
+2	oui, depuis cette année
+3	oui, depuis longtemps
+4	non, vous le faites avec lui
+5	autre (non prévu)
+284. préparation du cartable la veille ou le matin : NRimposée
+1	Oui
+2	Non
+285. préparation du cartable la veille ou le matin : la veille
+1	Oui
+2	Non
+286. préparation du cartable la veille ou le matin : le matin
+1	Oui
+2	Non
+287. préparation du cartable la veille ou le matin : NSP
+1	Oui
+2	Non
+288. fréquence de l'aide aux devoirs : Nrimposée
+1	Oui
+2	Non
+289. fréquence de l'aide aux devoirs : oui, tous les jours
+1	Oui
+2	Non
+290. fréquence de l'aide aux devoirs : oui, régulièrement (une fois par semaine envir
+1	Oui
+2	Non
+291. fréquence de l'aide aux devoirs : oui, de temps en temps
+1	Oui
+2	Non
+292. fréquence de l'aide aux devoirs : non
+1	Oui
+2	Non
+293. raison de l'absence d'aide aux devoirs : NRimposée
+1	Oui
+2	Non
+294. raison de l'absence d'aide aux devoirs : NRlogique
+1	Oui
+2	Non
+295. raison de l'absence d'aide aux devoirs : parce que vous n'en avez pas le temps
+1	Oui
+2	Non
+296. raison de l'absence d'aide aux devoirs : vous ne pensez pas pouvoir l'aider
+1	Oui
+2	Non
+297. raison de l'absence d'aide aux devoirs : il n'en a pas besoin
+1	Oui
+2	Non
+298. raison de l'absence d'aide aux devoirs : il refuse
+1	Oui
+2	Non
+299. raison de l'absence d'aide aux devoirs : il faut qu'il aprenne à se débrouiller
+1	Oui
+2	Non
+300. raison de l'absence d'aide aux devoirs : autre (non prévu)
+1	Oui
+2	Non
+301. non prévu
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+302. personne(s) aidant aux devoirs : NRimposée
+1	Oui
+2	Non
+303. personne(s) aidant aux devoirs : NRlogique
+1	Oui
+2	Non
+304. personne(s) aidant aux devoirs : un de ses frères et soeurs
+1	Oui
+2	Non
+305. personne(s) aidant aux devoirs : sa mère
+1	Oui
+2	Non
+306. personne(s) aidant aux devoirs : son père
+1	Oui
+2	Non
+307. personne(s) aidant aux devoirs : une autre personne de la famille
+1	Oui
+2	Non
+308. personne(s) aidant aux devoirs : une personne extérieure à la famille (un copain
+1	Oui
+2	Non
+309. personne(s) aidant aux devoirs (Recodage) : Pas d'aide
+1	Oui
+2	Non
+310. personne(s) aidant aux devoirs (Recoda : un de ses frères et soeurs /une autre 
+1	Oui
+2	Non
+311. personne(s) aidant aux devoirs (Recodage) : sa mère
+1	Oui
+2	Non
+312. personne(s) aidant aux devoirs (Recodage) : son père
+1	Oui
+2	Non
+313. personne(s) aidant aux devoirs (Recoda : une personne extérieure à la famille (
+1	Oui
+2	Non
+314. autre personne de la famille aidant scolairement : NRimposée
+1	Oui
+2	Non
+315. autre personne de la famille aidant scolairement : NRlogique
+1	Oui
+2	Non
+316. autre personne de la famille aidant scolairement : beau-père
+1	Oui
+2	Non
+317. autre personne de la famille aidant scolairement : belle-mère
+1	Oui
+2	Non
+318. autre personne de la famille aidant scolairement : grand-père
+1	Oui
+2	Non
+319. autre personne de la famille aidant scolairement : grand-mère
+1	Oui
+2	Non
+320. autre personne de la famille aidant scolairement : oncle
+1	Oui
+2	Non
+321. autre personne de la famille aidant scolairement : tante
+1	Oui
+2	Non
+322. autre personne de la famille aidant scolairement : cousin
+1	Oui
+2	Non
+323. autre personne de la famille aidant scolairement : cousine
+1	Oui
+2	Non
+324. autre personne de la famille aidant scolairement : demi-frère
+1	Oui
+2	Non
+325. autre personne de la famille aidant scolairement : demi-soeur
+1	Oui
+2	Non
+326. autre personne de la famille aidant scolairement : autre
+1	Oui
+2	Non
+327. autre personne extérieure à la famille aidant scolairement : NRimposée
+1	Oui
+2	Non
+328. autre personne extérieure à la famille aidant scolairement : NRlogique
+1	Oui
+2	Non
+329. autre personne extérieure à la famille aidant scolairement : copain
+1	Oui
+2	Non
+330. autre personne extérieure à la famille aidant scolairement : ami des parents
+1	Oui
+2	Non
+331. autre personne extérieure à la famille aidant scolairement : ami(e)
+1	Oui
+2	Non
+332. autre personne extérieure à la famille aidant scolairem : surveillant de l'étude
+1	Oui
+2	Non
+333. autre personne extérieure à la famille aidant scolaireme : prof de soutien privé
+1	Oui
+2	Non
+334. autre personne extérieure à la famille aidant scolairement : prof du collège
+1	Oui
+2	Non
+335. autre personne extérieure à la famille aidant scolairement : prof sans précision
+1	Oui
+2	Non
+336. autre personne extérieure à la famille aidant : animateur groupe d'aide scolaire
+1	Oui
+2	Non
+337. autre personne extérieure à la famille aidant scolairement : autre
+1	Oui
+2	Non
+338. autre personne extérieure à la famille aidant scolairement : étudiant
+1	Oui
+2	Non
+339. autre personne extérieure à la famille aidant scolairement : étudiante
+1	Oui
+2	Non
+340. modalité(s) de l'aide scolaire : NRimposée
+1	Oui
+2	Non
+341. modalité(s) de l'aide scolaire : NRlogique
+1	Oui
+2	Non
+342. modalité(s) de l'aide scolaire : il demande de l'aide en cas de problème particu
+1	Oui
+2	Non
+343. modalité(s) de l'aide scolaire : il demande qu'on lui fasse réciter ses leçons
+1	Oui
+2	Non
+344. modalité(s) de l'aide scolaire : vous lui faites réciter ses leçons
+1	Oui
+2	Non
+345. modalité(s) de l'aide scolaire : vous lui posez des questions sur une leçon qu'i
+1	Oui
+2	Non
+346. modalité(s) de l'aide scolaire : vous veillez à ce qu'il soit bien en train de f
+1	Oui
+2	Non
+347. modalité(s) de l'aide scolaire : vous vérifiez que les devoirs sont faits
+1	Oui
+2	Non
+348. modalité(s) de l'aide scolaire : vous vérifiez que les devoirs sont justes
+1	Oui
+2	Non
+349. modalité(s) de l'aide scolaire : vous essayez de lui faire comprendre ses erreur
+1	Oui
+2	Non
+350. modalité(s) de l'aide scolaire : vous regardez dans son cahier de texte ce qu'il
+1	Oui
+2	Non
+351. modalité(s) de l'aide scolaire : vous discutez ensemble de la meilleure façon de
+1	Oui
+2	Non
+352. modalité(s) de l'aide scolaire : autre
+1	Oui
+2	Non
+353. modalité(s) de l'aide scolaire (Recodage) : NRlogique
+1	Oui
+2	Non
+354. modalité(s) de l'aide scolaire (Recoda : suite à une demande ponctuelle de sa p
+1	Oui
+2	Non
+355. modalité(s) de l'aide scolaire (Recodage) : contrôle poussé
+1	Oui
+2	Non
+356. modalité(s) de l'aide scolaire (Recodage) : contrôle extérieur
+1	Oui
+2	Non
+357. modalité(s) de l'aide scolaire (Recodage) : explicitations
+1	Oui
+2	Non
+358. (veuillez préciser) :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+359. raisons de l'aide scolaire : NRimposée
+1	Oui
+2	Non
+360. raisons de l'aide scolaire : NRlogique
+1	Oui
+2	Non
+361. raisons de l'aide scolaire : parce que vopus êtes obligé(e)
+1	Oui
+2	Non
+362. raisons de l'aide scolaire : parce que vous aimez bien le faire
+1	Oui
+2	Non
+363. raisons de l'aide scolaire : autre
+1	Oui
+2	Non
+364. autre raison de l'aide scolaire : NRimposée
+1	Oui
+2	Non
+365. autre raison de l'aide scolaire : NRlogique
+1	Oui
+2	Non
+366. autre raison de l'aide scolaire : parce qu'i/elle le demande
+1	Oui
+2	Non
+367. autre raison de l'aide scolaire : parce qu'il/elle en a besoin
+1	Oui
+2	Non
+368. autre raison de l'aide scolaire : c'est normal/ logique
+1	Oui
+2	Non
+369. autre raison de l'aide scolaire : pour vérifier compréhension
+1	Oui
+2	Non
+370. autre raison de l'aide scolaire : pour l'encourager, montrer mon intérèt
+1	Oui
+2	Non
+371. autre raison de l'aide scolaire : pour qu'il/elle réussisse
+1	Oui
+2	Non
+372. autre raison de l'aide scolaire : autre
+1	Oui
+2	Non
+373. autre raison de l'aide scolaire : pour l'aider, le soutenir
+1	Oui
+2	Non
+374. autre raison de l'aide scolaire : pour être au courant de ce qu'il fait
+1	Oui
+2	Non
+375. autre raison de l'aide scolaire : pour son bien
+1	Oui
+2	Non
+376. autre raison de l'aide scolaire : pour vérifier qu'il/elle travaille 
+1	Oui
+2	Non
+377. payer l'aide scolaire : NRimposée
+1	Oui
+2	Non
+378. payer l'aide scolaire : non
+1	Oui
+2	Non
+379. payer l'aide scolaire : oui, pour l'aider à faire ses devoirs quotidien
+1	Oui
+2	Non
+380. payer l'aide scolaire : oui, pour l'aider dans une matière en particulier
+1	Oui
+2	Non
+381. matière soutenue par une aide rémunérée : NRimposée
+1	Oui
+2	Non
+382. matière soutenue par une aide rémunérée : NRlogique
+1	Oui
+2	Non
+383. matière soutenue par une aide rémunérée : français
+1	Oui
+2	Non
+384. matière soutenue par une aide rémunérée : mathématiques
+1	Oui
+2	Non
+385. matière soutenue par une aide rémunérée : lecture
+1	Oui
+2	Non
+386. matière soutenue par une aide rémunérée : dissertation
+1	Oui
+2	Non
+387. matière soutenue par une aide rémunérée : orthographe
+1	Oui
+2	Non
+388. matière soutenue par une aide rémunérée : histoire
+1	Oui
+2	Non
+389. matière soutenue par une aide rémunérée : géographie
+1	Oui
+2	Non
+390. matière soutenue par une aide rémunérée : anglais
+1	Oui
+2	Non
+391. matière soutenue par une aide rémunérée : allemand
+1	Oui
+2	Non
+392. matière soutenue par une aide rémunérée : autre langue vivante
+1	Oui
+2	Non
+393. matière soutenue par une aide rémunérée : biologie
+1	Oui
+2	Non
+394. matière soutenue par une aide rémunérée : physique
+1	Oui
+2	Non
+395. matière soutenue par une aide rémunérée : latin
+1	Oui
+2	Non
+396. matière soutenue par une aide rémunérée : sport
+1	Oui
+2	Non
+397. matière soutenue par une aide rémunérée : dessin
+1	Oui
+2	Non
+398. matière soutenue par une aide rémunérée : musique
+1	Oui
+2	Non
+399. matière soutenue par une aide rémunérée : autre
+1	Oui
+2	Non
+400. Si oui, depuis combien de temps
+1	NRimposée
+2	NRlogique
+3	depuis peu
+4	depuis le début de l'année
+5	depuis plusieurs années
+401. Si non, cela est-il arrivé avant?
+1	NRimposée
+2	NRlogique
+3	Non
+4	Oui:
+402. classe où aide rémunérée antérieure : NRimposée
+1	Oui
+2	Non
+403. classe où aide rémunérée antérieure : NRlogique
+1	Oui
+2	Non
+404. classe où aide rémunérée antérieure : 5ème
+1	Oui
+2	Non
+405. classe où aide rémunérée antérieure : 6ème
+1	Oui
+2	Non
+406. classe où aide rémunérée antérieure : CM2
+1	Oui
+2	Non
+407. classe où aide rémunérée antérieure : CM1
+1	Oui
+2	Non
+408. classe où aide rémunérée antérieure : CE2
+1	Oui
+2	Non
+409. classe où aide rémunérée antérieure : CE1
+1	Oui
+2	Non
+410. classe où aide rémunérée antérieure : CP
+1	Oui
+2	Non
+411. classe où aide rémunérée antérieure : grande section maternelle
+1	Oui
+2	Non
+412. classe où aide rémunérée antérieure : autre classe de maternelle
+1	Oui
+2	Non
+413. modalité(s) retour du collège : NRimposée
+1	Oui
+2	Non
+414. modalité(s) retour du collège : à pied
+1	Oui
+2	Non
+415. modalité(s) retour du collège : en vélo
+1	Oui
+2	Non
+416. modalité(s) retour du collège : en voiture
+1	Oui
+2	Non
+417. modalité(s) retour du collège : en bus
+1	Oui
+2	Non
+418. modalité(s) retour du collège : autre (non prévu)
+1	Oui
+2	Non
+419. combien de temps met-il pour rentrer chez vous?
+1	Nrimposée
+2	moins d'un quart d'heure
+3	entre un quart d'heure et une demi heure
+4	entre une demi heure et une heure
+5	plus d'une heure
+6	autre (non prévu)
+420. rentrer seul du collège : Nrimposée
+1	Oui
+2	Non
+421. rentrer seul du collège : oui, presque toujours
+1	Oui
+2	Non
+422. rentrer seul du collège : non, avec un camarade
+1	Oui
+2	Non
+423. rentrer seul du collège : avec un de ses frères et soeurs
+1	Oui
+2	Non
+424. rentrer seul du collège : avec son père
+1	Oui
+2	Non
+425. rentrer seul du collège : avec sa mère
+1	Oui
+2	Non
+426. rentrer seul du collège : avec une autre personne
+1	Oui
+2	Non
+427. rentrer seul du collège : cela dépend, mais toujours accompagné
+1	Oui
+2	Non
+428. rentrer seul du collège : cela dépend, parfois seul
+1	Oui
+2	Non
+429. s'il rentre seul, a-t-il des consignes particulières (pour traverser la route, par rapport aux inconnus..) ou un horaire à respecter?
+1	NRimposée
+2	NRlogique
+3	oui, il les connait
+4	non, il sait ce qu'il a à faire
+5	oui, il faut les lui rappeler de temps en temps
+6	autre (non prévu)
+430. activités extra-scolaires : NRimposée
+1	Oui
+2	Non
+431. activités extra-scolaires : sport collectif
+1	Oui
+2	Non
+432. activités extra-scolaires : sport individuel
+1	Oui
+2	Non
+433. activités extra-scolaires : théâtre
+1	Oui
+2	Non
+434. activités extra-scolaires : musique
+1	Oui
+2	Non
+435. activités extra-scolaires : autre
+1	Oui
+2	Non
+436. (lequel? veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+437. combien d'heures par semaine ces activités prennent-elles à votre enfant?
+1	NRimposée
+2	NRlogique
+3	moins de deux heures
+4	entre deux et quatre heures
+5	plus de quatre heures
+438. compagnons de jeux : NRimposée
+1	Oui
+2	Non
+439. compagnons de jeux : avec d'autres enfants du voisinage
+1	Oui
+2	Non
+440. compagnons de jeux : seul
+1	Oui
+2	Non
+441. compagnons de jeux : avec des camarades de classe
+1	Oui
+2	Non
+442. compagnons de jeux : avec ses frères et soeurs
+1	Oui
+2	Non
+443. compagnons de jeux : autres:
+1	Oui
+2	Non
+444. autres compagnons de jeux : NRimposée
+1	Oui
+2	Non
+445. autres compagnons de jeux : NRlogique
+1	Oui
+2	Non
+446. autres compagnons de jeux : père
+1	Oui
+2	Non
+447. autres compagnons de jeux : mère
+1	Oui
+2	Non
+448. autres compagnons de jeux : cousin(s)
+1	Oui
+2	Non
+449. autres compagnons de jeux : cousine(s)
+1	Oui
+2	Non
+450. autres compagnons de jeux : grand-parent(s)
+1	Oui
+2	Non
+451. autres compagnons de jeux : autre(s) membre(s) de la famille
+1	Oui
+2	Non
+452. autres compagnons de jeux : amis de la famille
+1	Oui
+2	Non
+453. autres compagnons de jeux : copain/copine d'activité
+1	Oui
+2	Non
+454. autres compagnons de jeux : enfants d'amis
+1	Oui
+2	Non
+455. autres compagnons de jeux : chien
+1	Oui
+2	Non
+456. autres compagnons de jeux : autre
+1	Oui
+2	Non
+457. autres compagnons de jeux : camarades de primaire
+1	Oui
+2	Non
+458. autres compagnons de jeux : demi frères et soeurs
+1	Oui
+2	Non
+459. lieux de jeux : Nrimposée
+1	Oui
+2	Non
+460. lieux de jeux : dehors, à proximité de chez vous
+1	Oui
+2	Non
+461. lieux de jeux : chez ses camarades
+1	Oui
+2	Non
+462. lieux de jeux : chez vous
+1	Oui
+2	Non
+463. lieux de jeux : autre
+1	Oui
+2	Non
+464. :
+1	Nrimposée
+2	NRlogique
+3	chez cousins/cousines
+4	chez grands parents
+5	au centre social
+6	au collège
+7	à la campagne
+8	autre
+9	terrain de sport
+465. arrive-t-il à votre enfant de jouer en dehors de chez vous?
+1	NRimposée
+2	oui, tous les soirs
+3	oui, le mercredi ou le week-end
+4	oui souvent (au moins une fois par semaine)
+5	oui, de temps en temps (moins d'une fois par semaine)
+6	non, jamais
+466. modalité du retour de sortie à la maison : NRimposée
+1	Oui
+2	Non
+467. modalité du retour de sortie à la maison : NRlogique
+1	Oui
+2	Non
+468. modalité du retour de sortie à la mais : vous lui donnez une heure pour rentrer
+1	Oui
+2	Non
+469. modalité du retour de sortie à la mais : il vous dit à quelle heure il va rentr
+1	Oui
+2	Non
+470. modalité du retour de sortie à la mais : vous discutez ensemble de l'heure à la
+1	Oui
+2	Non
+471. modalité du retour de sortie à la mais : vous allez le chercher à lk'heure conv
+1	Oui
+2	Non
+472. modalité du retour de sortie à la mais : vous allez le chercher quand vous esti
+1	Oui
+2	Non
+473. modalité du retour de sortie à la maison : vous l'appelez par la fenêtre
+1	Oui
+2	Non
+474. modalité du retour de sortie à la maison : vous téléphonez quand il doit rentrer
+1	Oui
+2	Non
+475. modalité du retour de sortie à la maison : autre:
+1	Oui
+2	Non
+476. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+477. d'une manière générale, rentre-t-il à l'heure prévue?
+1	NRimposée
+2	NRlogique
+3	oui, toujours
+4	oui, le plus souvent
+5	oui, parfois
+6	non, il faut toujours le rappeler
+7	autre (non prévu)
+478. réaction(s) au retard de l'enfant : NRimposée
+1	Oui
+2	Non
+479. réaction(s) au retard de l'enfant : Nrlogique
+1	Oui
+2	Non
+480. réaction(s) au retard de l'enfant : rien, ce n'est pas très grâve
+1	Oui
+2	Non
+481. réaction(s) au retard de l'enfant : il se fait disputer par sa mère
+1	Oui
+2	Non
+482. réaction(s) au retard de l'enfant : il se fait disputer par son père
+1	Oui
+2	Non
+483. réaction(s) au retard de l'enfant : il se fait punir de temps en temps
+1	Oui
+2	Non
+484. réaction(s) au retard de l'enfant : il se fait punir à chaque fois
+1	Oui
+2	Non
+485. réaction(s) au retard de l'enfant : cela dépend de l'importance de son retard
+1	Oui
+2	Non
+486. réaction(s) au retard de l'enfant : autre(non prévu)
+1	Oui
+2	Non
+487. participation aux tâches domestiques : NRimposée
+1	Oui
+2	Non
+488. participation aux tâches domestiques : non, il n'en a pas le temps
+1	Oui
+2	Non
+489. participation aux tâches domestiques : non, ce n'est pas à lui de le faire
+1	Oui
+2	Non
+490. participation aux tâches domestiques : oui, il aide de temps en temps quand vous
+1	Oui
+2	Non
+491. participation aux tâches domestiques : oui, il aide de temps en temps de lui mêm
+1	Oui
+2	Non
+492. participation aux tâches domestiques : oui, chacun doit participer un peu
+1	Oui
+2	Non
+493. réaction de l'enfant à une demande service : NRimposée
+1	Oui
+2	Non
+494. réaction de l'enfant à une demande service : vous promettez une récompense
+1	Oui
+2	Non
+495. réaction de l'enfant à une demande service : il le fait sans discuter
+1	Oui
+2	Non
+496. réaction de l'enfant à une demande service : il le fait avec plaisir
+1	Oui
+2	Non
+497. réaction de l'enfant à une demande service : vous devez insister
+1	Oui
+2	Non
+498. réaction de l'enfant à une demande service : il refuse
+1	Oui
+2	Non
+499. réaction de l'enfant à une demande ser : cela dépend de ce que vous lui demande
+1	Oui
+2	Non
+500. réaction de l'enfant à une demande service : autre (non prévu)
+1	Oui
+2	Non
+501. existe-t-il un tour de rôle pour certaines tâches?
+1	Nrimposée
+2	non
+3	oui, mais il faut le rappeler
+4	oui, votre enfant s'y tient
+502. combien de poste de télévision avez-vous?
+Entrer la valeur :   |_|_|
+503. Classes sur nombre de poste de télévision
+1	de &gt;=0 à 1
+2	de &gt;=1 à 2
+3	de &gt;=2 à 3
+4	de &gt;=3 à 9
+504. moments d'usage de la télévision : Nrimposée
+1	Oui
+2	Non
+505. moments d'usage de la télévision : Nrlogique
+1	Oui
+2	Non
+506. moments d'usage de la télévision : en rentrant du collège
+1	Oui
+2	Non
+507. moments d'usage de la télévision : le soir avant de souper
+1	Oui
+2	Non
+508. moments d'usage de la télévision : le soir après souper quand il n'a pas école l
+1	Oui
+2	Non
+509. moments d'usage de la télévision : le soir après souper quand le programme est b
+1	Oui
+2	Non
+510. moments d'usage de la télévision : tous les soirs après souper
+1	Oui
+2	Non
+511. moments d'usage de la télévision : le mercredi
+1	Oui
+2	Non
+512. moments d'usage de la télévision : le week-end
+1	Oui
+2	Non
+513. moments d'usage de la télévision : le matin avant l'école
+1	Oui
+2	Non
+514. moments d'usage de la télévision : autre (non prévu)
+1	Oui
+2	Non
+515. modalité(s) de "choix" du programme : NRimposée
+1	Oui
+2	Non
+516. modalité(s) de "choix" du programme : NRlogique
+1	Oui
+2	Non
+517. modalité(s) de "choix" du programme : ce que vous êtes en train de regarder
+1	Oui
+2	Non
+518. modalité(s) de "choix" du programme : ce que ses frères et soeurs sont en train 
+1	Oui
+2	Non
+519. modalité(s) de "choix" du programme : ce qu'il a décidé avec vous de regarder
+1	Oui
+2	Non
+520. modalité(s) de "choix" du programme : ce que vous avez décidez qu'il regarde
+1	Oui
+2	Non
+521. modalité(s) de "choix" du programme : ce qu'il a envie de regarder
+1	Oui
+2	Non
+522. modalité(s) de "choix" du programme : autre (non prévu)
+1	Oui
+2	Non
+523. votre enfant consulte-t-il le programme avant d'allumer la télévision?
+1	NRimposée
+2	NRlogique
+3	oui, presque toujours
+4	oui, de temps en temps
+5	non
+524. vous même, le consultez vous?
+1	NRimposée
+2	NRlogique
+3	oui, presque toujours
+4	oui, de temps en temps
+5	non
+525. condition(s) d'usage de la télévision : Nrimposée
+1	Oui
+2	Non
+526. condition(s) d'usage de la télévision : NRlogique
+1	Oui
+2	Non
+527. condition(s) d'usage de la télévision : oui, ce n'est pas un problème
+1	Oui
+2	Non
+528. condition(s) d'usage de la télévision : oui, vous n'êtes pas toujours là pour le
+1	Oui
+2	Non
+529. condition(s) d'usage de la télévision : oui, à condition que les devoirs soient 
+1	Oui
+2	Non
+530. condition(s) d'usage de la télévision : non, il doit demander la permission à ch
+1	Oui
+2	Non
+531. condition(s) d'usage de la télévision : non, il a des horaires pour la regarder 
+1	Oui
+2	Non
+532. condition(s) d'usage de la télévision : non, il a des horaires pour la regarder 
+1	Oui
+2	Non
+533. condition(s) d'usage de la télévision : autre:
+1	Oui
+2	Non
+534. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+535. usage d'une console de jeux : NRimposée
+1	Oui
+2	Non
+536. usage d'une console de jeux : non, il n'en a pas
+1	Oui
+2	Non
+537. usage d'une console de jeux : oui, mais seulement à certaines heures prévues à l
+1	Oui
+2	Non
+538. usage d'une console de jeux : oui, quand il le demande
+1	Oui
+2	Non
+539. usage d'une console de jeux : oui, s'il a été sage
+1	Oui
+2	Non
+540. usage d'une console de jeux : oui, quand il en a envie
+1	Oui
+2	Non
+541. usage d'une console de jeux : autre:
+1	Oui
+2	Non
+542. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+543. argent de poche : NRimposée
+1	Oui
+2	Non
+544. argent de poche : oui, toutes les semaines
+1	Oui
+2	Non
+545. argent de poche : oui, tous les mois
+1	Oui
+2	Non
+546. argent de poche : oui, de temps en temps
+1	Oui
+2	Non
+547. argent de poche : oui, quand il a besoin de quelque chose
+1	Oui
+2	Non
+548. argent de poche : non, vous préférez lui acheter tout ce dont il a besoin vous
+1	Oui
+2	Non
+549. petite somme à dépenser en cas de sortie : NRimposée
+1	Oui
+2	Non
+550. petite somme à dépenser en cas de sortie : non, il n'en a pas besoin
+1	Oui
+2	Non
+551. petite somme à dépenser en cas de sortie : oui, vous la confiez à un adulte
+1	Oui
+2	Non
+552. petite somme à dépenser en cas de sort : oui, à condition qu'il n'achète pas n'
+1	Oui
+2	Non
+553. petite somme à dépenser en cas de sortie : oui, il en fait ce qu'il veut
+1	Oui
+2	Non
+554. petite somme à dépenser en cas de sortie : autre:
+1	Oui
+2	Non
+555. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+556. moment du coucher : NRimposée
+1	Oui
+2	Non
+557. moment du coucher : tout le temps à la même heure
+1	Oui
+2	Non
+558. moment du coucher : plus tôt les veilles d'école
+1	Oui
+2	Non
+559. moment du coucher : cela dépend de l'heure à laquelle le soleil se couche
+1	Oui
+2	Non
+560. moment du coucher : cela dépend de ce qu'il est en train de faire
+1	Oui
+2	Non
+561. moment du coucher : cela dépend de ce que vous êtes en train de faire
+1	Oui
+2	Non
+562. moment du coucher : autre:
+1	Oui
+2	Non
+563. (veuillez préciser)
+Entrer la valeur :   |_|_|
+564. Classes sur heure du coucher (en heure après minuit)
+1	de &gt;=20 à 21
+2	de &gt;=21 à 22
+3	de &gt;=22 à 23
+4	de &gt;=23 à 24
+565. :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+566. modalité(s) du coucher de l'enfant : NRimposée
+1	Oui
+2	Non
+567. modalité(s) du coucher de l'enfant : oui, quand il est fatigué
+1	Oui
+2	Non
+568. modalité(s) du coucher de l'enfant : oui, parce que c'est l'heure
+1	Oui
+2	Non
+569. modalité(s) du coucher de l'enfant : non, il attends que vous lui disiez
+1	Oui
+2	Non
+570. modalité(s) du coucher de l'enfant : non, il faut en discuter
+1	Oui
+2	Non
+571. modalité(s) du coucher de l'enfant : non, vous devez l'obliger
+1	Oui
+2	Non
+572. modalité(s) du coucher de l'enfant : autre(non prévu)
+1	Oui
+2	Non
+573. votre enfant a-t-il des livres à lire pour le collège (en dehors de ses manuels d'exercices)
+1	NRimposée
+2	oui
+3	non
+574. pouvez-vous me donner le titre du dernier livre lu par votre enfant dans ce cadre?
+1	NRimposée
+2	Non
+3	Oui:
+575. :_____
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+576. lectures de l'enfant : NRimposée
+1	Oui
+2	Non
+577. lectures de l'enfant : des revues
+1	Oui
+2	Non
+578. lectures de l'enfant : des bandes dessinées
+1	Oui
+2	Non
+579. lectures de l'enfant : des romans policiers
+1	Oui
+2	Non
+580. lectures de l'enfant : des livres d'aventure
+1	Oui
+2	Non
+581. lectures de l'enfant : autres:
+1	Oui
+2	Non
+582. lectures de l'enfant : rien(non prévu)
+1	Oui
+2	Non
+583. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+584. conditions de lecture de l'enfant : NRimposée
+1	Oui
+2	Non
+585. conditions de lecture de l'enfant : parce qu'il est obligé
+1	Oui
+2	Non
+586. conditions de lecture de l'enfant : pour faire plaisir à ses parents
+1	Oui
+2	Non
+587. conditions de lecture de l'enfant : parce qu'il aime lire
+1	Oui
+2	Non
+588. conditions de lecture de l'enfant : quand il trouve un livre (une bande dessinée
+1	Oui
+2	Non
+589. conditions de lecture de l'enfant : autre:
+1	Oui
+2	Non
+590. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+591. votre enfant est-il abonné à une revue?
+1	NRimposée
+2	non
+3	oui:
+592. abonnt  enf revue 
+1	pas d'abonnt
+2	abonnt revue
+593. nom de la (ou des) revue(s) : NRimposée
+1	Oui
+2	Non
+594. nom de la (ou des) revue(s) : NRlogique
+1	Oui
+2	Non
+595. nom de la (ou des) revue(s) : france football
+1	Oui
+2	Non
+596. nom de la (ou des) revue(s) : onze modial
+1	Oui
+2	Non
+597. nom de la (ou des) revue(s) : gymnaste
+1	Oui
+2	Non
+598. nom de la (ou des) revue(s) : judo magazine
+1	Oui
+2	Non
+599. nom de la (ou des) revue(s) : trip surf
+1	Oui
+2	Non
+600. nom de la (ou des) revue(s) : roller mag
+1	Oui
+2	Non
+601. nom de la (ou des) revue(s) : cheval pratique
+1	Oui
+2	Non
+602. nom de la (ou des) revue(s) : cheval star
+1	Oui
+2	Non
+603. nom de la (ou des) revue(s) : play station magazine
+1	Oui
+2	Non
+604. nom de la (ou des) revue(s) : cinélive
+1	Oui
+2	Non
+605. nom de la (ou des) revue(s) : star club
+1	Oui
+2	Non
+606. nom de la (ou des) revue(s) : jeune et jolie
+1	Oui
+2	Non
+607. nom de la (ou des) revue(s) : picsou magazine
+1	Oui
+2	Non
+608. nom de la (ou des) revue(s) : dragon ball z
+1	Oui
+2	Non
+609. nom de la (ou des) revue(s) : mickey
+1	Oui
+2	Non
+610. nom de la (ou des) revue(s) : zanzibar
+1	Oui
+2	Non
+611. nom de la (ou des) revue(s) : grain de soleil
+1	Oui
+2	Non
+612. nom de la (ou des) revue(s) : maximum
+1	Oui
+2	Non
+613. nom de la (ou des) revue(s) : les aventuriers
+1	Oui
+2	Non
+614. nom de la (ou des) revue(s) : jurassic parc
+1	Oui
+2	Non
+615. nom de la (ou des) revue(s) : maximilien
+1	Oui
+2	Non
+616. nom de la (ou des) revue(s) : julie
+1	Oui
+2	Non
+617. nom de la (ou des) revue(s) : minimag
+1	Oui
+2	Non
+618. nom de la (ou des) revue(s) : l'hebdo des junior
+1	Oui
+2	Non
+619. nom de la (ou des) revue(s) : télérama junior
+1	Oui
+2	Non
+620. nom de la (ou des) revue(s) : les clefs de l'actualité
+1	Oui
+2	Non
+621. nom de la (ou des) revue(s) : mon quotidien
+1	Oui
+2	Non
+622. nom de la (ou des) revue(s) : le journal des enfants
+1	Oui
+2	Non
+623. nom de la (ou des) revue(s) : cousteau junuior
+1	Oui
+2	Non
+624. nom de la (ou des) revue(s) : sciences et vie junior
+1	Oui
+2	Non
+625. nom de la (ou des) revue(s) : eurêka
+1	Oui
+2	Non
+626. nom de la (ou des) revue(s) : image doc
+1	Oui
+2	Non
+627. nom de la (ou des) revue(s) : arkéo junior
+1	Oui
+2	Non
+628. nom de la (ou des) revue(s) : revue d'anglais
+1	Oui
+2	Non
+629. nom de la (ou des) revue(s) : today
+1	Oui
+2	Non
+630. nom de la (ou des) revue(s) : i love english
+1	Oui
+2	Non
+631. nom de la (ou des) revue(s) : fertig los
+1	Oui
+2	Non
+632. nom de la (ou des) revue(s) : easy street
+1	Oui
+2	Non
+633. nom de la (ou des) revue(s) : astrapi
+1	Oui
+2	Non
+634. nom de la (ou des) revue(s) : wapiti
+1	Oui
+2	Non
+635. nom de la (ou des) revue(s) : okapi
+1	Oui
+2	Non
+636. nom de la (ou des) revue(s) : je bouquine
+1	Oui
+2	Non
+637. nom de la (ou des) revue(s) : j'aime lire
+1	Oui
+2	Non
+638. nom de la (ou des) revue(s) : autre
+1	Oui
+2	Non
+639. nom de la (ou des) revue(s) : spirou
+1	Oui
+2	Non
+640. nom de la (ou des) revue(s) : artiste junior
+1	Oui
+2	Non
+641. nom de la (ou des) revue(s) : je lis des histoires vraies
+1	Oui
+2	Non
+642. nom de la (ou des) revue(s) : cheval magazine
+1	Oui
+2	Non
+643. personne ayant abonné l'enfant : NRimposée
+1	Oui
+2	Non
+644. personne ayant abonné l'enfant : NRlogique
+1	Oui
+2	Non
+645. personne ayant abonné l'enfant : le père
+1	Oui
+2	Non
+646. personne ayant abonné l'enfant : la mère
+1	Oui
+2	Non
+647. personne ayant abonné l'enfant : un autre adulte de la famille:
+1	Oui
+2	Non
+648. personne ayant abonné l'enfant : autre:
+1	Oui
+2	Non
+649. autre adulte de la famille ayant abonné l'enfant : NRimposée
+1	Oui
+2	Non
+650. autre adulte de la famille ayant abonné l'enfant : NRlogique
+1	Oui
+2	Non
+651. autre adulte de la famille ayant abonné l'enfant : beau-père
+1	Oui
+2	Non
+652. autre adulte de la famille ayant abonné l'enfant : belle-mère
+1	Oui
+2	Non
+653. autre adulte de la famille ayant abonné l'enfant : grand mère
+1	Oui
+2	Non
+654. autre adulte de la famille ayant abonné l'enfant : grand père
+1	Oui
+2	Non
+655. autre adulte de la famille ayant abonné l'enfant : parain
+1	Oui
+2	Non
+656. autre adulte de la famille ayant abonné l'enfant : maraine
+1	Oui
+2	Non
+657. autre adulte de la famille ayant abonné l'enfant : oncle
+1	Oui
+2	Non
+658. autre adulte de la famille ayant abonné l'enfant : tante
+1	Oui
+2	Non
+659. autre adulte de la famille ayant abonné l'enfant : autre
+1	Oui
+2	Non
+660. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+661. modalité(s) choix de la revue : NRimposée
+1	Oui
+2	Non
+662. modalité(s) choix de la revue : NRlogique
+1	Oui
+2	Non
+663. modalité(s) choix de la revue : l'enfant a demandé une revue en particulier
+1	Oui
+2	Non
+664. modalité(s) choix de la revue : vous avez suivi les conseils de quelqu'un (un pr
+1	Oui
+2	Non
+665. modalité(s) choix de la revue : l'enfant a choisi avec l'adulte qui l'a abonné
+1	Oui
+2	Non
+666. modalité(s) choix de la revue : l'abonnement était une surprise pour l'enfant
+1	Oui
+2	Non
+667. modalité(s) choix de la revue : autre (non prévu)
+1	Oui
+2	Non
+668. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+669. fréquentation d'une bibliothèque par l'enfant : NRimposée
+1	Oui
+2	Non
+670. fréquentation d'une bibliothèque par l'enfant : non, dans aucune bibliothèque
+1	Oui
+2	Non
+671. fréquentation d'une bibliothèque par l'enfant : oui, dans celle de son collège
+1	Oui
+2	Non
+672. fréquentation d'une bibliothèque par l : oui, dans celle de votre quartier ou c
+1	Oui
+2	Non
+673. fréquentation d'une bibliothèque par l'enfant : vous ne savez pas
+1	Oui
+2	Non
+674. fréquentation d'une bibliothèque par l'enfant : autre:
+1	Oui
+2	Non
+675. :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+676. rapporter des livres de la bibliothèque : NRimposée
+1	Oui
+2	Non
+677. rapporter des livres de la bibliothèque : NRlogique
+1	Oui
+2	Non
+678. rapporter des livres de la bibliothèqu : oui, parfois (une ou deux fois dans l'
+1	Oui
+2	Non
+679. rapporter des livres de la bibliothèqu : oui, de temps en temps(une ou deux foi
+1	Oui
+2	Non
+680. rapporter des livres de la bibliothèque : oui souvent (plus d'une fois par mois)
+1	Oui
+2	Non
+681. rapporter des livres de la bibliothèque : non, jamais
+1	Oui
+2	Non
+682. rapporter des livres de la bibliothèque : vous ne savez pas
+1	Oui
+2	Non
+683. raisons de se rendre à la bibliothèque : NRimposée
+1	Oui
+2	Non
+684. raisons de se rendre à la bibliothèque : NRlogique
+1	Oui
+2	Non
+685. raisons de se rendre à la bibliothèque : pour faire ses devoirs
+1	Oui
+2	Non
+686. raisons de se rendre à la bibliothèque : pour préparer des exposés
+1	Oui
+2	Non
+687. raisons de se rendre à la bibliothèque : pour lire des revues ou des bandes des
+1	Oui
+2	Non
+688. raisons de se rendre à la bibliothèque : pour faire autre chose:
+1	Oui
+2	Non
+689. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+690. accompagnement à la bibliothèque : Nrimposée
+1	Oui
+2	Non
+691. accompagnement à la bibliothèque : NRlogique
+1	Oui
+2	Non
+692. accompagnement à la bibliothèque : oui, parfois
+1	Oui
+2	Non
+693. accompagnement à la bibliothèque : oui, toujours
+1	Oui
+2	Non
+694. accompagnement à la bibliothèque : oui, mais vous l'avez accompagné la première 
+1	Oui
+2	Non
+695. accompagnement à la bibliothèque : non, sa mère l'accompagne
+1	Oui
+2	Non
+696. accompagnement à la bibliothèque : non, il y va avec un ou plusieurs de ses frèr
+1	Oui
+2	Non
+697. accompagnement à la bibliothèque : non, une autre personne les accompagne:
+1	Oui
+2	Non
+698. accompagnement à la bibliothèque : vous ne savez pas
+1	Oui
+2	Non
+699. (qui?):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+700. vous arrive-t-il d'accompagner votre enfant lorsqu'il choisit un livre (à la bibliothèque ou dans une librairie)?
+1	NRimposée
+2	non, mais vous l'avez fait au début
+3	non, il a toujours choisi seul
+4	oui
+701. modalité(s) accompagnement dans choix d'un livre : NRimposée
+1	Oui
+2	Non
+702. modalité(s) accompagnement dans choix d'un livre : NRlogique
+1	Oui
+2	Non
+703. modalité(s) accompagnement dans choix  : vous choisissez un livre (ou une bd) e
+1	Oui
+2	Non
+704. modalité(s) accompagnement dans choix  : vous l'accompagnez dans les bons rayon
+1	Oui
+2	Non
+705. modalité(s) accompagnement dans choix  : vous lui dites ce qu'il faut qu'il reg
+1	Oui
+2	Non
+706. modalité(s) accompagnement dans choix  : vous demandez conseils au bibliothécai
+1	Oui
+2	Non
+707. modalité(s) accompagnement dans choix d' : vous demandez conseil à un enseignant
+1	Oui
+2	Non
+708. modalité(s) accompagnement dans choix  : vous le laissez choisir pui vous le co
+1	Oui
+2	Non
+709. modalité(s) accompagnement dans choix  : vous lui dites de ne pas prendre que d
+1	Oui
+2	Non
+710. modalité(s) accompagnement dans choix d'un livre : autre (non prévu)
+1	Oui
+2	Non
+711. votre enfant vous parle-t-il de ses lectures?
+1	NRimposée
+2	oui, régulièrement
+3	oui, de temps en temps
+4	oui, plus rarement
+5	non, jamais
+712. si oui, comment cela se passe-t-il?
+1	NRimposée
+2	NRlogique
+3	il vous en parle spontanément
+4	vous l'interrogez
+5	cela dépend, c'est tantôt lui, tantôt vous qui engagez la co
+713. fréquentation d'une bibliothèque par la mère : NRimposée
+1	Oui
+2	Non
+714. fréquentation d'une bibliothèque par la mère : non
+1	Oui
+2	Non
+715. fréquentation d'une bibliothèque par la mère : oui, celle de votre quartier
+1	Oui
+2	Non
+716. fréquentation d'une bibliothèque par la mè : oui, celle de votre lieu de travail
+1	Oui
+2	Non
+717. fréquentation d'une bibliothèque par la mère : oui, autre
+1	Oui
+2	Non
+718. :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+719. destinataire livres rapportés par la mère : Nrimposée
+1	Oui
+2	Non
+720. destinataire livres rapportés par la mère : NRlogique
+1	Oui
+2	Non
+721. destinataire livres rapportés par la mère : pour vous, pour vos loisirs
+1	Oui
+2	Non
+722. destinataire livres rapportés par la mère : pour vous, pour votre travail
+1	Oui
+2	Non
+723. destinataire livres rapportés par la mère : pour vos enfants
+1	Oui
+2	Non
+724. destinataire livres rapportés par la m : pour l'un de vos enfants en particulie
+1	Oui
+2	Non
+725. destinataire livres rapportés par la mère : pour votre conjoint
+1	Oui
+2	Non
+726. destinataire livres rapportés par la mère : autre:
+1	Oui
+2	Non
+727. (veuillez préciser):
+1	NRimposée
+2	NRlogique
+3	l'enfant concerné par l'enquête
+4	un autre enfant de plus de six ans
+5	un autre enfant de moins de 6 ans
+728. lectures maternelles : NRimposée
+1	Oui
+2	Non
+729. lectures maternelles : NRlogique
+1	Oui
+2	Non
+730. lectures maternelles : des livres policiers
+1	Oui
+2	Non
+731. lectures maternelles : des livres historiques
+1	Oui
+2	Non
+732. lectures maternelles : des livres d'amour
+1	Oui
+2	Non
+733. lectures maternelles : des romans contemporains
+1	Oui
+2	Non
+734. lectures maternelles : des essais
+1	Oui
+2	Non
+735. lectures maternelles : de la poësie
+1	Oui
+2	Non
+736. lectures maternelles : du théatre
+1	Oui
+2	Non
+737. lectures maternelles : des revues de modes
+1	Oui
+2	Non
+738. lectures maternelles : des revues d'actualité
+1	Oui
+2	Non
+739. lectures maternelles : d'autres type de revues
+1	Oui
+2	Non
+740. lectures maternelles : des revues sportives
+1	Oui
+2	Non
+741. lectures maternelles : des revues culinaires
+1	Oui
+2	Non
+742. lectures maternelles : un quotidien
+1	Oui
+2	Non
+743. lectures maternelles : des bandes dessinées
+1	Oui
+2	Non
+744. lectures maternelles : des contes pour enfants
+1	Oui
+2	Non
+745. lectures maternelles : autres:
+1	Oui
+2	Non
+746. :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+747. quantité de livres lus par la mère : NRimposée
+1	Oui
+2	Non
+748. quantité de livres lus par la mère : moins d'un livre par an
+1	Oui
+2	Non
+749. quantité de livres lus par la mère : environ un livre par an
+1	Oui
+2	Non
+750. quantité de livres lus par la mère : environ cinq livres par an
+1	Oui
+2	Non
+751. quantité de livres lus par la mère : environ dix livres par an
+1	Oui
+2	Non
+752. quantité de livres lus par la mère : environ un livre par mois
+1	Oui
+2	Non
+753. quantité de livres lus par la mère : environ deux livres par mois
+1	Oui
+2	Non
+754. quantité de livres lus par la mère : environ un livre par semaine
+1	Oui
+2	Non
+755. quantité de livres lus par la mère : plus d'un livre par semaine
+1	Oui
+2	Non
+756. vous arrive-t-il de discuter d'un livre ou d'un article que vous avez luavec votre conjoint?
+1	NRimposée
+2	non, jamais
+3	rarement
+4	de temps en temps
+5	souvent
+757. discussion avec conjoint ou enfant : discussion avec le conjoint autour de lectu
+1	Oui
+2	Non
+758. discussion avec conjoint ou enfant : discussion avec le conjoint autour de lectu
+1	Oui
+2	Non
+759. discussion avec conjoint ou enfant : discussion avec le conjoint autour de lectu
+1	Oui
+2	Non
+760. discussion avec conjoint ou enfant : discussion avec le conjoint autour de lectu
+1	Oui
+2	Non
+761. discussion avec conjoint ou enfant : discussion avec les enfants autour de lectu
+1	Oui
+2	Non
+762. discussion avec conjoint ou enfant : discussion avec les enfants autour de lectu
+1	Oui
+2	Non
+763. discussion avec conjoint ou enfant : discussion avec les enfants autour de lectu
+1	Oui
+2	Non
+764. Rec. de discussion avec conjoint ou enfa : jamais de discussion avec le conjoint
+1	Oui
+2	Non
+765. Rec. de discussion avec conjoint ou en : rarement de discussion avec le conjoin
+1	Oui
+2	Non
+766. Rec. de discussion avec conjoint ou en : discussion de temps en temps avec le c
+1	Oui
+2	Non
+767. Rec. de discussion avec conjoint ou en : discussions fréquentes avec le conjoin
+1	Oui
+2	Non
+768. Rec. de discussion avec conjoint ou enfa : jamais de discussion avec les enfants
+1	Oui
+2	Non
+769. Rec. de discussion avec conjoint ou en : discussions ponctuelles avec les enfan
+1	Oui
+2	Non
+770. Rec. de discussion avec conjoint ou enfa : discussion fréquente avec les enfants
+1	Oui
+2	Non
+771. mères ne discutant jamais de leurs lectures
+1	Oui
+2	Non
+772. .. avec vos enfants?
+1	NRimposée
+2	non, jamais
+3	c'est arrivé quelques fois
+4	oui, souvent
+773. si oui, cela arrive-t-il avec votre enfant en sixième ou en cinquième?
+1	Nrimposée
+2	NRlogique
+3	oui
+4	non
+774. incitez vous vos enfants à lire?
+1	NRimposée
+2	oui
+3	non
+775. fréquentation d'une bibliothèque par le père : NRimposée
+1	Oui
+2	Non
+776. fréquentation d'une bibliothèque par le père : non
+1	Oui
+2	Non
+777. fréquentation d'une bibliothèque par le père : oui, celle de votre quartier
+1	Oui
+2	Non
+778. fréquentation d'une bibliothèque par le pè : oui, celle de votre lieu de travail
+1	Oui
+2	Non
+779. fréquentation d'une bibliothèque par le père : oui, autre
+1	Oui
+2	Non
+780. :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+781. destinataire livres rapportés par le père : Nrimposée
+1	Oui
+2	Non
+782. destinataire livres rapportés par le père : NRlogique
+1	Oui
+2	Non
+783. destinataire livres rapportés par le père : pour vous, pour vos loisirs
+1	Oui
+2	Non
+784. destinataire livres rapportés par le père : pour vous, pour votre travail
+1	Oui
+2	Non
+785. destinataire livres rapportés par le père : pour vos enfants
+1	Oui
+2	Non
+786. destinataire livres rapportés par le p : pour l'un de vos enfants en particulie
+1	Oui
+2	Non
+787. destinataire livres rapportés par le père : pour votre conjoint
+1	Oui
+2	Non
+788. destinataire livres rapportés par le père : autre:
+1	Oui
+2	Non
+789. (veuillez préciser):
+1	NRimposée
+2	NRlogique
+3	l'enfant concerné par l'enquête
+4	un autre enfant de plus de six ans
+5	un autre enfant de moins de 6 ans
+790. lectures paternelles : NRimposée
+1	Oui
+2	Non
+791. lectures paternelles : NRlogique
+1	Oui
+2	Non
+792. lectures paternelles : des livres policiers
+1	Oui
+2	Non
+793. lectures paternelles : des livres historiques
+1	Oui
+2	Non
+794. lectures paternelles : des livres d'amour
+1	Oui
+2	Non
+795. lectures paternelles : des romans contemporains
+1	Oui
+2	Non
+796. lectures paternelles : des essais
+1	Oui
+2	Non
+797. lectures paternelles : de la poësie
+1	Oui
+2	Non
+798. lectures paternelles : du théatre
+1	Oui
+2	Non
+799. lectures paternelles : des revues de modes
+1	Oui
+2	Non
+800. lectures paternelles : des revues d'actualité
+1	Oui
+2	Non
+801. lectures paternelles : d'autres type de revues
+1	Oui
+2	Non
+802. lectures paternelles : des revues sportives
+1	Oui
+2	Non
+803. lectures paternelles : des revues culinaires
+1	Oui
+2	Non
+804. lectures paternelles : un quotidien
+1	Oui
+2	Non
+805. lectures paternelles : des bandes dessinées
+1	Oui
+2	Non
+806. lectures paternelles : des contes pour enfants
+1	Oui
+2	Non
+807. lectures paternelles : autres:
+1	Oui
+2	Non
+808. :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+809. quantité de livres lus par le père : NRimposée
+1	Oui
+2	Non
+810. quantité de livres lus par le père : moins d'un livre par an
+1	Oui
+2	Non
+811. quantité de livres lus par le père : environ un livre par an
+1	Oui
+2	Non
+812. quantité de livres lus par le père : environ cinq livres par an
+1	Oui
+2	Non
+813. quantité de livres lus par le père : environ dix livres par an
+1	Oui
+2	Non
+814. quantité de livres lus par le père : environ un livre par mois
+1	Oui
+2	Non
+815. quantité de livres lus par le père : environ deux livres par mois
+1	Oui
+2	Non
+816. quantité de livres lus par le père : environ un livre par semaine
+1	Oui
+2	Non
+817. quantité de livres lus par le père : plus d'un livre par semaine
+1	Oui
+2	Non
+818. vous arrive-t-il de discuter d'un livre ou d'un article que vous avez luavec votre conjointe?
+1	NRimposée
+2	non, jamais
+3	rarement
+4	de temps en temps
+5	souvent
+819. .. avec vos enfants?
+1	NRimposée
+2	non, jamais
+3	c'est arrivé quelques fois
+4	oui, souvent
+820. pères ne discutant jamais de leurs lectures
+1	Oui
+2	Non
+821. si oui, cela arrive-t-il avec votre enfant en sixième ou en cinquième?
+1	Nrimposée
+2	NRlogique
+3	oui
+4	non
+822. incitez vous vos enfants à lire?
+1	NRimposée
+2	oui
+3	non
+823. exercez-vous actuellement une profession?
+1	NRimposée
+2	oui
+3	non
+824. exercice d'une profession par la mère (Recodage)
+1	oui
+2	non
+825. profession de la mère
+1	artisane, commerçante, chef d'entreprise
+2	cadres et professions intellectuelles supérieures
+3	employées et ouvrières
+4	inactives
+5	NR et NA
+6	professions intermédiaires
+826. profession de la mère (Recodage)
+1	artisane, commerçante, chef d'entreprise
+2	cadres et professions intellectuelles supérieures
+3	professions intermédiaires
+4	employées et ouvrières
+5	inactives
+6	actives sans précision ou inclassables
+827. profession de la mère (3 catégories principales)
+1	cadres et professions intellectuelles supérieures
+2	professions intermédiaires
+3	employées et ouvrières
+828. prof mère
+1	mères prof sup
+2	mères prof interm
+3	employées et ouvrières
+4	inactives
+829. (laquelle?):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+830. si non, en avez-vous exercez une auparavant?
+1	NRimposée
+2	NRlogique
+3	oui
+4	non
+831. (laquelle
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+832. .. et durant quelle(s) année(s)?)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+833. si vous en exercez une actuellement, depuis quend le faites-vous? (année de début)
+Entrer la valeur :   |_|_|
+834. date de début de la profession actuelle (en années, mois) (Num -&gt; Uni (Recodage)
+1	64 /65 /66 /68 /69
+2	70 /71 /72 /73 /74 /75 /76 /77 /78 /79
+3	80 /81 /82 /83 /84 /85 /86 /87 /88 /89
+4	90 /91 /92 /93 /94 /95
+5	96 /97 /98
+6	99
+835. Reprise d'études
+1	reprise d'étude  /= -1
+2	formation initiale
+836. avant cette date, exerciez-vous une profession différente de celle que vous exercez aujourd'hui?
+1	NRimposée
+2	NRlogique
+3	non
+4	oui:
+837. (laquelle?)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+838. chômage maternel : NRimposée
+1	Oui
+2	Non
+839. chômage maternel : non
+1	Oui
+2	Non
+840. chômage maternel : oui, vous êtes actuellement au chômage:
+1	Oui
+2	Non
+841. chômage maternel : oui, vous avez été au chômage:
+1	Oui
+2	Non
+842. (depuis quelle date?) (en quelle(s) année(s)?):
+Entrer la valeur :   |_|_|
+843. Classes sur durée (cumulée) du chômage maternel 
+1	de &gt;=0 à 1
+2	de &gt;=1 à 2
+3	de &gt;=2 à 3
+4	de &gt;=3 à 11
+844. Classes sur durée (cumulée) du chômage maternel 
+1	de &gt;=0 à 1
+2	de &gt;=1 à 2
+3	de &gt;=2 à 3
+4	de &gt;=3 à 4
+5	de &gt;=4 à 5
+6	de &gt;=5 à 6
+7	de &gt;=6 à 7
+8	de &gt;=7 à 10
+9	de &gt;=10 à 11
+845. chômage maternel// scolarité de l'enfant (Recodage) : NRlogique
+1	Oui
+2	Non
+846. chômage maternel// scolarité de l'enfant (Recodage) : avant sa naissance
+1	Oui
+2	Non
+847. chômage maternel// scolarité de l'enfa : quand il était tout petit /maternelle 
+1	Oui
+2	Non
+848. avez-vous arrêté de travailler durant une longue période?
+1	NRimposée
+2	NRlogique
+3	oui, une fois
+4	oui, plusieurs fois
+5	non
+6	oui (sans précision)
+849. arrêt(s) de travail maternel(s) (Recodage)
+1	NRlogique
+2	oui, une fois /oui, plusieurs fois /oui (sans précision)
+3	non
+850.  (en quelle(s) année(s)?):
+Entrer la valeur :   |_|_|
+851. Classes sur durée (cumulée) du (ou des) arrêt(s) de travail maternel( (Recodage)
+1	deux ans et moins
+2	de 3 à 7 ans
+3	8 ans et plus
+852. arrêt(s) de travail maternel(s)// scolarité de l'enfant : NRimposée
+1	Oui
+2	Non
+853. arrêt(s) de travail maternel(s)// scolarité de l'enfant : NRlogique
+1	Oui
+2	Non
+854. arrêt(s) de travail maternel(s)// scolarité de l'enfant : avant sa naissance
+1	Oui
+2	Non
+855. arrêt(s) de travail maternel(s)// scolarité de l'enf : quand il était tout petit
+1	Oui
+2	Non
+856. arrêt(s) de travail maternel(s)// scolarité de l'enfant : maternelle
+1	Oui
+2	Non
+857. arrêt(s) de travail maternel(s)// scolarité de l'enfant : CP
+1	Oui
+2	Non
+858. arrêt(s) de travail maternel(s)// scolarité de l'enfant : cours élémentaires
+1	Oui
+2	Non
+859. arrêt(s) de travail maternel(s)// scolarité de l'enfant : cours moyens
+1	Oui
+2	Non
+860. arrêt(s) de travail maternel(s)// scolarité de l'enfant : 6ème
+1	Oui
+2	Non
+861. arrêt(s) de travail maternel(s)// scolarité de l'enfant : 5ème
+1	Oui
+2	Non
+862. arrêt(s) de travail maternel(s)// scolarité de l'enfant : impossible à définir
+1	Oui
+2	Non
+863. avez-vous aménagé ou réduit vos horaires de travail depuis la naissance de vos enfants?
+1	NRimposée
+2	NRlogique
+3	oui:
+4	non
+864. aménagement horaires maternels// scolarité de l'enfant : NRimposée
+1	Oui
+2	Non
+865. aménagement horaires maternels// scolarité de l'enfant : NRlogique
+1	Oui
+2	Non
+866. aménagement horaires maternels// scolarité de l'enfant : avant sa naissance
+1	Oui
+2	Non
+867. aménagement horaires maternels// scolarité de l'enfa : quand il était tout petit
+1	Oui
+2	Non
+868. aménagement horaires maternels// scolarité de l'enfant : maternelle
+1	Oui
+2	Non
+869. aménagement horaires maternels// scolarité de l'enfant : CP
+1	Oui
+2	Non
+870. aménagement horaires maternels// scolarité de l'enfant : cours élémentaires
+1	Oui
+2	Non
+871. aménagement horaires maternels// scolarité de l'enfant : cours moyens
+1	Oui
+2	Non
+872. aménagement horaires maternels// scolarité de l'enfant : 6ème
+1	Oui
+2	Non
+873. aménagement horaires maternels// scolarité de l'enfant : 5ème
+1	Oui
+2	Non
+874. aménagement horaires maternels// scolarité de l'enfant : impossible à définir
+1	Oui
+2	Non
+875. aménagement horaires maternels actuels
+1	Oui
+2	Non
+876.  (en quelle(s) année(s)?):
+Entrer la valeur :   |_|_|,|_|_|
+877. formation(s) suivie(s) par la mère : NRimposée
+1	Oui
+2	Non
+878. formation(s) suivie(s) par la mère : NRlogique
+1	Oui
+2	Non
+879. formation(s) suivie(s) par la mère : non
+1	Oui
+2	Non
+880. formation(s) suivie(s) par la mère : oui, une formation en cours d'emploi
+1	Oui
+2	Non
+881. formation(s) suivie(s) par la mère : oui, une formation professionnelle
+1	Oui
+2	Non
+882. formation(s) suivie(s) par la mère : oui, une formation universitaire
+1	Oui
+2	Non
+883. formation(s) suivie(s) par la mère : oui, une autre formation
+1	Oui
+2	Non
+884. (laquelle):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+885. diplôme(s) obtenu(s) par la mère : NRimposée
+1	Oui
+2	Non
+886. diplôme(s) obtenu(s) par la mère : NRlogique
+1	Oui
+2	Non
+887. diplôme(s) obtenu(s) par la mère : aucun diplôme
+1	Oui
+2	Non
+888. diplôme(s) obtenu(s) par la mère : certificat d'étude
+1	Oui
+2	Non
+889. diplôme(s) obtenu(s) par la mère : brevet des collèges
+1	Oui
+2	Non
+890. diplôme(s) obtenu(s) par la mère : CAP:
+1	Oui
+2	Non
+891. diplôme(s) obtenu(s) par la mère : BEP:
+1	Oui
+2	Non
+892. diplôme(s) obtenu(s) par la mère : diplôme d'état s'obtenant sans le bac (aide s
+1	Oui
+2	Non
+893. diplôme(s) obtenu(s) par la mère : baccalauréat professionnel
+1	Oui
+2	Non
+894. diplôme(s) obtenu(s) par la mère : baccalauréat général
+1	Oui
+2	Non
+895. diplôme(s) obtenu(s) par la mère : DUT
+1	Oui
+2	Non
+896. diplôme(s) obtenu(s) par la mère : BTS
+1	Oui
+2	Non
+897. diplôme(s) obtenu(s) par la mère : Deug
+1	Oui
+2	Non
+898. diplôme(s) obtenu(s) par la mère : diplôme d'état en deux ou trois ans (infirmiè
+1	Oui
+2	Non
+899. diplôme(s) obtenu(s) par la mère : licence
+1	Oui
+2	Non
+900. diplôme(s) obtenu(s) par la mère : diplôme d'état s'obtenant en quatre ans (assi
+1	Oui
+2	Non
+901. diplôme(s) obtenu(s) par la mère : maîtrise
+1	Oui
+2	Non
+902. diplôme(s) obtenu(s) par la mère : diplôme d'une grande école
+1	Oui
+2	Non
+903. diplôme(s) obtenu(s) par la mère : diplôme de troisième cycle avant le doctorat
+1	Oui
+2	Non
+904. diplôme(s) obtenu(s) par la mère : doctorat
+1	Oui
+2	Non
+905. diplôme(s) obtenu(s) par la mère : spécialisation post doctorat
+1	Oui
+2	Non
+906. diplôme(s) obtenu(s) par la mère : autre diplôme
+1	Oui
+2	Non
+907. en quelle année?
+Entrer la valeur :   |_|_|,|_|_|
+908. année d'obtention du 
+1	61
+2	62
+3	63
+4	64
+5	65
+6	66
+7	67
+8	68
+9	69
+10	70
+11	71
+12	72
+13	73
+14	74
+15	75
+16	76
+17	77
+18	79
+909. année d'obtention du  (Recodage)
+1	61 /62 /63 /64 /65 /66 /67 /68 /69
+2	70 /79 /71 /72 /73 /74 /75 /76 /77
+910. année du dernier diplôme obtenu par la mère
+Entrer la valeur :   |_|_|_|
+911. Classes sur année du dernier diplôme obtenu par la mère
+1	de &gt;=62 à 63
+2	de &gt;=63 à 64
+3	de &gt;=64 à 65
+4	de &gt;=65 à 66
+5	de &gt;=66 à 67
+6	de &gt;=67 à 68
+7	de &gt;=68 à 69
+8	de &gt;=69 à 70
+9	de &gt;=70 à 71
+10	de &gt;=71 à 72
+11	de &gt;=72 à 73
+12	de &gt;=73 à 74
+13	de &gt;=74 à 75
+14	de &gt;=75 à 76
+15	de &gt;=76 à 77
+16	de &gt;=77 à 78
+17	de &gt;=78 à 79
+18	de &gt;=79 à 80
+19	de &gt;=80 à 81
+20	de &gt;=81 à 82
+21	de &gt;=82 à 83
+22	de &gt;=83 à 84
+23	de &gt;=84 à 85
+24	de &gt;=85 à 86
+25	de &gt;=86 à 87
+26	de &gt;=87 à 88
+27	de &gt;=88 à 89
+28	de &gt;=89 à 90
+29	de &gt;=90 à 91
+30	de &gt;=91 à 92
+31	de &gt;=92 à 93
+32	de &gt;=93 à 94
+33	de &gt;=94 à 95
+34	de &gt;=95 à 96
+35	de &gt;=96 à 97
+36	de &gt;=97 à 98
+37	de &gt;=98 à 99
+38	de &gt;=99 à 100
+912. Classes sur année du dernier diplôme obtenu par la mère (Recodage)
+1	entre 62 et 75
+2	entre 76 et 85
+3	entre 86 et 99
+913. en quelle année
+Entrer la valeur :   |_|_|,|_|_|
+914. année d'obtention du brevet (Num -&gt; Unique) (Recodage)
+1	62 /69 /63 /64 /65 /66 /68
+2	70 /71 /72 /73 /74 /75 /76 /77 /78 /79
+3	80 /82 /83 /84 /85
+4	97
+915. année d'obtention du BEP
+Entrer la valeur :   |_|_|,|_|_|
+916. année d'obtention du BEP (Num -&gt; Unique) (Recodage)
+1	70 /71 /72 /73 /74 /75 /76 /77 /78 /79
+2	80 /81 /82 /84 /86
+917. année d'obtention du CAP
+Entrer la valeur :   |_|_|,|_|_|
+918. année d'obtention du CAP (Num -&gt; Unique) (Recodage)
+1	64 /67 /68 /69
+2	70 /71 /72 /73 /74 /75 /76 /77 /78 /79
+3	80 /81 /82 /84 /85 /86 /87
+4	90 /98
+919. diplômes obtenus après 1995 : année d'obtention du CAP (Num -&gt; Unique) : 98
+1	Oui
+2	Non
+920. diplômes obtenus après 1995 : année du baccalauréat (général et professionnel) (
+1	Oui
+2	Non
+921. diplômes obtenus après 1995 : année du deug (BTS DUT) (Num -&gt; Unique) : 96
+1	Oui
+2	Non
+922. diplômes obtenus après 1995 : année du deug (BTS DUT) (Num -&gt; Unique) : 97
+1	Oui
+2	Non
+923. diplômes obtenus après 1995 : année du deug (BTS DUT) (Num -&gt; Unique) : 98
+1	Oui
+2	Non
+924. diplômes obtenus après 1995 : année du deug (BTS DUT) (Num -&gt; Unique) : 99
+1	Oui
+2	Non
+925. diplômes obtenus après 1995 : année licence (DE en 2 ou 3 ans) (Num -&gt; Unique) :
+1	Oui
+2	Non
+926. diplômes obtenus après 1995 : année licence (DE en 2 ou 3 ans) (Num -&gt; Unique) :
+1	Oui
+2	Non
+927. diplômes obtenus après 1995 : année licence (DE en 2 ou 3 ans) (Num -&gt; Unique) :
+1	Oui
+2	Non
+928. diplômes obtenus après 1995 : année diplôme de troisième cycle (Num -&gt; Unique) :
+1	Oui
+2	Non
+929. diplômes obtenus après 1995 : année diplôme de troisième cycle (Num -&gt; Unique) :
+1	Oui
+2	Non
+930. diplômes obtenus après 1995 : année diplôme de troisième cycle (Num -&gt; Unique) :
+1	Oui
+2	Non
+931. année du baccalauréat (général et professionnel)
+Entrer la valeur :   |_|_|,|_|_|
+932. année du baccalauréat (général et professionnel) (Num -&gt; Unique) (Recodage)
+1	65 /66 /67 /68 /69
+2	70 /71 /72 /73 /74 /75 /76 /77 /78 /79
+3	80 /81 /82 /84 /86
+4	90 /96
+933. année du deug (BTS DUT)
+Entrer la valeur :   |_|_|,|_|_|
+934. année du deug (BTS DUT) (Num -&gt; Unique) (Recodage)
+1	68 /70 /71 /72 /73 /74 /75 /76 /77 /78 /79
+2	80 /81 /82 /83 /84 /87 /88 /90
+3	92 /94 /96 /97 /98 /99
+935. année licence (DE en 2 ou 3 ans)
+Entrer la valeur :   |_|_|,|_|_|
+936. année licence (DE en 2 ou 3 ans) (Num -&gt; Unique) (Recodage)
+1	68 /69 /70 /71 /72 /74 /75
+2	76 /78 /79 /80
+3	81 /82 /83 /84 /87
+4	91 /93 /94 /95 /96 /98
+937. année maîtrise (DE en 4 ans)
+Entrer la valeur :   |_|_|,|_|_|
+938. année maîtrise (DE en 4 ans) (Num -&gt; Unique) (Recodage)
+1	70 /72 /73 /74 /75 /76 /77 /79
+2	80 /81 /82 /83 /84 /86 /87 /89
+3	95
+939. année diplôme de troisième cycle
+Entrer la valeur :   |_|_|,|_|_|
+940. année diplôme de troisième cycle (Num -&gt; Unique) (Recodage)
+1	76 /78 /80 /82 /83 /84 /85 /86 /89
+2	90 /91 /92 /93 /95 /98 /99
+941. année diplôme grande école
+Entrer la valeur :   |_|_|,|_|_|
+942. année diplôme grande école (Num -&gt; Unique)
+1	74
+2	77
+3	80
+4	83
+5	84
+6	85
+7	86
+8	88
+943. année autre diplôme
+Entrer la valeur :   |_|_|,|_|_|
+944. (lequel?) (dans quelle discipline?) (laquelle?)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+945. :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+946. quelle était la dernière classe de l'enseignement général que vous avez fréquentée?
+1	NRimposée
+2	NRlogique
+3	cours élémentaires
+4	cours moyens
+5	certificat
+6	6ème
+7	5ème
+8	4ème
+9	3ème
+10	2nde
+11	1ère
+12	terminale
+13	enseignement professionnel
+14	enseignement supérier
+15	autre
+947. déroulement de la scolarité maternelle : NRimposée
+1	Oui
+2	Non
+948. déroulement de la scolarité maternelle : très bien
+1	Oui
+2	Non
+949. déroulement de la scolarité maternelle : bien
+1	Oui
+2	Non
+950. déroulement de la scolarité maternelle : moyennement
+1	Oui
+2	Non
+951. déroulement de la scolarité maternelle : mal
+1	Oui
+2	Non
+952. déroulement de la scolarité maternelle : très mal
+1	Oui
+2	Non
+953. déroulement de la scolarité maternelle : différemment selon les années
+1	Oui
+2	Non
+954. déroulement de la scolarité maternelle : différemment selon les enseignants
+1	Oui
+2	Non
+955. déroulement de la scolarité maternelle : différemment selon les matières
+1	Oui
+2	Non
+956. déroulement de la scolarité maternelle : autre (non prévu)
+1	Oui
+2	Non
+957. difficultés scolaires de la mère
+Entrer la valeur :   |_|_|
+958. Classes sur difficultés scolaires de la mère
+1	de &gt;=-21 à -15
+2	de &gt;=-15 à -9
+3	de &gt;=-9 à -3
+4	de &gt;=-3 à 3
+5	de &gt;=3 à 9
+6	de &gt;=9 à 15
+959. Classes sur difficultés scolaires de la mère
+1	de &gt;=-21 à -5
+2	de &gt;=-5 à -1
+3	de &gt;=-1 à 2
+4	de &gt;=2 à 15
+960. avez-vous connu des redoublements?
+1	NRimposée
+2	non
+3	oui
+961. :
+Entrer la valeur :   |_|_|,|_|_|
+962. Classes sur nombre de redoublements maternels
+1	de &gt;=0 à 1
+2	de &gt;=1 à 2
+3	de &gt;=2 à 3
+4	de &gt;=3 à 3,01
+963. classe(s) redoublée(s) par la mère : NRimposée
+1	Oui
+2	Non
+964. classe(s) redoublée(s) par la mère : NRlogique
+1	Oui
+2	Non
+965. classe(s) redoublée(s) par la mère : PS ou MS maternelle
+1	Oui
+2	Non
+966. classe(s) redoublée(s) par la mère : GS maternelle
+1	Oui
+2	Non
+967. classe(s) redoublée(s) par la mère : CP
+1	Oui
+2	Non
+968. classe(s) redoublée(s) par la mère : CE1
+1	Oui
+2	Non
+969. classe(s) redoublée(s) par la mère : CE2
+1	Oui
+2	Non
+970. classe(s) redoublée(s) par la mère : CM1
+1	Oui
+2	Non
+971. classe(s) redoublée(s) par la mère : CM2
+1	Oui
+2	Non
+972. classe(s) redoublée(s) par la mère : 6ème
+1	Oui
+2	Non
+973. classe(s) redoublée(s) par la mère : 5ème
+1	Oui
+2	Non
+974. classe(s) redoublée(s) par la mère : 4ème
+1	Oui
+2	Non
+975. classe(s) redoublée(s) par la mère : 3ème
+1	Oui
+2	Non
+976. classe(s) redoublée(s) par la mère : 2nde
+1	Oui
+2	Non
+977. classe(s) redoublée(s) par la mère : 1ère
+1	Oui
+2	Non
+978. classe(s) redoublée(s) par la mère : terminale
+1	Oui
+2	Non
+979. classe(s) redoublée(s) par la mère : enseignement professionnel
+1	Oui
+2	Non
+980. classe(s) redoublée(s) par la mère : enseignement supérier
+1	Oui
+2	Non
+981. classe(s) redoublée(s) par la mère : autre
+1	Oui
+2	Non
+982. classe(s) redoublée(s) par la mère (groupées2) : NRlogique
+1	Oui
+2	Non
+983. classe(s) redoublée(s) par la mère (groupées2) : au collège
+1	Oui
+2	Non
+984. classe(s) redoublée(s) par la mère (groupées2) :  en primaire
+1	Oui
+2	Non
+985. classe(s) redoublée(s) par la mère (groupées2) : lycée et enseignement supérieur
+1	Oui
+2	Non
+986. difficultés rencontrées par la mère dans sa scolarité : NRimposée
+1	Oui
+2	Non
+987. difficultés rencontrées par la mère dans sa s : dans une matière en particulier:
+1	Oui
+2	Non
+988. difficultés rencontrées par la mère dans  : au cours d'une année en particulier:
+1	Oui
+2	Non
+989. difficultés rencontrées par la mère da : dans vos relations avec vos camarades 
+1	Oui
+2	Non
+990. difficultés rencontrées par la mère dans sa scolarité : non (non prévu)
+1	Oui
+2	Non
+991. difficultés rencontrées par la mère dans sa scolarité : autre (non prévu)
+1	Oui
+2	Non
+992. précision matière où difficultés : NRimposée
+1	Oui
+2	Non
+993. précision matière où difficultés : NRlogique
+1	Oui
+2	Non
+994. précision matière où difficultés : français
+1	Oui
+2	Non
+995. précision matière où difficultés : mathématiques
+1	Oui
+2	Non
+996. précision matière où difficultés : lecture
+1	Oui
+2	Non
+997. précision matière où difficultés : dissertation
+1	Oui
+2	Non
+998. précision matière où difficultés : orthographe
+1	Oui
+2	Non
+999. précision matière où difficultés : histoire
+1	Oui
+2	Non
+1000. précision matière où difficultés : géographie
+1	Oui
+2	Non
+1001. précision matière où difficultés : anglais
+1	Oui
+2	Non
+1002. précision matière où difficultés : allemand
+1	Oui
+2	Non
+1003. précision matière où difficultés : autre langue vivante
+1	Oui
+2	Non
+1004. précision matière où difficultés : biologie
+1	Oui
+2	Non
+1005. précision matière où difficultés : physique
+1	Oui
+2	Non
+1006. précision matière où difficultés : latin
+1	Oui
+2	Non
+1007. précision matière où difficultés : sport
+1	Oui
+2	Non
+1008. précision matière où difficultés : dessin
+1	Oui
+2	Non
+1009. précision matière où difficultés : musique
+1	Oui
+2	Non
+1010. précision matière où difficultés : économie
+1	Oui
+2	Non
+1011. précision matière où difficultés : philosophie
+1	Oui
+2	Non
+1012. précision matière où difficultés : comptabilité
+1	Oui
+2	Non
+1013. précision matière où difficultés : mécanique
+1	Oui
+2	Non
+1014. précision matière où difficultés : autre matière technique ou professionnelle
+1	Oui
+2	Non
+1015. précision matière où difficultés : autre
+1	Oui
+2	Non
+1016. précision matière où difficultés : matières littéraires
+1	Oui
+2	Non
+1017. précision matière où difficultés : matières scientifiques
+1	Oui
+2	Non
+1018. précision matière où difficultés : les langues
+1	Oui
+2	Non
+1019. précision matière où difficultés (groupées2) : NRimposée
+1	Oui
+2	Non
+1020. précision matière où difficultés (groupées2) : NRlogique
+1	Oui
+2	Non
+1021. précision matière où difficultés (grou : français /lecture /dissertation /ortho
+1	Oui
+2	Non
+1022. précision matière où difficultés (groupées2) : mathématiques
+1	Oui
+2	Non
+1023. précision matière où difficultés (groupées2) : histoire /géographie /autres
+1	Oui
+2	Non
+1024. classe(s) où difficultés maternelles : NRimposée
+1	Oui
+2	Non
+1025. classe(s) où difficultés maternelles : NRlogique
+1	Oui
+2	Non
+1026. classe(s) où difficultés maternelles : PS ou MS maternelle
+1	Oui
+2	Non
+1027. classe(s) où difficultés maternelles : GS maternelle
+1	Oui
+2	Non
+1028. classe(s) où difficultés maternelles : CP
+1	Oui
+2	Non
+1029. classe(s) où difficultés maternelles : CE1
+1	Oui
+2	Non
+1030. classe(s) où difficultés maternelles : CE2
+1	Oui
+2	Non
+1031. classe(s) où difficultés maternelles : CM1
+1	Oui
+2	Non
+1032. classe(s) où difficultés maternelles : CM2
+1	Oui
+2	Non
+1033. classe(s) où difficultés maternelles : 6ème
+1	Oui
+2	Non
+1034. classe(s) où difficultés maternelles : 5ème
+1	Oui
+2	Non
+1035. classe(s) où difficultés maternelles : 4ème
+1	Oui
+2	Non
+1036. classe(s) où difficultés maternelles : 3ème
+1	Oui
+2	Non
+1037. classe(s) où difficultés maternelles : 2nde
+1	Oui
+2	Non
+1038. classe(s) où difficultés maternelles : 1ère
+1	Oui
+2	Non
+1039. classe(s) où difficultés maternelles : terminale
+1	Oui
+2	Non
+1040. classe(s) où difficultés maternelles : enseignement professionnel
+1	Oui
+2	Non
+1041. classe(s) où difficultés maternelles : enseignement supérier
+1	Oui
+2	Non
+1042. classe(s) où difficultés maternelles : autre
+1	Oui
+2	Non
+1043. étiez-vous particulièrement à l'aise dans une matière?
+1	NRimposée
+2	non
+3	oui
+1044. précision matière(s) de prédilection maternelle : NRimposée
+1	Oui
+2	Non
+1045. précision matière(s) de prédilection maternelle : NRlogique
+1	Oui
+2	Non
+1046. précision matière(s) de prédilection maternelle : français
+1	Oui
+2	Non
+1047. précision matière(s) de prédilection maternelle : mathématiques
+1	Oui
+2	Non
+1048. précision matière(s) de prédilection maternelle : lecture
+1	Oui
+2	Non
+1049. précision matière(s) de prédilection maternelle : dissertation
+1	Oui
+2	Non
+1050. précision matière(s) de prédilection maternelle : orthographe
+1	Oui
+2	Non
+1051. précision matière(s) de prédilection maternelle : histoire
+1	Oui
+2	Non
+1052. précision matière(s) de prédilection maternelle : géographie
+1	Oui
+2	Non
+1053. précision matière(s) de prédilection maternelle : anglais
+1	Oui
+2	Non
+1054. précision matière(s) de prédilection maternelle : allemand
+1	Oui
+2	Non
+1055. précision matière(s) de prédilection maternelle : autre langue vivante
+1	Oui
+2	Non
+1056. précision matière(s) de prédilection maternelle : biologie
+1	Oui
+2	Non
+1057. précision matière(s) de prédilection maternelle : physique
+1	Oui
+2	Non
+1058. précision matière(s) de prédilection maternelle : latin
+1	Oui
+2	Non
+1059. précision matière(s) de prédilection maternelle : sport
+1	Oui
+2	Non
+1060. précision matière(s) de prédilection maternelle : dessin
+1	Oui
+2	Non
+1061. précision matière(s) de prédilection maternelle : musique
+1	Oui
+2	Non
+1062. précision matière(s) de prédilection maternelle : économie
+1	Oui
+2	Non
+1063. précision matière(s) de prédilection maternelle : philosophie
+1	Oui
+2	Non
+1064. précision matière(s) de prédilection maternelle : comptabilité
+1	Oui
+2	Non
+1065. précision matière(s) de prédilection maternelle : mécanique
+1	Oui
+2	Non
+1066. précision matière(s) de prédilection m : autre matière technique ou professionn
+1	Oui
+2	Non
+1067. précision matière(s) de prédilection maternelle : autre
+1	Oui
+2	Non
+1068. précision matière(s) de prédilection maternelle : matières littéraires
+1	Oui
+2	Non
+1069. précision matière(s) de prédilection maternelle : matières scientifiques
+1	Oui
+2	Non
+1070. précision matière(s) de prédilection maternelle : les langues
+1	Oui
+2	Non
+1071. précision matière(s) de prédilection maternelle (Recodage) : NRimposée
+1	Oui
+2	Non
+1072. précision matière(s) de prédilection maternelle (Recodage) : NRlogique
+1	Oui
+2	Non
+1073. précision matière(s) de prédilection m : français /lecture /dissertation /ortho
+1	Oui
+2	Non
+1074. précision matière(s) de prédilection maternelle (Recodage) : mathématiques
+1	Oui
+2	Non
+1075. précision matière(s) de prédilection maternelle (Recodage : histoire /géographie
+1	Oui
+2	Non
+1076. précision matière(s) de prédilection m : anglais /allemand /autre langue vivant
+1	Oui
+2	Non
+1077. précision matière(s) de prédilection m : biologie /physique /matières scientifi
+1	Oui
+2	Non
+1078. précision matière(s) de prédilection m : latin /musique /économie /philosophie 
+1	Oui
+2	Non
+1079. précision matière(s) de prédilection maternelle (Recodage) : sport
+1	Oui
+2	Non
+1080. précision matière(s) de prédilection m : comptabilité /mécanique /autre matière
+1	Oui
+2	Non
+1081. un enseignant en particulier vous a-t-il plus marquée que d'autres (positivement ou négativement)?
+1	NRimposée
+2	non
+3	oui:
+1082. classe(s) où enseignant marquant pour la mère : NRimposée
+1	Oui
+2	Non
+1083. classe(s) où enseignant marquant pour la mère : NRlogique
+1	Oui
+2	Non
+1084. classe(s) où enseignant marquant pour la mère : PS ou MS maternelle
+1	Oui
+2	Non
+1085. classe(s) où enseignant marquant pour la mère : GS maternelle
+1	Oui
+2	Non
+1086. classe(s) où enseignant marquant pour la mère : CP
+1	Oui
+2	Non
+1087. classe(s) où enseignant marquant pour la mère : CE1
+1	Oui
+2	Non
+1088. classe(s) où enseignant marquant pour la mère : CE2
+1	Oui
+2	Non
+1089. classe(s) où enseignant marquant pour la mère : CM1
+1	Oui
+2	Non
+1090. classe(s) où enseignant marquant pour la mère : CM2
+1	Oui
+2	Non
+1091. classe(s) où enseignant marquant pour la mère : 6ème
+1	Oui
+2	Non
+1092. classe(s) où enseignant marquant pour la mère : 5ème
+1	Oui
+2	Non
+1093. classe(s) où enseignant marquant pour la mère : 4ème
+1	Oui
+2	Non
+1094. classe(s) où enseignant marquant pour la mère : 3ème
+1	Oui
+2	Non
+1095. classe(s) où enseignant marquant pour la mère : 2nde
+1	Oui
+2	Non
+1096. classe(s) où enseignant marquant pour la mère : 1ère
+1	Oui
+2	Non
+1097. classe(s) où enseignant marquant pour la mère : terminale
+1	Oui
+2	Non
+1098. classe(s) où enseignant marquant pour la mère : enseignement professionnel
+1	Oui
+2	Non
+1099. classe(s) où enseignant marquant pour la mère : enseignement supérier
+1	Oui
+2	Non
+1100. classe(s) où enseignant marquant pour la mère : autre
+1	Oui
+2	Non
+1101. précision matière où enseignant marquant : NRimposée
+1	Oui
+2	Non
+1102. précision matière où enseignant marquant : NRlogique
+1	Oui
+2	Non
+1103. précision matière où enseignant marquant : français
+1	Oui
+2	Non
+1104. précision matière où enseignant marquant : mathématiques
+1	Oui
+2	Non
+1105. précision matière où enseignant marquant : lecture
+1	Oui
+2	Non
+1106. précision matière où enseignant marquant : dissertation
+1	Oui
+2	Non
+1107. précision matière où enseignant marquant : orthographe
+1	Oui
+2	Non
+1108. précision matière où enseignant marquant : histoire
+1	Oui
+2	Non
+1109. précision matière où enseignant marquant : géographie
+1	Oui
+2	Non
+1110. précision matière où enseignant marquant : anglais
+1	Oui
+2	Non
+1111. précision matière où enseignant marquant : allemand
+1	Oui
+2	Non
+1112. précision matière où enseignant marquant : autre langue vivante
+1	Oui
+2	Non
+1113. précision matière où enseignant marquant : biologie
+1	Oui
+2	Non
+1114. précision matière où enseignant marquant : physique
+1	Oui
+2	Non
+1115. précision matière où enseignant marquant : latin
+1	Oui
+2	Non
+1116. précision matière où enseignant marquant : sport
+1	Oui
+2	Non
+1117. précision matière où enseignant marquant : dessin
+1	Oui
+2	Non
+1118. précision matière où enseignant marquant : musique
+1	Oui
+2	Non
+1119. précision matière où enseignant marquant : économie
+1	Oui
+2	Non
+1120. précision matière où enseignant marquant : philosophie
+1	Oui
+2	Non
+1121. précision matière où enseignant marquant : comptabilité
+1	Oui
+2	Non
+1122. précision matière où enseignant marquant : mécanique
+1	Oui
+2	Non
+1123. précision matière où enseignant marqua : autre matière technique ou professionn
+1	Oui
+2	Non
+1124. précision matière où enseignant marquant : autre
+1	Oui
+2	Non
+1125. type de souvenir de l'enseignant marquant : Nrimposée
+1	Oui
+2	Non
+1126. type de souvenir de l'enseignant marquant : NRlogique
+1	Oui
+2	Non
+1127. type de souvenir de l'enseignant marquant : agréable?
+1	Oui
+2	Non
+1128. type de souvenir de l'enseignant marquant : désagréable?
+1	Oui
+2	Non
+1129. type de souvenir de l'enseignant marquant : autre (non prévu)
+1	Oui
+2	Non
+1130. origine du souvenir de l'enseignant marquant : NRimposée
+1	Oui
+2	Non
+1131. origine du souvenir de l'enseignant marquant : NRlogique
+1	Oui
+2	Non
+1132. origine du souvenir de l'enseignant marquant : sa façon d'enseigner?
+1	Oui
+2	Non
+1133. origine du souvenir de l'enseignant marquant : la matière qu'il enseignait?
+1	Oui
+2	Non
+1134. origine du souvenir de l'enseignant marquant : sa façon de se faire obeir?
+1	Oui
+2	Non
+1135. origine du souvenir de l'enseignant marquant : autre:
+1	Oui
+2	Non
+1136. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1137. qualificatif(s) scolaire(s) pour la mère en primaire : NRimposée
+1	Oui
+2	Non
+1138. qualificatif(s) scolaire(s) pour la mère en primaire : rêveur(se)
+1	Oui
+2	Non
+1139. qualificatif(s) scolaire(s) pour la mère en primaire : travailleur(se)
+1	Oui
+2	Non
+1140. qualificatif(s) scolaire(s) pour la mère en primaire : paresseux(se)
+1	Oui
+2	Non
+1141. qualificatif(s) scolaire(s) pour la mère en primaire : étourdi(e)
+1	Oui
+2	Non
+1142. qualificatif(s) scolaire(s) pour la mère en primaire : brillant(e)
+1	Oui
+2	Non
+1143. qualificatif(s) scolaire(s) pour la mère en primaire : ayant des difficultés
+1	Oui
+2	Non
+1144. qualificatif(s) scolaire(s) pour la mère en primaire : ayant des facilités
+1	Oui
+2	Non
+1145. qualificatif(s) scolaire(s) pour la mère en primaire : moyen(ne)
+1	Oui
+2	Non
+1146. qualificatif(s) scolaire(s) pour la mère en primaire : bavard(e)
+1	Oui
+2	Non
+1147. qualificatif(s) scolaire(s) pour la mère en primaire : lent(e)
+1	Oui
+2	Non
+1148. qualificatif(s) scolaire(s) pour la mère en primaire : chahuteur(se)
+1	Oui
+2	Non
+1149. qualificatif(s) scolaire(s) pour la mère en primaire : discipliné(e)
+1	Oui
+2	Non
+1150. qualificatif(s) scolaire(s) pour la mère en primaire : aimant apprendre
+1	Oui
+2	Non
+1151. qualificatif(s) scolaire(s) pour la mère en primaire : sans problème
+1	Oui
+2	Non
+1152. qualificatif(s) scolaire(s) pour la mère en primaire : autre(non prévu)
+1	Oui
+2	Non
+1153. qualificatif(s) scolaire(s)  / qualifi : rêveur(se) /étourdi(e) /rêveur(se) /ét
+1	Oui
+2	Non
+1154. qualificatif(s) scolaire(s)  / qualificatif(s : travailleur(se) /travailleur(se)
+1	Oui
+2	Non
+1155. qualificatif(s) scolaire(s)  / qualificatif(s) sc : paresseux(se) /paresseux(se)
+1	Oui
+2	Non
+1156. qualificatif(s) scolaire(s)  / qualifi : brillant(e) /ayant des facilités /bril
+1	Oui
+2	Non
+1157. qualificatif(s) scolaire(s)  / qualifi : ayant des difficultés /lent(e) /ayant 
+1	Oui
+2	Non
+1158. qualificatif(s) scolaire(s)  / qualificatif(s) scolaire(s : moyen(ne) /moyen(ne)
+1	Oui
+2	Non
+1159. qualificatif(s) scolaire(s)  / qualificatif(s) scolaire(s : bavard(e) /bavard(e)
+1	Oui
+2	Non
+1160. qualificatif(s) scolaire(s)  / qualificatif(s) sc : chahuteur(se) /chahuteur(se)
+1	Oui
+2	Non
+1161. qualificatif(s) scolaire(s)  / qualificatif(s) sc : discipliné(e) /discipliné(e)
+1	Oui
+2	Non
+1162. qualificatif(s) scolaire(s)  / qualificatif : aimant apprendre /aimant apprendre
+1	Oui
+2	Non
+1163. qualificatif(s) scolaire(s)  / qualificatif(s) sc : sans problème /sans problème
+1	Oui
+2	Non
+1164. qualificatif(s) scolaire(s) pour la mère en secondaire : NRimposée
+1	Oui
+2	Non
+1165. qualificatif(s) scolaire(s) pour la mère en secondaire : rêveur(se)
+1	Oui
+2	Non
+1166. qualificatif(s) scolaire(s) pour la mère en secondaire : travailleur(se)
+1	Oui
+2	Non
+1167. qualificatif(s) scolaire(s) pour la mère en secondaire : paresseux(se)
+1	Oui
+2	Non
+1168. qualificatif(s) scolaire(s) pour la mère en secondaire : étourdi(e)
+1	Oui
+2	Non
+1169. qualificatif(s) scolaire(s) pour la mère en secondaire : brillant(e)
+1	Oui
+2	Non
+1170. qualificatif(s) scolaire(s) pour la mère en secondaire : ayant des difficultés
+1	Oui
+2	Non
+1171. qualificatif(s) scolaire(s) pour la mère en secondaire : ayant des facilités
+1	Oui
+2	Non
+1172. qualificatif(s) scolaire(s) pour la mère en secondaire : moyen(ne)
+1	Oui
+2	Non
+1173. qualificatif(s) scolaire(s) pour la mère en secondaire : bavard(e)
+1	Oui
+2	Non
+1174. qualificatif(s) scolaire(s) pour la mère en secondaire : lent(e)
+1	Oui
+2	Non
+1175. qualificatif(s) scolaire(s) pour la mère en secondaire : chahuteur(se)
+1	Oui
+2	Non
+1176. qualificatif(s) scolaire(s) pour la mère en secondaire : discipliné(e)
+1	Oui
+2	Non
+1177. qualificatif(s) scolaire(s) pour la mère en secondaire : aimant apprendre
+1	Oui
+2	Non
+1178. qualificatif(s) scolaire(s) pour la mère en secondaire : sans problème
+1	Oui
+2	Non
+1179. qualificatif(s) scolaire(s) pour la mère en secondaire : autre(non prévu)
+1	Oui
+2	Non
+1180. qualificatif(s) scolaire(s) pour la mère en secondaire  : rêveur(se) /étourdi(e)
+1	Oui
+2	Non
+1181. qualificatif(s) scolaire(s) pour la mère en secondaire (Recodage : paresseux(se)
+1	Oui
+2	Non
+1182. qualificatif(s) scolaire(s) pour la mère en sec : ayant des difficultés /lent(e)
+1	Oui
+2	Non
+1183. qualificatif(s) scolaire(s) pour la mère en secondaire (Recodage) : bavard(e)
+1	Oui
+2	Non
+1184. qualificatif(s) scolaire(s) pour la mère en secondaire (Recodage) : moyen(ne)
+1	Oui
+2	Non
+1185. qualificatif(s) scolaire(s) pour la mère en secondaire (Recodage : chahuteur(se)
+1	Oui
+2	Non
+1186. qualificatif(s) scolaire(s) pour la mère en secondaire (Recodage : discipliné(e)
+1	Oui
+2	Non
+1187. qualificatif(s) scolaire(s) pour la mère en secondaire (Recoda : travailleur(se)
+1	Oui
+2	Non
+1188. qualificatif(s) scolaire(s) pour la mère en s : brillant(e) /ayant des facilités
+1	Oui
+2	Non
+1189. qualificatif(s) scolaire(s) pour la mère en secondaire (Recod : aimant apprendre
+1	Oui
+2	Non
+1190. qualificatif(s) scolaire(s) pour la mère en secondaire (Recodage : sans problème
+1	Oui
+2	Non
+1191. qualificatif(s) scolaire(s) pour la mère dans le supérieur : NRimposée
+1	Oui
+2	Non
+1192. qualificatif(s) scolaire(s) pour la mère dans le supérieur : rêveur(se)
+1	Oui
+2	Non
+1193. qualificatif(s) scolaire(s) pour la mère dans le supérieur : travailleur(se)
+1	Oui
+2	Non
+1194. qualificatif(s) scolaire(s) pour la mère dans le supérieur : paresseux(se)
+1	Oui
+2	Non
+1195. qualificatif(s) scolaire(s) pour la mère dans le supérieur : étourdi(e)
+1	Oui
+2	Non
+1196. qualificatif(s) scolaire(s) pour la mère dans le supérieur : brillant(e)
+1	Oui
+2	Non
+1197. qualificatif(s) scolaire(s) pour la mère dans le supérie : ayant des difficultés
+1	Oui
+2	Non
+1198. qualificatif(s) scolaire(s) pour la mère dans le supérieur : ayant des facilités
+1	Oui
+2	Non
+1199. qualificatif(s) scolaire(s) pour la mère dans le supérieur : moyen(ne)
+1	Oui
+2	Non
+1200. qualificatif(s) scolaire(s) pour la mère dans le supérieur : bavard(e)
+1	Oui
+2	Non
+1201. qualificatif(s) scolaire(s) pour la mère dans le supérieur : lent(e)
+1	Oui
+2	Non
+1202. qualificatif(s) scolaire(s) pour la mère dans le supérieur : chahuteur(se)
+1	Oui
+2	Non
+1203. qualificatif(s) scolaire(s) pour la mère dans le supérieur : discipliné(e)
+1	Oui
+2	Non
+1204. qualificatif(s) scolaire(s) pour la mère dans le supérieur : aimant apprendre
+1	Oui
+2	Non
+1205. qualificatif(s) scolaire(s) pour la mère dans le supérieur : sans problème
+1	Oui
+2	Non
+1206. qualificatif(s) scolaire(s) pour la mère dans le supérieur : autre(non prévu)
+1	Oui
+2	Non
+1207. vous souvenez-vous d'une refléxion marquante d'un enseignant?
+1	NRimposée
+2	non
+3	oui:
+1208. (laquelle?):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1209. si oui, trouvez-vous que cette remarque ait été justifiée?
+1	NRimposée
+2	NRlogique
+3	non
+4	oui
+5	vous ne savez pas
+1210. avez-vous un souvenir particulièrement marquant de votre scolarité à décrire? (une punition injustifiée, une longue maladie, une année oparticulièrement bonne, des difficultés familiales qui ont joué sur votre scolarité..)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1211. quelle profession exerçait votre père lorsque vous étiez enfant?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1212. certification scolaire de la lignée maternelle
+1	Lignée maternelle scolairement dotée
+2	lignées maternelles scolairement dépourvues (CEP compris)
+1213. certification scolaire des deux lignées : Lignée maternelle scolairement dotée
+1	Oui
+2	Non
+1214. certification scolaire des deux lignée : lignées maternelles scolairement dépou
+1	Oui
+2	Non
+1215. certification scolaire des deux lignée : Lignées paternelles scolairement dépou
+1	Oui
+2	Non
+1216. certification scolaire des deux lignée : lignées paternelles scolairement dotée
+1	Oui
+2	Non
+1217. quelle profession exerçait votre mère?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1218. quel est le diplôme le plus élevé de votre père?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1219. scolarisation des grands-parents maternels
+1	au moins un des grands-parents maternels a fait des études s
+2	lignées maternelles scolairement dépourvues (CEP compris)
+1220. quel est le dipl^me le plus élevé de votre mère?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1221. exercez-vous actuellement une profession?
+1	NRimposée
+2	oui
+3	non
+1222. (laquelle?):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1223. si non, en avez-vous exercez une auparavant?
+1	NRimposée
+2	NRlogique
+3	oui
+4	non
+1224. (laquelle
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1225. .. et durant quelle(s) année(s)?)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1226. si vous en exercez une actuellement, depuis quend le faites-vous? (année de début)
+Entrer la valeur :   |_|_|,|_|_|
+1227. Reprise d'étude du père
+1	reprise d'étude
+2	formation initiale
+1228. avant cette date, exerciez-vous une profession différente de celle que vous exercez aujourd'hui?
+1	NRimposée
+2	NRlogique
+3	non
+4	oui:
+1229. (laquelle?)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1230. chômage paternel : NRimposée
+1	Oui
+2	Non
+1231. chômage paternel : non
+1	Oui
+2	Non
+1232. chômage paternel : oui, vous êtes actuellement au chômage:
+1	Oui
+2	Non
+1233. chômage paternel : oui, vous avez été au chômage:
+1	Oui
+2	Non
+1234. (depuis quelle date?) (en quelle(s) année(s)?):
+Entrer la valeur :   |_|_|,|_|_|
+1235. Classes sur durée (cumulée) du chômage paternel 
+1	de &gt;=0,1 à 1
+2	de &gt;=1 à 1,9
+3	de &gt;=1,9 à 2,8
+4	de &gt;=2,8 à 17,01
+1236. chômage paternel// scolarité de l'enfant : NRimposée
+1	Oui
+2	Non
+1237. chômage paternel// scolarité de l'enfant : NRlogique
+1	Oui
+2	Non
+1238. chômage paternel// scolarité de l'enfant : avant sa naissance
+1	Oui
+2	Non
+1239. chômage paternel// scolarité de l'enfant : quand il était tout petit
+1	Oui
+2	Non
+1240. chômage paternel// scolarité de l'enfant : maternelle
+1	Oui
+2	Non
+1241. chômage paternel// scolarité de l'enfant : CP
+1	Oui
+2	Non
+1242. chômage paternel// scolarité de l'enfant : cours élémentaires
+1	Oui
+2	Non
+1243. chômage paternel// scolarité de l'enfant : cours moyens
+1	Oui
+2	Non
+1244. chômage paternel// scolarité de l'enfant : 6ème
+1	Oui
+2	Non
+1245. chômage paternel// scolarité de l'enfant : 5ème
+1	Oui
+2	Non
+1246. chômage paternel// scolarité de l'enfant : impossible à définir
+1	Oui
+2	Non
+1247. avez-vous arrêté de travailler durant une longue période?
+1	NRimposée
+2	NRlogique
+3	oui, une fois
+4	oui, plusieurs fois
+5	non
+6	oui (sans précisions)
+1248.  (en quelle(s) année(s)?):
+Entrer la valeur :   |_|_|,|_|_|
+1249. Classes sur durée (cumulée) du (ou des) arrêt(s) de travail paternel(s) 
+1	de &gt;=0,25 à 0,5
+2	de &gt;=0,5 à 0,75
+3	de &gt;=0,75 à 1
+4	de &gt;=1 à 1,25
+5	de &gt;=1,25 à 1,4
+6	de &gt;=1,4 à 2
+7	de &gt;=2 à 3
+8	de &gt;=3 à 4
+9	de &gt;=4 à 5
+10	de &gt;=5 à 7
+11	de &gt;=7 à 10
+12	de &gt;=10 à 10,01
+1250. Classes sur durée (cumulée) du (ou des) arrêt(s) de travail paternel( (Recodage)
+1	2 ans et moins
+2	3 ans et plus
+1251. arrêt(s) de travail paternel(s)// scolarité de l'enfant : NRimposée
+1	Oui
+2	Non
+1252. arrêt(s) de travail paternel(s)// scolarité de l'enfant : NRlogique
+1	Oui
+2	Non
+1253. arrêt(s) de travail paternel(s)// scolarité de l'enfant : avant sa naissance
+1	Oui
+2	Non
+1254. arrêt(s) de travail paternel(s)// scolarité de l'enf : quand il était tout petit
+1	Oui
+2	Non
+1255. arrêt(s) de travail paternel(s)// scolarité de l'enfant : maternelle
+1	Oui
+2	Non
+1256. arrêt(s) de travail paternel(s)// scolarité de l'enfant : CP
+1	Oui
+2	Non
+1257. arrêt(s) de travail paternel(s)// scolarité de l'enfant : cours élémentaires
+1	Oui
+2	Non
+1258. arrêt(s) de travail paternel(s)// scolarité de l'enfant : cours moyens
+1	Oui
+2	Non
+1259. arrêt(s) de travail paternel(s)// scolarité de l'enfant : 6ème
+1	Oui
+2	Non
+1260. arrêt(s) de travail paternel(s)// scolarité de l'enfant : 5ème
+1	Oui
+2	Non
+1261. arrêt(s) de travail paternel(s)// scolarité de l'enfant : impossible à définir
+1	Oui
+2	Non
+1262. avez-vous aménagé ou réduit vos horaires de travail depuis la naissance de vos enfants?
+1	NRimposée
+2	NRlogique
+3	oui:
+4	non
+1263. aménagement horaires paternels// scolarité de l'enfant : NRimposée
+1	Oui
+2	Non
+1264. aménagement horaires paternels// scolarité de l'enfant : NRlogique
+1	Oui
+2	Non
+1265. aménagement horaires paternels// scolarité de l'enfant : avant sa naissance
+1	Oui
+2	Non
+1266. aménagement horaires paternels// scolarité de l'enfa : quand il était tout petit
+1	Oui
+2	Non
+1267. aménagement horaires paternels// scolarité de l'enfant : maternelle
+1	Oui
+2	Non
+1268. aménagement horaires paternels// scolarité de l'enfant : CP
+1	Oui
+2	Non
+1269. aménagement horaires paternels// scolarité de l'enfant : cours élémentaires
+1	Oui
+2	Non
+1270. aménagement horaires paternels// scolarité de l'enfant : cours moyens
+1	Oui
+2	Non
+1271. aménagement horaires paternels// scolarité de l'enfant : 6ème
+1	Oui
+2	Non
+1272. aménagement horaires paternels// scolarité de l'enfant : 5ème
+1	Oui
+2	Non
+1273. aménagement horaires paternels// scolarité de l'enfant : impossible à définir
+1	Oui
+2	Non
+1274.  (en quelle(s) année(s)?):
+Entrer la valeur :   |_|_|,|_|_|
+1275. formation(s) suivie(s) par le père : NRimposée
+1	Oui
+2	Non
+1276. formation(s) suivie(s) par le père : NRlogique
+1	Oui
+2	Non
+1277. formation(s) suivie(s) par le père : non
+1	Oui
+2	Non
+1278. formation(s) suivie(s) par le père : oui, une formation en cours d'emploi
+1	Oui
+2	Non
+1279. formation(s) suivie(s) par le père : oui, une formation professionnelle
+1	Oui
+2	Non
+1280. formation(s) suivie(s) par le père : oui, une formation universitaire
+1	Oui
+2	Non
+1281. formation(s) suivie(s) par le père : oui, une autre formation
+1	Oui
+2	Non
+1282. (laquelle):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1283. diplôme(s) obtenu(s) par le père : NRimposée
+1	Oui
+2	Non
+1284. diplôme(s) obtenu(s) par le père : NRlogique
+1	Oui
+2	Non
+1285. diplôme(s) obtenu(s) par le père : aucun diplôme
+1	Oui
+2	Non
+1286. diplôme(s) obtenu(s) par le père : certificat d'étude
+1	Oui
+2	Non
+1287. diplôme(s) obtenu(s) par le père : brevet des collèges
+1	Oui
+2	Non
+1288. diplôme(s) obtenu(s) par le père : CAP:
+1	Oui
+2	Non
+1289. diplôme(s) obtenu(s) par le père : BEP:
+1	Oui
+2	Non
+1290. diplôme(s) obtenu(s) par le père : diplôme d'état s'obtenant sans le bac (aide s
+1	Oui
+2	Non
+1291. diplôme(s) obtenu(s) par le père : baccalauréat professionnel
+1	Oui
+2	Non
+1292. diplôme(s) obtenu(s) par le père : baccalauréat général
+1	Oui
+2	Non
+1293. diplôme(s) obtenu(s) par le père : DUT
+1	Oui
+2	Non
+1294. diplôme(s) obtenu(s) par le père : BTS
+1	Oui
+2	Non
+1295. diplôme(s) obtenu(s) par le père : Deug
+1	Oui
+2	Non
+1296. diplôme(s) obtenu(s) par le père : diplôme d'état en deux ou trois ans (infirmiè
+1	Oui
+2	Non
+1297. diplôme(s) obtenu(s) par le père : licence
+1	Oui
+2	Non
+1298. diplôme(s) obtenu(s) par le père : diplôme d'état s'obtenant en quatre ans (assi
+1	Oui
+2	Non
+1299. diplôme(s) obtenu(s) par le père : maîtrise
+1	Oui
+2	Non
+1300. diplôme(s) obtenu(s) par le père : diplôme d'une grande école
+1	Oui
+2	Non
+1301. diplôme(s) obtenu(s) par le père : diplôme de troisième cycle avant le doctorat
+1	Oui
+2	Non
+1302. diplôme(s) obtenu(s) par le père : doctorat
+1	Oui
+2	Non
+1303. diplôme(s) obtenu(s) par le père : spécialisation post doctorat
+1	Oui
+2	Non
+1304. diplôme(s) obtenu(s) par le père : autre diplôme
+1	Oui
+2	Non
+1305. en quelle année?
+Entrer la valeur :   |_|_|
+1306. année du dernier diplôme obtenu par le père
+Entrer la valeur :   |_|_|
+1307. Classes sur année du dernier diplôme obtenu par le père
+1	de &gt;=53 à 54
+2	de &gt;=54 à 55
+3	de &gt;=55 à 56
+4	de &gt;=56 à 57
+5	de &gt;=57 à 59
+6	de &gt;=59 à 60
+7	de &gt;=60 à 62
+8	de &gt;=62 à 63
+9	de &gt;=63 à 64
+10	de &gt;=64 à 65
+11	de &gt;=65 à 66
+12	de &gt;=66 à 67
+13	de &gt;=67 à 68
+14	de &gt;=68 à 69
+15	de &gt;=69 à 70
+16	de &gt;=70 à 71
+17	de &gt;=71 à 72
+18	de &gt;=72 à 73
+19	de &gt;=73 à 74
+20	de &gt;=74 à 75
+21	de &gt;=75 à 76
+22	de &gt;=76 à 77
+23	de &gt;=77 à 78
+24	de &gt;=78 à 79
+25	de &gt;=79 à 80
+26	de &gt;=80 à 81
+27	de &gt;=81 à 82
+28	de &gt;=82 à 83
+29	de &gt;=83 à 84
+30	de &gt;=84 à 85
+31	de &gt;=85 à 86
+32	de &gt;=86 à 87
+33	de &gt;=87 à 88
+34	de &gt;=88 à 89
+35	de &gt;=89 à 90
+36	de &gt;=90 à 91
+37	de &gt;=91 à 92
+38	de &gt;=92 à 93
+39	de &gt;=93 à 94
+40	de &gt;=94 à 95
+41	de &gt;=95 à 96
+42	de &gt;=96 à 97
+43	de &gt;=97 à 98
+44	de &gt;=98 à 99
+1308. Classes sur année du dernier diplôme obtenu par le père (Recodage)
+1	de 53 à 85
+2	de 86 à 98
+1309. en quelle année
+Entrer la valeur :   |_|_|
+1310. année d'obtention du BEP
+Entrer la valeur :   |_|_|
+1311. année d'obtention du CAP
+Entrer la valeur :   |_|_|
+1312. année du baccalauréat (général et professionnel)
+Entrer la valeur :   |_|_|
+1313. année du baccalauréat (général et professionnel) (Num -&gt; Unique)
+1	62
+2	64
+3	65
+4	66
+5	67
+6	68
+7	69
+8	70
+9	71
+10	72
+11	73
+12	74
+13	75
+14	76
+15	77
+16	78
+17	79
+18	80
+19	81
+20	84
+21	89
+22	91
+23	94
+24	95
+25	96
+1314. année du baccalauréat (général et professionnel) (Num -&gt; Unique) (Recodage)
+1	62 /64 /65 /66 /67 /68 /69
+2	70 /71 /72 /73 /74 /75
+3	76 /77 /78 /79 /80
+4	81 /84 /89 /91 /94 /95 /96
+1315. année du deug (BTS DUT)
+Entrer la valeur :   |_|_|
+1316. année licence (DE en 2 ou 3 ans)
+Entrer la valeur :   |_|_|
+1317. année maîtrise (DE en 4 ans)
+Entrer la valeur :   |_|_|
+1318. année diplôme de troisième cycle
+Entrer la valeur :   |_|_|
+1319. année diplôme grande école
+Entrer la valeur :   |_|_|
+1320. année autre diplôme
+Entrer la valeur :   |_|_|
+1321. (lequel?) (dans quelle discipline?) (laquelle?)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1322. :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1323. quelle était la dernière classe de l'enseignement général que vous avez fréquentée?
+1	NRimposée
+2	NRlogique
+3	cours élémentaires
+4	cours moyens
+5	certificat
+6	6ème
+7	5ème
+8	4ème
+9	3ème
+10	2nde
+11	1ère
+12	terminale
+13	enseignement professionnel
+14	enseignement supérier
+15	autre
+1324. déroulement de la scolarité paternelle : NRimposée
+1	Oui
+2	Non
+1325. déroulement de la scolarité paternelle : très bien
+1	Oui
+2	Non
+1326. déroulement de la scolarité paternelle : bien
+1	Oui
+2	Non
+1327. déroulement de la scolarité paternelle : moyennement
+1	Oui
+2	Non
+1328. déroulement de la scolarité paternelle : mal
+1	Oui
+2	Non
+1329. déroulement de la scolarité paternelle : très mal
+1	Oui
+2	Non
+1330. déroulement de la scolarité paternelle : différemment selon les années
+1	Oui
+2	Non
+1331. déroulement de la scolarité paternelle : différemment selon les enseignants
+1	Oui
+2	Non
+1332. déroulement de la scolarité paternelle : différemment selon les matières
+1	Oui
+2	Non
+1333. déroulement de la scolarité paternelle : autre (non prévu)
+1	Oui
+2	Non
+1334. avez-vous connu des redoublements?
+1	NRimposée
+2	non
+3	oui
+1335. :
+Entrer la valeur :   |_|_|
+1336. Classes sur nombre de redoublements paternels
+1	de &gt;=0 à 1
+2	de &gt;=1 à 2
+3	de &gt;=2 à 3
+4	de &gt;=3 à 4
+5	de &gt;=4 à 5
+6	de &gt;=5 à 6
+1337. classe(s) redoublée(s) par le père : NRimposée
+1	Oui
+2	Non
+1338. classe(s) redoublée(s) par le père : NRlogique
+1	Oui
+2	Non
+1339. classe(s) redoublée(s) par le père : PS ou MS maternelle
+1	Oui
+2	Non
+1340. classe(s) redoublée(s) par le père : GS maternelle
+1	Oui
+2	Non
+1341. classe(s) redoublée(s) par le père : CP
+1	Oui
+2	Non
+1342. classe(s) redoublée(s) par le père : CE1
+1	Oui
+2	Non
+1343. classe(s) redoublée(s) par le père : CE2
+1	Oui
+2	Non
+1344. classe(s) redoublée(s) par le père : CM1
+1	Oui
+2	Non
+1345. classe(s) redoublée(s) par le père : CM2
+1	Oui
+2	Non
+1346. classe(s) redoublée(s) par le père : 6ème
+1	Oui
+2	Non
+1347. classe(s) redoublée(s) par le père : 5ème
+1	Oui
+2	Non
+1348. classe(s) redoublée(s) par le père : 4ème
+1	Oui
+2	Non
+1349. classe(s) redoublée(s) par le père : 3ème
+1	Oui
+2	Non
+1350. classe(s) redoublée(s) par le père : 2nde
+1	Oui
+2	Non
+1351. classe(s) redoublée(s) par le père : 1ère
+1	Oui
+2	Non
+1352. classe(s) redoublée(s) par le père : terminale
+1	Oui
+2	Non
+1353. classe(s) redoublée(s) par le père : enseignement professionnel
+1	Oui
+2	Non
+1354. classe(s) redoublée(s) par le père : enseignement supérier
+1	Oui
+2	Non
+1355. classe(s) redoublée(s) par le père : autre
+1	Oui
+2	Non
+1356. classe(s) redoublée(s) par le père (groupées : NRimposée
+1	Oui
+2	Non
+1357. classe(s) redoublée(s) par le père (groupées : NRlogique
+1	Oui
+2	Non
+1358. classe(s) redoublée(s) par le père (groupées : CP
+1	Oui
+2	Non
+1359. classe(s) redoublée(s) par le père (groupées : CE1 /CE2
+1	Oui
+2	Non
+1360. classe(s) redoublée(s) par le père (groupées : CM1 /CM2
+1	Oui
+2	Non
+1361. classe(s) redoublée(s) par le père (groupées : 6ème /5ème
+1	Oui
+2	Non
+1362. classe(s) redoublée(s) par le père (groupées : 4ème /3ème
+1	Oui
+2	Non
+1363. classe(s) redoublée(s) par le père (groupées : 2nde /1ère /terminale
+1	Oui
+2	Non
+1364. classe(s) redoublée(s) par le père (gr : enseignement professionnel /enseigneme
+1	Oui
+2	Non
+1365. classe(s) redoublée(s) par le père (groupées2) : NRlogique
+1	Oui
+2	Non
+1366. classe(s) redoublée(s) par le père (groupées2) : collège
+1	Oui
+2	Non
+1367. classe(s) redoublée(s) par le père (groupées2) : primaire
+1	Oui
+2	Non
+1368. classe(s) redoublée(s) par le père (groupées2) : lycée et classes ultérieures
+1	Oui
+2	Non
+1369. difficultés rencontrées par le père dans sa scolarité : NRimposée
+1	Oui
+2	Non
+1370. difficultés rencontrées par le père dans sa s : dans une matière en particulier:
+1	Oui
+2	Non
+1371. difficultés rencontrées par le père dans  : au cours d'une année en particulier:
+1	Oui
+2	Non
+1372. difficultés rencontrées par le père da : dans vos relations avec vos camarades 
+1	Oui
+2	Non
+1373. difficultés rencontrées par le père dans sa scolarité : non (non prévu)
+1	Oui
+2	Non
+1374. difficultés rencontrées par le père dans sa scolarité : autre (non prévu)
+1	Oui
+2	Non
+1375. précision matière où difficultés : NRimposée
+1	Oui
+2	Non
+1376. précision matière où difficultés : NRlogique
+1	Oui
+2	Non
+1377. précision matière où difficultés : français
+1	Oui
+2	Non
+1378. précision matière où difficultés : mathématiques
+1	Oui
+2	Non
+1379. précision matière où difficultés : lecture
+1	Oui
+2	Non
+1380. précision matière où difficultés : dissertation
+1	Oui
+2	Non
+1381. précision matière où difficultés : orthographe
+1	Oui
+2	Non
+1382. précision matière où difficultés : histoire
+1	Oui
+2	Non
+1383. précision matière où difficultés : géographie
+1	Oui
+2	Non
+1384. précision matière où difficultés : anglais
+1	Oui
+2	Non
+1385. précision matière où difficultés : allemand
+1	Oui
+2	Non
+1386. précision matière où difficultés : autre langue vivante
+1	Oui
+2	Non
+1387. précision matière où difficultés : biologie
+1	Oui
+2	Non
+1388. précision matière où difficultés : physique
+1	Oui
+2	Non
+1389. précision matière où difficultés : latin
+1	Oui
+2	Non
+1390. précision matière où difficultés : sport
+1	Oui
+2	Non
+1391. précision matière où difficultés : dessin
+1	Oui
+2	Non
+1392. précision matière où difficultés : musique
+1	Oui
+2	Non
+1393. précision matière où difficultés : économie
+1	Oui
+2	Non
+1394. précision matière où difficultés : philosophie
+1	Oui
+2	Non
+1395. précision matière où difficultés : comptabilité
+1	Oui
+2	Non
+1396. précision matière où difficultés : mécanique
+1	Oui
+2	Non
+1397. précision matière où difficultés : autre matière technique ou professionnelle
+1	Oui
+2	Non
+1398. précision matière où difficultés : autre
+1	Oui
+2	Non
+1399. précision matière où difficultés : matières littéraires
+1	Oui
+2	Non
+1400. précision matière où difficultés : matières scientifiques
+1	Oui
+2	Non
+1401. précision matière où difficultés : les langues
+1	Oui
+2	Non
+1402. précision matière où difficultés (groupées) : NRimposée
+1	Oui
+2	Non
+1403. précision matière où difficultés (groupées) : NRlogique
+1	Oui
+2	Non
+1404. précision matière où difficultés (groupées) : français /orthographe
+1	Oui
+2	Non
+1405. précision matière où difficultés (groupées) : mathématiques
+1	Oui
+2	Non
+1406. précision matière où difficultés (grou : anglais /allemand /autre langue vivant
+1	Oui
+2	Non
+1407. précision matière où difficultés (groupées) : autres
+1	Oui
+2	Non
+1408. classe(s) où difficultés paternelles : NRimposée
+1	Oui
+2	Non
+1409. classe(s) où difficultés paternelles : NRlogique
+1	Oui
+2	Non
+1410. classe(s) où difficultés paternelles : PS ou MS maternelle
+1	Oui
+2	Non
+1411. classe(s) où difficultés paternelles : GS maternelle
+1	Oui
+2	Non
+1412. classe(s) où difficultés paternelles : CP
+1	Oui
+2	Non
+1413. classe(s) où difficultés paternelles : CE1
+1	Oui
+2	Non
+1414. classe(s) où difficultés paternelles : CE2
+1	Oui
+2	Non
+1415. classe(s) où difficultés paternelles : CM1
+1	Oui
+2	Non
+1416. classe(s) où difficultés paternelles : CM2
+1	Oui
+2	Non
+1417. classe(s) où difficultés paternelles : 6ème
+1	Oui
+2	Non
+1418. classe(s) où difficultés paternelles : 5ème
+1	Oui
+2	Non
+1419. classe(s) où difficultés paternelles : 4ème
+1	Oui
+2	Non
+1420. classe(s) où difficultés paternelles : 3ème
+1	Oui
+2	Non
+1421. classe(s) où difficultés paternelles : 2nde
+1	Oui
+2	Non
+1422. classe(s) où difficultés paternelles : 1ère
+1	Oui
+2	Non
+1423. classe(s) où difficultés paternelles : terminale
+1	Oui
+2	Non
+1424. classe(s) où difficultés paternelles : enseignement professionnel
+1	Oui
+2	Non
+1425. classe(s) où difficultés paternelles : enseignement supérier
+1	Oui
+2	Non
+1426. classe(s) où difficultés paternelles : autre
+1	Oui
+2	Non
+1427. étiez-vous particulièrement à l'aise dans une matière?
+1	NRimposée
+2	non
+3	oui
+1428. précision matière(s) de prédilection paternelle : NRimposée
+1	Oui
+2	Non
+1429. précision matière(s) de prédilection paternelle : NRlogique
+1	Oui
+2	Non
+1430. précision matière(s) de prédilection paternelle : français
+1	Oui
+2	Non
+1431. précision matière(s) de prédilection paternelle : mathématiques
+1	Oui
+2	Non
+1432. précision matière(s) de prédilection paternelle : lecture
+1	Oui
+2	Non
+1433. précision matière(s) de prédilection paternelle : dissertation
+1	Oui
+2	Non
+1434. précision matière(s) de prédilection paternelle : orthographe
+1	Oui
+2	Non
+1435. précision matière(s) de prédilection paternelle : histoire
+1	Oui
+2	Non
+1436. précision matière(s) de prédilection paternelle : géographie
+1	Oui
+2	Non
+1437. précision matière(s) de prédilection paternelle : anglais
+1	Oui
+2	Non
+1438. précision matière(s) de prédilection paternelle : allemand
+1	Oui
+2	Non
+1439. précision matière(s) de prédilection paternelle : autre langue vivante
+1	Oui
+2	Non
+1440. précision matière(s) de prédilection paternelle : biologie
+1	Oui
+2	Non
+1441. précision matière(s) de prédilection paternelle : physique
+1	Oui
+2	Non
+1442. précision matière(s) de prédilection paternelle : latin
+1	Oui
+2	Non
+1443. précision matière(s) de prédilection paternelle : sport
+1	Oui
+2	Non
+1444. précision matière(s) de prédilection paternelle : dessin
+1	Oui
+2	Non
+1445. précision matière(s) de prédilection paternelle : musique
+1	Oui
+2	Non
+1446. précision matière(s) de prédilection paternelle : économie
+1	Oui
+2	Non
+1447. précision matière(s) de prédilection paternelle : philosophie
+1	Oui
+2	Non
+1448. précision matière(s) de prédilection paternelle : comptabilité
+1	Oui
+2	Non
+1449. précision matière(s) de prédilection paternelle : mécanique
+1	Oui
+2	Non
+1450. précision matière(s) de prédilection p : autre matière technique ou professionn
+1	Oui
+2	Non
+1451. précision matière(s) de prédilection paternelle : autre
+1	Oui
+2	Non
+1452. précision matière(s) de prédilection paternelle : technologie
+1	Oui
+2	Non
+1453. précision matière(s) de prédilection paternelle : matières littéraires
+1	Oui
+2	Non
+1454. précision matière(s) de prédilection paternelle : matières scientifiques
+1	Oui
+2	Non
+1455. précision matière(s) de prédilection paternelle : les langues
+1	Oui
+2	Non
+1456. précision matière(s) de prédilection paternelle (Recodage) : NRlogique
+1	Oui
+2	Non
+1457. précision matière(s) de prédilection p : français /lecture /dissertation /ortho
+1	Oui
+2	Non
+1458. précision matière(s) de prédilection pat : mathématiques /matières scientifiques
+1	Oui
+2	Non
+1459. précision matière(s) de prédilection p : histoire /géographie /anglais /alleman
+1	Oui
+2	Non
+1460. un enseignant en particulier vous a-t-il plus marquée que d'autres (positivement ou négativement)?
+1	NRimposée
+2	non
+3	oui:
+1461. classe(s) où enseignant marquant pour le père : NRimposée
+1	Oui
+2	Non
+1462. classe(s) où enseignant marquant pour le père : NRlogique
+1	Oui
+2	Non
+1463. classe(s) où enseignant marquant pour le père : PS ou MS maternelle
+1	Oui
+2	Non
+1464. classe(s) où enseignant marquant pour le père : GS maternelle
+1	Oui
+2	Non
+1465. classe(s) où enseignant marquant pour le père : CP
+1	Oui
+2	Non
+1466. classe(s) où enseignant marquant pour le père : CE1
+1	Oui
+2	Non
+1467. classe(s) où enseignant marquant pour le père : CE2
+1	Oui
+2	Non
+1468. classe(s) où enseignant marquant pour le père : CM1
+1	Oui
+2	Non
+1469. classe(s) où enseignant marquant pour le père : CM2
+1	Oui
+2	Non
+1470. classe(s) où enseignant marquant pour le père : 6ème
+1	Oui
+2	Non
+1471. classe(s) où enseignant marquant pour le père : 5ème
+1	Oui
+2	Non
+1472. classe(s) où enseignant marquant pour le père : 4ème
+1	Oui
+2	Non
+1473. classe(s) où enseignant marquant pour le père : 3ème
+1	Oui
+2	Non
+1474. classe(s) où enseignant marquant pour le père : 2nde
+1	Oui
+2	Non
+1475. classe(s) où enseignant marquant pour le père : 1ère
+1	Oui
+2	Non
+1476. classe(s) où enseignant marquant pour le père : terminale
+1	Oui
+2	Non
+1477. classe(s) où enseignant marquant pour le père : enseignement professionnel
+1	Oui
+2	Non
+1478. classe(s) où enseignant marquant pour le père : enseignement supérier
+1	Oui
+2	Non
+1479. classe(s) où enseignant marquant pour le père : autre
+1	Oui
+2	Non
+1480. précision matière où enseignant marquant : NRimposée
+1	Oui
+2	Non
+1481. précision matière où enseignant marquant : NRlogique
+1	Oui
+2	Non
+1482. précision matière où enseignant marquant : français
+1	Oui
+2	Non
+1483. précision matière où enseignant marquant : mathématiques
+1	Oui
+2	Non
+1484. précision matière où enseignant marquant : lecture
+1	Oui
+2	Non
+1485. précision matière où enseignant marquant : dissertation
+1	Oui
+2	Non
+1486. précision matière où enseignant marquant : orthographe
+1	Oui
+2	Non
+1487. précision matière où enseignant marquant : histoire
+1	Oui
+2	Non
+1488. précision matière où enseignant marquant : géographie
+1	Oui
+2	Non
+1489. précision matière où enseignant marquant : anglais
+1	Oui
+2	Non
+1490. précision matière où enseignant marquant : allemand
+1	Oui
+2	Non
+1491. précision matière où enseignant marquant : autre langue vivante
+1	Oui
+2	Non
+1492. précision matière où enseignant marquant : biologie
+1	Oui
+2	Non
+1493. précision matière où enseignant marquant : physique
+1	Oui
+2	Non
+1494. précision matière où enseignant marquant : latin
+1	Oui
+2	Non
+1495. précision matière où enseignant marquant : sport
+1	Oui
+2	Non
+1496. précision matière où enseignant marquant : dessin
+1	Oui
+2	Non
+1497. précision matière où enseignant marquant : musique
+1	Oui
+2	Non
+1498. précision matière où enseignant marquant : économie
+1	Oui
+2	Non
+1499. précision matière où enseignant marquant : philosophie
+1	Oui
+2	Non
+1500. précision matière où enseignant marquant : comptabilité
+1	Oui
+2	Non
+1501. précision matière où enseignant marquant : mécanique
+1	Oui
+2	Non
+1502. précision matière où enseignant marqua : autre matière technique ou professionn
+1	Oui
+2	Non
+1503. précision matière où enseignant marquant : autre
+1	Oui
+2	Non
+1504. type de souvenir de l'enseignant marquant : Nrimposée
+1	Oui
+2	Non
+1505. type de souvenir de l'enseignant marquant : NRlogique
+1	Oui
+2	Non
+1506. type de souvenir de l'enseignant marquant : agréable?
+1	Oui
+2	Non
+1507. type de souvenir de l'enseignant marquant : désagréable?
+1	Oui
+2	Non
+1508. type de souvenir de l'enseignant marquant : autre (non prévu)
+1	Oui
+2	Non
+1509. origine du souvenir de l'enseignant marquant : NRimposée
+1	Oui
+2	Non
+1510. origine du souvenir de l'enseignant marquant : NRlogique
+1	Oui
+2	Non
+1511. origine du souvenir de l'enseignant marquant : sa façon d'enseigner?
+1	Oui
+2	Non
+1512. origine du souvenir de l'enseignant marquant : la matière qu'il enseignait?
+1	Oui
+2	Non
+1513. origine du souvenir de l'enseignant marquant : sa façon de se faire obeir?
+1	Oui
+2	Non
+1514. origine du souvenir de l'enseignant marquant : autre:
+1	Oui
+2	Non
+1515. (veuillez préciser):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1516. qualificatif(s) scolaire(s) pour le père en primaire : NRimposée
+1	Oui
+2	Non
+1517. qualificatif(s) scolaire(s) pour le père en primaire : rêveur(se)
+1	Oui
+2	Non
+1518. qualificatif(s) scolaire(s) pour le père en primaire : travailleur(se)
+1	Oui
+2	Non
+1519. qualificatif(s) scolaire(s) pour le père en primaire : paresseux(se)
+1	Oui
+2	Non
+1520. qualificatif(s) scolaire(s) pour le père en primaire : étourdi(e)
+1	Oui
+2	Non
+1521. qualificatif(s) scolaire(s) pour le père en primaire : brillant(e)
+1	Oui
+2	Non
+1522. qualificatif(s) scolaire(s) pour le père en primaire : ayant des difficultés
+1	Oui
+2	Non
+1523. qualificatif(s) scolaire(s) pour le père en primaire : ayant des facilités
+1	Oui
+2	Non
+1524. qualificatif(s) scolaire(s) pour le père en primaire : moyen(ne)
+1	Oui
+2	Non
+1525. qualificatif(s) scolaire(s) pour le père en primaire : bavard(e)
+1	Oui
+2	Non
+1526. qualificatif(s) scolaire(s) pour le père en primaire : lent(e)
+1	Oui
+2	Non
+1527. qualificatif(s) scolaire(s) pour le père en primaire : chahuteur(se)
+1	Oui
+2	Non
+1528. qualificatif(s) scolaire(s) pour le père en primaire : discipliné(e)
+1	Oui
+2	Non
+1529. qualificatif(s) scolaire(s) pour le père en primaire : aimant apprendre
+1	Oui
+2	Non
+1530. qualificatif(s) scolaire(s) pour le père en primaire : sans problème
+1	Oui
+2	Non
+1531. qualificatif(s) scolaire(s) pour le père en primaire : autre(non prévu)
+1	Oui
+2	Non
+1532. qualificatif(s) scolaire(s) pour le père en secondaire : NRimposée
+1	Oui
+2	Non
+1533. qualificatif(s) scolaire(s) pour le père en secondaire : rêveur(se)
+1	Oui
+2	Non
+1534. qualificatif(s) scolaire(s) pour le père en secondaire : travailleur(se)
+1	Oui
+2	Non
+1535. qualificatif(s) scolaire(s) pour le père en secondaire : paresseux(se)
+1	Oui
+2	Non
+1536. qualificatif(s) scolaire(s) pour le père en secondaire : étourdi(e)
+1	Oui
+2	Non
+1537. qualificatif(s) scolaire(s) pour le père en secondaire : brillant(e)
+1	Oui
+2	Non
+1538. qualificatif(s) scolaire(s) pour le père en secondaire : ayant des difficultés
+1	Oui
+2	Non
+1539. qualificatif(s) scolaire(s) pour le père en secondaire : ayant des facilités
+1	Oui
+2	Non
+1540. qualificatif(s) scolaire(s) pour le père en secondaire : moyen(ne)
+1	Oui
+2	Non
+1541. qualificatif(s) scolaire(s) pour le père en secondaire : bavard(e)
+1	Oui
+2	Non
+1542. qualificatif(s) scolaire(s) pour le père en secondaire : lent(e)
+1	Oui
+2	Non
+1543. qualificatif(s) scolaire(s) pour le père en secondaire : chahuteur(se)
+1	Oui
+2	Non
+1544. qualificatif(s) scolaire(s) pour le père en secondaire : discipliné(e)
+1	Oui
+2	Non
+1545. qualificatif(s) scolaire(s) pour le père en secondaire : aimant apprendre
+1	Oui
+2	Non
+1546. qualificatif(s) scolaire(s) pour le père en secondaire : sans problème
+1	Oui
+2	Non
+1547. qualificatif(s) scolaire(s) pour le père en secondaire : autre(non prévu)
+1	Oui
+2	Non
+1548. qualificatif(s) scolaire(s) pour le père dans le supérieur : NRimposée
+1	Oui
+2	Non
+1549. qualificatif(s) scolaire(s) pour le père dans le supérieur : rêveur(se)
+1	Oui
+2	Non
+1550. qualificatif(s) scolaire(s) pour le père dans le supérieur : travailleur(se)
+1	Oui
+2	Non
+1551. qualificatif(s) scolaire(s) pour le père dans le supérieur : paresseux(se)
+1	Oui
+2	Non
+1552. qualificatif(s) scolaire(s) pour le père dans le supérieur : étourdi(e)
+1	Oui
+2	Non
+1553. qualificatif(s) scolaire(s) pour le père dans le supérieur : brillant(e)
+1	Oui
+2	Non
+1554. qualificatif(s) scolaire(s) pour le père dans le supérie : ayant des difficultés
+1	Oui
+2	Non
+1555. qualificatif(s) scolaire(s) pour le père dans le supérieur : ayant des facilités
+1	Oui
+2	Non
+1556. qualificatif(s) scolaire(s) pour le père dans le supérieur : moyen(ne)
+1	Oui
+2	Non
+1557. qualificatif(s) scolaire(s) pour le père dans le supérieur : bavard(e)
+1	Oui
+2	Non
+1558. qualificatif(s) scolaire(s) pour le père dans le supérieur : lent(e)
+1	Oui
+2	Non
+1559. qualificatif(s) scolaire(s) pour le père dans le supérieur : chahuteur(se)
+1	Oui
+2	Non
+1560. qualificatif(s) scolaire(s) pour le père dans le supérieur : discipliné(e)
+1	Oui
+2	Non
+1561. qualificatif(s) scolaire(s) pour le père dans le supérieur : aimant apprendre
+1	Oui
+2	Non
+1562. qualificatif(s) scolaire(s) pour le père dans le supérieur : sans problème
+1	Oui
+2	Non
+1563. qualificatif(s) scolaire(s) pour le père dans le supérieur : autre(non prévu)
+1	Oui
+2	Non
+1564. vous souvenez-vous d'une refléxion marquante d'un enseignant?
+1	NRimposée
+2	non
+3	oui:
+1565. (laquelle?):
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1566. si oui, trouvez-vous que cette remarque ait été justifiée?
+1	NRimposée
+2	NRlogique
+3	non
+4	oui
+5	vous ne savez pas
+1567. avez-vous un souvenir particulièrement marquant de votre scolarité à décrire? (une punition injustifiée, une longue maladie, une année oparticulièrement bonne, des difficultés familiales qui ont joué sur votre scolarité..)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1568. quelle profession exerçait votre père lorsque vous étiez enfant?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1569. quelle profession exerçait votre mère?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1570. quel est le diplôme le plus élevé de votre père?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1571. scolarisation grands-parents paternels
+1	au moins un des grands-parents paternels a fait des études s
+2	Lignées paternelles scolairement dépourvues (CEP compris)
+1572. quel est le diplôme le plus élevé de votre mère?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1573. modalité de remplissage du questionnaire : NRimposée
+1	Oui
+2	Non
+1574. modalité de remplissage du questionnaire : par la mère seule
+1	Oui
+2	Non
+1575. modalité de remplissage du questionnaire : par le père seul
+1	Oui
+2	Non
+1576. modalité de remplissage du questionnaire : par les deux parents ensemble
+1	Oui
+2	Non
+1577. modalité de remplissage du questionnai : par la mère, en interrogeant les perso
+1	Oui
+2	Non
+1578. modalité de remplissage du questionnai : par le père en interrogeant les person
+1	Oui
+2	Non
+1579. modalité de remplissage du questionnaire : par un des enfants seul
+1	Oui
+2	Non
+1580. modalité de remplissage du questionnai : par un des enfants en interrogeant les
+1	Oui
+2	Non
+1581. modalité de remplissage du questionnaire : autre:___
+1	Oui
+2	Non
+1582. :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1583. le père et la mère vivent-ils ensemble?
+1	NRimposée
+2	oui
+3	non:
+4	autre (non prévu)
+1584. (depuis quelle année?):
+Entrer la valeur :   |_|_|
+1585. Classes sur date de la séparation des parents
+1	de &gt;=0 à 16,7
+2	de &gt;=16,7 à 33,3
+3	de &gt;=33,3 à 50
+4	de &gt;=50 à 66,7
+5	de &gt;=66,7 à 83,3
+6	de &gt;=83,3 à 100
+1586. date de la séparation des parents (Num -&gt; Unique)
+1	0
+2	84
+3	86
+4	87
+5	88
+6	89
+7	90
+8	91
+9	92
+10	93
+11	94
+12	95
+13	96
+14	97
+15	98
+16	99
+1587. séparation récente ou non
+1	séparation très récente (99 et 98)
+2	séparation récente (97 et 96)
+3	séparation datant de plus de 3 ans (95 et 96)
+4	séparation datant de plus de 5 ans
+5	séparation datant de dix ans ou plus
+6	non précisée
+1588. séparation récente ou non (Recodage)
+1	séparation très récente (99 et 98) /séparation récente (97 e
+2	séparation datant de plus de 5 ans /séparation datant de dix
+1589. si non, chez qui l'enfant habite-t-il le plus souvent?
+1	NRimposée
+2	NRlogique
+3	chez son père
+4	chez sa mère
+5	autre:
+1590. :__
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1591. accepteriez-vous éventuellement que je vous contacte dans le cadre de ma recherche pour faire un entretien d'une heure environ à votre domicile?
+1	NRimposée
+2	oui
+3	non
+1592. classe de l'enfant
+1	6ème
+2	5ème
+3	probabilité 6ème
+4	probabilité 5ème
+5	6ème segpa
+6	5ème segpa
+1593. commentaires des enquêtés
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+1594. moyenne générale fournie par le collège
+Entrer la valeur :   |_|_|,|_|_|
+1595. moyenne générale fournie par le collège (Num -&gt; Unique)
+1	10,36
+2	12,04
+3	14,61
+4	15,55
+1596. Classes sur moyenne générale fournie par le collège
+1	de &gt;=10,36 à 12,04
+2	de &gt;=12,04 à 14,61
+3	de &gt;=14,61 à 15,55
+4	de &gt;=15,55 à 15,56
+1597. moyenne générale pour le trimestre concerné
+Entrer la valeur :   |_|_|,|_|_|
+1598. moyenne générale pour le trimestre concerné (Num -&gt; Unique)
+1	8,5
+2	8,99
+3	9,28
+4	10,25
+5	10,64
+6	10,72
+7	10,95
+8	11,42
+9	11,59
+10	11,62
+11	11,79
+12	12,1
+13	12,13
+14	12,26
+15	12,34
+16	12,71
+17	13,18
+18	13,2
+19	13,24
+20	13,25
+21	13,53
+22	13,82
+23	13,98
+24	14,04
+25	14,37
+26	14,39
+27	14,51
+28	14,65
+29	14,8
+30	14,92
+31	14,94
+32	15,23
+33	15,64
+34	15,68
+35	15,92
+36	16,16
+37	16,42
+38	16,85
+1599. moyenne en français (collège)
+Entrer la valeur :   |_|_|,|_|_|
+1600. moyenne en français (collège) (Num -&gt; Unique)
+1	4,2
+2	5
+3	5,5
+4	7,11
+5	7,5
+6	8
+7	8,5
+8	8,66
+9	9
+10	9,25
+11	9,3
+12	9,33
+13	9,48
+14	9,5
+15	9,66
+16	9,92
+17	9,98
+18	10
+19	10,28
+20	10,34
+21	10,47
+22	10,5
+23	10,53
+24	10,69
+25	10,72
+26	10,94
+27	11
+28	11,13
+29	11,32
+30	11,38
+31	11,43
+32	11,5
+33	11,68
+34	12
+35	12,04
+36	12,2
+37	12,32
+38	12,46
+39	12,5
+40	12,68
+41	12,8
+42	12,83
+43	12,84
+44	13
+45	13,1
+46	13,23
+47	13,46
+48	13,5
+49	13,56
+50	13,58
+51	13,71
+52	13,8
+53	13,89
+54	14
+55	14,15
+56	14,19
+57	14,3
+58	14,5
+59	14,87
+60	15
+61	15,28
+62	15,33
+63	15,5
+64	15,58
+65	15,99
+66	16
+67	16,5
+68	17
+69	18
+1601. Rec. de moyenne en français (collège) (Num -&gt; Unique)
+1	&lt;6
+2	de 6 à 8 (ni)
+3	de 8 à 10 (ni)
+4	de10 à 12 (ni)
+5	de 12 à 14 (ni)
+6	de 14 à 16 (ni)
+7	&gt;=16
+1602. moyenne en dessin (collège)
+Entrer la valeur :   |_|_|,|_|_|
+1603. moyenne en musique 
+Entrer la valeur :   |_|_|,|_|_|
+1604. moyenne en SVT
+Entrer la valeur :   |_|_|,|_|_|
+1605. moyenne en math (collège)
+Entrer la valeur :   |_|_|,|_|_|
+1606. moyenne en math (collège) (Num -&gt; Unique)
+1	3
+2	4,6
+3	4,82
+4	5,1
+5	6
+6	6,5
+7	7,3
+8	7,5
+9	8
+10	8,38
+11	8,5
+12	8,9
+13	9
+14	9,3
+15	9,5
+16	9,7
+17	9,82
+18	10
+19	10,18
+20	10,25
+21	10,5
+22	10,57
+23	10,59
+24	10,75
+25	10,8
+26	10,89
+27	11
+28	11,25
+29	11,27
+30	11,5
+31	11,57
+32	11,73
+33	11,95
+34	12
+35	12,25
+36	12,5
+37	12,56
+38	12,67
+39	13
+40	13,5
+41	14
+42	14,09
+43	14,25
+44	14,5
+45	14,55
+46	14,67
+47	14,71
+48	15
+49	15,5
+50	15,56
+51	15,91
+52	16
+53	16,08
+54	16,5
+55	16,67
+56	17
+57	17,31
+58	17,43
+59	18
+60	18,22
+61	18,5
+1607. Rec. de moyenne en math (collège) (Num -&gt; Unique)
+1	&lt;6
+2	de 6à 8 (ni)
+3	de 8 à 10 (ni)
+4	de 10 à 12 (ni)
+5	de 12 à 14 (ni)
+6	de 14 à 16 (ni)
+7	&gt;=16
+1608. moyenne en technologie
+Entrer la valeur :   |_|_|,|_|_|
