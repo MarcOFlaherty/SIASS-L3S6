@@ -16,5 +16,6 @@ Bienvenue sur le site du cours de SIASS. Vous trouverez ici l'ensemble des suppo
 | Séquence 3 | Statistique & cartographie (énergie éolienne en Europe) | [Accéder](slides_seq3.html) |
 | Séquence 4 | L'enquête sur les Héritiers (tableaux croisés & écarts) | [Accéder](slides_seq4.html) |
 | Corrigé CC | Analyse électorale des arrondissements parisiens (2017) | [Accéder](corriger_cc.html) |
+| Données Entraînement CT | Données et consignes (Google Drive) | [Télécharger](https://drive.google.com/drive/folders/1pxMmOwZsvY6yXscJ0KsiJKLapkxCGG-Z?usp=sharing) |
 | Corrigé Entraînement CT | Talent scolaire et sentiment d'aisance avec les camarades (MesHéritiers) | [Accéder](CT/corrige_Entrainement.html) |
 | Corrigé CT | Sujet à venir | *À venir* |
