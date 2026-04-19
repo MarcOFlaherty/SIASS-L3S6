@@ -17,4 +17,4 @@ Bienvenue sur le site du cours de SIASS. Vous trouverez ici l'ensemble des suppo
 | Séquence 4 | L'enquête sur les Héritiers (tableaux croisés & écarts) | [Accéder](slides_seq4.html) |
 | Corrigé CC | Analyse électorale des arrondissements parisiens (2017) | [Accéder](corriger_cc.html) |
 | Corrigé Entraînement CT | Talent scolaire et sentiment d'aisance avec les camarades (MesHéritiers) | [Accéder](CT/corrige_Entrainement.html) |
-| Corrigé CT | Talent scolaire et sentiment d'aisance avec les enseignants (MesHéritiers) | *À venir* |
+| Corrigé CT | Sujet à venir | *À venir* |
