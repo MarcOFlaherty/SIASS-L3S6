@@ -216,7 +216,7 @@ tibble(
 
 **Équation de la droite de régression :**
 $$
-\widehat{Y} = 0{,}394 \times X + 8{,}19
+\widehat{Y} = 0{,}480 \times X + 6{,}94
 $$
 
 ### Que représente chacun des termes ?
@@ -225,8 +225,20 @@ $$
 | :--- | :--- |
 | **Y** | Variable à expliquer (dépendante) : ici la moyenne estimée en biologie. Le chapeau $\widehat{Y}$ rappelle qu'il s'agit d'une valeur **prédite** par le modèle, pas de la valeur réellement observée. |
 | **X** | Variable explicative (indépendante) : ici la moyenne observée en technologie. L'information connue à partir de laquelle on estime Y. |
-| **a** | **Pente** de la droite : variation estimée de Y pour une augmentation d'1 point de X. Ici $a \approx 0{,}39$ : à chaque point gagné en technologie on estime 0,39 point gagné en biologie. Elle traduit l'intensité et le sens du lien. |
-| **b** | **Ordonnée à l'origine** : valeur prédite de Y quand X = 0. Ici $b \approx 8{,}19$. Valeur mathématique du modèle, souvent peu interprétable concrètement (aucun élève n'a réellement 0 en technologie dans l'échantillon). |
+| **a** | **Pente** de la droite : variation estimée de Y pour une augmentation d'1 point de X. Ici $a \approx 0{,}48$ : à chaque point gagné en technologie on estime 0,48 point gagné en biologie. Elle traduit l'intensité et le sens du lien. |
+| **b** | **Ordonnée à l'origine** : valeur prédite de Y quand X = 0. Ici $b \approx 6{,}94$. Valeur mathématique du modèle, souvent peu interprétable concrètement (aucun élève n'a réellement 0 en technologie dans l'échantillon). |
+
+::: {.callout-important icon=false}
+### Attention : la régression n'est pas symétrique
+
+La **corrélation** $r$ est symétrique : $r(X, Y) = r(Y, X)$. La **régression** ne l'est pas. Si on inversait les rôles et qu'on régressait V0087 sur V0082 (techno expliquée par bio), on obtiendrait une **autre droite** :
+
+$$
+\widehat{Y} = 0{,}394 \times X + 8{,}19 \quad (\text{avec ici } Y = \text{techno},\ X = \text{bio})
+$$
+
+Le $R^2$ serait identique ($0{,}189$), mais la pente et l'ordonnée changent. Le choix du sens dépend de la **question posée** : quelle variable cherche-t-on à *expliquer* à partir de l'autre ? Ici l'énoncé (V0082 ~ V0087) fixe bio comme variable à expliquer et techno comme explicative — d'où le sens de la régression retenue.
+:::
 
 ### Nuage de points avec droite de régression
 
@@ -242,7 +254,7 @@ ggplot(paires, aes(x = moy_techno, y = moy_bio)) +
   geom_smooth(method = "lm", formula = y ~ x, color = "#c8a415",
               se = TRUE, alpha = 0.2, linewidth = 1.2) +
   annotate("label", x = 3, y = 18,
-           label = "Y = 0,394 × X + 8,19   |   R² = 0,189",
+           label = "Y = 0,480 × X + 6,94   |   R² = 0,189",
            color = "#1a2744", fill = "white", size = 3.5, hjust = 0) +
   labs(
     title = "Régression linéaire : Moyenne en biologie ~ Moyenne en technologie",
@@ -449,7 +461,7 @@ Deux hypothèses structurent l'analyse :
 
 L'analyse bivariée biologie × technologie ne conforte pas l'idée d'un talent scolaire global. Le coefficient de corrélation ($r = 0{,}435$) signale un lien positif **modéré**, et le coefficient de détermination ($R^2 = 0{,}189$) précise que **la technologie n'explique que 19 %** de la variance des notes en biologie. Les **81 % restants** dépendent d'autres facteurs — caractéristiques personnelles, rapport à la discipline, pédagogie.
 
-La régression ($\widehat{Y} = 0{,}394 \times X + 8{,}19$) confirme cette tendance modeste : chaque point gagné en technologie s'accompagne en moyenne de 0,39 point gagné en biologie. La dispersion importante autour de la droite de régression traduit l'hétérogénéité réelle des profils.
+La régression ($\widehat{Y} = 0{,}480 \times X + 6{,}94$) confirme cette tendance modeste : chaque point gagné en technologie s'accompagne en moyenne de 0,48 point gagné en biologie. La dispersion importante autour de la droite de régression traduit l'hétérogénéité réelle des profils.
 
 Ces résultats invitent à **abandonner la notion de « bon élève scientifique » comme catégorie homogène**. Même dans un échantillon d'héritiers où l'on pourrait attendre une certaine homogénéité culturelle, les compétences disciplinaires restent largement **autonomes**. Un élève peut parfaitement briller en biologie sans performer en technologie, et inversement.
 
